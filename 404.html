@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Page Not Found | Basecamp Kyūshū</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            color: var(--primary-dark);
+            line-height: 1;
+            margin: 0;
+            opacity: 0.2;
+        }
+        .error-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--primary-dark);
+            margin: 1rem 0;
+        }
+        .error-text {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+            line-height: 1.8;
+        }
+        .error-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 2rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .error-links .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                BASECAMP KYUSHU
+                <span class="japanese-text">土地 — 人 — 物語</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="in-motion.html">IN MOTION</a></li>
+                    <li><a href="stories.html">STORIES</a></li>
+                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                    <li><a href="online-store.html">ONLINE STORE</a></li>
+                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <!-- 404 Error Content -->
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Lost in Kyūshū</h2>
+        <p class="error-text">
+            This page seems to have wandered off the beaten path.<br>
+            Even in Kyūshū, not all paths lead somewhere.
+        </p>
+        <p class="japanese-text" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.8;">
+            このページは見つかりませんでした。
+        </p>
+        
+        <div class="error-links">
+            <a href="index.html" class="btn btn-primary">BACK TO HOME</a>
+            <a href="in-motion.html" class="btn btn-secondary">EXPLORE LOCATIONS</a>
+            <a href="video-production.html" class="btn btn-secondary">VIDEO PRODUCTION</a>
+        </div>
+
+        <p style="margin-top: 3rem; color: var(--text-light); font-size: 0.95rem;">
+            Looking for something specific? <a href="mailto:info@mglobaljapan.com" style="color: var(--sunset-orange);">Contact us</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BASECAMP KYUSHU</h4>
+                <p class="japanese-text">土地 — 人 — 物語</p>
+                <p>Where mountains meet the sea<br>and stories take form.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Basecamp Studios Higashi Matsubara</strong><br>
+                    Matsubara 5-47-12, Setagaya-ku<br>
+                    Tokyo 156-0043
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="stories.html">Stories Project</a></li>
+                    <li><a href="video-production.html">Video Production</a></li>
+                    <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>CONNECT WITH US</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
+                <ul>
+                    <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
+                    <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
+                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
