@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Basecamp Kyūshū</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a2332;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a7ba7;
+        }
+        
+        .submit-btn {
+            background: #4a7ba7;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #3a6b97;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                BASECAMP KYUSHU
+                <span class="japanese-text">土地 — 人 — 物語</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="in-motion.html">IN MOTION</a></li>
+                    <li><a href="stories.html">STORIES</a></li>
+                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                    <li><a href="online-store.html">ONLINE STORE</a></li>
+                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <section style="padding: 6rem 2rem; background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%); color: white; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+        <div style="max-width: 800px; text-align: center;">
+            <p style="font-size: 1.3rem; font-weight: 500; color: rgba(255,255,255,0.95);">お問い合わせ</p>
+            <p style="font-size: 1.1rem; margin-top: 1rem; line-height: 1.6; color: white;">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+    </section>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2 style="margin-bottom: 1rem; color: #1a2332;">Contact Us</h2>
+            <p style="margin-bottom: 2rem; color: #4a5568;">Fill out the form below and we'll get back to you soon.</p>
+            
+            <form action="mailto:info@mglobaljapan.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name / お名前 *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email / メールアドレス *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject / 件名 *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a topic / トピックを選択</option>
+                        <option value="Video Production">Video Production / 映像制作</option>
+                        <option value="Stories/Book">Stories / Book Inquiry / 書籍について</option>
+                        <option value="Online Store">Online Store / T-shirt Pre-order / オンラインストア</option>
+                        <option value="Expedition Resort">Expedition Resort / リゾート</option>
+                        <option value="General Inquiry">General Inquiry / 一般的なお問い合わせ</option>
+                        <option value="Other">Other / その他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message / メッセージ *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us how we can help... / どのようにお手伝いできますか..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">SEND MESSAGE / 送信</button>
+            </form>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f7fafc; border-radius: 8px; text-align: center;">
+                <p style="color: #4a5568; margin-bottom: 1rem;"><strong>Or contact us directly:</strong></p>
+                <p style="color: #1a2332; font-size: 1.1rem;"><strong>Email:</strong> info@mglobaljapan.com</p>
+                <p style="color: #1a2332; font-size: 1.1rem; margin-top: 0.5rem;"><strong>Instagram:</strong> @basecampkyushu</p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: #1a2332; color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+        <p style="color: white;">© 2025 BASECAMP KYUSHU - by <a href="http://mglobaljapan.com/" target="_blank" style="color: #4a7ba7;">M Global Japan</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
