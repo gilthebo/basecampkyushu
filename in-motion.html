@@ -25,6 +25,50 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/map-styles.css">
+    <style>
+        .japanese-toggle-container {
+            position: sticky;
+            top: 80px;
+            z-index: 998;
+            background: rgba(255,255,255,0.98);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.5rem 2rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .japanese-toggle-container::before {
+            content: '';
+            width: calc((100% - var(--max-width)) / 2 + var(--spacing-md));
+        }
+        .japanese-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 0;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .japanese-toggle-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(74, 123, 167, 0.3);
+        }
+        @media (max-width: 768px) {
+            .japanese-toggle-container { padding: 0.4rem 1rem; }
+            .japanese-toggle-container::before { width: 0; }
+            .japanese-toggle-btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Header / Navigation -->
@@ -48,6 +92,14 @@
             <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
         </div>
     </header>
+
+    <!-- Japanese Language Toggle Button -->
+    <div class="japanese-toggle-container">
+        <button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility">
+            <span class="toggle-icon">🇯🇵</span>
+            <span class="toggle-text">Show</span>
+        </button>
+    </div>
 
     <!-- Breadcrumb Navigation -->
     <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
@@ -381,6 +433,35 @@
     </footer>
 
     <script src="js/main.js"></script>
-<script src="js/map-kyushu.js"></script>
+    <script src="js/map-kyushu.js"></script>
+    <script>
+        let japaneseVisible = false;
+        function toggleJapanese() {
+            const japaneseElements = document.querySelectorAll('.japanese-text');
+            const toggleBtn = document.getElementById('japaneseToggle');
+            const textEn = toggleBtn.querySelector('.toggle-text');
+            japaneseVisible = !japaneseVisible;
+            japaneseElements.forEach(element => {
+                if (japaneseVisible) {
+                    element.style.display = '';
+                    textEn.textContent = 'Hide';
+                } else {
+                    element.style.display = 'none';
+                    textEn.textContent = 'Show';
+                }
+            });
+            localStorage.setItem('japaneseVisible', japaneseVisible);
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPreference = localStorage.getItem('japaneseVisible');
+            const japaneseElements = document.querySelectorAll('.japanese-text');
+            if (savedPreference === 'true') {
+                japaneseVisible = false;
+                toggleJapanese();
+            } else {
+                japaneseElements.forEach(element => { element.style.display = 'none'; });
+            }
+        });
+    </script>
 </body>
 </html>
