@@ -24,6 +24,7 @@
     <link rel="canonical" content="https://yourdomain.com/in-motion.html">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/map-styles.css">
 </head>
 <body>
     <!-- Header / Navigation -->
@@ -146,36 +147,16 @@
                 九州7県で捉えた瞬間の成長するコレクション。海岸の日の出から山里まで、旅の途中で発見した多様な風景と隠れた場所を紹介。
             </p>
 
-            <!-- Photo Collages -->
-            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 1400px; margin: 0 auto;">
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-1_orig.png" 
-                         alt="Kyūshū Landscapes Collection 1" 
-                         style="width: 100%; display: block;">
-                </div>
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kyushu-landscapes-1_orig.jpg" 
-                         alt="Kyūshū Landscapes Collection 2" 
-                         style="width: 100%; display: block;">
-                </div>
-
-                <!-- Gallery Expanding Soon - After 2nd collage -->
-                <div style="text-align: center; padding: 2rem; background: var(--warm-beige); border-radius: 8px;">
-                    <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7;">
-                        <strong>📸 Gallery Expanding Soon</strong><br>
-                        We're currently curating our photo archive.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1rem; color: var(--text-light); margin-top: 0.5rem;">
-                        写真アーカイブを現在整理中。
-                    </p>
-                </div>
-
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-3_orig.png" 
-                         alt="Kyūshū Landscapes Collection 3" 
-                         style="width: 100%; display: block;">
-                </div>
-            </div>
+            <!-- Photo Gallery Placeholder -->
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 3rem 2rem; background: var(--warm-beige); border-radius: 12px; border: 2px dashed var(--primary-dark);">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
+                <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Photo Gallery Coming Soon</h3>
+                <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light); margin-bottom: 1rem;">
+                    写真ギャラリー近日公開
+                </p>
+                <p style="font-size: 0.95rem; color: var(--text-dark); max-width: 600px; margin: 0 auto;">
+                    Authentic photography from our explorations across Kyūshū's seven prefectures will be added here.
+                </p>
             </div>
         </div>
     </section>
@@ -189,12 +170,13 @@
                 <div class="section-divider"></div>
             </div>
 
-            <div style="text-align: center; margin-bottom: 3rem;">
+            <!-- OPTION 1: Static Map (Current) -->
+            <div style="text-align: center; margin-bottom: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 8px;">
                 <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/htmlimage-91012627-dfb6-89e1-41da-e76cb94b2dde_orig.png" 
                      alt="Kyūshū Locations Map" 
                      style="max-width: 100%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
                 <div style="margin-top: 2rem;">
-                    <a href="https://basecampimari.com/kyushuinmotions/" target="_blank" class="btn btn-primary">EXPLORE ALL PANORAMAS</a>
+                    <a href="https://basecampimari.com/kyushuinmotions/" target="_blank" class="btn btn-primary">OPEN THE TOUR</a>
                 </div>
             </div>
 
@@ -284,7 +266,7 @@
     </section>
 
     <!-- Saga Prefecture Showcase -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
+    <section style="padding: 6rem 2rem 3rem; background: var(--white);">
         <div class="section-container" style="max-width: 1000px;">
             <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">Discover Saga Prefecture</h2>
@@ -311,62 +293,6 @@
             <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; color: var(--text-light);">
                 佐賀県の豊かな文化遺産と自然景観を巡る映像の旅
             </p>
-        </div>
-    </section>
-
-    <!-- Regional Exploration -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Kyūshū at a Glance</h2>
-                <p class="section-subtitle">Seven prefectures, each with its own character</p>
-                <p class="section-subtitle japanese-text">九州七県の特色</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="pillar-card">
-                    <h4>Fukuoka</h4>
-                    <p class="japanese-text">福岡</p>
-                    <p>Kyūshū's gateway city blends modern urban energy with pristine coastal scenery. Home to Itoshima's beaches and rural charm alongside Fukuoka City's metropolitan vibrancy.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Saga</h4>
-                    <p class="japanese-text">佐賀</p>
-                    <p>Japan's ceramic heartland featuring Arita and Imari pottery traditions. Ancient sake breweries, historic shrines, mountain kilns, and therapeutic hot springs define this culturally rich prefecture.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Nagasaki</h4>
-                    <p class="japanese-text">長崎</p>
-                    <p>International trading port with centuries of cultural fusion. Dramatic harbor cityscapes, remote islands, Dutch-influenced architecture, and profound historical significance.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Kumamoto</h4>
-                    <p class="japanese-text">熊本</p>
-                    <p>Dominated by Mount Aso, one of the world's largest active calderas. Majestic castle ruins, samurai history, volcanic landscapes, and pristine mountain water sources.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Oita</h4>
-                    <p class="japanese-text">大分</p>
-                    <p>Japan's hot spring capital boasting more onsen sources than any other prefecture. Rugged coastlines, geothermal "hells," mountain resort towns, and therapeutic waters throughout.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Miyazaki</h4>
-                    <p class="japanese-text">宮崎</p>
-                    <p>Pacific-facing prefecture known for world-class surf breaks and ancient mythology. Subtropical climate, palm-lined beaches, legendary shrines, and the birthplace of Japan's creation myths.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <h4>Kagoshima</h4>
-                    <p class="japanese-text">鹿児島</p>
-                    <p>Southern frontier crowned by Sakurajima, one of Japan's most active volcanoes. Tropical islands, samurai heritage, unique shochu distilleries, and the gateway to Yakushima's ancient forests.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -455,5 +381,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+<script src="js/map-kyushu.js"></script>
 </body>
 </html>

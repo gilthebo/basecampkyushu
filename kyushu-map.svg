@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" id="kyushu-map">
+  <defs>
+    <style>
+      .prefecture {
+        fill: #e8dcc8;
+        stroke: #1a2332;
+        stroke-width: 2;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .prefecture:hover {
+        fill: #4a7ba7;
+        stroke: #d67942;
+        stroke-width: 3;
+      }
+      .prefecture-label {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        fill: #1a2332;
+        text-anchor: middle;
+        pointer-events: none;
+      }
+      .prefecture-label-jp {
+        font-size: 12px;
+        fill: #4a5568;
+      }
+    </style>
+  </defs>
+  
+  <!-- Fukuoka Prefecture (North) -->
+  <path id="fukuoka" class="prefecture" 
+        d="M 250 80 L 350 60 L 450 80 L 500 120 L 480 180 L 420 200 L 350 190 L 280 180 L 230 150 Z"
+        data-name="Fukuoka"
+        data-name-jp="福岡県"
+        data-emoji="🏖️"/>
+  
+  <!-- Saga Prefecture (Northwest) -->
+  <path id="saga" class="prefecture"
+        d="M 180 200 L 280 180 L 350 190 L 340 250 L 300 290 L 220 280 L 160 240 Z"
+        data-name="Saga"
+        data-name-jp="佐賀県"
+        data-emoji="🏺"/>
+  
+  <!-- Nagasaki Prefecture (West) -->
+  <path id="nagasaki" class="prefecture"
+        d="M 80 240 L 160 240 L 220 280 L 200 350 L 150 420 L 90 400 L 60 350 L 70 280 Z"
+        data-name="Nagasaki"
+        data-name-jp="長崎県"
+        data-emoji="🌋"/>
+  
+  <!-- Kumamoto Prefecture (Central) -->
+  <path id="kumamoto" class="prefecture"
+        d="M 220 280 L 300 290 L 380 310 L 420 380 L 400 480 L 340 520 L 260 500 L 200 450 L 150 420 Z"
+        data-name="Kumamoto"
+        data-name-jp="熊本県"
+        data-emoji="🏔️"/>
+  
+  <!-- Oita Prefecture (Northeast) -->
+  <path id="oita" class="prefecture"
+        d="M 420 200 L 500 220 L 580 250 L 620 310 L 600 370 L 540 400 L 460 380 L 420 340 L 380 310 L 340 250 Z"
+        data-name="Oita"
+        data-name-jp="大分県"
+        data-emoji="♨️"/>
+  
+  <!-- Miyazaki Prefecture (East) -->
+  <path id="miyazaki" class="prefecture"
+        d="M 460 380 L 540 400 L 580 460 L 600 550 L 580 650 L 520 720 L 460 700 L 400 640 L 380 560 L 400 480 Z"
+        data-name="Miyazaki"
+        data-name-jp="宮崎県"
+        data-emoji="🌊"/>
+  
+  <!-- Kagoshima Prefecture (South) -->
+  <path id="kagoshima" class="prefecture"
+        d="M 260 500 L 340 520 L 400 560 L 400 640 L 380 720 L 340 800 L 260 820 L 180 780 L 160 700 L 180 620 L 220 560 Z"
+        data-name="Kagoshima"
+        data-name-jp="鹿児島県"
+        data-emoji="🌸"/>
+  
+  <!-- Prefecture Labels -->
+  <text class="prefecture-label" x="365" y="135">
+    <tspan x="365">🏖️ Fukuoka</tspan>
+    <tspan class="prefecture-label-jp" x="365" dy="18">福岡県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="250" y="235">
+    <tspan x="250">🏺 Saga</tspan>
+    <tspan class="prefecture-label-jp" x="250" dy="18">佐賀県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="125" y="330">
+    <tspan x="125">🌋 Nagasaki</tspan>
+    <tspan class="prefecture-label-jp" x="125" dy="18">長崎県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="280" y="400">
+    <tspan x="280">🏔️ Kumamoto</tspan>
+    <tspan class="prefecture-label-jp" x="280" dy="18">熊本県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="500" y="305">
+    <tspan x="500">♨️ Oita</tspan>
+    <tspan class="prefecture-label-jp" x="500" dy="18">大分県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="490" y="570">
+    <tspan x="490">🌊 Miyazaki</tspan>
+    <tspan class="prefecture-label-jp" x="490" dy="18">宮崎県</tspan>
+  </text>
+  
+  <text class="prefecture-label" x="280" y="670">
+    <tspan x="280">🌸 Kagoshima</tspan>
+    <tspan class="prefecture-label-jp" x="280" dy="18">鹿児島県</tspan>
+  </text>
+</svg>

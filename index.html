@@ -33,6 +33,7 @@
     <link rel="canonical" content="https://yourdomain.com/">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/map-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -104,7 +105,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/572443512.png'); background-size: cover; background-position: center;">
+    <section class="hero" style="background-image: url('images/hero-banner-latest.png'); background-size: cover; background-position: center;">
     </section>
 
     <!-- Title Section Below Banner -->
@@ -226,14 +227,152 @@
         </div>
     </section>
 
+    <!-- Interactive Map Section - 7 Prefectures of Kyūshū -->
+    <section class="interactive-map-section" style="padding: 3rem 2rem 5rem; background: var(--white);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header" style="text-align: center;">
+                <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Interactive Map</h2>
+                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">インタラクティブマップ</p>
+                <div class="section-divider"></div>
+                <p class="section-subtitle" style="margin-top: 1.5rem; font-size: 1.15rem; color: var(--text-dark);">
+                    Explore Kyūshū's Seven Prefectures
+                </p>
+                <p class="section-subtitle japanese-text" style="font-size: 1rem; color: var(--text-dark); opacity: 0.9;">
+                    九州の7つの県を探索
+                </p>
+            </div>
+
+            <!-- Interactive SVG Map of 7 Prefectures -->
+            <div style="margin: 2rem auto; max-width: 900px; padding: 2.5rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border: 2px solid var(--primary-dark); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                <p style="text-align: center; color: var(--text-dark); margin-bottom: 1.5rem; font-size: 1rem; font-weight: 600;">
+                    Click any prefecture to learn about its character
+                </p>
+                
+                <div style="max-width: 750px; margin: 0 auto;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" id="kyushu-map-home" style="width: 100%; height: auto;">
+                      <defs>
+                        <style>
+                          .prefecture-home {
+                            fill: #e8dcc8;
+                            stroke: #1a2332;
+                            stroke-width: 2;
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                          }
+                          .prefecture-home:hover {
+                            fill: #4a7ba7;
+                            stroke: #d67942;
+                            stroke-width: 3;
+                          }
+                          .prefecture-label-home {
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 16px;
+                            font-weight: 600;
+                            fill: #1a2332;
+                            text-anchor: middle;
+                            pointer-events: none;
+                          }
+                          .prefecture-label-jp-home {
+                            font-size: 12px;
+                            fill: #4a5568;
+                          }
+                        </style>
+                      </defs>
+                      
+                      <path id="fukuoka-home" class="prefecture-home" 
+                            d="M 250 80 L 350 60 L 450 80 L 500 120 L 480 180 L 420 200 L 350 190 L 280 180 L 230 150 Z"
+                            data-name="Fukuoka" data-name-jp="福岡県" data-emoji="🏖️"
+                            onclick="window.handlePrefectureClick('fukuoka-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="saga-home" class="prefecture-home"
+                            d="M 180 200 L 280 180 L 350 190 L 340 250 L 300 290 L 220 280 L 160 240 Z"
+                            data-name="Saga" data-name-jp="佐賀県" data-emoji="🏺"
+                            onclick="window.handlePrefectureClick('saga-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="nagasaki-home" class="prefecture-home"
+                            d="M 80 240 L 160 240 L 220 280 L 200 350 L 150 420 L 90 400 L 60 350 L 70 280 Z"
+                            data-name="Nagasaki" data-name-jp="長崎県" data-emoji="🌋"
+                            onclick="window.handlePrefectureClick('nagasaki-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="kumamoto-home" class="prefecture-home"
+                            d="M 220 280 L 300 290 L 380 310 L 420 380 L 400 480 L 340 520 L 260 500 L 200 450 L 150 420 Z"
+                            data-name="Kumamoto" data-name-jp="熊本県" data-emoji="🏔️"
+                            onclick="window.handlePrefectureClick('kumamoto-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="oita-home" class="prefecture-home"
+                            d="M 420 200 L 500 220 L 580 250 L 620 310 L 600 370 L 540 400 L 460 380 L 420 340 L 380 310 L 340 250 Z"
+                            data-name="Oita" data-name-jp="大分県" data-emoji="♨️"
+                            onclick="window.handlePrefectureClick('oita-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="miyazaki-home" class="prefecture-home"
+                            d="M 460 380 L 540 400 L 580 460 L 600 550 L 580 650 L 520 720 L 460 700 L 400 640 L 380 560 L 400 480 Z"
+                            data-name="Miyazaki" data-name-jp="宮崎県" data-emoji="🌊"
+                            onclick="window.handlePrefectureClick('miyazaki-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <path id="kagoshima-home" class="prefecture-home"
+                            d="M 260 500 L 340 520 L 400 560 L 400 640 L 380 720 L 340 800 L 260 820 L 180 780 L 160 700 L 180 620 L 220 560 Z"
+                            data-name="Kagoshima" data-name-jp="鹿児島県" data-emoji="🌸"
+                            onclick="window.handlePrefectureClick('kagoshima-home')"
+                            style="cursor: pointer;"/>
+                      
+                      <text class="prefecture-label-home" x="365" y="135">
+                        <tspan x="365">🏖️ Fukuoka</tspan>
+                        <tspan class="prefecture-label-jp-home" x="365" dy="18">福岡県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="250" y="235">
+                        <tspan x="250">🏺 Saga</tspan>
+                        <tspan class="prefecture-label-jp-home" x="250" dy="18">佐賀県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="125" y="330">
+                        <tspan x="125">🌋 Nagasaki</tspan>
+                        <tspan class="prefecture-label-jp-home" x="125" dy="18">長崎県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="280" y="400">
+                        <tspan x="280">🏔️ Kumamoto</tspan>
+                        <tspan class="prefecture-label-jp-home" x="280" dy="18">熊本県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="500" y="305">
+                        <tspan x="500">♨️ Oita</tspan>
+                        <tspan class="prefecture-label-jp-home" x="500" dy="18">大分県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="490" y="570">
+                        <tspan x="490">🌊 Miyazaki</tspan>
+                        <tspan class="prefecture-label-jp-home" x="490" dy="18">宮崎県</tspan>
+                      </text>
+                      
+                      <text class="prefecture-label-home" x="280" y="670">
+                        <tspan x="280">🌸 Kagoshima</tspan>
+                        <tspan class="prefecture-label-jp-home" x="280" dy="18">鹿児島県</tspan>
+                      </text>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Three Pillars Section -->
     <section class="three-pillars">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">Our Work</h2>
+                <h2 class="section-title">What We Create</h2>
                 <div class="section-divider"></div>
                 <p class="section-subtitle">
-                    Stories, Film, and Wear — Transforming Kyūshū's landscapes into art you can read, watch, and wear.
+                    Three ways to experience Kyūshū — through story, screen, and style.
+                </p>
+                <p class="section-subtitle japanese-text">
+                    物語、映像、スタイル — 三つの方法で九州を体験する。
                 </p>
             </div>
             
@@ -272,81 +411,211 @@
         </div>
     </section>
 
-    <!-- Featured Project: Whispers of Ashes -->
-    <section class="featured-project">
-        <div class="section-container">
-            <div class="featured-content">
-                <div class="featured-image">
-                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pr_orig.png" alt="Whispers of Ashes - Trilingual Novel">
+    <!-- Fantastic Locations Carousel Section -->
+    <section style="padding: 4rem 0; background: var(--light-gray); overflow: hidden;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title">Fantastic Locations</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    Captured moments from across Kyūshū's hidden landscapes
+                </p>
+                <p class="section-subtitle japanese-text">
+                    九州の隠された風景から捉えた瞬間
+                </p>
+                <p class="section-subtitle" style="margin-top: 0.5rem;">
+                    A visual journey through the island
+                </p>
+                <p class="section-subtitle japanese-text">
+                    島を巡る映像の旅
+                </p>
+            </div>
+
+            <!-- Netflix-Style Carousel -->
+            <div class="carousel-container" style="position: relative; padding: 0 60px;">
+                <!-- Previous Button -->
+                <button class="carousel-nav prev" onclick="moveCarousel(-1)" aria-label="Previous" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(26, 35, 50, 0.8); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                    ‹
+                </button>
+
+                <!-- Carousel Wrapper -->
+                <div class="carousel-wrapper" style="position: relative; overflow: hidden; border-radius: 12px;">
+                    <div class="carousel-track" id="carouselTrack" style="display: flex; transition: transform 1.8s ease; gap: 1rem;">
+                        <!-- Slide 1: Collage 1 -->
+                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-1_orig.png" alt="Kyūshū Landscapes Collection 1" style="width: 100%; height: auto; display: block;">
+                        </div>
+
+                        <!-- Slide 2: Collage 2 -->
+                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kyushu-landscapes-1_orig.jpg" alt="Kyūshū Landscapes Collection 2" style="width: 100%; height: auto; display: block;">
+                        </div>
+
+                        <!-- Slide 3: Collage 3 -->
+                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-3_orig.png" alt="Kyūshū Landscapes Collection 3" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
                 </div>
-                <div class="featured-text">
-                    <h2>Latest Project: Whispers of Ashes</h2>
-                    <p class="japanese-text">灰の囁き / Les Murmures des Cendres</p>
-                    <div class="featured-meta">
-                        <span>Trilingual Novel</span>
-                        <span>Saga Prefecture</span>
-                        <span>AI-Assisted</span>
-                    </div>
-                    <p>
-                        Deep in Kyūshū's mountains lies a forgotten pottery village where thirty kilns still breathe. 
-                        A traveler from Hokkaido arrives searching for a silence he cannot name...
-                    </p>
-                    <p class="japanese-text">
-                        九州の山奥、忘れられた陶器の村。今も息づく三十の窯。
-                        札幌から来た旅人は、名付けられぬ静寂を探して—
-                    </p>
-                    <p style="font-style: italic; opacity: 0.95;">
-                        Au fond des montagnes de Kyūshū se trouve un village de poterie oublié où trente fours respirent encore. 
-                        Un voyageur d'Hokkaido arrive à la recherche d'un silence qu'il ne peut nommer...
-                    </p>
-                    <p>
-                        Our first AI-generated novel, written in Japanese, French, and English, with illustrations 
-                        created from photographs of a real hidden village in Saga.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="stories.html" class="btn btn-primary">VIEW THE CONCEPT</a>
-                        <a href="stories.html#excerpt" class="btn btn-secondary">READ EXCERPT</a>
-                    </div>
+
+                <!-- Next Button -->
+                <button class="carousel-nav next" onclick="moveCarousel(1)" aria-label="Next" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(26, 35, 50, 0.8); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                    ›
+                </button>
+
+                <!-- Dot Navigation -->
+                <div class="carousel-dots" style="display: flex; justify-content: center; gap: 10px; margin-top: 2rem;">
+                    <button class="dot active" onclick="goToSlide(0)" aria-label="Go to slide 1" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: var(--primary-dark); cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="dot" onclick="goToSlide(1)" aria-label="Go to slide 2" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: transparent; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="dot" onclick="goToSlide(2)" aria-label="Go to slide 3" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: transparent; cursor: pointer; transition: all 0.3s ease;"></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kyūshū Discovery Section -->
-    <section class="kyushu-discovery" style="padding: 4rem 2rem; background: var(--white);">
-        <div style="max-width: 1400px; margin: 0 auto;">
-            <div class="section-header">
-                <h2 class="section-title">Discover Kyūshū Through Our Lens</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">
-                    360° panoramas, immersive experiences, and location at a glance capturing Kyūshū's hidden&nbsp;beauty.
-                </p>
-                <p class="section-subtitle japanese-text">
-                    360°パノラマ、没入型体験、そして九州の隠れた美しさを一目で捉える。
-                </p>
-            </div>
+    <style>
+    /* Carousel Hover Effects */
+    .carousel-nav:hover {
+        background: rgba(26, 35, 50, 0.95) !important;
+        transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-slide {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .carousel-slide:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.25) !important;
+    }
+    .dot.active {
+        background: var(--primary-dark) !important;
+        transform: scale(1.3);
+    }
+    .dot:hover {
+        background: var(--ocean-blue) !important;
+        border-color: var(--ocean-blue) !important;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .carousel-slide {
+            min-width: 100% !important;
+        }
+        .carousel-container {
+            padding: 0 40px !important;
+        }
+        .carousel-nav {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1.2rem !important;
+        }
+    }
+    </style>
 
-            <div style="margin: 3rem 0;">
-                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/htmlimage-91012627-dfb6-89e1-41da-e76cb94b2dde_orig.png" alt="Kyūshū Locations Map" style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-            </div>
+    <script>
+    // Carousel JavaScript
+    let currentSlide = 0;
+    let autoPlayInterval;
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
 
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="in-motion.html" class="btn btn-primary">EXPLORE ALL LOCATIONS</a>
-            </div>
-        </div>
+    function moveCarousel(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateCarousel();
+        resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+        resetAutoPlay();
+    }
+
+    function updateCarousel() {
+        // Recalculate on every update to handle responsive changes
+        const wrapper = document.querySelector('.carousel-wrapper');
+        const wrapperWidth = wrapper ? wrapper.offsetWidth : 1000;
+        const slideWidth = wrapperWidth * 1.0; // 100% of wrapper for full photo display
+        const gap = 16; // 1rem gap
+        const offset = currentSlide * (slideWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function autoPlay() {
+        autoPlayInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000); // 5 seconds
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlay();
+    }
+
+    function pauseAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCarousel();
+        autoPlay();
+        
+        // Pause on hover
+        const container = document.querySelector('.carousel-container');
+        container.addEventListener('mouseenter', pauseAutoPlay);
+        container.addEventListener('mouseleave', autoPlay);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') moveCarousel(-1);
+            if (e.key === 'ArrowRight') moveCarousel(1);
+        });
+        
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) moveCarousel(1);
+            if (touchEndX > touchStartX + 50) moveCarousel(-1);
+        }
+        
+        // Responsive recalculation on window resize
+        window.addEventListener('resize', updateCarousel);
+    });
+    </script>
+
+    <!-- Explore All Locations Button -->
+    <section style="padding: 3rem 2rem 4rem; background: var(--light-gray); text-align: center;">
+        <a href="in-motion.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;">
+            IN MOTION →
+        </a>
     </section>
 
     <!-- YouTube Video Section -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;">Experience Kyūshū</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">A visual journey through the island</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.8);">島を巡る映像の旅</p>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-top: 2rem;">
+    <section style="padding: 5rem 2rem; background: var(--primary-dark);">
+        <div class="section-container" style="max-width: 1200px;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
                 <iframe 
                     src="https://www.youtube.com/embed/joU20sPEFKs?rel=0&modestbranding=1" 
                     title="Kyūshū Video" 
@@ -426,5 +695,202 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <script>
+    // Prefecture data for homepage interactive map
+    const prefectureDataHome = {
+        'fukuoka-home': {
+            name: 'Fukuoka Prefecture',
+            nameJp: '福岡県',
+            emoji: '🏖️',
+            description: `Gateway to Kyūshū, where ancient temples meet modern urban energy. Fukuoka pulses with contradictions—neon-lit Tenjin towers rise near Dazaifu's 1,100-year-old shrine, while Hakata's ramen stalls serve bowls perfected over generations beside cutting-edge startups. This prefecture has always been a threshold: where Korean envoys first landed, where Mongol invasions were repelled by kamikaze winds, where merchants built fortunes on continental trade. The Genkai coast stretches wild and sacred—Munakata's shrines guard sea routes blessed by goddesses, while Itoshima's surf breaks draw pilgrims of a different kind. Inland, the Hiraodai karst plateau hides 200 limestone caves beneath grassy highlands. Yanagawa's canals still flow through samurai estates, punted boats gliding past whitewashed walls and willow trees. Fukuoka doesn't choose between old and new—it stacks them, layers history like sediment, and moves forward without forgetting. The pace here is both urgent and patient, businesslike yet deeply devoted to craft, ritual, and the perfect bowl of tonkotsu.`,
+            descriptionJp: '九州への玄関口。古代の寺院と現代の都市エネルギーが出会う場所。福岡は矛盾に満ちています—ネオンに照らされた天神の高層ビルは1,100年の歴史を持つ太宰府天満宮の近くにそびえ、博多のラーメン屋台は何世代にもわたって完成された一杯を最先端のスタートアップの隣で提供しています。この県は常に境界でした：朝鮮使節が最初に上陸した場所、神風によって元寇が撃退された場所、商人が大陸貿易で財を成した場所。玄界灘の海岸は荒々しく神聖に広がります—宗像の神社は女神に祝福された海路を守り、糸島のサーフブレイクは別の種類の巡礼者を引き寄せます。内陸では、平尾台カルスト台地が草原の高原の下に200の石灰岩洞窟を隠しています。柳川の運河は今も武家屋敷を流れ、川下りの舟が白壁と柳の木の間を滑ります。福岡は古いものと新しいものの間で選択しません—それらを重ね、歴史を堆積物のように積み重ね、忘れることなく前進します。ここでのペースは切迫しながらも忍耐強く、ビジネスライクでありながら工芸、儀式、そして完璧な豚骨の一杯に深く献身的です。'
+        },
+        'saga-home': {
+            name: 'Saga Prefecture',
+            nameJp: '佐賀県',
+            emoji: '🏺',
+            description: `A quiet land of artisans and earth. Saga moves slowly on purpose. In Arita's kiln towns, the same families have thrown porcelain for 400 years—since Korean potters first discovered kaolin clay in the mountains and created Japan's first true white porcelain. The craft isn't rushed. Masters train for decades before signing their work. In Imari, cobalt-blue patterns are painted by hand with brushes made from cat whiskers. Nearby, Karatsu's tea bowls embrace wabi-sabi—intentional imperfection as beauty. The Ariake Sea's tidal flats stretch for miles when the moon pulls water away, exposing mudskippers and clam diggers harvesting by hand. Rice farmers here watch the tides like calendars, planting in rhythm with salt and fresh water. Saga's 84 sake breweries—the highest density in Japan—cold-press rice into liquid that tastes of snow melt and cedar. In Takeo, a 3,000-year-old camphor tree breathes in the center of town, older than any written record. Saga doesn't shout. It whispers through clay, through fermentation, through tidal memory. The loudest sound here is the kiln firing at dawn.`,
+            descriptionJp: '職人と大地の静かな地。佐賀は意図的にゆっくり動きます。有田の窯業の町では、同じ家族が400年間磁器を作り続けています—朝鮮の陶工が山でカオリン粘土を最初に発見し、日本で最初の真の白磁を作って以来。工芸は急がれません。職人は自分の作品に署名する前に何十年も訓練します。伊万里では、コバルトブルーの模様が猫のひげで作った筆で手描きされます。近くの唐津では、茶碗が侘寂を受け入れます—意図的な不完全さを美として。有明海の干潟は、月が水を引くと何マイルも広がり、ムツゴロウと手作業で採取する潮干狩りの人々が現れます。ここの米農家は潮汐をカレンダーのように見守り、塩水と淡水のリズムに合わせて田植えをします。佐賀の84の酒蔵—日本で最高密度—は米を雪解け水と杉の香りがする液体に冷圧搾します。武雄では、3,000年前の楠の木が町の中心で呼吸しており、書かれた記録よりも古いです。佐賀は叫びません。粘土を通して、発酵を通して、潮の記憶を通してささやきます。ここで最も大きな音は、夜明けの窯の焚き上げです。'
+        },
+        'nagasaki-home': {
+            name: 'Nagasaki Prefecture',
+            nameJp: '長崎県',
+            emoji: '🌋',
+            description: `Where Japan met the world through a single harbor. For 200 years during sakoku isolation, Nagasaki's Dejima island was the only legal point of contact between Japan and the West—a fan-shaped artificial island where Dutch merchants traded silk for knowledge, and Japanese scholars smuggled books on anatomy and astronomy. The city still wears its scars and its cosmopolitanism: Chinese temples with curved roofs stand beside Catholic churches hidden in valleys where Christians worshipped in secret for 250 years, passing down prayers phonetically without priests. Glover Garden's colonial mansions overlook a harbor that once built the world's largest battleships. The 1945 atomic bomb destroyed Urakami, but the cathedral was rebuilt, its melted saints still displayed. Beyond the city, 971 islands scatter across the East China Sea—some inhabited by a dozen families, others by wild horses or Catholic pilgrims visiting UNESCO churches. Shimabara's onsen towns simmer at the foot of Unzen's active volcano, where hell valleys boil sulfur and Christians were once martyred in scalding springs. Goto's islands hide beaches so clear you can see 30 meters down. Nagasaki is a prefecture of thresholds—between nations, faiths, ocean and volcano, memory and future.`,
+            descriptionJp: '日本が一つの港を通じて世界と出会った場所。鎖国の200年間、長崎の出島は日本と西洋の唯一の合法的な接点でした—扇形の人工島で、オランダ商人は絹を知識と交換し、日本の学者は解剖学と天文学の本を密輸しました。街は今もその傷跡と国際性を纏っています：曲線の屋根を持つ中国寺院は、250年間秘密に礼拝したキリスト教徒が谷に隠したカトリック教会の隣に立っており、司祭なしで音声的に祈りを伝えてきました。グラバー園の植民地時代の邸宅は、かつて世界最大の戦艦を建造した港を見下ろしています。1945年の原爆は浦上を破壊しましたが、大聖堂は再建され、溶けた聖人の像は今も展示されています。市外では、971の島々が東シナ海に散らばっています—数十の家族が住む島もあれば、野生の馬やユネスコ教会を訪れるカトリック巡礼者がいる島もあります。島原の温泉町は雲仙の活火山の麓でくすぶり、地獄谷が硫黄を沸騰させ、キリスト教徒がかつて沸騰する温泉で殉教した場所です。五島列島は30メートル下まで見える透明なビーチを隠しています。長崎は境界の県です—国家、信仰、海と火山、記憶と未来の間。'
+        },
+        'kumamoto-home': {
+            name: 'Kumamoto Prefecture',
+            nameJp: '熊本県',
+            emoji: '🏔️',
+            description: `Land of fire and water. Mount Aso erupts in the center—a 25-kilometer caldera so vast it contains farms, villages, and an active volcanic cone that has smoldered for millennia. The Aso Five Peaks form a natural fortress around Nakadake's crater, where sulfur lakes boil turquoise and toxic gases force evacuations when the wind shifts. Yet inside this ring of fire, rice fields glow green, and cattle graze on volcanic ash that enriches the soil. Kumamoto Castle, once impregnable with 49 turrets, was shattered by the 2016 earthquakes but is being rebuilt stone by stone—a samurai monument to resilience. The city drinks only groundwater, filtered pure through Aso's volcanic layers. Suizenji Garden recreates the 53 stations of the Tokaido Road in miniature, its spring-fed pond so clear you can count koi scales. In Amakusa, hidden Christian villages clung to cliffs for centuries, their descendants now tending mandarin groves and pearl farms. The Kuma River, one of Japan's fastest, carves gorges through mountain forests before spilling into the Yatsushiro Sea. Kumamoto's soul is volcanic—fierce, fertile, scarred by earthquakes and eruptions, yet endlessly renewing itself. Fire feeds the water; water tames the fire.`,
+            descriptionJp: '火と水の地。阿蘇山が中心で噴火します—25キロメートルのカルデラは非常に広大で、農場、村、そして数千年間くすぶり続ける活火山の円錐を含んでいます。阿蘇五岳は中岳の火口の周りに自然の要塞を形成し、硫黄湖がターコイズブルーに沸騰し、風向きが変わると有毒ガスが避難を強います。しかし、この火の輪の内側では、田んぼが緑に輝き、牛が土壌を豊かにする火山灰の上で草を食べています。かつて49の櫓で難攻不落だった熊本城は、2016年の地震で粉砕されましたが、石一つ一つ再建されています—回復力への武士の記念碑。市は阿蘇の火山層を通してろ過された純粋な地下水のみを飲みます。水前寺成趣園は東海道五十三次を縮小版で再現し、湧水の池は非常に澄んでいて鯉の鱗を数えることができます。天草では、隠れキリシタンの村が何世紀も崖にしがみつき、その子孫は今みかん畑と真珠養殖を営んでいます。日本で最も速い川の一つである球磨川は、山林を通って渓谷を刻み、八代海に注ぎます。熊本の魂は火山性です—激しく、肥沃で、地震と噴火に傷つけられながらも、絶えず自らを新たにします。火が水を養い、水が火を飼い慣らします。'
+        },
+        'oita-home': {
+            name: 'Ōita Prefecture',
+            nameJp: '大分県',
+            emoji: '♨️',
+            description: `The hot spring capital. Ōita produces more onsen water than any other prefecture—4,600 sources pouring 280,000 kiloliters daily, enough to fill Tokyo Dome three times over. Beppu's eight hells (jigoku) boil blood-red, cobalt-blue, and milky-white, too hot for bathing but mesmerizing to witness—earth's interior made visible. Yufuin spreads pastoral at the foot of Mount Yufu, its mist-shrouded lake reflecting two volcanic peaks, its streets lined with art galleries and craft beer breweries. This is onsen culture evolved beyond bathing: sand baths bury you in geothermally heated beach, mud baths coat you in mineral-rich volcanic clay. In Hita, cedar forests shade samurai merchant houses where wholesale fortunes were made trading Kyoto goods downstream. Kunisaki Peninsula juts into the Seto Inland Sea, its mountain temples founded by mystic monks who blended Buddhism and mountain worship—Usa Jingu, the head shrine of 40,000 Hachiman shrines nationwide, crowns the cape. Usuki's 60 stone Buddhas, carved into cliffs in the 12th century, watch over rice fields with serene, weathered faces. Ōita's identity is geothermal: hot, healing, endlessly renewable, shaped by what rises from below.`,
+            descriptionJp: '温泉の都。大分は他のどの県よりも多くの温泉水を産出します—4,600の源泉から毎日28万キロリットルを注ぎ、東京ドームを3回満たすのに十分です。別府の八つの地獄は血のように赤く、コバルトブルー、そして乳白色に沸騰し、入浴には熱すぎますが見るには魅惑的です—地球の内部が可視化されています。由布院は由布岳の麓に牧歌的に広がり、霧に包まれた湖が二つの火山峰を映し、通りには美術館とクラフトビール醸造所が並んでいます。これは入浴を超えて進化した温泉文化です：砂風呂は地熱で加熱されたビーチにあなたを埋め、泥風呂はミネラル豊富な火山粘土であなたをコーティングします。日田では、杉林が京都の商品を下流で取引して卸売の財を成した武士商人の家を陰にします。国東半島は瀬戸内海に突き出し、その山岳寺院は仏教と山岳信仰を融合させた神秘的な僧侶によって創建されました—全国4万の八幡宮の総本宮である宇佐神宮が岬を冠しています。臼杵の60体の石仏は12世紀に崖に彫られ、穏やかで風化した顔で田んぼを見守っています。大分のアイデンティティは地熱です：熱く、癒やし、絶えず再生可能で、下から昇るものによって形作られています。'
+        },
+        'miyazaki-home': {
+            name: 'Miyazaki Prefecture',
+            nameJp: '宮崎県',
+            emoji: '🌊',
+            description: `Sun-drenched and myth-soaked. Miyazaki basks in more sunshine than anywhere else in Japan—subtropical warmth that ripens mangoes, lychees, and legends. This is where mythology begins: Takachiho Gorge, where the sun goddess Amaterasu hid in a cave until lured out by dancing and mirrors, the mythic origin of Japan's imperial line. The gorge's basalt cliffs tower 80 meters above emerald water, formed by ancient lava flows. Nichinan's coast stretches 100 kilometers of palm-lined beaches and fishing villages where bonito is seared over straw flames. Aoshima's tiny island shrine sits surrounded by "devil's washboard"—layered sandstone ripples exposed at low tide, geometric and otherworldly. In the mountains, Takachiho's farmers still perform sacred kagura dances nightly, 33 acts telling creation myths unchanged for 900 years. Miyazaki's chickens—jidori—are descended from ancient breeds, raised on volcanic slopes and grilled over charcoal. The Phoenix Seagaia Resort hosted world summits, then bankrupted, then revived—a boom-and-bust cycle familiar here. Pro baseball teams train in Miyazaki's eternal spring; surfers chase consistent Pacific swells. This is a prefecture of beginnings, where gods were born, where the sun never seems to set, where modernity and mythology share the same beaches.`,
+            descriptionJp: '太陽に照らされ、神話に浸る。宮崎は日本のどこよりも多くの日差しを浴びます—マンゴー、ライチ、そして伝説を熟させる亜熱帯の暖かさ。ここで神話が始まります：高千穂峡、太陽神天照が洞窟に隠れ、踊りと鏡で誘い出された場所、日本の皇室の神話的起源。峡谷の玄武岩の崖は、古代の溶岩流によって形成されたエメラルドグリーンの水の上に80メートル聳え立ちます。日南の海岸は100キロメートルのヤシに縁取られたビーチと、鰹を藁の炎で炙る漁村が伸びています。青島の小さな島の神社は「鬼の洗濯板」に囲まれています—干潮時に露出する層状の砂岩の波紋、幾何学的で異世界的です。山々では、高千穂の農民は今も毎晩神聖な神楽舞を演じ、900年間変わらない創世神話を語る33の幕を披露します。宮崎の鶏—地鶏—は古代の品種の子孫で、火山斜面で育てられ炭火で焼かれます。フェニックス・シーガイアリゾートは世界サミットを開催し、その後破産し、その後復活しました—ここではよく知られたブームとバストのサイクル。プロ野球チームは宮崎の永遠の春でトレーニングし、サーファーは一貫した太平洋のうねりを追います。これは始まりの県です、神々が生まれた場所、太陽が決して沈まないように見える場所、現代性と神話が同じビーチを共有する場所。'
+        },
+        'kagoshima-home': {
+            name: 'Kagoshima Prefecture',
+            nameJp: '鹿児島県',
+            emoji: '🌸',
+            description: `Southern frontier of fire and spirit. Sakurajima erupts daily across Kinko Bay, a volcanic island so active that umbrellas protect against ash, not rain. The city has learned to live with this: gardens swept clean each morning, laundry hung strategically, a volcano accepted as neighbor. This is Satsuma—the domain that bred Japan's fiercest samurai, launched the Meiji Restoration, and gave the world its word for tangerines. Saigo Takamori, the Last Samurai, was born here, as were the politicians and industrialists who dismantled the shogunate and modernized Japan. Satsuma's pride runs deep, its dialect nearly incomprehensible to other Japanese. Chiran's samurai gardens hide behind stone walls in a town that once trained kamikaze pilots—17-year-olds who left from Chiran's airfield for one-way missions, their letters now preserved in a museum that asks impossible questions. South of the mainland, Yakushima's ancient cedars—some 7,000 years old—inspired Studio Ghibli's forest spirits. Tanegashima, where Portuguese guns first reached Japan in 1543, now launches rockets into space. The Amami Islands stretch subtropical toward Okinawa, their turquoise lagoons home to endemic habu snakes and black rabbits. Kagoshima is Japan's southern edge, volcanic and defiant, where tradition is fierce, history is personal, and the volcano reminds everyone: power is never static.`,
+            descriptionJp: '火と精神の南の辺境。桜島は錦江湾の向こうで毎日噴火し、非常に活発な火山島で、傘は雨ではなく灰から守ります。市はこれと共に生きることを学びました：毎朝掃き清められた庭園、戦略的に干された洗濯物、隣人として受け入れられた火山。これは薩摩—日本で最も激しい武士を育て、明治維新を開始し、世界にみかんの言葉を与えた藩。西郷隆盛、最後の侍はここで生まれ、幕府を解体し日本を近代化した政治家や実業家もそうでした。薩摩の誇りは深く、その方言は他の日本人にはほとんど理解できません。知覧の武家庭園は、かつて神風パイロットを訓練した町の石垣の裏に隠れています—17歳の若者が知覧の飛行場から片道ミッションのために出発し、彼らの手紙は今、不可能な問いを投げかける博物館に保存されています。本土の南、屋久島の古代杉—一部は7,000年前—はスタジオジブリの森の精霊にインスピレーションを与えました。1543年にポルトガルの銃が日本に最初に到達した種子島は、今やロケットを宇宙に打ち上げます。奄美諸島は沖縄に向かって亜熱帯に広がり、そのターコイズブルーのラグーンは固有のハブ蛇と黒兎の故郷です。鹿児島は日本の南端、火山性で反抗的で、伝統は激しく、歴史は個人的で、火山は皆に思い出させます：力は決して静的ではありません。'
+        }
+    };
+    
+    // Create beautiful modal for prefecture details
+    function showPrefectureModal(data) {
+        // Create modal overlay
+        const modal = document.createElement('div');
+        modal.id = 'prefecture-modal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 35, 50, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        `;
+        
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.style.cssText = `
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideUp 0.3s ease;
+        `;
+        
+        modalContent.innerHTML = `
+            <style>
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(30px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                #prefecture-modal::-webkit-scrollbar {
+                    width: 8px;
+                }
+                #prefecture-modal::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                }
+                #prefecture-modal::-webkit-scrollbar-thumb {
+                    background: #888;
+                    border-radius: 10px;
+                }
+                #prefecture-modal::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
+            </style>
+            <div style="padding: 2.5rem; position: relative;">
+                <!-- Close button -->
+                <button onclick="document.getElementById('prefecture-modal').remove()" 
+                        style="position: absolute; top: 1rem; right: 1rem; background: var(--light-gray); 
+                        border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; 
+                        font-size: 1.5rem; color: var(--text-dark); display: flex; align-items: center; 
+                        justify-content: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
+                        onmouseover="this.style.background='var(--primary-dark)'; this.style.color='white';"
+                        onmouseout="this.style.background='var(--light-gray)'; this.style.color='var(--text-dark)';">
+                    ×
+                </button>
+                
+                <!-- Prefecture emoji and title -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">${data.emoji}</div>
+                    <h2 style="color: var(--primary-dark); font-size: 2rem; margin: 0 0 0.5rem 0;">${data.name}</h2>
+                    <p style="color: var(--text-light); font-size: 1.3rem; margin: 0;">${data.nameJp}</p>
+                </div>
+                
+                <!-- Divider -->
+                <div style="height: 2px; background: linear-gradient(to right, transparent, var(--ocean-blue), transparent); margin: 2rem 0;"></div>
+                
+                <!-- English description -->
+                <div style="margin-bottom: 2rem;">
+                    <p style="line-height: 1.9; font-size: 1.05rem; color: var(--text-dark);">
+                        ${data.description}
+                    </p>
+                </div>
+                
+                <!-- Japanese description -->
+                <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--ocean-blue);">
+                    <p class="japanese-text" style="line-height: 2; font-size: 1rem; color: var(--text-dark); margin: 0;">
+                        ${data.descriptionJp}
+                    </p>
+                </div>
+                
+                <!-- Close button at bottom -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button onclick="document.getElementById('prefecture-modal').remove()" 
+                            class="btn btn-primary" style="padding: 0.8rem 2.5rem; font-size: 1rem;">
+                        Close
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+        
+        // Close on overlay click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function escapeHandler(e) {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', escapeHandler);
+            }
+        });
+    }
+    
+    // Global function to handle prefecture clicks (called from onclick attributes)
+    window.handlePrefectureClick = function(prefectureId) {
+        console.log('Prefecture clicked:', prefectureId);
+        const data = prefectureDataHome[prefectureId];
+        if (data) {
+            showPrefectureModal(data);
+        } else {
+            console.error('No data found for:', prefectureId);
+        }
+    };
+    
+    // Also add event listeners as backup after DOM loads
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, map ready!');
+        console.log('Prefecture data loaded:', Object.keys(prefectureDataHome).length, 'prefectures');
+    });
+    </script>
 </body>
 </html>
