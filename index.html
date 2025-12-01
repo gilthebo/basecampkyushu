@@ -335,12 +335,12 @@
         </div>
     </section>
 
-    <!-- Interactive Map Section - 7 Prefectures of Kyūshū -->
+    <!-- Kyushu Map Section - 7 Prefectures -->
     <section class="interactive-map-section" style="padding: 3rem 2rem 5rem; background: var(--white);">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div class="section-header" style="text-align: center;">
-                <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Interactive Map</h2>
-                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">インタラクティブマップ</p>
+                <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Kyūshū Map</h2>
+                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">九州マップ</p>
                 <div class="section-divider"></div>
                 <p class="section-subtitle" style="margin-top: 1.5rem; font-size: 1.15rem; color: var(--text-dark);">
                     Explore Kyūshū's Seven Prefectures
@@ -350,81 +350,150 @@
                 </p>
             </div>
 
-            <!-- Interactive SVG Map of 7 Prefectures -->
-            <div style="margin: 2rem auto; max-width: 900px; padding: 1rem; background: transparent;">
-                <p style="text-align: center; color: var(--text-dark); margin-bottom: 1rem; font-size: 0.95rem;">
-                    Click any prefecture to learn about its character
+            <!-- Kyushu Map Image -->
+            <div style="margin: 3rem auto; max-width: 700px;">
+                <img src="https://www.genspark.ai/api/files/s/Vnbfzq4j" alt="Kyushu Map with 7 Prefectures" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            </div>
+
+            <!-- Prefecture Logos Grid -->
+            <div style="margin: 3rem auto; max-width: 900px;">
+                <p style="text-align: center; color: var(--text-dark); margin-bottom: 2rem; font-size: 1rem; font-weight: 500;">
+                    Click any prefecture logo to learn about its character
                 </p>
                 
-                <div style="max-width: 750px; margin: 0 auto;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" id="kyushu-map-home" style="width: 100%; height: auto; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 8px; padding: 1rem;">
+                <!-- First 5 Prefectures -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; padding: 1rem; margin-bottom: 1rem;">
+                    <!-- Fukuoka -->
+                    <div onclick="window.handlePrefectureClick('fukuoka-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/CZqr4s6P" alt="Fukuoka Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Fukuoka</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">福岡県</p>
+                    </div>
+
+                    <!-- Saga -->
+                    <div onclick="window.handlePrefectureClick('saga-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/yw8FFScq" alt="Saga Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Saga</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">佐賀県</p>
+                    </div>
+
+                    <!-- Nagasaki -->
+                    <div onclick="window.handlePrefectureClick('nagasaki-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/bUVSBD8w" alt="Nagasaki Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Nagasaki</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">長崎県</p>
+                    </div>
+
+                    <!-- Kumamoto -->
+                    <div onclick="window.handlePrefectureClick('kumamoto-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/rAwu930X" alt="Kumamoto Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Kumamoto</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">熊本県</p>
+                    </div>
+
+                    <!-- Oita -->
+                    <div onclick="window.handlePrefectureClick('oita-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/FDi64Aqp" alt="Oita Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Oita</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">大分県</p>
+                    </div>
+                </div>
+
+                <!-- Last 2 Prefectures - Centered -->
+                <div style="display: flex; justify-content: center; gap: 3rem; padding: 1rem;">
+                    <!-- Miyazaki -->
+                    <div onclick="window.handlePrefectureClick('miyazaki-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/YxweMZUp" alt="Miyazaki Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Miyazaki</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">宮崎県</p>
+                    </div>
+
+                    <!-- Kagoshima -->
+                    <div onclick="window.handlePrefectureClick('kagoshima-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/XijwX71B" alt="Kagoshima Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Kagoshima</p>
+                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">鹿児島県</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden content for old SVG compatibility -->
+            <div style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 650" id="kyushu-map-home">
                       <defs>
                         <style>
                           .prefecture-home {
-                            fill: #c8e6c9;
-                            stroke: #ffffff;
-                            stroke-width: 2;
+                            fill: #ffffff;
+                            stroke: #495057;
+                            stroke-width: 1.5;
                             transition: all 0.2s ease;
                             cursor: pointer;
                           }
                           .prefecture-home:hover {
-                            fill: #a5d6a7;
-                            stroke: #4a7ba7;
+                            fill: #e3f2fd;
+                            stroke: #2c4a6e;
                             stroke-width: 2.5;
                           }
                           .prefecture-label-home {
                             font-family: 'Helvetica Neue', Arial, sans-serif;
-                            font-size: 14px;
+                            font-size: 13px;
                             font-weight: 500;
-                            fill: #2c3e50;
+                            fill: #2c4a6e;
                             text-anchor: middle;
                             pointer-events: none;
                           }
                           .prefecture-label-jp-home {
-                            font-size: 11px;
-                            fill: #5a6c7d;
+                            font-size: 10px;
+                            fill: #6c757d;
                           }
                         </style>
                       </defs>
                       
+                      <!-- Fukuoka - Northern Kyushu -->
                       <path id="fukuoka-home" class="prefecture-home" 
-                            d="M 250 80 L 350 60 L 450 80 L 500 120 L 480 180 L 420 200 L 350 190 L 280 180 L 230 150 Z"
+                            d="M 150,50 L 200,45 L 250,50 L 290,65 L 315,85 L 325,110 L 320,135 L 300,155 L 270,165 L 230,162 L 195,150 L 165,130 L 155,105 L 150,75 Z"
                             data-name="Fukuoka" data-name-jp="福岡県" data-emoji="🏖️"
                             onclick="window.handlePrefectureClick('fukuoka-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Saga - Small prefecture west of Fukuoka -->
                       <path id="saga-home" class="prefecture-home"
-                            d="M 180 200 L 280 180 L 350 190 L 340 250 L 300 290 L 220 280 L 160 240 Z"
+                            d="M 170,180 L 192,175 L 200,175 L 222,188 L 242,205 L 250,220 C 248,235 243,248 235,260 L 220,272 L 200,280 C 185,283 170,283 155,280 L 140,272 L 130,260 C 125,248 123,235 123,222 C 123,210 126,198 132,188 L 145,178 Z"
                             data-name="Saga" data-name-jp="佐賀県" data-emoji="🏺"
                             onclick="window.handlePrefectureClick('saga-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Nagasaki - West coast with complex coastline -->
                       <path id="nagasaki-home" class="prefecture-home"
-                            d="M 80 240 L 160 240 L 220 280 L 200 350 L 150 420 L 90 400 L 60 350 L 70 280 Z"
+                            d="M 65,240 C 75,235 88,232 100,232 L 123,235 L 130,245 L 132,260 L 140,272 L 155,280 C 155,295 153,310 148,325 L 138,345 C 130,360 118,372 105,382 C 92,390 78,395 63,395 C 52,395 42,392 33,385 L 25,372 C 20,360 18,347 18,333 C 18,315 22,298 30,283 L 42,268 C 50,257 58,247 65,240 Z"
                             data-name="Nagasaki" data-name-jp="長崎県" data-emoji="🌋"
                             onclick="window.handlePrefectureClick('nagasaki-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Kumamoto - Central Kyushu (Mount Aso region) -->
                       <path id="kumamoto-home" class="prefecture-home"
-                            d="M 220 280 L 300 290 L 380 310 L 420 380 L 400 480 L 340 520 L 260 500 L 200 450 L 150 420 Z"
+                            d="M 155,280 L 170,283 L 200,280 L 220,272 L 235,260 L 250,245 L 265,235 L 280,235 L 292,240 C 293,255 292,270 288,285 L 280,305 L 270,325 L 260,350 L 250,375 L 240,400 L 228,425 C 218,442 205,457 190,468 C 175,477 158,482 140,483 C 125,483 110,479 97,472 L 82,458 C 75,447 70,435 68,422 C 67,410 68,398 72,387 L 82,372 L 95,360 L 105,350 L 118,338 L 130,325 L 140,310 L 148,295 Z"
                             data-name="Kumamoto" data-name-jp="熊本県" data-emoji="🏔️"
                             onclick="window.handlePrefectureClick('kumamoto-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Oita - Northeast (hot springs region) -->
                       <path id="oita-home" class="prefecture-home"
-                            d="M 420 200 L 500 220 L 580 250 L 620 310 L 600 370 L 540 400 L 460 380 L 420 340 L 380 310 L 340 250 Z"
+                            d="M 345,228 L 365,220 L 380,215 C 395,215 410,218 423,225 C 438,233 450,245 458,260 C 465,273 470,288 470,303 C 470,318 467,332 460,345 L 448,362 C 438,375 425,385 410,392 C 395,398 380,400 365,398 L 348,390 L 332,378 C 322,368 315,356 310,343 L 302,323 L 298,303 L 295,283 L 295,263 L 300,245 L 310,235 L 325,230 Z"
                             data-name="Oita" data-name-jp="大分県" data-emoji="♨️"
                             onclick="window.handlePrefectureClick('oita-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Miyazaki - East coast -->
                       <path id="miyazaki-home" class="prefecture-home"
-                            d="M 460 380 L 540 400 L 580 460 L 600 550 L 580 650 L 520 720 L 460 700 L 400 640 L 380 560 L 400 480 Z"
+                            d="M 332,378 L 348,390 L 365,398 L 380,400 C 383,418 385,437 385,455 L 385,490 L 385,525 C 385,548 383,570 378,592 L 370,618 C 363,638 352,655 338,670 L 318,685 C 303,693 287,697 270,697 C 255,697 240,693 227,685 L 212,672 C 205,663 200,653 198,642 C 197,632 198,622 202,612 L 210,595 L 218,575 L 225,550 L 230,525 L 235,495 L 240,465 L 245,435 L 252,408 L 260,385 L 270,365 L 282,350 L 298,340 L 315,335 Z"
                             data-name="Miyazaki" data-name-jp="宮崎県" data-emoji="🌊"
                             onclick="window.handlePrefectureClick('miyazaki-home')"
                             style="cursor: pointer;"/>
                       
+                      <!-- Kagoshima - Southern tip (Sakurajima volcano) -->
                       <path id="kagoshima-home" class="prefecture-home"
-                            d="M 260 500 L 340 520 L 400 560 L 400 640 L 380 720 L 340 800 L 260 820 L 180 780 L 160 700 L 180 620 L 220 560 Z"
+                            d="M 140,483 L 158,482 L 175,477 L 190,468 L 205,457 L 218,442 L 228,425 L 238,408 L 245,390 L 252,373 L 258,358 L 265,345 L 270,360 L 275,380 L 278,405 L 280,430 L 280,460 L 278,490 L 275,520 L 270,550 L 265,578 L 260,605 L 255,630 C 252,648 248,665 242,680 L 230,695 C 220,705 207,712 193,715 C 178,718 163,717 148,712 L 128,700 C 118,691 110,680 105,667 C 100,655 98,642 98,628 L 100,605 L 105,580 L 112,555 L 120,530 L 128,508 L 135,490 Z"
                             data-name="Kagoshima" data-name-jp="鹿児島県" data-emoji="🌸"
                             onclick="window.handlePrefectureClick('kagoshima-home')"
                             style="cursor: pointer;"/>
@@ -855,53 +924,71 @@
     // Prefecture data for homepage interactive map
     const prefectureDataHome = {
         'fukuoka-home': {
-            name: 'Fukuoka Prefecture',
+            name: 'Fukuoka Prefecture - Kyushu\\'s Dynamic Crossroads',
             nameJp: '福岡県',
             emoji: '🏖️',
-            description: `Gateway to Kyūshū, where ancient temples meet modern urban energy. Fukuoka pulses with contradictions—neon-lit Tenjin towers rise near Dazaifu's 1,100-year-old shrine, while Hakata's ramen stalls serve bowls perfected over generations beside cutting-edge startups. This prefecture has always been a threshold: where Korean envoys first landed, where Mongol invasions were repelled by kamikaze winds, where merchants built fortunes on continental trade. The Genkai coast stretches wild and sacred—Munakata's shrines guard sea routes blessed by goddesses, while Itoshima's surf breaks draw pilgrims of a different kind. Inland, the Hiraodai karst plateau hides 200 limestone caves beneath grassy highlands. Yanagawa's canals still flow through samurai estates, punted boats gliding past whitewashed walls and willow trees. Fukuoka doesn't choose between old and new—it stacks them, layers history like sediment, and moves forward without forgetting. The pace here is both urgent and patient, businesslike yet deeply devoted to craft, ritual, and the perfect bowl of tonkotsu.`,
-            descriptionJp: '九州への玄関口。古代の寺院と現代の都市エネルギーが出会う場所。福岡は矛盾に満ちています—ネオンに照らされた天神の高層ビルは1,100年の歴史を持つ太宰府天満宮の近くにそびえ、博多のラーメン屋台は何世代にもわたって完成された一杯を最先端のスタートアップの隣で提供しています。この県は常に境界でした：朝鮮使節が最初に上陸した場所、神風によって元寇が撃退された場所、商人が大陸貿易で財を成した場所。玄界灘の海岸は荒々しく神聖に広がります—宗像の神社は女神に祝福された海路を守り、糸島のサーフブレイクは別の種類の巡礼者を引き寄せます。内陸では、平尾台カルスト台地が草原の高原の下に200の石灰岩洞窟を隠しています。柳川の運河は今も武家屋敷を流れ、川下りの舟が白壁と柳の木の間を滑ります。福岡は古いものと新しいものの間で選択しません—それらを重ね、歴史を堆積物のように積み重ね、忘れることなく前進します。ここでのペースは切迫しながらも忍耐強く、ビジネスライクでありながら工芸、儀式、そして完璧な豚骨の一杯に深く献身的です。'
+            description: `Fukuoka is where Kyushu's energy meets tradition. Mountains rise behind urban skylines, rivers weave through fertile plains, and the Genkai Sea frames the horizon. The city pulses with life—from the lively stalls of Nakasu Yatai to the serene gardens of Dazaifu. Temples, shrines, and modern parks coexist, while local cuisine, from tonkotsu ramen to street snacks, celebrates both history and the present. Whether hiking Mount Aburayama, strolling along the Naka River, or tasting flavors in bustling alleys, Fukuoka blends urban excitement and timeless charm.`,
+            descriptionJp: '福岡：九州の活気と伝統が交わる十字路
+
+福岡は、九州のエネルギーと伝統が出会う場所です。都市の背後には山々がそびえ、川は肥沃な平野を縫い、玄界灘が地平線を彩ります。中洲の屋台の活気から太宰府の静寂な庭園まで、街は生き生きとしています。寺社やモダンな公園が共存し、とんこつラーメンやストリートフードなど、地元の味は歴史と現在を結びます。阿武山のハイキングや那珂川沿いの散策、路地裏での味覚体験まで、福岡は都市の活気と永遠の魅力を融合させます。'
         },
         'saga-home': {
-            name: 'Saga Prefecture',
+            name: 'Saga Prefecture - Kyushu\\'s Serene Tapestry of Land and Water',
             nameJp: '佐賀県',
             emoji: '🏺',
-            description: `A quiet land of artisans and earth. Saga moves slowly on purpose. In Arita's kiln towns, the same families have thrown porcelain for 400 years—since Korean potters first discovered kaolin clay in the mountains and created Japan's first true white porcelain. The craft isn't rushed. Masters train for decades before signing their work. In Imari, cobalt-blue patterns are painted by hand with brushes made from cat whiskers. Nearby, Karatsu's tea bowls embrace wabi-sabi—intentional imperfection as beauty. The Ariake Sea's tidal flats stretch for miles when the moon pulls water away, exposing mudskippers and clam diggers harvesting by hand. Rice farmers here watch the tides like calendars, planting in rhythm with salt and fresh water. Saga's 84 sake breweries—the highest density in Japan—cold-press rice into liquid that tastes of snow melt and cedar. In Takeo, a 3,000-year-old camphor tree breathes in the center of town, older than any written record. Saga doesn't shout. It whispers through clay, through fermentation, through tidal memory. The loudest sound here is the kiln firing at dawn.`,
-            descriptionJp: '職人と大地の静かな地。佐賀は意図的にゆっくり動きます。有田の窯業の町では、同じ家族が400年間磁器を作り続けています—朝鮮の陶工が山でカオリン粘土を最初に発見し、日本で最初の真の白磁を作って以来。工芸は急がれません。職人は自分の作品に署名する前に何十年も訓練します。伊万里では、コバルトブルーの模様が猫のひげで作った筆で手描きされます。近くの唐津では、茶碗が侘寂を受け入れます—意図的な不完全さを美として。有明海の干潟は、月が水を引くと何マイルも広がり、ムツゴロウと手作業で採取する潮干狩りの人々が現れます。ここの米農家は潮汐をカレンダーのように見守り、塩水と淡水のリズムに合わせて田植えをします。佐賀の84の酒蔵—日本で最高密度—は米を雪解け水と杉の香りがする液体に冷圧搾します。武雄では、3,000年前の楠の木が町の中心で呼吸しており、書かれた記録よりも古いです。佐賀は叫びません。粘土を通して、発酵を通して、潮の記憶を通してささやきます。ここで最も大きな音は、夜明けの窯の焚き上げです。'
+            description: `Saga unfolds across gentle hills, fertile plains, and winding rivers that meet the Ariake Sea. Villages framed by mountains and coastlines feel timeless, while rice fields, tea plantations, and pottery kilns reflect local culture. Hidden shrines and riversides reveal quiet corners where the pace of life slows. Each season brings color—spring wisteria tunnels, summer lotus fields, autumn golden harvests—painting a contemplative view of rural Kyushu.`,
+            descriptionJp: '佐賀：九州の穏やかな大地と水の絵巻
+
+佐賀は、なだらかな丘陵、肥沃な平野、そして有明海へと流れる川に広がります。山や海に囲まれた集落は時を超えたような趣があり、田んぼや茶畑、登り窯が地域文化を映し出します。隠れた神社や川辺の静かな場所では、ゆったりとした時間が流れます。四季折々に色彩が変わり、春の藤のトンネル、夏の蓮の花、秋の黄金の収穫が、九州の田園の深みを映し出します。'
         },
         'nagasaki-home': {
-            name: 'Nagasaki Prefecture',
+            name: 'Nagasaki Prefecture - Kyushu\\'s Gateway of History and Harmony',
             nameJp: '長崎県',
             emoji: '🌋',
-            description: 'Nagasaki is Kyushu’s land of contrasts and connections. Once Japan’s sole gateway to the world, this vibrant prefecture blends natural wonders with a unique cultural heritage. Here, the East China Sea cradles hundreds of islands—some alive with fishing villages, others home to wild horses or the quiet beauty of hidden churches. Volcanoes shape the landscape, hot springs soothe the soul, and every valley seems to guard a secret: a temple, a colonial relic, or a story of resilience.From the bustling streets of Dejima, where Dutch traders once exchanged knowledge and goods, to the serene beaches of the Goto Islands, Nagasaki invites exploration. Stand atop Mount Inasa for a breathtaking view of the city’s lights, said to rival those of Hong Kong and Monaco. In Nagasaki, history, nature, and daily life coexist in striking harmony, offering a rich experience of Kyushu’s diversity.`,
-            descriptionJp: '長崎は、九州の対比と繋がりの地です。かつて日本と世界を結ぶ唯一の窓口であったこの県は、自然の驚異と独自の文化遺産が融合しています。東シナ海には多様な島々が点在し、漁村の賑わいある島もあれば、野生の馬や静寂の教会が息づく島もあります。火山が大地を形作り、温泉が心を癒し、谷や丘には寺院や植民地時代の遺構、そして人々の強さが秘められた物語が息づいています。出島の石畳を歩けば、オランダ商人が知識と品物を交換した往時を感じられ、稲佐山の頂上からは、香港やモナコに匹敵すると言われる夜景が広がります。五島列島の静かなビーチから長崎の活気ある港まで、長崎は歴史と自然、日常が織りなす調和の地であり、九州の多様性を体感できる魅力的な場所です。'
+            description: `Nagasaki is Kyushu's land of contrasts and connections. Once Japan's sole gateway to the world, this vibrant prefecture blends natural wonders with a unique cultural heritage. Here, the East China Sea cradles hundreds of islands—some alive with fishing villages, others home to wild horses or the quiet beauty of hidden churches. Volcanoes shape the landscape, hot springs soothe the soul, and every valley seems to guard a secret: a temple, a colonial relic, or a story of resilience.
+
+From the bustling streets of Dejima, where Dutch traders once exchanged knowledge and goods, to the serene beaches of the Goto Islands, Nagasaki invites exploration. Stand atop Mount Inasa for a breathtaking view of the city's lights, said to rival those of Hong Kong and Monaco. In Nagasaki, history, nature, and daily life coexist in striking harmony, offering a rich experience of Kyushu's diversity.`,
+            descriptionJp: '長崎：九州の歴史と調和の入口
+
+長崎は、九州の対比と繋がりの地です。かつて日本と世界を結ぶ唯一の窓口であったこの県は、自然の驚異と独自の文化遺産が融合しています。東シナ海には多様な島々が点在し、漁村の賑わいある島もあれば、野生の馬や静寂の教会が息づく島もあります。火山が大地を形作り、温泉が心を癒し、谷や丘には寺院や植民地時代の遺構、そして人々の強さが秘められた物語が息づいています。
+
+出島の石畳を歩けば、オランダ商人が知識と品物を交換した往時を感じられ、稲佐山の頂上からは、香港やモナコに匹敵すると言われる夜景が広がります。五島列島の静かなビーチから長崎の活気ある港まで、長崎は歴史と自然、日常が織りなす調和の地であり、九州の多様性を体感できる魅力的な場所です。'
         },
         'kumamoto-home': {
-            name: 'Kumamoto Prefecture',
+            name: 'Kumamoto Prefecture - Kyushu\\'s Wild Heart',
             nameJp: '熊本県',
             emoji: '🏔️',
-            description: `Land of fire and water. Mount Aso erupts in the center—a 25-kilometer caldera so vast it contains farms, villages, and an active volcanic cone that has smoldered for millennia. The Aso Five Peaks form a natural fortress around Nakadake's crater, where sulfur lakes boil turquoise and toxic gases force evacuations when the wind shifts. Yet inside this ring of fire, rice fields glow green, and cattle graze on volcanic ash that enriches the soil. Kumamoto Castle, once impregnable with 49 turrets, was shattered by the 2016 earthquakes but is being rebuilt stone by stone—a samurai monument to resilience. The city drinks only groundwater, filtered pure through Aso's volcanic layers. Suizenji Garden recreates the 53 stations of the Tokaido Road in miniature, its spring-fed pond so clear you can count koi scales. In Amakusa, hidden Christian villages clung to cliffs for centuries, their descendants now tending mandarin groves and pearl farms. The Kuma River, one of Japan's fastest, carves gorges through mountain forests before spilling into the Yatsushiro Sea. Kumamoto's soul is volcanic—fierce, fertile, scarred by earthquakes and eruptions, yet endlessly renewing itself. Fire feeds the water; water tames the fire.`,
-            descriptionJp: '火と水の地。阿蘇山が中心で噴火します—25キロメートルのカルデラは非常に広大で、農場、村、そして数千年間くすぶり続ける活火山の円錐を含んでいます。阿蘇五岳は中岳の火口の周りに自然の要塞を形成し、硫黄湖がターコイズブルーに沸騰し、風向きが変わると有毒ガスが避難を強います。しかし、この火の輪の内側では、田んぼが緑に輝き、牛が土壌を豊かにする火山灰の上で草を食べています。かつて49の櫓で難攻不落だった熊本城は、2016年の地震で粉砕されましたが、石一つ一つ再建されています—回復力への武士の記念碑。市は阿蘇の火山層を通してろ過された純粋な地下水のみを飲みます。水前寺成趣園は東海道五十三次を縮小版で再現し、湧水の池は非常に澄んでいて鯉の鱗を数えることができます。天草では、隠れキリシタンの村が何世紀も崖にしがみつき、その子孫は今みかん畑と真珠養殖を営んでいます。日本で最も速い川の一つである球磨川は、山林を通って渓谷を刻み、八代海に注ぎます。熊本の魂は火山性です—激しく、肥沃で、地震と噴火に傷つけられながらも、絶えず自らを新たにします。火が水を養い、水が火を飼い慣らします。'
+            description: `Kumamoto is Kyushu's untamed soul, where vast plains stretch beneath Mount Aso, one of the world's largest active volcanoes. Rivers and lakes feed fertile valleys, and misty forests shelter hidden villages. Dramatic landscapes—from the Aso caldera grasslands to the Kuma region forests—reveal nature's power and resilience. Traditional crafts, local festivals, and welcoming towns flourish between mountains and plains. Every journey in Kumamoto unveils a new facet of Kyushu's raw beauty and quiet strength.`,
+            descriptionJp: '熊本：九州の荒野の心臓部
+
+熊本は、九州の野性的な魂です。世界有数の活火山・阿蘇山の下に広がる広大な平野、川や湖が肥沃な谷を育み、霧深い森が隠れた集落を守ります。阿蘇の草原から球磨の樹海まで、劇的な景観が自然の力と生命力を語ります。山と平野に抱かれた町では、伝統工芸や祭り、温かい人々の暮らしが息づきます。熊本を旅するたびに、九州の原風景と静かな強さが新たに見えてきます。'
         },
         'oita-home': {
-            name: 'Ōita Prefecture',
+            name: 'Oita Prefecture - Kyushu\\'s Land of Water and Mountains',
             nameJp: '大分県',
             emoji: '♨️',
-            description: `The hot spring capital. Ōita produces more onsen water than any other prefecture—4,600 sources pouring 280,000 kiloliters daily, enough to fill Tokyo Dome three times over. Beppu's eight hells (jigoku) boil blood-red, cobalt-blue, and milky-white, too hot for bathing but mesmerizing to witness—earth's interior made visible. Yufuin spreads pastoral at the foot of Mount Yufu, its mist-shrouded lake reflecting two volcanic peaks, its streets lined with art galleries and craft beer breweries. This is onsen culture evolved beyond bathing: sand baths bury you in geothermally heated beach, mud baths coat you in mineral-rich volcanic clay. In Hita, cedar forests shade samurai merchant houses where wholesale fortunes were made trading Kyoto goods downstream. Kunisaki Peninsula juts into the Seto Inland Sea, its mountain temples founded by mystic monks who blended Buddhism and mountain worship—Usa Jingu, the head shrine of 40,000 Hachiman shrines nationwide, crowns the cape. Usuki's 60 stone Buddhas, carved into cliffs in the 12th century, watch over rice fields with serene, weathered faces. Ōita's identity is geothermal: hot, healing, endlessly renewable, shaped by what rises from below.`,
-            descriptionJp: '温泉の都。大分は他のどの県よりも多くの温泉水を産出します—4,600の源泉から毎日28万キロリットルを注ぎ、東京ドームを3回満たすのに十分です。別府の八つの地獄は血のように赤く、コバルトブルー、そして乳白色に沸騰し、入浴には熱すぎますが見るには魅惑的です—地球の内部が可視化されています。由布院は由布岳の麓に牧歌的に広がり、霧に包まれた湖が二つの火山峰を映し、通りには美術館とクラフトビール醸造所が並んでいます。これは入浴を超えて進化した温泉文化です：砂風呂は地熱で加熱されたビーチにあなたを埋め、泥風呂はミネラル豊富な火山粘土であなたをコーティングします。日田では、杉林が京都の商品を下流で取引して卸売の財を成した武士商人の家を陰にします。国東半島は瀬戸内海に突き出し、その山岳寺院は仏教と山岳信仰を融合させた神秘的な僧侶によって創建されました—全国4万の八幡宮の総本宮である宇佐神宮が岬を冠しています。臼杵の60体の石仏は12世紀に崖に彫られ、穏やかで風化した顔で田んぼを見守っています。大分のアイデンティティは地熱です：熱く、癒やし、絶えず再生可能で、下から昇るものによって形作られています。'
+            description: `Oita is a place where nature shapes life. Rivers carve deep valleys, mountains rise behind quiet towns, and the Bungo Channel meets the coast. Water is everywhere—from Beppu's steaming streets to Yufuin's tranquil ryokan nestled among volcanic hills. The Kunisaki Peninsula offers rolling forests, hidden temples, and dramatic coastal cliffs. In Oita, nature and culture coexist, offering a rich glimpse of the island's landscapes and life.`,
+            descriptionJp: '大分：九州の水と山の県
+
+大分は、自然が日常を形作る場所です。川が深い谷を刻み、静かな町の背後に山々がそびえ、豊後水道が沿岸に広がります。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、至る所に水の存在が感じられます。国東半島には、広がる森や隠れた寺院、海岸沿いの劇的な崖が点在しています。大分では、自然と文化が共存し、島の多彩な景観や暮らしを豊かに感じられます。'
         },
         'miyazaki-home': {
-            name: 'Miyazaki Prefecture',
+            name: 'Miyazaki Prefecture - Kyushu\\'s Land of Light and Legend',
             nameJp: '宮崎県',
             emoji: '🌊',
-            description: `Sun-drenched and myth-soaked. Miyazaki basks in more sunshine than anywhere else in Japan—subtropical warmth that ripens mangoes, lychees, and legends. This is where mythology begins: Takachiho Gorge, where the sun goddess Amaterasu hid in a cave until lured out by dancing and mirrors, the mythic origin of Japan's imperial line. The gorge's basalt cliffs tower 80 meters above emerald water, formed by ancient lava flows. Nichinan's coast stretches 100 kilometers of palm-lined beaches and fishing villages where bonito is seared over straw flames. Aoshima's tiny island shrine sits surrounded by "devil's washboard"—layered sandstone ripples exposed at low tide, geometric and otherworldly. In the mountains, Takachiho's farmers still perform sacred kagura dances nightly, 33 acts telling creation myths unchanged for 900 years. Miyazaki's chickens—jidori—are descended from ancient breeds, raised on volcanic slopes and grilled over charcoal. The Phoenix Seagaia Resort hosted world summits, then bankrupted, then revived—a boom-and-bust cycle familiar here. Pro baseball teams train in Miyazaki's eternal spring; surfers chase consistent Pacific swells. This is a prefecture of beginnings, where gods were born, where the sun never seems to set, where modernity and mythology share the same beaches.`,
-            descriptionJp: '太陽に照らされ、神話に浸る。宮崎は日本のどこよりも多くの日差しを浴びます—マンゴー、ライチ、そして伝説を熟させる亜熱帯の暖かさ。ここで神話が始まります：高千穂峡、太陽神天照が洞窟に隠れ、踊りと鏡で誘い出された場所、日本の皇室の神話的起源。峡谷の玄武岩の崖は、古代の溶岩流によって形成されたエメラルドグリーンの水の上に80メートル聳え立ちます。日南の海岸は100キロメートルのヤシに縁取られたビーチと、鰹を藁の炎で炙る漁村が伸びています。青島の小さな島の神社は「鬼の洗濯板」に囲まれています—干潮時に露出する層状の砂岩の波紋、幾何学的で異世界的です。山々では、高千穂の農民は今も毎晩神聖な神楽舞を演じ、900年間変わらない創世神話を語る33の幕を披露します。宮崎の鶏—地鶏—は古代の品種の子孫で、火山斜面で育てられ炭火で焼かれます。フェニックス・シーガイアリゾートは世界サミットを開催し、その後破産し、その後復活しました—ここではよく知られたブームとバストのサイクル。プロ野球チームは宮崎の永遠の春でトレーニングし、サーファーは一貫した太平洋のうねりを追います。これは始まりの県です、神々が生まれた場所、太陽が決して沈まないように見える場所、現代性と神話が同じビーチを共有する場所。'
+            description: `Miyazaki basks in sunlight, where Pacific waves meet golden shores and forested hills cradle ancient shrines and villages. Myth and nature intertwine—from Mount Takachiho's sacred peaks to Nichinan's sunlit beaches. Cedar forests, coastal caves, and fresh seafood by the sea reveal Kyushu's natural and spiritual heritage. Miyazaki embraces life with warmth, legend, and sunlight.`,
+            descriptionJp: '宮崎：九州の光と伝説の地
+
+宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。杉の森の散策、海岸の洞窟探検、海の幸を味わうことで、九州の自然と霊性を温かく感じることができます。'
         },
         'kagoshima-home': {
-            name: 'Kagoshima Prefecture',
+            name: 'Kagoshima Prefecture - Kyushu\\'s Fiery Soul',
             nameJp: '鹿児島県',
             emoji: '🌸',
-            description: `Southern frontier of fire and spirit. Sakurajima erupts daily across Kinko Bay, a volcanic island so active that umbrellas protect against ash, not rain. The city has learned to live with this: gardens swept clean each morning, laundry hung strategically, a volcano accepted as neighbor. This is Satsuma—the domain that bred Japan's fiercest samurai, launched the Meiji Restoration, and gave the world its word for tangerines. Saigo Takamori, the Last Samurai, was born here, as were the politicians and industrialists who dismantled the shogunate and modernized Japan. Satsuma's pride runs deep, its dialect nearly incomprehensible to other Japanese. Chiran's samurai gardens hide behind stone walls in a town that once trained kamikaze pilots—17-year-olds who left from Chiran's airfield for one-way missions, their letters now preserved in a museum that asks impossible questions. South of the mainland, Yakushima's ancient cedars—some 7,000 years old—inspired Studio Ghibli's forest spirits. Tanegashima, where Portuguese guns first reached Japan in 1543, now launches rockets into space. The Amami Islands stretch subtropical toward Okinawa, their turquoise lagoons home to endemic habu snakes and black rabbits. Kagoshima is Japan's southern edge, volcanic and defiant, where tradition is fierce, history is personal, and the volcano reminds everyone: power is never static.`,
-            descriptionJp: '火と精神の南の辺境。桜島は錦江湾の向こうで毎日噴火し、非常に活発な火山島で、傘は雨ではなく灰から守ります。市はこれと共に生きることを学びました：毎朝掃き清められた庭園、戦略的に干された洗濯物、隣人として受け入れられた火山。これは薩摩—日本で最も激しい武士を育て、明治維新を開始し、世界にみかんの言葉を与えた藩。西郷隆盛、最後の侍はここで生まれ、幕府を解体し日本を近代化した政治家や実業家もそうでした。薩摩の誇りは深く、その方言は他の日本人にはほとんど理解できません。知覧の武家庭園は、かつて神風パイロットを訓練した町の石垣の裏に隠れています—17歳の若者が知覧の飛行場から片道ミッションのために出発し、彼らの手紙は今、不可能な問いを投げかける博物館に保存されています。本土の南、屋久島の古代杉—一部は7,000年前—はスタジオジブリの森の精霊にインスピレーションを与えました。1543年にポルトガルの銃が日本に最初に到達した種子島は、今やロケットを宇宙に打ち上げます。奄美諸島は沖縄に向かって亜熱帯に広がり、そのターコイズブルーのラグーンは固有のハブ蛇と黒兎の故郷です。鹿児島は日本の南端、火山性で反抗的で、伝統は激しく、歴史は個人的で、火山は皆に思い出させます：力は決して静的ではありません。'
+            description: `Kagoshima is where volcanoes meet the sea. Sakurajima's smoldering peak dominates the bay, while islands and waves shape the coastline. Rivers carve volcanic valleys, nurturing hot springs and fertile fields. Life moves with nature's rhythm—from the bustling streets of Kagoshima City to quiet fishing villages of the Satsunan Islands. Every eruption and sunset over the sea reminds you of the earth's raw power and the resilience of those who call Kagoshima home.`,
+            descriptionJp: '鹿児島：九州の炎と流れの魂
+
+鹿児島は、火山と海が交わる県です。桜島の煙を上げる峰が湾を見守り、島々や波が沿岸を形作ります。川は火山の谷を刻み、温泉や肥沃な畑を育みます。鹿児島市の活気ある街並みから薩南諸島の静かな漁村まで、自然のリズムに沿って暮らしが流れます。噴火や海に沈む夕日が、地球の力強さとここに生きる人々のたくましさを感じさせます。'
         }
     };
     
