@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weebly Image Connection Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .intro {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .intro p {
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .test-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: #fafafa;
+        }
+        
+        .test-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .image-container {
+            width: 100%;
+            min-height: 200px;
+            background: #edf2f7;
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+        
+        .loading {
+            color: #a0aec0;
+            font-style: italic;
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status.success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .status.error {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        .status.loading {
+            background: #feebc8;
+            color: #7c2d12;
+        }
+        
+        .url {
+            font-size: 0.85rem;
+            color: #718096;
+            word-break: break-all;
+            background: white;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .summary {
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .summary h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .summary-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        .success-color {
+            color: #68d391;
+        }
+        
+        .error-color {
+            color: #fc8181;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Weebly Image Connection Test</h1>
+        
+        <div class="intro">
+            <p><strong>Purpose:</strong> This page tests if your browser can load images from basecampkyushu.weebly.com</p>
+            <p><strong>What to look for:</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>✅ Green "LOADED" = Image loaded successfully</li>
+                <li>❌ Red "FAILED" = Image blocked or unavailable</li>
+                <li>⏳ Yellow "LOADING" = Still attempting to load</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>If all images load here but not on your GitHub Pages site, the problem is with GitHub deployment structure, not the images.</strong></p>
+        </div>
+        
+        <div class="test-grid" id="testGrid"></div>
+        
+        <div class="summary">
+            <h2>Test Results Summary</h2>
+            <div class="summary-stats">
+                <div class="stat">
+                    <div class="stat-value success-color" id="successCount">0</div>
+                    <div class="stat-label">Successfully Loaded</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value error-color" id="errorCount">0</div>
+                    <div class="stat-label">Failed to Load</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #f6ad55;" id="loadingCount">4</div>
+                    <div class="stat-label">Still Loading</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                name: "Stories Icon (Map with Pencil)",
+                url: "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png",
+                usage: "Homepage - Stories Pillar Icon"
+            },
+            {
+                name: "WEAR Icon (T-shirt Model)",
+                url: "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg",
+                usage: "Homepage - WEAR Pillar Icon & Online Store"
+            },
+            {
+                name: "Book Cover (Whispers of Ashes)",
+                url: "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pr_orig.png",
+                usage: "Homepage - Featured Project & Stories Page"
+            },
+            {
+                name: "Kyushu Locations Map",
+                url: "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/htmlimage-91012627-dfb6-89e1-41da-e76cb94b2dde_orig.png",
+                usage: "Homepage - Discovery Section"
+            }
+        ];
+
+        let successCount = 0;
+        let errorCount = 0;
+        let loadingCount = images.length;
+
+        function updateSummary() {
+            document.getElementById('successCount').textContent = successCount;
+            document.getElementById('errorCount').textContent = errorCount;
+            document.getElementById('loadingCount').textContent = loadingCount;
+        }
+
+        function createTestCard(imageData, index) {
+            const card = document.createElement('div');
+            card.className = 'test-card';
+            card.id = `card-${index}`;
+            
+            card.innerHTML = `
+                <h3>${imageData.name}</h3>
+                <div class="status loading" id="status-${index}">⏳ LOADING...</div>
+                <div class="image-container" id="container-${index}">
+                    <span class="loading">Loading image...</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <strong>Used in:</strong><br>
+                    <span style="color: #4a5568;">${imageData.usage}</span>
+                </div>
+                <div class="url" style="margin-top: 1rem;">
+                    <strong>URL:</strong><br>
+                    ${imageData.url}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function loadImage(imageData, index) {
+            const img = new Image();
+            const startTime = Date.now();
+            
+            img.onload = function() {
+                const loadTime = Date.now() - startTime;
+                const container = document.getElementById(`container-${index}`);
+                const status = document.getElementById(`status-${index}`);
+                
+                container.innerHTML = '';
+                container.appendChild(img);
+                
+                status.textContent = `✅ LOADED (${loadTime}ms)`;
+                status.className = 'status success';
+                
+                successCount++;
+                loadingCount--;
+                updateSummary();
+            };
+            
+            img.onerror = function() {
+                const loadTime = Date.now() - startTime;
+                const container = document.getElementById(`container-${index}`);
+                const status = document.getElementById(`status-${index}`);
+                
+                container.innerHTML = '<span style="color: #e53e3e; font-weight: bold;">❌ IMAGE FAILED TO LOAD</span>';
+                
+                status.textContent = `❌ FAILED (${loadTime}ms)`;
+                status.className = 'status error';
+                
+                errorCount++;
+                loadingCount--;
+                updateSummary();
+            };
+            
+            // Add timeout (30 seconds)
+            setTimeout(() => {
+                if (img.complete === false) {
+                    const container = document.getElementById(`container-${index}`);
+                    const status = document.getElementById(`status-${index}`);
+                    
+                    container.innerHTML = '<span style="color: #e53e3e; font-weight: bold;">⏰ TIMEOUT (30s)</span>';
+                    status.textContent = '⏰ TIMEOUT';
+                    status.className = 'status error';
+                    
+                    errorCount++;
+                    loadingCount--;
+                    updateSummary();
+                }
+            }, 30000);
+            
+            img.src = imageData.url;
+        }
+
+        // Initialize
+        const grid = document.getElementById('testGrid');
+        images.forEach((imageData, index) => {
+            const card = createTestCard(imageData, index);
+            grid.appendChild(card);
+            loadImage(imageData, index);
+        });
+    </script>
+</body>
+</html>

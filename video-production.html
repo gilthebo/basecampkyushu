@@ -3,146 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Full-service video production in Kyūshū by M Global Japan. Film commercials, documentaries, and branded content across southern Japan.">
-    <meta name="keywords" content="video production Kyūshū, film location Japan, Kyūshū cinematography, M Global Japan, commercial video production, film crew Japan, Itoshima production">
-    <title>Video Production Services - Basecamp Kyūshū</title>
+    <meta name="description" content="Full-service video production in Kyūshū by M Global Japan. We don't coordinate. We produce. Complete crews, professional equipment, end-to-end execution.">
+    <meta name="keywords" content="video production Kyūshū, film location Japan, M Global Japan, commercial production, documentary filming, Kyūshū cinematography, Itoshima production base">
+    <title>Video Production in Kyūshū - M Global Japan</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com/video-production.html">
-    <meta property="og:title" content="Video Production Services in Kyūshū | Basecamp Kyūshū">
-    <meta property="og:description" content="Tokyo-based production company with deep Kyūshū expertise. Full-service video production from concept to delivery across southern Japan.">
+    <meta property="og:title" content="Video Production in Kyūshū | Full-Service Production">
+    <meta property="og:description" content="Tokyo-based company with deep Kyūshū expertise. Full production house, not fixers. Concept to delivery.">
     <meta property="og:image" content="https://yourdomain.com/images/og-video-production.jpg">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Video Production Services in Kyūshū">
-    <meta name="twitter:description" content="Full-service film production across southern Japan. We speak French and English fluently.">
-    <meta name="twitter:image" content="https://yourdomain.com/images/og-video-production.jpg">
+    <meta name="twitter:title" content="Video Production in Kyūshū - M Global Japan">
+    <meta name="twitter:description" content="Full-service production across southern Japan. Trilingual crews. 200+ documented locations.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/og-video-production.jpg">
     
     <link rel="canonical" content="https://yourdomain.com/video-production.html">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Improved Bilingual Text Wrapping */
-        .japanese-text {
-            display: inline-block;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            hyphens: auto;
-            max-width: 100%;
-        }
-        
-        /* Better responsive layout for services grid */
-        @media (max-width: 900px) {
-            [style*="grid-template-columns: repeat(3, 1fr)"] {
-                grid-template-columns: 1fr !important;
-            }
-        }
-        
-        /* Ensure text doesn't overflow in small containers */
-        li {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        
-        /* Japanese Toggle Button - Perfectly Aligned Under Logo */
-        .japanese-toggle-container {
-            position: sticky;
-            top: 80px;
-            z-index: 998;
-            background: rgba(255,255,255,0.98);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0.5rem 2rem;
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        
-        /* Align with logo position */
-        .japanese-toggle-container::before {
-            content: '';
-            width: calc((100% - var(--max-width)) / 2 + var(--spacing-md));
-        }
+        /* Japanese Toggle Button */
 
-        .japanese-toggle-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%);
+
+        .advantage-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--sunset-orange);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-section {
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--sunset-orange);
             color: white;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 0;
-            padding: 0.5rem 1rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            min-width: 100px;
-            max-width: 100%;
+            transition: all 0.3s;
         }
-
-        .japanese-toggle-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(74, 123, 167, 0.3);
-            background: linear-gradient(135deg, #5a8bb7 0%, #6a8a75 100%);
+        
+        .submit-btn:hover {
+            background: #c56832;
+            transform: translateY(-2px);
         }
-
-        .japanese-toggle-btn:active {
-            transform: translateY(0);
+        
+        /* Mobile responsive banner */
+        .hero {
+            background-attachment: scroll;
         }
-
-        .japanese-toggle-btn.hidden-state {
-            background: linear-gradient(135deg, #94a3b8 0%, #cbd5e0 100%);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-
-        .japanese-toggle-btn.hidden-state:hover {
-            background: linear-gradient(135deg, #a4b3c8 0%, #dbe5f0 100%);
-        }
-
-        .toggle-icon {
-            font-size: 0.9rem;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-
-        .japanese-toggle-btn:hover .toggle-icon {
-            transform: scale(1.05) rotate(3deg);
-        }
-
-        /* Mobile Responsive */
+        
         @media (max-width: 768px) {
-            .japanese-toggle-container {
-                padding: 0.4rem 1rem;
-                justify-content: flex-start;
-            }
-            
-            .japanese-toggle-container::before {
-                width: 0;
-            }
-            
-            .japanese-toggle-btn {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-                gap: 0.4rem;
-            }
-            
-            .toggle-icon {
-                font-size: 0.9rem;
+            .hero {
+                min-height: 300px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-attachment: scroll !important;
             }
         }
-
-        /* Ultra-small screens */
+        
         @media (max-width: 480px) {
-            .japanese-toggle-btn {
-                font-size: 0.7rem;
-                padding: 0.35rem 0.7rem;
+            .hero {
+                min-height: 250px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+            }
+        }
+        
+        /* Mobile text responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 1rem !important;
+            }
+            
+            h2 {
+                font-size: 1.8rem !important;
+            }
+            
+            .japanese-text {
+                font-size: 1rem !important;
+            }
+            
+            p {
+                font-size: 0.95rem !important;
+            }
+            
+            /* Production Partner Section */
+            section > div > h2 {
+                font-size: 1.6rem !important;
+            }
+            
+            section > div > p[style*="2.5rem"],
+            section > div > div > p[style*="1.8rem"] {
+                font-size: 1.3rem !important;
+            }
+            
+            section > div > p[style*="1.2rem"],
+            section > div > div > p[style*="1.2rem"] {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            /* Grid layouts to single column */
+            div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .japanese-text {
+                font-size: 0.9rem !important;
+            }
+            
+            p {
+                font-size: 0.9rem !important;
+            }
+            
+            section > div > div > p[style*="1.8rem"] {
+                font-size: 1.1rem !important;
             }
         }
     </style>
@@ -153,7 +202,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
+                <span style="font-size: 0.6rem; display: block; margin-top: 0.2rem;">土地 — 人 — 物語</span>
             </a>
             <nav class="main-nav">
                 <ul>
@@ -166,600 +215,452 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
-    <!-- Japanese Language Toggle Button - Improved Design -->
-    <div class="japanese-toggle-container">
-        <button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility">
-            <span class="toggle-text">Show</span>
-            <span class="toggle-icon">JPN</span>
-        </button>
-    </div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1337041357.png'); background-size: cover; background-position: center;">
-    </section>
 
-    <!-- Title Content Below Banner -->
-    <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
-        <h1 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">VIDEO PRODUCTION SERVICES</h1>
-        <p style="font-size: 1.3rem; color: var(--ocean-blue); margin-bottom: 0.5rem;">Your Partner in Southern&nbsp;Japan</p>
-        <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 0;">南日本でのパートナー</p>
-    </section>
-
-    <!-- Company Introduction -->
-    <section style="padding: 2rem 2rem 4rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <a href="http://mglobaljapan.com/" target="_blank">
-                    <h2 style="color: var(--primary-dark); font-size: 2rem; margin-bottom: 0.5rem;">By M Global Japan</h2>
-                    <p class="japanese-text" style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 0;">株式会社 M Global Japan</p>
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; font-size: 0.9rem;">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="index.html" style="color: var(--text-dark); text-decoration: none;">
+                    <span itemprop="name">Home</span>
                 </a>
-            </div>
-            
-            <p style="font-size: 1.15rem; line-height: 1.8; text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-                As a Tokyo-based production company with years of hands-on experience across the region, 
-                we handle video projects from concept to&nbsp;delivery.
-            </p>
-            
-            <div style="width: 100px; height: 1px; background: var(--text-light); margin: 3rem auto; opacity: 0.3;"></div>
-            
-            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                We understand the logistical realities, seasonal conditions, and location access that define 
-                production in this region. <strong>We don't coordinate—we execute.</strong> Our in-house team 
-                handles your entire production end-to-end across southern Japan.
-            </p>
-            
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                この地域での長年の実績を活かし、企画から納品まで一貫して映像制作を手掛けています。
-                地域特有の季節条件、ロケーションへのアクセス、現場の実務的な課題を熟知していることが私たちの強みです。
-                <strong>私たちはコーディネートではなく、実行します。</strong>
-            </p>
-        </div>
+                <meta itemprop="position" content="1" />
+                <span style="margin-left: 0.5rem; color: var(--text-light);">›</span>
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name" style="color: var(--sunset-orange); font-weight: 500;">Video Production</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1337041357.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; min-height: 400px; width: 100%;">
     </section>
 
-    <!-- What We Deliver -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">What We Deliver</h2>
-                <p class="section-subtitle japanese-text">提供内容</p>
-                <div class="section-divider"></div>
-            </div>
 
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon">🎬</div>
-                    <h3>Full Production Services</h3>
-                    <p class="japanese-text">フルプロダクションサービス</p>
-                    <p>Complete crew, equipment, and execution backed by our Tokyo headquarters and deep regional expertise. From concept to delivery.</p>
-                    <p class="japanese-text">東京本社のバックアップと地域での豊富な経験を基盤に、撮影クルー、機材、制作進行のすべてを提供。企画から納品まで。</p>
-                </div>
 
-                <div class="pillar-card">
-                    <div class="pillar-icon">🗺️</div>
-                    <h3>Location Intelligence</h3>
-                    <p class="japanese-text">ロケーション知識</p>
-                    <p>Years of mapping this territory through actual productions. We know which locations work, when they work, and how to access them.</p>
-                    <p class="japanese-text">実際のプロジェクトを通じて培った現場情報。どの場所が最適か、いつがベストタイミングか、どうアクセスするか。</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">⚡</div>
-                    <h3>Regional Expertise</h3>
-                    <p class="japanese-text">地域専門性</p>
-                    <p>From weather patterns to cultural nuances, our on-the-ground experience translates into efficient shoots and superior results. <strong>We speak French and English fluently.</strong></p>
-                    <p class="japanese-text">気象パターンから文化的配慮まで。この地での豊富な撮影経験が、効率的な制作進行と質の高い成果物を実現します。<strong>フランス語と英語を流暢に話します。</strong></p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">✅</div>
-                    <h3>Proven Track Record</h3>
-                    <p class="japanese-text">確かな実績</p>
-                    <p>We execute. Our in-house team handles your entire production end-to-end across southern Japan.</p>
-                    <p class="japanese-text">私たちは実行します。社内チームが南日本全域での制作を一貫して担当します。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ADVANCED SECTION: Visual Solutions Library -->
-    <section style="padding: 5rem 2rem; background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);">
-        <div style="max-width: 1400px; margin: 0 auto;">
+    <!-- Your Production Partner -->
+    <section style="padding: 4rem 2rem; background: white;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">YOUR PRODUCTION PARTNER</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 2rem; text-align: center; font-weight: 500;">映像制作パートナー</p>
             
-            <!-- Section Header -->
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: clamp(2.2rem, 4vw, 3rem); color: var(--primary-dark); margin-bottom: 1rem;">Visual Solutions Library</h2>
-                <p style="font-size: 1.3rem; color: var(--text-dark); margin-bottom: 0.5rem;">Production value through timing, access & insider knowledge</p>
-                <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light);">タイミング、アクセス、内部知識を通じた制作価値</p>
-                <div style="width: 100px; height: 3px; background: var(--ocean-blue); margin: 2rem auto;"></div>
-                <p style="max-width: 800px; margin: 1.5rem auto 0; font-size: 1.05rem; line-height: 1.8; color: var(--text-dark);">
-                    We don't just know locations—we know <strong>when</strong> to shoot them, <strong>how</strong> to access them, and <strong>why</strong> they solve specific visual storytelling problems.
+            <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 0.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                We are <strong>M&nbsp;Global&nbsp;Japan's production&nbsp;unit</strong> based in southern<br>Japan—a&nbsp;Tokyo-based company with deep regional&nbsp;expertise.
+            </p>
+            <p class="japanese-text" style="font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; color: var(--text-dark); word-break: keep-all; overflow-wrap: break-word;">
+                私たちは、東京を拠点とするM&nbsp;Global&nbsp;Japanの南日本制作ユニットです。地域に深い専門知識を持っています。
+            </p>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <p style="font-size: 1.8rem; font-weight: 700; color: var(--sunset-orange); margin-bottom: 0.5rem;">
+                    We don't coordinate. We produce.
+                </p>
+                <p class="japanese-text" style="font-size: 1.3rem; font-weight: 600; color: var(--sunset-orange); margin-bottom: 1rem;">
+                    コーディネートではなく、制作します。
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; max-width: 700px; margin: 0 auto 0.5rem;">
+                    From concept to final&nbsp;delivery,<br>our&nbsp;in-house team handles your entire project&nbsp;end-to-end.
+                </p>
+                <p class="japanese-text" style="font-size: 1rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                    企画から最終納品まで、社内チームがプロジェクト全体を管理します。
                 </p>
             </div>
+        </div>
+    </section>
 
-            <!-- Production Advantages Section -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+    <!-- Why Work With Us -->
+    <section style="padding: 4rem 2rem; background: var(--light-gray);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">WHY WORK WITH US</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 3rem; text-align: center; font-weight: 500;">私たちを選ぶ理由</p>
+            
+            <!-- 2x2 Grid Layout -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <!-- Full Production Capabilities -->
+                <div class="advantage-card">
+                    <h3 style="color: var(--sunset-orange); font-size: 1.5rem; margin-bottom: 0.5rem;">Full Production Capabilities</h3>
+                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--sunset-orange); margin-bottom: 1rem; font-weight: 500;">完全な制作能力</p>
+                    <p style="line-height: 1.8; margin-bottom: 0.5rem;">
+                        Complete crews, professional equipment, and seamless execution backed by our Tokyo headquarters and years of regional experience.
+                    </p>
+                    <p class="japanese-text" style="line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
+                        完全なクルー、プロ機材、シームレスな実行を東京本社がバックアップ。
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-dark);">
+                        Not fixers. Not coordinators. Full production house.
+                    </p>
+                </div>
+
+                <!-- Deep Location Knowledge -->
+                <div class="advantage-card">
+                    <h3 style="color: var(--sunset-orange); font-size: 1.5rem; margin-bottom: 0.5rem;">Deep Location Knowledge</h3>
+                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--sunset-orange); margin-bottom: 1rem; font-weight: 500;">深いロケ地知識</p>
+                    <p style="line-height: 1.8; margin-bottom: 0.5rem;">
+                        Years of actual shoots have mapped this territory. We know which locations work, when to shoot them, how to access them, and why they solve specific visual storytelling needs.
+                    </p>
+                    <p class="japanese-text" style="line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
+                        実際の撮影で地域を網羅。どの場所が機能するか、いつ撮影するか、アクセス方法を熟知。
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-dark);">
+                        Over 200 locations documented across 7 prefectures.
+                    </p>
+                </div>
+
+                <!-- Regional Expertise -->
+                <div class="advantage-card">
+                    <h3 style="color: var(--sunset-orange); font-size: 1.5rem; margin-bottom: 0.5rem;">Regional Expertise</h3>
+                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--sunset-orange); margin-bottom: 1rem; font-weight: 500;">地域専門性</p>
+                    <p style="line-height: 1.8; margin-bottom: 0.5rem;">
+                        From seasonal weather patterns to cultural sensitivities, our on-the-ground experience translates into efficient shoots and superior results.
+                    </p>
+                    <p class="japanese-text" style="line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
+                        季節の気象パターンから文化的配慮まで、現地経験が効率的な撮影と優れた結果を生みます。
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-dark);">
+                        Crew: Japanese, English, French.
+                    </p>
+                </div>
+
+                <!-- Established Relationships -->
+                <div class="advantage-card">
+                    <h3 style="color: var(--sunset-orange); font-size: 1.5rem; margin-bottom: 0.5rem;">Established Relationships</h3>
+                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--sunset-orange); margin-bottom: 1rem; font-weight: 500;">確立された関係</p>
+                    <p style="line-height: 1.8; margin-bottom: 0.5rem;">
+                        Years of local partnerships for access to locations, artisans, and cultural sites.
+                    </p>
+                    <p class="japanese-text" style="line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
+                        ロケ地、職人、文化施設へのアクセスのための長年の地元パートナーシップ。
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-dark);">
+                        We work with trusted contacts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Kyushu Production Advantage -->
+    <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem; text-align: center;">THE PRODUCTION ADVANTAGE</h2>
+            
+            <!-- 2x2 Grid Layout -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white; font-weight: 700;">Location Density</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem; color: rgba(255,255,255,0.95);">
+                        Seven distinct prefectures within 2-hour drives from our Itoshima base.
+                    </p>
+                    <p style="font-style: italic; color: rgba(255,255,255,0.9);">
+                        Volcanic peaks → coastal villages → ancient forests in a single day shoot.
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white; font-weight: 700;">Uncrowded Locations</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem; color: rgba(255,255,255,0.95);">
+                        Tourist-free shoots with clean frames. No crowd control. No location permit battles.
+                    </p>
+                    <p style="font-style: italic; color: rgba(255,255,255,0.9);">
+                        Authentic Japan without logistical nightmares.
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white; font-weight: 700;">Weather Reliability</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem; color: rgba(255,255,255,0.95);">
+                        300+ sunny days annually. Extended shooting seasons. Predictable conditions.
+                    </p>
+                    <p style="font-style: italic; color: rgba(255,255,255,0.9);">
+                        Less weather delays. More schedule confidence.
+                    </p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white; font-weight: 700;">Cost Efficiency</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem; color: rgba(255,255,255,0.95);">
+                        Production costs lower than Tokyo or Kyoto while maintaining quality.
+                    </p>
+                    <p style="font-style: italic; color: rgba(255,255,255,0.9);">
+                        Same crews. Same equipment. Better value.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section style="padding: 4rem 2rem; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">OUR SERVICES</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 3rem; text-align: center; font-weight: 500;">サービス内容</p>
+            
+            <!-- Pre-Production -->
+            <div class="service-section">
+                <h3 style="font-size: 2rem; color: var(--sunset-orange); margin-bottom: 0.5rem; text-align: center;">PRE-PRODUCTION</h3>
+                <p class="japanese-text" style="font-size: 1.2rem; color: var(--sunset-orange); margin-bottom: 2rem; font-weight: 500; text-align: center;">プリプロダクション</p>
                 
-                <!-- Advantage 1 -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--sunset-orange);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🗺️</div>
-                    <h3 style="color: var(--sunset-orange); font-size: 1.4rem; margin-bottom: 0.5rem;">Location Density</h3>
-                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem;">ロケーション密度</p>
-                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        7 distinct prefectures within 2-hour drives. Swap volcano for coast for forest in the same day shoot.
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.7; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 1rem;">
-                        2時間以内に7つの異なる県。同じ日に火山、海岸、森を撮影。
-                    </p>
-                    <p style="font-weight: 600; color: var(--primary-dark);">Value: 3 locations, 1 production move</p>
-                    <p class="japanese-text" style="font-weight: 600; color: var(--primary-dark); font-size: 0.9rem;">価値：3ロケーション、1回の移動</p>
-                </div>
-
-                <!-- Advantage 2 -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--ocean-blue);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
-                    <h3 style="color: var(--ocean-blue); font-size: 1.4rem; margin-bottom: 0.5rem;">Zero Crowds</h3>
-                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem;">群衆ゼロ</p>
-                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Tourist-free shoots with clean frames. No location permit battles or crowd control headaches.
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.7; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 1rem;">
-                        観光客のいないクリーンな撮影。許可戦や群衆コントロールの頭痛なし。
-                    </p>
-                    <p style="font-weight: 600; color: var(--primary-dark);">Value: Authentic Japan without logistical nightmares</p>
-                    <p class="japanese-text" style="font-weight: 600; color: var(--primary-dark); font-size: 0.9rem;">価値：ロジスティクスの悪夢なしに本物の日本</p>
-                </div>
-
-                <!-- Advantage 3 -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--moss-green);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
-                    <h3 style="color: var(--moss-green); font-size: 1.4rem; margin-bottom: 0.5rem;">Established Relationships</h3>
-                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem;">確立された関係</p>
-                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Years of local partnerships. Access to locations, artisans, and opportunities others can't secure.
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.7; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 1rem;">
-                        長年の地元パートナーシップ。他の人が確保できないロケーション、職人、機会へのアクセス。
-                    </p>
-                    <p style="font-weight: 600; color: var(--primary-dark);">Value: Exclusive access through trusted relationships</p>
-                    <p class="japanese-text" style="font-weight: 600; color: var(--primary-dark); font-size: 0.9rem;">価値：信頼関係による独占アクセス</p>
-                </div>
-
-                <!-- Advantage 4 -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid var(--sunset-orange);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">☀️</div>
-                    <h3 style="color: var(--sunset-orange); font-size: 1.4rem; margin-bottom: 0.5rem;">Weather Reliability</h3>
-                    <p class="japanese-text" style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem;">天候の信頼性</p>
-                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        300+ sunny days in southern prefectures. Extended shooting seasons, predictable conditions.
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.7; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 1rem;">
-                        南部の県では300日以上の晴天。延長された撮影シーズン、予測可能な条件。
-                    </p>
-                    <p style="font-weight: 600; color: var(--primary-dark);">Value: Schedule confidence, fewer weather delays</p>
-                    <p class="japanese-text" style="font-weight: 600; color: var(--primary-dark); font-size: 0.9rem;">価値：スケジュールの信頼性、天候遅延の減少</p>
-                </div>
-
-            </div>
-
-            <!-- Production Intelligence Section -->
-            <div style="text-align: center; margin: 5rem 0 3rem;">
-                <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); color: var(--primary-dark); margin-bottom: 1rem;">Production Intelligence</h2>
-                <p style="font-size: 1.1rem; color: var(--text-dark);">Deep production knowledge for your creative challenges</p>
-                <p class="japanese-text" style="font-size: 1rem; color: var(--text-light); margin-top: 0.5rem;">クリエイティブな課題のための深い制作知識</p>
-            </div>
-
-            <!-- Sophisticated Creative Briefs - BILINGUAL -->
-            <div style="display: block;">
-                <div style="display: grid; gap: 2.5rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding-top: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Concept Development & Creative Planning</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Script consultation & storyboarding</li>
+                            <li>Shot list development</li>
+                            <li>Creative direction aligned with regional visual strengths</li>
+                        </ul>
+                    </div>
                     
-                    <!-- Brief 1: NUANCED -->
-                    <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
-                        <div style="background: linear-gradient(135deg, var(--sunset-orange), #d67942); color: white; padding: 1.5rem 2rem;">
-                            <h3 style="font-size: 1.6rem; margin: 0; margin-bottom: 0.5rem; color: white;">📽️ Production Challenge: Living Craft Traditions</h3>
-                            <p class="japanese-text" style="margin: 0; opacity: 0.95; font-size: 1.1rem; color: white;">制作課題：生きた工芸の伝統</p>
-                        </div>
-                        <div style="padding: 2rem;">
-                            <div style="display: grid; gap: 1.5rem;">
-                                <div>
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">THE CHALLENGE</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">課題</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark);">Show traditional craftsmanship as a living, evolving practice—not as a museum piece. Authentic artisan work that demonstrates continuity across generations without romanticizing the past.</p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark); margin-top: 0.5rem;">伝統工芸を博物館の展示品ではなく、生きた進化する実践として表現。過去を美化することなく、世代を超えた継続性を示す本物の職人技。</p>
-                                </div>
-                                <div style="border-left: 4px solid var(--sunset-orange); padding-left: 1.5rem;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--sunset-orange); font-weight: 600; margin-bottom: 0.5rem;">KYŪSHŪ ANSWER</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--sunset-orange); font-weight: 600; margin-bottom: 0.5rem;">九州の解決策</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 0.8rem;">
-                                        <strong>Arita porcelain workshops: 30-year-old potters, not 90-year-old masters</strong><br>
-                                        → Document succession in progress—mid-career artisans who chose this path deliberately<br>
-                                        → Clean, well-lit studios (not dusty workshops): craft as profession, not museum<br>
-                                        → Morning shift (6–8 AM): Work begins before sentiment arrives<br>
-                                        → Technical precision visible: digital pyrometers beside 400-year-old kilns<br>
-                                        → Instagram accounts, international orders—continuity through adaptation
-                                    </p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark);">
-                                        <strong>有田焼工房：90歳の巨匠ではなく30歳の陶芸家</strong><br>
-                                        → 進行中の継承を記録—意図的にこの道を選んだ中堅職人<br>
-                                        → 清潔で明るいスタジオ（埃っぽい作業場ではない）：博物館ではなく職業としての工芸<br>
-                                        → 朝のシフト（6〜8時）：感傷が到着する前に仕事が始まる<br>
-                                        → 技術的精度が見える：400年前の窯の横にデジタル温度計<br>
-                                        → Instagramアカウント、国際注文—適応を通じた継続性
-                                    </p>
-                                </div>
-                                <div style="background: var(--light-gray); padding: 1rem 1.5rem; border-radius: 8px;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">WHY IT WORKS</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">なぜ機能するか</p>
-                                    <p style="line-height: 1.6; color: var(--text-dark); margin: 0;">Shows tradition as living system, not relic. Hands that will shape clay for 40 more years, not final generation. Authenticity without elegy.</p>
-                                    <p class="japanese-text" style="line-height: 1.6; color: var(--text-dark); margin-top: 0.5rem;">伝統を遺物ではなく生きたシステムとして示す。最後の世代ではなく、あと40年粘土を形作る手。哀歌なしの真正性。</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Location Scouting & Permits</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Custom location proposals based on your needs</li>
+                            <li>Site visits & photo surveys</li>
+                            <li>All necessary permits & clearances secured</li>
+                            <li>Cultural site access coordination</li>
+                        </ul>
                     </div>
-
-                    <!-- Brief 2: TECHNICAL CHALLENGE -->
-                    <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
-                        <div style="background: linear-gradient(135deg, var(--ocean-blue), #3a5f87); color: white; padding: 1.5rem 2rem;">
-                            <h3 style="font-size: 1.6rem; margin: 0; margin-bottom: 0.5rem; color: white;">🌲 Production Challenge: Ancient Forest Atmosphere</h3>
-                            <p class="japanese-text" style="margin: 0; opacity: 0.95; font-size: 1.1rem; color: white;">制作課題：古代林の雰囲気</p>
-                        </div>
-                        <div style="padding: 2rem;">
-                            <div style="display: grid; gap: 1.5rem;">
-                                <div>
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">THE PROBLEM</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">問題点</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark);">VFX budget slashed mid-production. Director needs otherworldly landscapes but lost the digital toolkit. "Make earth look like another planet—practically."</p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark); margin-top: 0.5rem;">VFX予算が制作途中で削減された。監督は異世界の風景を必要としているが、デジタルツールキットを失った。「地球を別の惑星のように見せてください—実践的に。」</p>
-                                </div>
-                                <div style="border-left: 4px solid var(--ocean-blue); padding-left: 1.5rem;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--ocean-blue); font-weight: 600; margin-bottom: 0.5rem;">KYŪSHŪ ANSWER</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--ocean-blue); font-weight: 600; margin-bottom: 0.5rem;">九州の解決策</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 0.8rem;">
-                                        <strong>Yakushima Island: 7,000-year-old cedar forests</strong><br>
-                                        → Ancient Jōmon Sugi cedars (massive, moss-covered trunks)<br>
-                                        → Natural morning mist rises from the forest floor (6–8 AM)<br>
-                                        → Soft, diffused light through dense canopy creates ethereal atmosphere<br>
-                                        → Year-round humidity = consistent fog conditions<br>
-                                        → UNESCO World Heritage site with controlled access<br>
-                                        → Famous as inspiration for Studio Ghibli's "Princess Mononoke"<br>
-                                        → Granite rock formations covered in emerald moss
-                                    </p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark);">
-                                        <strong>屋久島：7000年の歴史を持つ杉の森</strong><br>
-                                        → 古代縄文杉（巨大で苔に覆われた幹）<br>
-                                        → 朝の自然な霧が森林の床から立ち上る（6〜8時）<br>
-                                        → 密集した樹冠を通して差し込む柔らかい拡散光が幻想的な雰囲気を作る<br>
-                                        → 年間を通しての湿度=安定した霧の状況<br>
-                                        → 管理されたアクセスを持つユネスコ世界遺産<br>
-                                        → スタジオジブリ「もののけ姫」のインスピレーションとして有名<br>
-                                        → エメラルドの苔で覆われた花崗岩の地形
-                                    </p>
-                                </div>
-                                <div style="background: var(--light-gray); padding: 1rem 1.5rem; border-radius: 8px;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">WHY IT WORKS</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">なぜ機能するか</p>
-                                    <p style="line-height: 1.6; color: var(--text-dark); margin: 0;">Internationally recognized mystical atmosphere. Natural fog and light create fantasy-world visuals without any post-production. The forest's ancient presence is authentic and deeply appealing to global audiences.</p>
-                                    <p class="japanese-text" style="line-height: 1.6; color: var(--text-dark); margin-top: 0.5rem;">国際的に認められた神秘的な雰囲気。自然の霧と光がポストプロダクションなしでファンタジー世界のビジュアルを作り出す。森の古代的存在感は本物で、世界中の視聴者に深く訴える。</p>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Logistics & Planning</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Detailed production schedule</li>
+                            <li>Crew & equipment booking</li>
+                            <li>Accommodation & transport arrangement</li>
+                            <li>Weather contingency planning</li>
+                        </ul>
                     </div>
-
-                    <!-- Brief 3: NARRATIVE CHALLENGE -->
-                    <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
-                        <div style="background: linear-gradient(135deg, var(--moss-green), #5a7a5a); color: white; padding: 1.5rem 2rem;">
-                            <h3 style="font-size: 1.6rem; margin: 0; margin-bottom: 0.5rem; color: white;">📖 Production Challenge: Historical Paradox</h3>
-                            <p class="japanese-text" style="margin: 0; opacity: 0.95; font-size: 1.1rem; color: white;">制作課題：歴史的逆説</p>
-                        </div>
-                        <div style="padding: 2rem;">
-                            <div style="display: grid; gap: 1.5rem;">
-                                <div>
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">THE PROBLEM</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">問題点</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark);">Brand needs "Japan" but their research team flagged Tokyo/Kyoto as oversaturated. Every visual language already commodified. Need cultural depth without cultural tourism clichés.</p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark); margin-top: 0.5rem;">ブランドは「日本」を必要としているが、調査チームが東京/京都を過飽和と指摘。すべてのビジュアル言語がすでに商品化されている。文化観光の陳腐さなしに文化的深さが必要。</p>
-                                </div>
-                                <div style="border-left: 4px solid var(--moss-green); padding-left: 1.5rem;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--moss-green); font-weight: 600; margin-bottom: 0.5rem;">KYŪSHŪ ANSWER</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--moss-green); font-weight: 600; margin-bottom: 0.5rem;">九州の解決策</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 0.8rem;">
-                                        <strong>Nagasaki's Hidden Christian sites: Japan's forbidden history, UNESCO-certified</strong><br>
-                                        → Catholic churches on remote islands (Nozaki, Kashiragashima): European facades, Japanese interiors<br>
-                                        → Architecture tells 250 years of secret worship: tatami floors in Gothic naves, Buddhist temple disguises<br>
-                                        → Visual paradox: Crosses carved inside Buddhist imagery, prayers passed phonetically for 10 generations<br>
-                                        → Access strategy: Ferry schedules = natural production rhythm (1 boat/day = forced slow cinema)<br>
-                                        → Narrative hook: Japan's only UNESCO site for religious persecution—history as resistance, not heritage<br>
-                                        → Zero tourists May/September, churches maintained by 3-family island communities
-                                    </p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark);">
-                                        <strong>長崎の潜伏キリシタン関連遺産：日本の禁じられた歴史、ユネスコ認定</strong><br>
-                                        → 離島のカトリック教会（野崎島、頭ヶ島）：ヨーロッパのファサード、日本のインテリア<br>
-                                        → 建築は250年の秘密礼拝を語る：ゴシック身廊の畳、仏教寺院の偽装<br>
-                                        → 視覚的逆説：仏教的図像の内側に彫られた十字架、10世代にわたって音声的に伝えられた祈り<br>
-                                        → アクセス戦略：フェリースケジュール=自然な制作リズム（1日1船=強制的なスローシネマ）<br>
-                                        → 物語のフック：宗教迫害に関する日本唯一のユネスコ遺産—遺産ではなく抵抗としての歴史<br>
-                                        → 5月/9月は観光客ゼロ、3家族の島コミュニティによって維持されている教会
-                                    </p>
-                                </div>
-                                <div style="background: var(--light-gray); padding: 1rem 1.5rem; border-radius: 8px;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">WHY IT WORKS</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">なぜ機能するか</p>
-                                    <p style="line-height: 1.6; color: var(--text-dark); margin: 0;">Japan nobody's seen. Architecture that embodies paradox. Story of survival, not ceremony. Visual language that exists nowhere else—neither European nor Japanese, but precisely both.</p>
-                                    <p class="japanese-text" style="line-height: 1.6; color: var(--text-dark); margin-top: 0.5rem;">誰も見たことのない日本。逆説を体現する建築。儀式ではなく生存の物語。他のどこにも存在しないビジュアル言語—ヨーロッパでも日本でもなく、まさに両方。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Brief 4: LOGISTICAL CHALLENGE -->
-                    <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
-                        <div style="background: linear-gradient(135deg, var(--primary-dark), #1a2332); color: white; padding: 1.5rem 2rem;">
-                            <h3 style="font-size: 1.6rem; margin: 0; margin-bottom: 0.5rem; color: white;">⚙️ Production Challenge: Scale Without Chaos</h3>
-                            <p class="japanese-text" style="margin: 0; opacity: 0.95; font-size: 1.1rem; color: white;">制作課題：混沌なしの規模</p>
-                        </div>
-                        <div style="padding: 2rem;">
-                            <div style="display: grid; gap: 1.5rem;">
-                                <div>
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">THE PROBLEM</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.5rem;">問題点</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark);">Client needs epic geological scale but Tokyo/Osaka production logistics are nightmares. Permits take 16 weeks, crowds require CGI removal, location fees exceed budget.</p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark); margin-top: 0.5rem;">クライアントは壮大な地質学的規模を必要としているが、東京/大阪の制作ロジスティクスは悪夢。許可は16週間かかり、群衆はCGI除去が必要で、ロケーション料金は予算を超える。</p>
-                                </div>
-                                <div style="border-left: 4px solid var(--primary-dark); padding-left: 1.5rem;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.5rem;">KYŪSHŪ ANSWER</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.5rem;">九州の解決策</p>
-                                    <p style="line-height: 1.8; color: var(--text-dark); margin-bottom: 0.8rem;">
-                                        <strong>Mount Aso caldera: 25km volcanic bowl, production-friendly access</strong><br>
-                                        → One of world's largest calderas (120km² floor area) - scale reads on any lens<br>
-                                        → Active volcanic cone Nakadake: Smoke plumes add natural drama (no FX needed)<br>
-                                        → Rim road helicopter permits: 6-week lead (vs. 16 weeks Tokyo), ¥180,000 vs. ¥800,000<br>
-                                        → Grasslands turn vivid green late April–May (natural color grading)<br>
-                                        → Zero crowd control needed: Tourist access closed during volcanic activity = exclusive shoot windows<br>
-                                        → Ground crew within caldera: Farmland provides practical base camp locations<br>
-                                        → Weather volatility = production advantage: Dramatic cloud formations, natural diffusion, ever-changing light
-                                    </p>
-                                    <p class="japanese-text" style="line-height: 1.8; color: var(--text-dark);">
-                                        <strong>阿蘇山カルデラ：25kmの火山ボウル、制作に優しいアクセス</strong><br>
-                                        → 世界最大級のカルデラの一つ（床面積120km²） - どのレンズでも規模が読み取れる<br>
-                                        → 活火山錐体中岳：煙の柱が自然なドラマを追加（FX不要）<br>
-                                        → リムロードヘリコプター許可：6週間のリード（東京の16週間に対して）、18万円対80万円<br>
-                                        → 草原は4月下旬から5月に鮮やかな緑に変わる（自然なカラーグレーディング）<br>
-                                        → 群衆管理不要：火山活動中は観光客のアクセスが閉鎖=独占的な撮影ウィンドウ<br>
-                                        → カルデラ内の地上クルー：農地が実用的なベースキャンプの場所を提供<br>
-                                        → 天候の不安定性=制作上の利点：劇的な雲の形成、自然な拡散、常に変化する光
-                                    </p>
-                                </div>
-                                <div style="background: var(--light-gray); padding: 1rem 1.5rem; border-radius: 8px;">
-                                    <p style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">WHY IT WORKS</p>
-                                    <p class="japanese-text" style="font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); font-weight: 600; margin-bottom: 0.3rem;">なぜ機能するか</p>
-                                    <p style="line-height: 1.6; color: var(--text-dark); margin: 0;">Geographic drama that cameras can't diminish. Active geology adds movement. Permits faster, costs lower, access cleaner. Epic scale without epic headaches.</p>
-                                    <p class="japanese-text" style="line-height: 1.6; color: var(--text-dark); margin-top: 0.5rem;">カメラが減少させることのできない地理的ドラマ。活発な地質学が動きを追加。許可が早く、コストが低く、アクセスがクリーン。壮大な頭痛なしの壮大な規模。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-
-            <!-- Scene Type Library -->
-            <div style="text-align: center; margin: 5rem 0 3rem;">
-                <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); color: var(--primary-dark); margin-bottom: 1rem;">Scene Type → Location Match</h2>
-                <p style="font-size: 1.1rem; color: var(--text-dark);">Storyboard to location in one conversation</p>
-                <p class="japanese-text" style="font-size: 1rem; color: var(--text-light); margin-top: 0.5rem;">一度の会話で絵コンテからロケーションへ</p>
-            </div>
-
-            <!-- Scene Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Production -->
+            <div class="service-section">
+                <h3 style="font-size: 2rem; color: var(--sunset-orange); margin-bottom: 0.5rem; text-align: center;">PRODUCTION</h3>
+                <p class="japanese-text" style="font-size: 1.2rem; color: var(--sunset-orange); margin-bottom: 2rem; font-weight: 500; text-align: center;">制作</p>
                 
-                <!-- Opening Wide -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--sunset-orange); font-size: 1.3rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.8rem;">📐</span> Opening Wide: Epic Scale
-                    </h3>
-                    <p class="japanese-text" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">壮大なスケール</p>
-                    <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-dark);">
-                        <li style="margin-bottom: 0.8rem;">→ Aso Caldera (25km volcanic bowl) <span style="color: var(--text-light); font-size: 0.9rem;">| KUMAMOTO</span></li>
-                        <li style="margin-bottom: 0.8rem;">→ Rice terraces cascading mountains <span style="color: var(--text-light); font-size: 0.9rem;">| SAGA</span></li>
-                        <li>→ Coastal cliffs meeting Pacific <span style="color: var(--text-light); font-size: 0.9rem;">| MIYAZAKI</span></li>
-                    </ul>
-                </div>
-
-                <!-- Intimate -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--ocean-blue); font-size: 1.3rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.8rem;">👤</span> Intimate: Human Scale
-                    </h3>
-                    <p class="japanese-text" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">親密な空間</p>
-                    <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-dark);">
-                        <li style="margin-bottom: 0.8rem;">→ Pottery workshop, 400-year kiln <span style="color: var(--text-light); font-size: 0.9rem;">| SAGA</span></li>
-                        <li style="margin-bottom: 0.8rem;">→ Fisherman's shack, sunrise nets <span style="color: var(--text-light); font-size: 0.9rem;">| NAGASAKI</span></li>
-                        <li>→ Mountain shrine, cedar shadows <span style="color: var(--text-light); font-size: 0.9rem;">| ŌITA</span></li>
-                    </ul>
-                </div>
-
-                <!-- Dramatic -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--moss-green); font-size: 1.3rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.8rem;">⚡</span> Dramatic: High Contrast
-                    </h3>
-                    <p class="japanese-text" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">ドラマチックなコントラスト</p>
-                    <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-dark);">
-                        <li style="margin-bottom: 0.8rem;">→ Active volcano vs. city lights <span style="color: var(--text-light); font-size: 0.9rem;">| KAGOSHIMA</span></li>
-                        <li style="margin-bottom: 0.8rem;">→ Colonial mansions vs. modern port <span style="color: var(--text-light); font-size: 0.9rem;">| NAGASAKI</span></li>
-                        <li>→ Gorge waterfalls, 80m basalt walls <span style="color: var(--text-light); font-size: 0.9rem;">| MIYAZAKI</span></li>
-                    </ul>
-                </div>
-
-                <!-- Transitional -->
-                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                    <h3 style="color: var(--sunset-orange); font-size: 1.3rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 1.8rem;">🔄</span> Transitional: Time & Movement
-                    </h3>
-                    <p class="japanese-text" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">時間と動きの変化</p>
-                    <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-dark);">
-                        <li style="margin-bottom: 0.8rem;">→ Tidal flats (hours of transformation) <span style="color: var(--text-light); font-size: 0.9rem;">| SAGA</span></li>
-                        <li style="margin-bottom: 0.8rem;">→ Steam rising from colored onsen <span style="color: var(--text-light); font-size: 0.9rem;">| ŌITA</span></li>
-                        <li>→ Ferry through 971 islands <span style="color: var(--text-light); font-size: 0.9rem;">| NAGASAKI</span></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Call to Action -->
-            <div style="text-align: center; margin-top: 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--primary-dark), var(--ocean-blue)); border-radius: 16px;">
-                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: white;">Have a creative brief in mind?</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95; color: white;">Let's match it to Kyūshū's canvas.</p>
-                <p class="japanese-text" style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.9; color: white;">九州のキャンバスにマッチングしましょう。</p>
-                <a href="#contact" class="btn" style="background: white; color: var(--primary-dark); padding: 1rem 3rem; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 8px; display: inline-block; transition: all 0.3s ease; cursor: pointer;">
-                    Start the Conversation →
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Services List -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 1000px; margin: 0 auto;">
-            <div class="section-header" style="text-align: center;">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle japanese-text">提供サービス</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="max-width: 1200px; margin: 0 auto;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">✓ Pre-Production</h4>
-                        <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">プリプロダクション</p>
-                        <ul style="line-height: 2; color: var(--text-dark); list-style: none; padding: 0;">
-                            <li>Concept Development<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">コンセプト開発</span></li>
-                            <li>Location Scouting<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">ロケーションハンティング</span></li>
-                            <li>Permit Acquisition<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">許可取得</span></li>
-                            <li>Talent Casting<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">キャスティング</span></li>
-                            <li>Production Planning<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">制作企画</span></li>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding-top: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Crew</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Directors & producers (trilingual: JP/EN/FR)</li>
+                            <li>Directors of photography</li>
+                            <li>Camera operators</li>
+                            <li>Gaffers & grips</li>
+                            <li>Sound recordists</li>
+                            <li>Production assistants</li>
+                            <li>Drone operators (licensed)</li>
                         </ul>
                     </div>
-
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">✓ Production</h4>
-                        <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">撮影</p>
-                        <ul style="line-height: 2; color: var(--text-dark); list-style: none; padding: 0;">
-                            <li>Professional Crew<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">プロフェッショナルスタッフ</span></li>
-                            <li>Drone Filming (Licensed)<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">ドローン撮影（許可済）</span></li>
-                            <li>Professional Gears<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">プロ機材</span></li>
-                            <li>On-set Coordination<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">現場コーディネーション</span></li>
-                        </ul>
+                    
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Equipment</h4>
+                        <p style="line-height: 1.8; color: var(--text-dark);">
+                            We tailor each project with the equipment that is necessary, based on its quality and technical requirements that fit the storyboard and location needs.
+                        </p>
                     </div>
-
-                    <div style="text-align: center;">
-                        <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">✓ Post-Production</h4>
-                        <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">ポストプロダクション</p>
-                        <ul style="line-height: 2; color: var(--text-dark); list-style: none; padding: 0;">
-                            <li>Editing & Color Grading<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">編集・カラーグレーディング</span></li>
-                            <li>Motion Graphics<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">モーショングラフィックス</span></li>
-                            <li>Sound Design<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">音響設計</span></li>
-                            <li>Subtitling & Translation<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">字幕・翻訳</span></li>
-                            <li>Final Delivery<br><span class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">最終納品</span></li>
+                    
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">On-Site Management</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Full crew coordination</li>
+                            <li>Real-time problem solving</li>
+                            <li>Daily footage review & backup</li>
+                            <li>Client communication & approvals</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 style="color: var(--white);">Our Work</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Selected projects from across Kyūshū</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">九州各地での制作実績</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="http://mglobaljapan.com/works" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">VIEW FULL PORTFOLIO</a>
-                <p style="margin-top: 1.5rem; color: rgba(255,255,255,0.9); font-size: 1rem;">Explore our complete collection of work on M Global Japan</p>
-                <p class="japanese-text" style="margin-top: 0.5rem; color: rgba(255,255,255,0.85);">M Global Japanで全作品をご覧ください</p>
+            <!-- Post-Production -->
+            <div class="service-section">
+                <h3 style="font-size: 2rem; color: var(--sunset-orange); margin-bottom: 0.5rem; text-align: center;">POST-PRODUCTION</h3>
+                <p class="japanese-text" style="font-size: 1.2rem; color: var(--sunset-orange); margin-bottom: 2rem; font-weight: 500; text-align: center;">ポストプロダクション</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding-top: 2rem;">
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Editing</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Assembly & rough cut</li>
+                            <li>Fine cut with client revisions (2 rounds included)</li>
+                            <li>Sound design & mixing</li>
+                            <li>Color grading (DaVinci Resolve)</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Delivery</h4>
+                        <ul style="line-height: 2; color: var(--text-dark);">
+                            <li>Master files in required formats</li>
+                            <li>Multiple export versions</li>
+                            <li>Archival & backup</li>
+                            <li>Usage rights documentation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Project Types -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Project Types</h2>
-                <p class="section-subtitle japanese-text">制作実績</p>
-                <div class="section-divider"></div>
-            </div>
+    <section style="padding: 4rem 0 4rem 0; background: var(--light-gray);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">PROJECT TYPES WE HANDLE</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 3rem; text-align: center; font-weight: 500;">対応プロジェクトタイプ</p>
+        </div>
+        
+        <div style="max-width: 1400px; margin: 0 auto; overflow: hidden;">
+            <img src="https://www.genspark.ai/api/files/s/4GmcOGl6" alt="Project Types We Handle" style="width: 100%; height: auto; display: block; max-height: 600px; object-fit: cover; object-position: center;">
+        </div>
+    </section>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Commercial & Advertising</h4>
-                    <p class="japanese-text">CM・広告</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Documentary Content</h4>
-                    <p class="japanese-text">ドキュメンタリー</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Corporate Videos</h4>
-                    <p class="japanese-text">企業映像</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Tourism Campaigns</h4>
-                    <p class="japanese-text">観光プロモーション</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Music Videos</h4>
-                    <p class="japanese-text">MV制作</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Sports Content</h4>
-                    <p class="japanese-text">スポーツ映像</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Product Videos</h4>
-                    <p class="japanese-text">商品紹介映像</p>
-                </div>
-                <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center;">
-                    <h4>Social Media Content</h4>
-                    <p class="japanese-text">SNSコンテンツ</p>
-                </div>
+
+
+    <!-- Pricing & Packages -->
+    <section style="padding: 4rem 2rem; background: var(--light-gray);">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">PRICING & PACKAGES</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 2rem; font-weight: 500;">料金・パッケージ</p>
+            
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 0.5rem;">
+                Production costs in southern Japan are <strong>competitive</strong> while maintaining exceptional quality.
+            </p>
+            <p class="japanese-text" style="font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
+                南日本での制作コストは競争力があり、高品質を維持します。
+            </p>
+            
+            <div style="background: white; padding: 3rem; border-radius: 12px; text-align: center; margin-bottom: 2rem;">
+                <h3 style="color: var(--ocean-blue); margin-bottom: 0.5rem; text-align: center;">Final pricing depends on:</h3>
+                <p class="japanese-text" style="font-size: 1.1rem; color: var(--ocean-blue); margin-bottom: 1.5rem; font-weight: 500; text-align: center;">最終価格は以下によります：</p>
+                <ul style="line-height: 2.5; font-size: 1.1rem; list-style-position: inside; text-align: center; max-width: 700px; margin: 0 auto;">
+                    <li>Project scope & duration <span class="japanese-text">/ プロジェクトの範囲と期間</span></li>
+                    <li>Crew size & equipment needs <span class="japanese-text">/ クルー規模と機材ニーズ</span></li>
+                    <li>Location complexity & permits <span class="japanese-text">/ ロケ地の複雑さと許可</span></li>
+                    <li>Post-production requirements <span class="japanese-text">/ ポストプロダクション要件</span></li>
+                </ul>
+            </div>
+            
+            <a href="https://mglobaljapan.com/contact" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.2rem; text-decoration: none;">Request Custom Quote →</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 4rem 2rem; background: white;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">FREQUENTLY ASKED QUESTIONS</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 3rem; text-align: center; font-weight: 500;">よくある質問</p>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you only shoot in southern Japan?</div>
+                <p style="line-height: 1.8;">While we specialize in southern Japan, M Global Japan operates across all of Japan. We can coordinate nationwide productions.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can you accommodate non-Japanese speaking clients?</div>
+                <p style="line-height: 1.8;">Absolutely. Our team is trilingual (Japanese, English, French).</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if we already have a crew but need local coordination?</div>
+                <p style="line-height: 1.8;">Sorry, we work only on in-house projects. We do not take coordination or fixer-type activities. Our facility "Expedition Resort" is available during your shoot.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you offer equipment rental only?</div>
+                <p style="line-height: 1.8;">No.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's your cancellation policy?</div>
+                <p style="line-height: 1.8;">Depending on projects, will be specified in the terms of contract and at proposal time.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can we visit locations before committing?</div>
+                <p style="line-height: 1.8;">Yes, we offer paid location scout services (¥50,000-100,000/day depending on distance).</p>
             </div>
         </div>
     </section>
 
-    <!-- Request Quote CTA -->
-    <section style="padding: 3rem 2rem; background: var(--white); text-align: center;">
-        <a href="http://mglobaljapan.com/contact" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">REQUEST QUOTE</a>
-        <p style="margin-top: 1rem; color: var(--text-dark); font-size: 1rem;">Get in touch to discuss your production needs</p>
-        <p class="japanese-text" style="color: var(--text-light); font-size: 0.95rem;">制作のご相談はこちら</p>
+    <!-- Contact CTA -->
+    <section style="padding: 4rem 2rem; background: var(--light-gray); text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <a href="https://mglobaljapan.com/contact" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 1.5rem 3rem; font-size: 1.3rem; text-decoration: none;">CONTACT FORM</a>
+        </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section" style="background: var(--sunset-orange); color: var(--white); padding: 4rem 2rem; text-align: center;">
-        <div class="section-container">
-            <h2 style="color: white;">Ready to Shoot in Kyūshū?</h2>
-            <p class="japanese-text" style="color: white; font-size: 1.2rem; margin-top: 1rem;">九州で撮影を始めませんか？</p>
-            <p style="color: white; max-width: 700px; margin: 2rem auto; font-size: 1.15rem; font-weight: 500;">
-                Based in Itoshima. Shooting across Kyūshū.<br>
-                Let's discuss your project.
+    <!-- Direct Contact -->
+    <section style="padding: 4rem 2rem; background: white; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3 style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Or reach us directly:</h3>
+            <p class="japanese-text" style="font-size: 1.2rem; color: var(--ocean-blue); margin-bottom: 2rem;">または直接ご連絡ください：</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: left; max-width: 900px; margin: 0 auto;">
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 2;">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:taiki@mglobaljapan.com" style="color: var(--ocean-blue);">taiki@mglobaljapan.com</a><br>
+                        <a href="mailto:info@mglobaljapan.com" style="color: var(--ocean-blue);">info@mglobaljapan.com</a>
+                    </p>
+                </div>
+                
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 2;">
+                        <strong>Phone (Japan):</strong><br>
+                        <a href="tel:+81809557047" style="color: var(--ocean-blue);">(+81) 080-9557-0471</a>
+                    </p>
+                </div>
+                
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 2;">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/818095570471" target="_blank" style="color: var(--ocean-blue);">(+81) 080-9557-0471</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gray); border-radius: 8px;">
+                <p style="font-size: 1rem; line-height: 1.8;">
+                    <strong>Office Hours:</strong> Mon-Fri 9:00-18:00 JST<br>
+                    <strong>Urgent matters:</strong> WhatsApp message<br>
+                    <strong>Response Time:</strong> Very fast
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About M Global Japan -->
+    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: white;">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">ABOUT M GLOBAL JAPAN</h2>
+            <p class="japanese-text" style="font-size: 1.5rem; margin-bottom: 2rem; font-weight: 500;">M Global Japanについて</p>
+            
+            <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 0.5rem;">
+                Basecamp Kyushu is the southern Japan production division of <strong>M Global Japan, Ltd.</strong> (est. 2008) — a Tokyo-based production company serving international and Japanese clients.
             </p>
-            <p class="japanese-text" style="color: white; max-width: 700px; margin: 1rem auto 2rem; font-size: 1.05rem;">
-                拠点：糸島｜撮影対応：九州全域<br>
-                お気軽にご相談ください。
+            <p class="japanese-text" style="font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">
+                Basecamp Kyushuは、株式会社M Global Japan（2008年設立）の南日本制作部門です。東京を拠点とし、国内外のクライアントにサービスを提供しています。
             </p>
-            <div class="hero-cta">
-                <a href="http://mglobaljapan.com/contact" target="_blank" class="btn btn-primary" style="background: var(--white); color: var(--sunset-orange);">CONTACT M GLOBAL JAPAN</a>
-                <a href="in-motion.html" class="btn btn-secondary">EXPLORE LOCATIONS</a>
+            
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 0.5rem;">
+                While M Global Japan operates nationwide with an extensive international network, Basecamp Kyushu provides dedicated focus and deep expertise across southern Japan.
+            </p>
+            <p class="japanese-text" style="font-size: 1rem; line-height: 1.8; margin-bottom: 3rem;">
+                M Global Japanは全国及び国際ネットワークで事業を展開していますが、Basecamp Kyushuは南日本に特化した専門知識を提供します。
+            </p>
+            
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="http://mglobaljapan.com/" target="_blank" class="btn" style="background: white; color: var(--primary-dark); padding: 1rem 2rem;">Learn more about M Global Japan →</a>
+                <a href="https://mglobaljapan.com/works" target="_blank" class="btn btn-secondary" style="padding: 1rem 2rem;">View complete portfolio →</a>
             </div>
         </div>
     </section>
@@ -769,10 +670,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
-                <p class="japanese-text">土地 — 人 — 物語</p>
-                <p>Where mountains meet the sea<br>and stories take form.</p>
+                <p>土地 — 人 — 物語</p>
+                <p>Where mountains meet the sea and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
                     <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
@@ -784,26 +687,24 @@
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="expedition-resort.html">Expedition Resort</a></li>
-                    <li><a href="stories.html">Stories Project</a></li>
+                    <li><a href="stories.html">Stories</a></li>
                     <li><a href="video-production.html">Video Production</a></li>
                     <li><a href="online-store.html">Online Store</a></li>
                 </ul>
             </div>
 
-            <div class="footer-section" id="contact">
-                <h4>CONNECT WITH US</h4>
-                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
+            <div class="footer-section">
+                <h4>CONNECT</h4>
                 <ul>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -824,36 +725,60 @@
                 if (japaneseVisible) {
                     element.style.display = '';
                     textEn.textContent = 'Hide';
-                    toggleBtn.classList.remove('hidden-state');
                 } else {
                     element.style.display = 'none';
                     textEn.textContent = 'Show';
-                    toggleBtn.classList.add('hidden-state');
                 }
             });
             
-            // Save preference to localStorage
             localStorage.setItem('japaneseVisible', japaneseVisible);
         }
 
-        // Hide Japanese on page load (default behavior)
+        // On page load, check localStorage and initialize
         window.addEventListener('DOMContentLoaded', () => {
-            const savedPreference = localStorage.getItem('japaneseVisible');
+            const savedState = localStorage.getItem('japaneseVisible');
             const japaneseElements = document.querySelectorAll('.japanese-text');
             
-            // Default: Hide Japanese (false)
-            // Only show if user previously clicked "Show" (savedPreference === 'true')
-            if (savedPreference === 'true') {
-                // User wants Japanese visible
-                japaneseVisible = false; // Start as false
-                toggleJapanese(); // Toggle to true (show)
+            if (savedState === 'true') {
+                japaneseVisible = false;
+                toggleJapanese();
             } else {
-                // Hide Japanese by default
                 japaneseElements.forEach(element => {
                     element.style.display = 'none';
                 });
             }
         });
     </script>
+<style>
+    body .japanese-text, body .content-text[style*="font-style: italic"] { display: none !important; }
+    body[data-lang="ja"] .japanese-text { display: block !important; }
+    body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) { display: none !important; }
+    body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
+    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
+    body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
+    body .main-nav ul { display: flex !important; }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.body;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('preferredLanguage', lang);
+            });
+        });
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+            });
+        }
+    });
+</script>
 </body>
 </html>

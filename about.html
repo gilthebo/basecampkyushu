@@ -25,102 +25,14 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Japanese Toggle Button - Perfectly Aligned Under Logo */
-        .japanese-toggle-container {
-            position: sticky;
-            top: 80px;
-            z-index: 998;
-            background: rgba(255,255,255,0.98);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0.5rem 2rem;
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        
-        /* Align with logo position */
-        .japanese-toggle-container::before {
-            content: '';
-            width: calc((100% - var(--max-width)) / 2 + var(--spacing-md));
-        }
+        /* Language Toggle Buttons Container */
 
-        .japanese-toggle-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 0;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            min-width: 100px;
-            max-width: 100%;
-        }
 
-        .japanese-toggle-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(74, 123, 167, 0.3);
-            background: linear-gradient(135deg, #5a8bb7 0%, #6a8a75 100%);
-        }
-
-        .japanese-toggle-btn:active {
-            transform: translateY(0);
-        }
-
-        .japanese-toggle-btn.hidden-state {
-            background: linear-gradient(135deg, #94a3b8 0%, #cbd5e0 100%);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-
-        .japanese-toggle-btn.hidden-state:hover {
-            background: linear-gradient(135deg, #a4b3c8 0%, #dbe5f0 100%);
-        }
-
-        .toggle-icon {
-            font-size: 0.9rem;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-
-        .japanese-toggle-btn:hover .toggle-icon {
-            transform: scale(1.05) rotate(3deg);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .japanese-toggle-container {
-                padding: 0.4rem 1rem;
-                justify-content: flex-start;
-            }
-            
-            .japanese-toggle-container::before {
-                width: 0;
-            }
-            
-            .japanese-toggle-btn {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-                gap: 0.4rem;
-            }
-            
-            .toggle-icon {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Ultra-small screens */
         @media (max-width: 480px) {
-            .japanese-toggle-btn {
-                font-size: 0.7rem;
-                padding: 0.35rem 0.7rem;
+            .language-toggle-btn {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.5rem;
+                min-width: 45px;
             }
         }
     </style>
@@ -144,17 +56,15 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <!-- Language Toggle Buttons -->
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
-
-    <!-- Japanese Language Toggle Button -->
-    <div class="japanese-toggle-container">
-        <button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility">
-            <span class="toggle-text">Show</span>
-            <span class="toggle-icon">JPN</span>
-        </button>
-    </div>
 
     <!-- Breadcrumb Navigation -->
     <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
@@ -173,239 +83,225 @@
         </ol>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Keep existing banner as is -->
     <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/859848277.png'); background-size: cover; background-position: center;">
     </section>
 
     <!-- Title Section Below Banner -->
     <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
         <div class="section-container" style="max-width: 900px;">
-            <p class="hero-subtitle japanese-text" style="color: var(--text-dark);">土地 — 人 — 物語</p>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0; color: var(--primary-dark);">FROM SHORE TO SUMMIT</h1>
-            <p class="japanese-text" style="font-size: 1.5rem; color: var(--text-light);">海岸から頂へ</p>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Our Story</h2>
+            <p class="section-subtitle japanese-text" style="color: var(--text-dark);">私たちの物語</p>
+            <p class="section-subtitle french-text" style="color: var(--text-dark);">Notre histoire</p>
+            <div class="section-divider"></div>
         </div>
     </section>
 
-    <!-- Who We Are -->
+    <!-- OUR STORY Content -->
     <section style="padding: 4rem 2rem; background: var(--light-gray);">
         <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Who We Are</h2>
-                <div class="section-divider"></div>
-            </div>
             
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                On the western edge of Japan, where mountains rise from the sea and sunsets paint the horizon 
-                in gold, lies Kyūshū — a land in motion.
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Basecamp Kyūshū was born from years spent exploring Japan's southern island — a place where nature, craft, and quiet daily life form a landscape that inspires us constantly.
             </p>
             
-            <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                日本の西端、山々が海から聳え、夕陽が地平線を金色に染める場所。
-                それが九州――動きの大地。
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Basecamp Kyūshūは、日本の南の島を何年も探索した結果生まれました。自然、工芸、静かな日常生活が、常に私たちを刺激する風景を形成する場所です。
             </p>
             
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                Here, ancient paths wind through cedar forests, fishing boats rock in hidden bays, and hot springs 
-                breathe warmth into the cool evening air. <strong>Basecamp Kyūshū was born in the coastal town of 
-                Itoshima as a creative hub</strong>—capturing and sharing what makes this region distinct.
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Basecamp Kyūshū est né d'années passées à explorer l'île méridionale du Japon — un lieu où la nature, l'artisanat et la vie quotidienne tranquille forment un paysage qui nous inspire constamment.
             </p>
             
-            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                古の道は杉林を縫い、漁船は隠れた入り江に揺れ、
-                温泉が冷たい夕暮れの空気に温もりを吹き込む。
-                <strong>Basecamp Kyūshūは、海沿いの町・糸島で生まれた創造的拠点です。</strong>
-                この地域の独自性を捉え、共有する場所。
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                After decades in Tokyo, we moved south in search of calm and authenticity.<br>
+                Kyūshū became not just a home, but a creative base: a region where traditions breathe, villages evolve slowly, and every valley carries its own story.
             </p>
             
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                The spirit of this island takes form in the designs we wear, the stories we tell, and the images 
-                we create.
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                東京で数十年を過ごした後、私たちは静けさと真正性を求めて南へ移りました。<br>
+                九州は単なる故郷ではなく、創造的な拠点となりました。伝統が息づき、村がゆっくりと進化し、すべての谷に独自の物語がある地域です。
             </p>
             
-            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.9;">
-                この島の精神が形になる――私たちが身につけるデザイン、語る物語、創り出すイメージの中に。
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Après des décennies à Tokyo, nous avons déménagé vers le sud à la recherche de calme et d'authenticité.<br>
+                Kyūshū est devenu non seulement une maison, mais une base créative : une région où les traditions respirent, où les villages évoluent lentement et où chaque vallée porte sa propre histoire.
             </p>
         </div>
     </section>
 
-    <!-- Why Itoshima -->
+    <!-- OUR APPROACH -->
     <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px; margin: 0 auto;">
-            <div class="section-header" style="text-align: center;">
-                <h2 class="section-title">Why Itoshima?</h2>
-                <p class="section-subtitle japanese-text">なぜ糸島なのか？</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 500;">
-                    We're based in Itoshima because it sits at the <strong>perfect intersection</strong>—close 
-                    enough to Fukuoka's infrastructure, yet quiet enough to work with clarity.
-                </p>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2.5rem; color: var(--text-dark);">
-                    糸島は完璧な位置にあります。福岡のインフラに十分近く、静かに集中して仕事ができる環境。
-                </p>
-                
-                <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 500;">
-                    The coastline stretches wide, mountains rise behind, and there's space to breathe.
-                </p>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2.5rem; color: var(--text-dark);">
-                    海岸線は広がり、背後には山々、そして息をする空間がある。
-                </p>
-                
-                <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem; font-size: 1.5rem; font-weight: 600;">It's our vantage point for understanding this region.</h3>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: var(--text-dark);">
-                    この地域を理解するための、私たちの視点です。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Basecamp & Motion -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
         <div class="section-container" style="max-width: 900px;">
             <div class="section-header">
-                <h2 style="color: var(--white);">Basecamp & Motion</h2>
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-subtitle japanese-text">私たちのアプローチ</p>
+                <p class="section-subtitle french-text">Notre approche</p>
                 <div class="section-divider"></div>
             </div>
             
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
-                <strong>Basecamp Kyūshū</strong> is the tangible side—collections, stories, and designs that carry 
-                the essence of this place with you.
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                We work through field observation — walking, listening, filming, writing.
             </p>
             
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
-                <strong>Basecamp Kyūshū</strong>は具体的な側面――この場所の本質を伝える
-                コレクション、物語、デザイン。
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                私たちはフィールド観察を通じて仕事をします―歩き、聞き、撮影し、書く。
             </p>
             
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
-                <strong>Kyūshū in Motion</strong> is the visual side—our production work and documentary perspective, 
-                capturing the region through years of professional observation.
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Nous travaillons par observation de terrain — marcher, écouter, filmer, écrire.
             </p>
             
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin-bottom: 3rem;">
-                <strong>Kyūshū in Motion</strong>は視覚的な側面――長年の専門的観察を通じて
-                捉えた制作活動とドキュメンタリー視点。
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Our projects blend documentary attention with creative interpretation, always with respect for the communities that welcome us.
             </p>
             
-            <!-- Visual Explanation Image (includes the "heartbeat" concept) -->
-            <div style="text-align: center;">
-                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-30-at-12-04-50_orig.png" 
-                     alt="Basecamp Kyūshū and Kyūshū in Motion - Visual Explanation with Map" 
-                     style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-            </div>
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                私たちのプロジェクトは、ドキュメンタリーの注意と創造的な解釈を融合させ、常に私たちを歓迎してくれるコミュニティへの敬意を持って行います。
+            </p>
+            
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                Nos projets mêlent attention documentaire et interprétation créative, toujours dans le respect des communautés qui nous accueillent.
+            </p>
+            
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-weight: 500;">
+                We don't search for the "hidden Japan."<br>
+                We reveal the quiet Japan that has always existed.
+            </p>
+            
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; font-weight: 500;">
+                私たちは「隠れた日本」を探すのではありません。<br>
+                常に存在してきた静かな日本を明らかにします。
+            </p>
+            
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; font-weight: 500;">
+                Nous ne cherchons pas le « Japon caché ».<br>
+                Nous révélons le Japon tranquille qui a toujours existé.
+            </p>
         </div>
     </section>
 
-
-
-    <!-- Our Philosophy -->
+    <!-- OUR CONNECTION TO THE ISLAND -->
     <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white);">
         <div class="section-container" style="max-width: 900px;">
             <div class="section-header">
-                <h2 style="color: var(--white);">Our Philosophy</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">What We Believe</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">私たちの信念</p>
+                <h2 style="color: var(--white);">Our Connection to the Island</h2>
+                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.9);">島とのつながり</p>
+                <p class="section-subtitle french-text" style="color: rgba(255,255,255,0.9);">Notre lien avec l'île</p>
                 <div class="section-divider"></div>
             </div>
-
-            <div style="display: grid; gap: 2rem;">
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid white;">
-                    <h4 style="color: white; margin-bottom: 0.5rem; font-weight: 600; font-size: 1.3rem;">Places Shape Stories</h4>
-                    <p style="color: rgba(255,255,255,0.95);">
-                        Every location holds atmosphere, history, and emotion. We believe in discovering these 
-                        hidden stories and giving them new forms.
-                    </p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">
-                        場所は雰囲気、歴史、感情を抱えています。私たちはこれらの隠れた物語を発見し、新しい形を与えることを信じています。
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid white;">
-                    <h4 style="color: white; margin-bottom: 0.5rem; font-weight: 600; font-size: 1.3rem;">AI as Creative Partner</h4>
-                    <p style="color: rgba(255,255,255,0.95);">
-                        We embrace AI not to replace human creativity, but to amplify imagination and explore 
-                        narrative possibilities no single mind could conceive alone.
-                    </p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">
-                        私たちはAIを、人間の創造性を置き換えるためではなく、想像力を増幅し、一人の心では想像できない物語の可能性を探求するために採用します。
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid white;">
-                    <h4 style="color: white; margin-bottom: 0.5rem; font-weight: 600; font-size: 1.3rem;">Slow Creation, Small Batches</h4>
-                    <p style="color: rgba(255,255,255,0.95);">
-                        We believe in quality over quantity. Limited editions. Thoughtful production. Supporting 
-                        local craftspeople. Creating things that last.
-                    </p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">
-                        私たちは量より質を信じています。限定版。思慮深い生産。地元の職人を支援。長持ちするものを創る。
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid white;">
-                    <h4 style="color: white; margin-bottom: 0.5rem; font-weight: 600; font-size: 1.3rem;">Local Roots, Global Reach</h4>
-                    <p style="color: rgba(255,255,255,0.95);">
-                        Based in Itoshima, focused on Kyūshū, but sharing these stories and images with the world. 
-                        Regional specificity creates universal resonance.
-                    </p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.9); margin-top: 0.5rem;">
-                        糸島に拠点を置き、九州に焦点を当てながらも、これらの物語とイメージを世界と共有します。
-                        地域の特異性が普遍的な共鳴を生み出します。
-                    </p>
-                </div>
-            </div>
+            
+            <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95); font-weight: 500;">
+                Kyūshū is our basecamp — the starting point of all our stories, images, and films.
+            </p>
+            
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
+                九州は私たちのベースキャンプです―すべての物語、イメージ、映画の出発点。
+            </p>
+            
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
+                Kyūshū est notre camp de base — le point de départ de toutes nos histoires, images et films.
+            </p>
+            
+            <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.95);">
+                This is where we follow craft lineages, record seasons, meet artisans, and build long-term relationships through regular fieldwork and slow exploration.
+            </p>
+            
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9);">
+                ここで私たちは工芸の系譜を追い、季節を記録し、職人に会い、定期的なフィールドワークとゆっくりとした探索を通じて長期的な関係を築きます。
+            </p>
+            
+            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9);">
+                C'est ici que nous suivons les lignées artisanales, enregistrons les saisons, rencontrons les artisans et construisons des relations à long terme par un travail de terrain régulier et une exploration lente.
+            </p>
         </div>
     </section>
 
-    <!-- Produced By -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container">
+    <!-- PROJECTS -->
+    <section style="padding: 4rem 2rem; background: var(--light-gray);">
+        <div class="section-container" style="max-width: 900px; margin: 0 auto;">
             <div class="section-header">
-                <h2 class="section-title">Produced By</h2>
-                <p class="section-subtitle japanese-text">制作会社</p>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle japanese-text">プロジェクト</p>
+                <p class="section-subtitle french-text">Projets</p>
                 <div class="section-divider"></div>
             </div>
-
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div style="text-align: center; padding: 3rem; background: var(--light-gray); border-radius: 8px;">
-                    <h3>株式会社 M Global Japan</h3>
-                    <p style="margin: 1rem 0; color: var(--text-dark); font-size: 1.1rem; line-height: 1.8;">
-                        Basecamp Kyūshū is produced by M Global Japan, Ltd., our Tokyo-based production company specializing in video production across Kyūshū, southern Japan, and Japan at large, with an extensive overseas network.
+            
+            <div style="display: grid; gap: 3rem; margin-top: 3rem;">
+                <!-- VIDEO PRODUCTION -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <h3 style="font-size: 1.8rem; color: var(--ocean-blue); margin-bottom: 1rem;">Video Production</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Full production services across the island. Basecamp Kyūshū is a division of our Tokyo-based company, <a href="http://mglobaljapan.com/" target="_blank" style="color: var(--ocean-blue); text-decoration: underline;">M Global Japan</a>.
                     </p>
-                    <p class="japanese-text" style="margin: 1rem 0; color: var(--text-dark); font-size: 1.05rem; line-height: 1.8;">
-                        Basecamp Kyūshūは、東京を拠点とする株式会社M Global Japanが制作。九州、南日本、日本全国、そして海外ネットワークを持つ映像制作会社です。
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        島全域での完全な制作サービス。Basecamp Kyūshūは東京を拠点とする<a href="http://mglobaljapan.com/" target="_blank" style="color: var(--ocean-blue); text-decoration: underline;">株式会社M Global Japan</a>の部門です。
                     </p>
-                    <a href="http://mglobaljapan.com/" target="_blank" class="btn btn-outline">VISIT WEBSITE</a>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Services de production complets à travers l'île. Basecamp Kyūshū est une division de notre société basée à Tokyo, <a href="http://mglobaljapan.com/" target="_blank" style="color: var(--ocean-blue); text-decoration: underline;">M Global Japan</a>.
+                    </p>
+                    <a href="video-production.html" class="btn btn-primary">→ See services</a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section" style="background: var(--warm-beige); padding: 4rem 2rem; text-align: center;">
-        <div class="section-container">
-            <h2>Connect With Us</h2>
-            <p class="japanese-text">お問い合わせ</p>
-            <p style="color: var(--text-light); max-width: 700px; margin: 2rem auto 0.5rem;">
-                Questions about our stories, video production services, or&nbsp;merchandise?
-            </p>
-            <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 2rem;">
-                We'd love to hear from&nbsp;you.
-            </p>
-            <p class="japanese-text" style="color: var(--text-light); max-width: 700px; margin: 0 auto 0.5rem;">
-                物語、映像制作サービス、商品についてのご質問はありますか？
-            </p>
-            <p class="japanese-text" style="color: var(--text-light); max-width: 700px; margin: 0 auto 2rem;">
-                お気軽にお問い合わせください。
-            </p>
-            <div class="hero-cta">
-                <a href="contact.html" class="btn btn-primary">CONTACT US</a>
-                <a href="index.html" class="btn btn-outline">BACK TO HOME</a>
+                <!-- KYŪSHŪ IN MOTION -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <h3 style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1rem;">In Motion</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        A visual space capturing the island.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        島を捉える視覚空間。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Un espace visuel capturant l'île.
+                    </p>
+                    <a href="in-motion.html" class="btn btn-primary">→ Discover the project</a>
+                </div>
+
+                <!-- STORIES -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <h3 style="font-size: 1.8rem; color: var(--sunset-orange); margin-bottom: 1rem;">Stories</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        A literary exploration through fiction and narrative fragments.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        フィクションと物語の断片を通じた文学的探求。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Une exploration littéraire à travers la fiction et les fragments narratifs.
+                    </p>
+                    <a href="stories.html" class="btn btn-primary">→ Read more</a>
+                </div>
+
+                <!-- EXPEDITION RESORT -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <h3 style="font-size: 1.8rem; color: var(--moss-green); margin-bottom: 1rem;">Expedition Resort</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        A basecamp concept for creators, filmmakers, and explorers.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        クリエイター、映像制作者、探検家のためのベースキャンプコンセプト。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Un concept de camp de base pour les créateurs, les cinéastes et les explorateurs.
+                    </p>
+                    <a href="expedition-resort.html" class="btn btn-primary">→ Learn more</a>
+                </div>
+
+                <!-- DESIGN (ONLINE STORE) -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+                    <h3 style="font-size: 1.8rem; color: var(--sunset-orange); margin-bottom: 1rem;">Design (Online Store)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        T-shirts. Simple designs shaped by our fieldwork.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Tシャツ。フィールドワークから形作られたシンプルなデザイン。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        T-shirts. Designs simples façonnés par notre travail de terrain.
+                    </p>
+                    <a href="online-store.html" class="btn btn-primary">→ Shop online</a>
+                </div>
             </div>
         </div>
     </section>
@@ -416,9 +312,12 @@
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
                 <p class="japanese-text">土地 — 人 — 物語</p>
+                <p class="french-text">Terre — Gens — Histoires</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
                     <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
@@ -429,6 +328,7 @@
                 <h4>EXPLORE</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
+                    <li><a href="in-motion.html">In Motion</a></li>
                     <li><a href="stories.html">Stories Project</a></li>
                     <li><a href="video-production.html">Video Production</a></li>
                     <li><a href="online-store.html">Online Store</a></li>
@@ -443,60 +343,105 @@
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
+                    <li>Email: <a href="mailto:contact@basecampkyushu.com">contact@basecampkyushu.com</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
 
-<!-- Japanese Toggle Script -->
+<!-- Language Toggle Script (Japanese & French) -->
 <script>
-    let japaneseVisible = false; // HIDDEN by default
+</script>
 
-    function toggleJapanese() {
-        const japaneseElements = document.querySelectorAll('.japanese-text');
-        const toggleBtn = document.getElementById('japaneseToggle');
-        const textEn = toggleBtn.querySelector('.toggle-text');
+<!-- Language Toggle Styles and Script -->
+<style>
+    /* Language Toggle System */
+    body .japanese-text,
+    body .content-text[style*="font-style: italic"] {
+        display: none !important;
+    }
+    
+    /* When Japanese is active */
+    body[data-lang="ja"] .japanese-text {
+        display: block !important;
+    }
+    
+    body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) {
+        display: none !important;
+    }
+    
+    body[data-lang="ja"] .content-text[style*="font-style: italic"] {
+        display: none !important;
+    }
+    
+    /* When French is active */
+    body[data-lang="fr"] .content-text[style*="font-style: italic"] {
+        display: block !important;
+    }
+    
+    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) {
+        display: none !important;
+    }
+    
+    body[data-lang="fr"] .japanese-text {
+        display: none !important;
+    }
+    
+    /* ALWAYS VISIBLE */
+    body .main-nav,
+    body .main-nav ul,
+    body .main-nav li,
+    body .main-nav a,
+    body h1, 
+    body h2, 
+    body .section-title, 
+    body .btn,
+    body .logo,
+    body nav,
+    body header,
+    body footer,
+    body img,
+    body .language-toggle-buttons {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    body .main-nav ul {
+        display: flex !important;
+    }
+</style>
+
+<script>
+    // Language Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.body;
         
-        japaneseVisible = !japaneseVisible;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
         
-        japaneseElements.forEach(element => {
-            if (japaneseVisible) {
-                element.style.display = '';
-                textEn.textContent = 'Hide';
-                toggleBtn.classList.remove('hidden-state');
-            } else {
-                element.style.display = 'none';
-                textEn.textContent = 'Show';
-                toggleBtn.classList.add('hidden-state');
-            }
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('preferredLanguage', lang);
+            });
         });
         
-        // Save preference to localStorage
-        localStorage.setItem('japaneseVisible', japaneseVisible);
-    }
-
-    // Hide Japanese on page load (default behavior)
-    window.addEventListener('DOMContentLoaded', () => {
-        const savedPreference = localStorage.getItem('japaneseVisible');
-        const japaneseElements = document.querySelectorAll('.japanese-text');
-        
-        // Default: Hide Japanese (false)
-        // Only show if user previously clicked "Show" (savedPreference === 'true')
-        if (savedPreference === 'true') {
-            // User wants Japanese visible
-            japaneseVisible = false; // Start as false
-            toggleJapanese(); // Toggle to true (show)
-        } else {
-            // Hide Japanese by default
-            japaneseElements.forEach(element => {
-                element.style.display = 'none';
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
             });
         }
     });

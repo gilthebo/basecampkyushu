@@ -26,47 +26,66 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/map-styles.css">
     <style>
-        .japanese-toggle-container {
-            position: sticky;
-            top: 80px;
-            z-index: 998;
-            background: rgba(255,255,255,0.98);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0.5rem 2rem;
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        .japanese-toggle-container::before {
+        #galleryGrid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.8rem; }
+        @media (max-width: 1600px) { #galleryGrid { grid-template-columns: repeat(6, 1fr); } }
+        @media (max-width: 1200px) { #galleryGrid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 768px) { #galleryGrid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; } }
+        @media (max-width: 480px) { #galleryGrid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; } }
+        
+
+        .language-toggle-container::before {
             content: '';
             width: calc((100% - var(--max-width)) / 2 + var(--spacing-md));
         }
-        .japanese-toggle-btn {
+        .language-toggle-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0;
             background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%);
             color: white;
             border: 2px solid rgba(255,255,255,0.2);
             border-radius: 0;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.7rem;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 400;
+            font-size: 0.75rem;
+            font-weight: 500;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            min-width: 55px;
         }
-        .japanese-toggle-btn:hover {
+        .language-toggle-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 10px rgba(74, 123, 167, 0.3);
+            background: linear-gradient(135deg, #5a8bb7 0%, #6a8a75 100%);
+        }
+        .language-toggle-btn:active {
+            transform: translateY(0);
+        }
+        .language-toggle-btn.hidden-state {
+            background: linear-gradient(135deg, #94a3b8 0%, #cbd5e0 100%);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .language-toggle-btn.hidden-state:hover {
+            background: linear-gradient(135deg, #a4b3c8 0%, #dbe5f0 100%);
+        }
+        .toggle-icon {
+            font-size: 0.75rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .language-toggle-btn:hover .toggle-icon {
+            transform: scale(1.05) rotate(3deg);
         }
         @media (max-width: 768px) {
-            .japanese-toggle-container { padding: 0.4rem 1rem; }
-            .japanese-toggle-container::before { width: 0; }
-            .japanese-toggle-btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            .language-toggle-container { padding: 0.4rem 1rem; gap: 0.5rem; }
+            .language-toggle-container::before { width: 0; }
+            .language-toggle-btn { font-size: 0.7rem; padding: 0.35rem 0.6rem; min-width: 50px; }
+            .toggle-icon { font-size: 0.7rem; }
+        }
+        @media (max-width: 480px) {
+            .language-toggle-btn { font-size: 0.65rem; padding: 0.3rem 0.5rem; min-width: 45px; }
         }
     </style>
 </head>
@@ -89,17 +108,17 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <!-- Language Toggle Buttons -->
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
-    <!-- Japanese Language Toggle Button -->
-    <div class="japanese-toggle-container">
-        <button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility">
-            <span class="toggle-text">Show</span>
-            <span class="toggle-icon">JPN</span>
-        </button>
-    </div>
+
 
     <!-- Breadcrumb Navigation -->
     <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
@@ -127,89 +146,94 @@
         <h1 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">IN MOTION</h1>
         <p style="font-size: 1.3rem; color: var(--ocean-blue); margin-bottom: 0.5rem;">Experience Kyūshū Through Our Lens</p>
         <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">動く - レンズを通して九州を体験</p>
-    </section>
-
-    <!-- Introduction Section -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Explore the Region</h2>
-                <div class="section-divider"></div>
-            </div>
+        
+        <div style="max-width: 800px; margin: 2rem auto 0;">
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
+                A growing visual archive of moments captured across this island.
+            </p>
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; text-align: center;">
+                この島全体で捉えた瞬間の視覚的アーカイブ。
+            </p>
             
-            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem;">
-                A growing collection of places we've found while exploring Kyūshū. 360° panoramas, VR walks, and 
-                photographs gathered along the way — from coastal roads to mountain trails, fishing villages to quiet shrines.
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
+                <strong>Photographs. 360° panoramas. Video explorations.</strong>
             </p>
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem;">
-                九州を探索しながら発見した場所のコレクション。<br>
-                海岸道路から山道、漁村から静かな神社まで— 旅の途中で集めた360°パノラマ、VR体験、写真。
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; text-align: center;">
+                <strong>写真。360°パノラマ。動画探索。</strong>
             </p>
-            <p style="font-size: 1.15rem; line-height: 1.8;">
-                These are the moments that caught our eye. The views that made us stop. The corners of the island 
-                we keep coming back to.
+            
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
+                Every time we move through Kyūshū, something catches the light. A sunrise over the bay. Mist settling in the valley. The way tea fields roll into the distance.
             </p>
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9;">
-                私たちの目を捉えた瞬間。立ち止まった景色。何度も戻りたくなる、この島の片隅。
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; text-align: center;">
+                九州を移動するたびに、何かが光を捉えます。湾に昇る太陽。谷に降りる霧。茶畑が遠くに広がる様子。
+            </p>
+            
+            <p style="font-size: 1.15rem; line-height: 1.8; text-align: center;">
+                This is our collection — the places that made us stop.
+            </p>
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; text-align: center;">
+                これが私たちのコレクション — 立ち止まらせた場所。
             </p>
         </div>
     </section>
 
     <!-- From Our Travels Section -->
     <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container" style="max-width: 900px; text-align: center;">
-            <h2 style="color: var(--white); margin-bottom: 2rem;">From Our Travels</h2>
-            <div class="section-divider" style="margin: 2rem auto;"></div>
+        <div style="max-width: 100%; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 2rem; padding: 0 2rem;">
+                <h2 style="color: var(--white); margin-bottom: 2rem;">From Our Travels</h2>
+                <div class="section-divider" style="margin: 2rem auto;"></div>
+                
+                <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
+                    A journey across the island — from volcanic peaks to coastal villages, castle towns to mountain workshops.
+                </p>
+                
+                <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.85); margin-bottom: 2rem;">
+                    島を横断する旅 — 火山の頂上から海岸の村、城下町から山の工房まで。
+                </p>
+            </div>
             
-            <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
-                Every time we move through this region, something new catches the light. A sunrise over the bay. 
-                Mist settling in the valley. The way tea fields roll into the distance.
-            </p>
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+                <iframe 
+                    src="https://www.youtube.com/embed/joU20sPEFKs?rel=0&modestbranding=1" 
+                    title="Kyūshū Documentary" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
             
-            <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.85); margin-bottom: 2rem;">
-                この地域を移動するたびに、何か新しいものが光を捉える。<br>
-                湾の上の日の出。谷に降りる霧。遠くまで続く茶畑の風景。
-            </p>
-            
-            <h3 style="color: var(--sunset-orange); font-size: 2rem; margin: 2rem 0;">
-                This is Kyūshū as we see it — one view at a time.
-            </h3>
-            
-            <p class="japanese-text" style="font-size: 1.15rem; color: rgba(255,255,255,0.85);">
-                これが私たちの見る九州—一つの景色ずつ。
-            </p>
+            <div style="text-align: center; margin-top: 1.5rem; padding: 0 2rem;">
+                <p style="font-size: 1.05rem; color: rgba(255,255,255,0.9);">
+                    Watch Kyushu Documentary →
+                </p>
+                <p class="japanese-text" style="font-size: 1rem; color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
+                    九州ドキュメンタリーを見る →
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Fantastic Locations Section - Photo Gallery -->
+    <!-- Fantastic Locations Section -->
     <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container">
+        <div class="section-container" style="max-width: 1000px; margin: 0 auto;">
             <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">Fantastic Locations</h2>
-                <p class="section-subtitle">Kyūshū Through Our Lens</p>
-                <p class="section-subtitle japanese-text">レンズを通した九州</p>
+                <p class="section-subtitle" style="font-size: 1.3rem; color: var(--primary-dark); margin-top: 0.5rem;">Kyūshū Through Our Lens</p>
+                <p class="section-subtitle japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-top: 0.5rem;">私たちのレンズを通した九州</p>
                 <div class="section-divider"></div>
             </div>
-
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
-                A growing collection of moments captured across Kyūshū's seven prefectures. From coastal sunrises to mountain villages, 
-                these images showcase the diverse landscapes and hidden corners we've discovered along the way.
+            
+            <p style="text-align: center; max-width: 800px; margin: 2rem auto 0; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
+                A growing collection of moments captured across Kyūshū's seven prefectures. From coastal sunrises to mountain villages, these images showcase the diverse landscapes and hidden corners we've discovered along the way.
             </p>
-            <p class="japanese-text" style="text-align: center; max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; line-height: 1.8; color: var(--text-light);">
-                九州7県で捉えた瞬間の成長するコレクション。海岸の日の出から山里まで、旅の途中で発見した多様な風景と隠れた場所を紹介。
+            
+            <p class="japanese-text" style="text-align: center; max-width: 800px; margin: 1.5rem auto 0; font-size: 1.05rem; line-height: 1.8; color: var(--text-light);">
+                九州の7つの県で捉えた瞬間の成長するコレクション。海岸の日の出から山間の村まで、これらの画像は私たちが道中で発見した多様な風景と隠れた場所を紹介しています。
             </p>
-
-            <!-- Photo Gallery Placeholder -->
-            <div style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 3rem 2rem; background: var(--warm-beige); border-radius: 12px; border: 2px dashed var(--primary-dark);">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">📸</div>
-                <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Photo Gallery Coming Soon</h3>
-                <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light); margin-bottom: 1rem;">
-                    写真ギャラリー近日公開
-                </p>
-                <p style="font-size: 0.95rem; color: var(--text-dark); max-width: 600px; margin: 0 auto;">
-                    Authentic photography from our explorations across Kyūshū's seven prefectures will be added here.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -237,7 +261,10 @@
                 <h3 style="text-align: center; font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Immersive Experiences</h3>
                 <p class="japanese-text" style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 1rem;">没入型体験</p>
                 <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-dark); font-size: 1.05rem; line-height: 1.6;">
-                    Explore Kyūshū through 360° online&nbsp;tours
+                    Best viewed on desktop
+                </p>
+                <p class="japanese-text" style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--text-light); font-size: 1rem; line-height: 1.6;">
+                    デスクトップでの閲覧を推奨
                 </p>
                 
                 <div class="location-grid">
@@ -277,12 +304,6 @@
                             <h3>Okawachiyama</h3>
                             <h4>Village of the Secret Kilns</h4>
                             <p class="japanese-text">大川内山 - 秘窯の里</p>
-                            <p>
-                                Walk through the mountain village that inspired our novel "Whispers of Ashes."
-                            </p>
-                            <p class="japanese-text">
-                                小説「灰の囁き」の舞台となった山里を歩く。
-                            </p>
                             <div style="text-align: center; margin-top: 1.5rem;">
                                 <a href="https://www.basecampimari.com/okawachiyama" target="_blank" class="btn btn-primary">START THE TOUR</a>
                             </div>
@@ -301,12 +322,7 @@
                             <h3>Yutoku Inari Shrine</h3>
                             <h4>360° From Above & Indoors</h4>
                             <p class="japanese-text">祐徳稲荷神社</p>
-                            <p>
-                                One of Japan's three great Inari shrines. Vermillion structures perched dramatically on the mountainside.
-                            </p>
-                            <p class="japanese-text">
-                                日本三大稲荷の一つ。山腹に劇的に佇む朱塗りの建築群。
-                            </p>
+
                             <div style="text-align: center; margin-top: 1.5rem;">
                                 <a href="https://kashima-vr.com/index.htm?skip-loading#media=139" target="_blank" class="btn btn-primary">START THE TOUR</a>
                             </div>
@@ -314,20 +330,51 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Custom Online Tour CTA -->
+            <div style="max-width: 1200px; margin: 3rem auto 0; padding: 2.5rem; background: linear-gradient(135deg, var(--warm-beige) 0%, #f5f5f0 100%); border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <h3 style="font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 1.5rem; font-weight: 700;">Need a Custom Virtual Tour?</h3>
+                <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 1.5rem; font-weight: 500;">カスタム バーチャル ツアーが必要ですか？</p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    We can create bespoke 360° online tours tailored to your specific location or project needs.
+                </p>
+                <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    特定の場所やプロジェクトのニーズに合わせたカスタム360°オンラインツアーを制作できます。
+                </p>
+                <a href="video-production.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2rem;">
+                    Get in Touch
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Saga Prefecture Showcase -->
     <section style="padding: 6rem 2rem 3rem; background: var(--white);">
-        <div class="section-container" style="max-width: 1000px;">
-            <div class="section-header" style="text-align: center;">
+        <div style="max-width: 100%; margin: 0 auto;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
                 <h2 class="section-title">Discover Saga Prefecture</h2>
                 <p class="section-subtitle">Ceramic villages, hot springs & hidden beauty</p>
                 <p class="section-subtitle japanese-text">佐賀県 - 陶磁器の村、温泉、隠れた美しさ</p>
                 <div class="section-divider"></div>
             </div>
+            
+            <div style="max-width: 900px; margin: 2rem auto 3rem; padding: 0 2rem;">
+                <h3 style="font-size: 1.8rem; color: var(--sunset-orange); margin-bottom: 1.5rem; text-align: center;">WHY SAGA?</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem; text-align: center;">
+                    Where our own Kyūshū story began.
+                </p>
+                <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem; text-align: center;">
+                    私たちの九州の物語が始まった場所。
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem; text-align: center;">
+                    Countless visits through all over the place.<br>These weren't scouting trips. We lived there.
+                </p>
+                <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem; text-align: center;">
+                    あちこちへ数え切れないほどの訪問。<br>これはロケハンではありませんでした。私たちはそこに住んでいました。
+                </p>
+            </div>
 
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); margin-top: 2rem;">
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
                 <iframe 
                     src="https://www.youtube.com/embed/-SuBnl0EbUU?rel=0&modestbranding=1" 
                     title="Discover Saga Prefecture" 
@@ -339,55 +386,107 @@
                 </iframe>
             </div>
             
-            <p style="text-align: center; margin-top: 1.5rem; font-size: 1.05rem; color: var(--text-dark);">
-                A visual journey through Saga Prefecture's rich cultural heritage and natural landscapes
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 1.05rem; color: var(--text-dark); padding: 0 2rem;">
+                A visual journey through Saga's rich cultural heritage and natural landscapes
             </p>
-            <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; color: var(--text-light);">
-                佐賀県の豊かな文化遺産と自然景観を巡る映像の旅
+            <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; color: var(--text-light); padding: 0 2rem;">
+                佐賀の豊かな文化遺産と自然景観を巡る映像の旅
             </p>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section" style="background: var(--mountain-green); color: var(--white); padding: 4rem 2rem; text-align: center;">
-        <div class="section-container">
-            <h2>Need These Locations for Your Production?</h2>
-            <p class="japanese-text" style="color: white; font-size: 1.2rem; margin-top: 1rem;">これらのロケーションで撮影をご希望ですか？</p>
-            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 2rem auto; font-size: 1.15rem;">
-                We know these places intimately.
-            </p>
-            <p class="japanese-text" style="color: rgba(255,255,255,0.85); max-width: 700px; margin: 1rem auto 2rem; font-size: 1.05rem;">
-                私たちはこれらの場所を熟知しています。
-            </p>
-            <div class="hero-cta">
-                <a href="video-production.html" class="btn btn-primary">PLAN YOUR SHOOT</a>
-                <a href="index.html" class="btn btn-secondary">BACK TO HOME</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
+    <!-- NOT A PRODUCTION TOOL Section -->
     <section style="padding: 4rem 2rem; background: var(--warm-beige); text-align: center;">
-        <div class="section-container" style="max-width: 900px;">
-            <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 1rem;">Bring Your Story to&nbsp;Life</h2>
-            <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">あなたの物語を形にする</p>
+        <div class="section-container" style="max-width: 800px;">
+            <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 1.5rem; font-weight: 700;">THIS IS NOT A PRODUCTION TOOL</h2>
+            <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">これは制作ツールではありません</p>
             
-            <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto 3rem; white-space: nowrap;">
-                Our storytelling is also a visual&nbsp;narrative
+            <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                In Motion is a visual space — not a commercial resource.
             </p>
-
-            <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center; max-width: 500px; margin: 0 auto;">
-                <a href="video-production.html" class="btn btn-primary" style="width: 100%; max-width: 400px; justify-content: center;">
-                    DISCOVER OUR VIDEO PRODUCTION
-                </a>
-                <a href="online-store.html" class="btn btn-secondary" style="width: 100%; max-width: 400px; justify-content: center;">
-                    SUPPORT US — WEAR THE BRAND
+            <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">
+                In Motionは視覚的な空間であり、商業リソースではありません。
+            </p>
+            
+            <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                If you're interested in our video production services, that's a different conversation.
+            </p>
+            <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem;">
+                映像制作サービスにご興味がある場合は、別の話になります。
+            </p>
+            
+            <div style="margin: 2.5rem 0;">
+                <a href="video-production.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2rem;">
+                    Explore Production Services →
                 </a>
             </div>
-
-
+            
+            <p style="color: var(--text-dark); font-size: 1.15rem; line-height: 1.8; font-style: italic; margin-top: 2rem;">
+                But here? This is simply how we see the island.
+            </p>
+            <p class="japanese-text" style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; font-style: italic; margin-top: 1rem;">
+                しかしここでは？これは私たちが島を見る方法です。
+            </p>
         </div>
     </section>
+
+    <!-- Navigation Links Section -->
+    <section style="padding: 4rem 2rem; background: var(--light-gray); text-align: center;">
+        <div class="section-container" style="max-width: 800px;">
+            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 1.5rem;">
+                Return to our <a href="index.html" style="color: var(--sunset-orange); text-decoration: underline;">home</a>, learn more <a href="about.html" style="color: var(--sunset-orange); text-decoration: underline;">about us</a>, or explore our written <a href="stories.html" style="color: var(--sunset-orange); text-decoration: underline;">stories</a>. Discover our <a href="video-production.html" style="color: var(--sunset-orange); text-decoration: underline;">video production</a> services, visit our <a href="expedition-resort.html" style="color: var(--sunset-orange); text-decoration: underline;">expedition resort</a>, or browse the <a href="online-store.html" style="color: var(--sunset-orange); text-decoration: underline;">online store</a>.
+            </p>
+            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.9; color: var(--text-light);">
+                <a href="index.html" style="color: var(--ocean-blue); text-decoration: underline;">ホーム</a>に戻る、<a href="about.html" style="color: var(--ocean-blue); text-decoration: underline;">私たちについて</a>詳しく知る、または<a href="stories.html" style="color: var(--ocean-blue); text-decoration: underline;">ストーリー</a>を探索する。<a href="video-production.html" style="color: var(--ocean-blue); text-decoration: underline;">映像制作</a>サービスを発見し、<a href="expedition-resort.html" style="color: var(--ocean-blue); text-decoration: underline;">エクスペディションリゾート</a>を訪れ、または<a href="online-store.html" style="color: var(--ocean-blue); text-decoration: underline;">オンラインストア</a>を閲覧する。
+            </p>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section (106 images - placed at end before footer) -->
+    <section style="padding: 4rem 2rem; background: var(--white);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-subtitle japanese-text">フォトギャラリー</p>
+                <p style="text-align: center; margin-top: 1rem; font-size: 1.05rem; color: var(--text-light);">Click any image to view full size</p>
+                <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; font-size: 1rem; color: var(--text-light);">画像をクリックして拡大表示</p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <!-- Photo Grid - 8 columns desktop, responsive on mobile -->
+            <div id="galleryGrid" class="gallery-grid" style="display: grid !important; visibility: visible !important; grid-template-columns: repeat(8, 1fr); gap: 0.8rem; margin-top: 3rem;"></div>
+            
+            <script>
+const images = ['https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-49-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-14-57_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-13-44_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-40_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-52-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-53-35_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-08-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-49-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-08_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-54-05_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-51-30_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-56-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-09-21_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-12-49_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-30-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-58-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-00-45_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-121703_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-01-10_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-122035_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-54-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-59-55_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-50-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-08_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-35_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-02-00_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-58-02_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-15_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-03-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-21_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-04-20_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-06-43_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-31_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-57_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-00_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-56_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-01_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-25-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-19-16_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-25_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-20-55_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-13-24_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-14-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-16-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-17-47_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-22-27_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-01_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-24-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-39_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-43_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-29-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-39_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-33-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-47_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-12_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-29_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-40-28_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-43-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-44-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-46-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-47-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-48-02_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-33_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-24_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-04_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-38_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-52_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0400_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0402_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/fb-img-1577112882145_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190105-140138_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190821-121825_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190918-121147_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img20191120115333_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-25-05_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-28-24_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-38-49_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-45-35_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-46-08_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-23-03-31_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/ariake-seaweed-pier_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/boat-ariake_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-0269_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-20220424-184321-710_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0444_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc04024_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07339_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07344_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07392_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07583_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07746_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07808_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/higashi-sonogi_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kim-gallery_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loading-pic_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/nodo-no-kamisama_orig.jpeg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pic-for-kim-gallery_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/received-1712253785627569_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-03-52_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-04-25_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-05-28_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-13_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-36_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-11_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-44_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-10-10_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-12-34_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-14-26_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-19-21_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-24-52_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-26-08.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-28-54_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-30-11_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-34-37_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-38-21_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-03_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-59_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-16_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-33_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-46-18_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-35_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-55_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-48-25_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-08_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-54_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-50-35_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-09_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-31_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-52_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-18_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-44_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-53-22_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-58-53_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-59-43_orig.png'];
+const grid = document.getElementById('galleryGrid');
+images.forEach((url, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'position: relative; overflow: hidden; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.3s; display: block !important; visibility: visible !important; opacity: 1 !important;';
+    div.onclick = () => openLightbox(i);
+    div.innerHTML = `<img src="${url}" alt="Kyūshū ${i+1}" loading="lazy" style="width: 100% !important; height: 140px !important; object-fit: cover !important; display: block !important; visibility: visible !important; opacity: 1 !important;"><div style="position: absolute; bottom: 6px; right: 6px; background: rgba(0,0,0,0.7); color: white; padding: 3px 7px; border-radius: 3px; font-size: 0.7rem;">🔍</div>`;
+    grid.appendChild(div);
+});
+            </script>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999;">
+        <button onclick="closeLightbox()" style="position: absolute; top: 20px; right: 30px; background: transparent; border: none; color: white; font-size: 40px; cursor: pointer;">&times;</button>
+        <div id="imageCounter" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 16px; background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 16px;">1 / 162</div>
+        <button onclick="changeImage(-1)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: 2px solid white; color: white; font-size: 28px; cursor: pointer; width: 56px; height: 56px; border-radius: 50%;">‹</button>
+        <button onclick="changeImage(1)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: 2px solid white; color: white; font-size: 28px; cursor: pointer; width: 56px; height: 56px; border-radius: 50%;">›</button>
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90%; max-height: 85%;"><img id="lightboxImage" src="" alt="Full size" style="max-width: 100%; max-height: 85vh; object-fit: contain;"></div>
+    </div>
+    <script>
+const images2 = ['https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-49-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-14-57_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-13-44_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-40_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-52-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-53-35_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-08-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-49-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-08_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-54-05_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-51-30_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-56-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-09-21_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-12-49_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-30-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-58-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-00-45_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-121703_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-01-10_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-122035_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-54-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-59-55_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-50-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-08_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-41_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-35_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-02-00_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-58-02_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-15_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-03-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-21_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-04-20_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-54_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-06-43_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-31_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-57_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-00_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-56_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-01_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-25-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-19-16_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-25_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-20-55_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-13-24_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-14-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-16-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-17-47_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-22-27_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-01_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-18_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-24-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-39_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-14_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-43_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-29-37_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-58_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-07_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-39_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-33-06_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-26_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-47_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-12_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-29_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-48_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-40-28_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-43-03_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-44-46_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-46-59_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-47-11_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-48-02_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-33_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-24_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-04_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-38_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-22_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-52_2_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0400_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0402_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/fb-img-1577112882145_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190105-140138_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190821-121825_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190918-121147_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img20191120115333_2_orig.jpg','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-25-05_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-28-24_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-38-49_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-45-35_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-46-08_orig.png','https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-23-03-31_orig.png'];
+let currentIndex = 0;
+function openLightbox(i) { currentIndex = i; document.getElementById('lightbox').style.display = 'block'; document.getElementById('lightboxImage').src = images2[i]; document.getElementById('imageCounter').textContent = `${i + 1} / ${images2.length}`; document.body.style.overflow = 'hidden'; }
+function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow = 'auto'; }
+function changeImage(d) { currentIndex += d; if (currentIndex < 0) currentIndex = images2.length - 1; if (currentIndex >= images2.length) currentIndex = 0; document.getElementById('lightboxImage').src = images2[currentIndex]; document.getElementById('imageCounter').textContent = `${currentIndex + 1} / ${images2.length}`; }
+document.addEventListener('keydown', (e) => { if (document.getElementById('lightbox').style.display === 'block') { if (e.key === 'ArrowRight') changeImage(1); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'Escape') closeLightbox(); } });
+document.getElementById('lightbox').onclick = (e) => { if (e.target.id === 'lightbox') closeLightbox(); };
+    </script>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -402,6 +501,15 @@
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
                 </p>
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Kyūshū in Motion</p>
+                    <p style="font-size: 0.85rem; line-height: 1.6; opacity: 0.85;">
+                        A visual archive in progress
+                    </p>
+                    <p class="japanese-text" style="font-size: 0.85rem; line-height: 1.6; margin-top: 0.5rem; opacity: 0.85;">
+                        進行中の視覚的アーカイブ
+                    </p>
+                </div>
             </div>
 
             <div class="footer-section">
@@ -428,30 +536,48 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/map-kyushu.js"></script>
+
     <script>
         let japaneseVisible = false;
         function toggleJapanese() {
             const japaneseElements = document.querySelectorAll('.japanese-text');
             const toggleBtn = document.getElementById('japaneseToggle');
-            const textEn = toggleBtn.querySelector('.toggle-text');
             japaneseVisible = !japaneseVisible;
             japaneseElements.forEach(element => {
                 if (japaneseVisible) {
                     element.style.display = '';
-                    textEn.textContent = 'Hide';
+                    toggleBtn.classList.remove('hidden-state');
                 } else {
                     element.style.display = 'none';
-                    textEn.textContent = 'Show';
+                    toggleBtn.classList.add('hidden-state');
                 }
             });
             localStorage.setItem('japaneseVisible', japaneseVisible);
         }
+        
+        let frenchVisible = false;
+        function toggleFrench() {
+            const frenchElements = document.querySelectorAll('.french-text');
+            const toggleBtn = document.getElementById('frenchToggle');
+            frenchVisible = !frenchVisible;
+            frenchElements.forEach(element => {
+                if (frenchVisible) {
+                    element.style.display = '';
+                    toggleBtn.classList.remove('hidden-state');
+                } else {
+                    element.style.display = 'none';
+                    toggleBtn.classList.add('hidden-state');
+                }
+            });
+            localStorage.setItem('frenchVisible', frenchVisible);
+        }
+        
         window.addEventListener('DOMContentLoaded', () => {
             const savedPreference = localStorage.getItem('japaneseVisible');
             const japaneseElements = document.querySelectorAll('.japanese-text');
@@ -461,7 +587,53 @@
             } else {
                 japaneseElements.forEach(element => { element.style.display = 'none'; });
             }
+            
+            // Handle French toggle
+            const savedFrenchPreference = localStorage.getItem('frenchVisible');
+            const frenchElements = document.querySelectorAll('.french-text');
+            if (savedFrenchPreference === 'true') {
+                frenchVisible = false;
+                toggleFrench();
+            } else {
+                frenchElements.forEach(element => { element.style.display = 'none'; });
+            }
         });
     </script>
+
+<!-- Language Toggle Styles and Script -->
+<style>
+    body .japanese-text,
+    body .content-text[style*="font-style: italic"] { display: none !important; }
+    body[data-lang="ja"] .japanese-text { display: block !important; }
+    body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) { display: none !important; }
+    body[data-lang="ja"] .content-text[style*="font-style: italic"] { display: none !important; }
+    body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
+    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
+    body[data-lang="fr"] .japanese-text { display: none !important; }
+    body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .section-title, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
+    body .main-nav ul { display: flex !important; }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.body;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('preferredLanguage', lang);
+            });
+        });
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+            });
+        }
+    });
+</script>
 </body>
 </html>

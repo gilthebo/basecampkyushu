@@ -88,7 +88,12 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
@@ -145,9 +150,40 @@
     </div>
 
     <footer style="background: #1a2332; color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-        <p style="color: white;">© 2025 BASECAMP KYUSHU - by <a href="http://mglobaljapan.com/" target="_blank" style="color: #4a7ba7;">M Global Japan</a></p>
+        <p style="color: white;">© 2025 BASECAMP KYUSHU<br>by <a href="http://mglobaljapan.com/" target="_blank" style="color: #4a7ba7;">M Global Japan</a></p>
     </footer>
 
     <script src="js/main.js"></script>
+<style>
+    body .japanese-text, body .content-text[style*="font-style: italic"] { display: none !important; }
+    body[data-lang="ja"] .japanese-text { display: block !important; }
+    body[data-lang="ja"] .content-text:not(.japanese-text) { display: none !important; }
+    body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
+    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
+    body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
+    body .main-nav ul { display: flex !important; }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.body;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('preferredLanguage', lang);
+            });
+        });
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+            });
+        }
+    });
+</script>
 </body>
 </html>

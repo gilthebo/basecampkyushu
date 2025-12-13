@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.querySelector('.main-nav');
     
     if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        // Ensure menu is closed on page load
+        mainNav.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        
+        mobileMenuToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
             mainNav.classList.toggle('active');
-            
-            // Change icon
-            if (mainNav.classList.contains('active')) {
-                this.innerHTML = '✕';
-            } else {
-                this.innerHTML = '☰';
-            }
+            this.classList.toggle('active');
         });
         
         // Close menu when clicking outside
@@ -30,17 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
-                mobileMenuToggle.innerHTML = '☰';
+                mobileMenuToggle.classList.remove('active');
             }
         });
         
         // Close menu when clicking on a link
         const navLinks = mainNav.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(event) {
+                // Close menu immediately
                 mainNav.classList.remove('active');
-                mobileMenuToggle.innerHTML = '☰';
+                mobileMenuToggle.classList.remove('active');
             });
+        });
+        
+        // Close menu on page navigation (beforeunload)
+        window.addEventListener('beforeunload', function() {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         });
     }
     

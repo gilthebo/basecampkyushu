@@ -44,7 +44,13 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <!-- Language Toggle Buttons -->
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
@@ -72,26 +78,112 @@
     <!-- Title Content Below Banner -->
     <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
         <h1 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">BASECAMP KYUSHU STORIES</h1>
-        <p style="font-size: 1.3rem; color: var(--ocean-blue); margin-bottom: 0.5rem;">Fiction from Real Places</p>
-        <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">実在する場所から生まれる物語</p>
+        <p style="font-size: 1.4rem; color: var(--ocean-blue); margin-bottom: 0.5rem; font-style: italic;">When the lens stops, the words begin</p>
+        <p class="japanese-text" style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 0.5rem;">レンズが止まるとき、言葉が始まる</p>
+        <p class="french-text" style="font-size: 1.2rem; color: var(--text-light); font-style: italic; margin-bottom: 2rem;">Quand l'objectif se tait, les mots murmurent</p>
+    </section>
+
+    <!-- Series Introduction - Visual Impact Section -->
+    <section style="padding: 6rem 2rem; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--ocean-blue) 100%); color: var(--white); text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png'); background-size: cover; background-position: center; opacity: 0.08; z-index: 0;"></div>
+        
+        <div class="section-container" style="max-width: 1000px; position: relative; z-index: 1;">
+            <div style="background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); padding: 3rem 2.5rem; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15);">
+                <p style="font-size: 1.25rem; line-height: 1.9; margin-bottom: 1.5rem; color: #E8F4F8; font-weight: 400;">
+                    A series of atmospheric fictions, attentive to landscapes, gestures, and the margins of the island.<br><br>
+                    Each volume explores a region, a season, a rhythm.<br><br>
+                    This first tome is anchored in Saga, in its retreats and thresholds.
+                </p>
+                
+                <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: #FFE5CC;">
+                    風景、仕草、島の周縁に注意を払った雰囲気小説のシリーズです。<br><br>
+                    各巻は地域、季節、リズムを探求します。<br><br>
+                    この第一巻は佐賀に根ざし、その後退と敷居に根ざしています。
+                </p>
+                
+                <p class="french-text" style="font-size: 1.2rem; line-height: 1.9; color: #D4E8FF; font-style: italic;">
+                    Une série de fictions d'atmosphère, attentive aux paysages, aux gestes et aux marges de l'île.<br><br>
+                    Chaque volume explore une région, une saison, un rythme.<br><br>
+                    Ce premier tome s'ancre à Saga, dans ses retraits et ses seuils.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- Project Overview -->
     <section style="padding: 4rem 2rem; background: var(--light-gray);">
         <div class="section-container" style="max-width: 900px;">
             <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
-                We discover hidden locations in rural Kyūshū, photograph them, develop narratives with AI assistance, 
-                and create trilingual illustrated novels.
+                From our visual explorations across Kyūshū emerges another voice: fiction.<br>
+                Not action-driven plots, but atmospheric narratives where silence, gesture, and landscape tell the story.
             </p>
             
             <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; text-align: center; margin-bottom: 1.5rem;">
-                九州の隠れた場所を発見し、撮影し、AIの支援を得て物語を作り、
-                三言語のイラスト付き小説を創作します。
+                九州の視覚的な探索から、もう一つの声が生まれます：フィクション。<br>
+                アクション主導ではなく、沈黙、しぐさ、風景が物語を紡ぐ雰囲気のナラティブ。
             </p>
             
             <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; font-style: italic;">
-                Nous découvrons des lieux cachés dans le Kyūshū rural, les photographions, développons des récits avec l'assistance de l'IA, 
-                et créons des romans illustrés trilingues.
+                De nos explorations visuelles à travers Kyūshū naît une autre voix : la fiction.<br>
+                Non pas des intrigues d'action, mais des récits d'atmosphère où silence, geste et paysage racontent l'histoire.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Three Linguistic Voices -->
+    <section style="padding: 4rem 2rem; background: var(--white);">
+        <div class="section-container" style="max-width: 900px;">
+            <div class="section-header">
+                <h2 class="section-title">One Story, Three Voices</h2>
+                <p class="section-subtitle japanese-text">一つの物語、三つの響き</p>
+                <p class="section-subtitle" style="font-style: italic;">Une histoire, trois voix</p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                Each language reveals a different hue of the story:
+            </p>
+            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                言語が変われば、物語の色もかすかに変わります。
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem; text-align: center; font-style: italic;">
+                Chaque langue révèle une couleur différente du récit :
+            </p>
+            
+            <div class="flag-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇯🇵</div>
+                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">Japanese</h4>
+                    <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">日本語</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">Japanese evokes the subtlety of silence</p>
+                    <p class="japanese-text" style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">日本語は、静けさのやわらかな余白をにじませ</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇫🇷</div>
+                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">French</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem; font-style: italic;">Français</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">French unveils a more intimate melancholy</p>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem; font-style: italic;">le français dévoile une mélancolie plus intime</p>
+                </div>
+                
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇬🇧</div>
+                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">English</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">英語</p>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">English opens a space for broader contemplation</p>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">英語は、広がりある観照の空間をそっと開きます</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2.5rem; font-size: 1.05rem; color: var(--text-dark);">
+                A book meant to be shared, gifted, and experienced in the language that resonates most.
+            </p>
+            <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; font-size: 1rem;">
+                贈る、共有する、交換する—誰もが自分に合う言語で読める一冊。
+            </p>
+            <p style="text-align: center; margin-top: 0.5rem; font-size: 1rem; font-style: italic;">
+                Un livre fait pour être partagé, offert, et vécu dans la langue qui résonne le plus.
             </p>
         </div>
     </section>
@@ -113,45 +205,67 @@
                 <span style="background: rgba(214, 121, 66, 0.2); color: var(--sunset-orange); padding: 0.5rem 1rem; border-radius: 20px;">Saga Prefecture</span>
                 <span style="background: rgba(74, 123, 167, 0.2); color: var(--ocean-blue); padding: 0.5rem 1rem; border-radius: 20px;">Trilingual Edition</span>
                 <span style="background: rgba(214, 121, 66, 0.2); color: var(--sunset-orange); padding: 0.5rem 1rem; border-radius: 20px;">Illustrated</span>
-                <span style="background: rgba(74, 123, 167, 0.2); color: var(--ocean-blue); padding: 0.5rem 1rem; border-radius: 20px;">AI-Assisted</span>
+<span style="background: rgba(74, 123, 167, 0.2); color: var(--ocean-blue); padding: 0.5rem 1rem; border-radius: 20px;">Atmospheric Fiction</span>
             </div>
 
             <!-- ROW 1: Story + Themes (horizontal) -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
-                        <!-- Left Column: Story + Themes -->
+                        <!-- Left Column: Story -->
                         <div>
-                            <h3 style="color: var(--sunset-orange);">The Story</h3>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">物語</p>
-                            <p style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">L'histoire</p>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.8rem;">
-                                Deep in Kyūshū's mountains lies a village time forgot. Thirty kilns still breathe. 
-                                Smoke rises from brick chimneys. And a traveler from Hokkaido arrives searching for 
-                                silence he cannot name...
-                            </p>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.8rem;">
-                                九州の山奥、時が忘れた村。今も息づく三十の窯。
-                                煉瓦の煙突から立ち上る煙。札幌から来た旅人は、
-                                名付けられぬ静寂を探して—
-                            </p>
-                            <p style="color: rgba(255,255,255,0.85); font-style: italic; font-size: 0.9rem; line-height: 1.7;">
-                                Au fond des montagnes de Kyūshū se trouve un village oublié par le temps. Trente fours respirent encore. 
-                                La fumée s'élève des cheminées de brique. Et un voyageur d'Hokkaido arrive à la recherche 
-                                d'un silence qu'il ne peut nommer...
-                            </p>
+                            <h3 style="color: var(--sunset-orange); margin-bottom: 1.5rem;">The Story</h3>
+                            
+                            <!-- ENGLISH VERSION -->
+                            <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--ocean-blue); margin-bottom: 1.5rem;">
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇬🇧 English</p>
+                                <p style="color: rgba(255,255,255,0.95); font-size: 0.95rem; line-height: 1.8;">
+                                    He came to Kyūshū to rediscover a lost rhythm.<br><br>
+                                    
+                                    In Sapporo, he left behind an interrupted manuscript, stopped at a point where continuing seemed impossible. 
+                                    He chose the south, not to escape, but to enter a different relationship with time. 
+                                    Where landscapes don't impose themselves, where one never quite arrives by chance.<br><br>
+                                    
+                                    In a pottery village hidden between mountains and rice paddies, ancient gestures continue without sound. 
+                                    The kilns still breathe, the alleys trace their own thresholds, and the chimneys watch over a knowledge 
+                                    that fire has learned to measure differently than days. Nothing here is spectacular, but each detail 
+                                    seems charged with a discreet presence.<br><br>
+                                    
+                                    Through walking and observation, the stay becomes something other than a simple passage. 
+                                    Places cease to be backdrops. Silence acts. And what seemed immobile gradually reveals its depth.
+                                </p>
+                            </div>
+                            
+                            <!-- JAPANESE VERSION -->
+                            <div class="japanese-text" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--sunset-orange); margin-bottom: 1.5rem;">
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇯🇵 日本語</p>
+                                <p style="color: rgba(255,255,255,0.9); font-size: 0.92rem; line-height: 1.9;">
+                                    彼は失われたリズムを取り戻すために九州にやって来た。<br><br>
+                                    
+                                    札幌では、中断された原稿を置き去りにした。続けることが不可能に思えた地点で止まっていた。
+                                    南を選んだのは、逃げるためではなく、時間との異なる関係に入るためだった。
+                                    風景が押し付けられることのない場所、決して偶然にたどり着くことのない場所。<br><br>
+                                    
+                                    山と田んぼの間に隠された陶芸の村では、古い仕草が音もなく続いている。
+                                    窯はまだ呼吸し、路地は独自の敷居を描き、煙突は日々とは異なる方法で火が学んだ知識を見守っている。
+                                    ここでは何も壮観ではないが、それぞれの細部が控えめな存在感に満ちているようだ。<br><br>
+                                    
+                                    歩き、観察することで、滞在は単なる通過以上のものになる。
+                                    場所は背景であることをやめる。沈黙が作用する。そして、動かないように見えたものが、徐々にその深さを明らかにする。
+                                </p>
+                            </div>
+                            
                         </div>
                         
-                        <!-- Right Column: Themes -->
+                        <!-- Right Column: Themes + French Story -->
                         <div>
 
                             <h3 style="color: var(--sunset-orange); margin-top: 0;">Themes</h3>
                             <p class="japanese-text" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">テーマ</p>
-                            <p style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">Thèmes</p>
+                            <p class="french-text" style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">Thèmes</p>
                             
                             <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; font-size: 0.95rem;">
                                 <li>• Forgotten crafts and fading traditions</li>
                                 <li>• The weight of inheritance</li>
                                 <li>• Mountains that remember</li>
-                                <li>• Ghosts that never left</li>
                                 <li>• Silence as a character</li>
                             </ul>
                             
@@ -159,23 +273,41 @@
                                 <li>• 忘れられた工芸と色褸せる伝統</li>
                                 <li>• 継承の重み</li>
                                 <li>• 記憶する山々</li>
-                                <li>• 去らなかった幽霊</li>
                                 <li>• 登場人物としての沈黙</li>
                             </ul>
                             
-                            <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.85); font-style: italic; font-size: 0.9rem;">
+                            <ul class="french-text" style="list-style: none; padding: 0; color: rgba(255,255,255,0.85); font-style: italic; font-size: 0.9rem; margin-bottom: 2rem;">
                                 <li>• Artisanats oubliés et traditions qui s'estompent</li>
                                 <li>• Le poids de l'héritage</li>
                                 <li>• Des montagnes qui se souviennent</li>
-                                <li>• Des fantômes qui ne sont jamais partis</li>
                                 <li>• Le silence comme personnage</li>
                             </ul>
+                            
+                            <!-- FRENCH STORY VERSION -->
+                            <div class="french-text" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary-dark); margin-top: 2rem;">
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇫🇷 Français</p>
+                                <p style="color: rgba(255,255,255,0.9); font-style: italic; font-size: 0.93rem; line-height: 1.8;">
+                                    Il est venu à Kyūshū pour retrouver un rythme perdu.<br><br>
+                                    
+                                    À Sapporo, il a laissé un manuscrit interrompu, arrêté à un point où continuer semblait impossible. 
+                                    Il choisit le sud, non pour s'éloigner, mais pour entrer dans un autre rapport au temps. 
+                                    Là où les paysages ne s'imposent pas, où l'on n'arrive jamais tout à fait par hasard.<br><br>
+                                    
+                                    Dans un village de potiers dissimulé entre montagnes et rizières, les gestes anciens se poursuivent sans bruit. 
+                                    Les fours respirent encore, les ruelles tracent leurs propres seuils, et les cheminées veillent sur un savoir 
+                                    que le feu a appris à mesurer autrement que les jours. Rien n'y est spectaculaire, mais chaque détail 
+                                    semble chargé d'une présence discrète.<br><br>
+                                    
+                                    Au fil de la marche et de l'observation, le séjour devient autre chose qu'un simple passage. 
+                                    Les lieux cessent d'être des décors. Le silence agit. Et ce qui paraissait immobile révèle, peu à peu, sa profondeur.
+                                </p>
+                            </div>
                 </div>
             </div>
             
             <!-- CENTERED BOOK COVER - Visual Divider -->
             <div style="max-width: 600px; margin: 4rem auto; text-align: center;">
-                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pr_orig.png" alt="Whispers of Ashes - Trilingual Novel Cover" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
+                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-13-at-14-05-33_orig.png" alt="Whispers of Ashes - Trilingual Novel Cover" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
             </div>
             
             <!-- ROW 2: What You Get + Location (horizontal) -->
@@ -213,15 +345,7 @@
                                 transformées en interprétations visuelles qui accompagnent le récit.
                             </p>
                             
-                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem;">
-                                <strong>164 Pages:</strong> Paperback and eBook formats available on Amazon.
-                            </p>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-bottom: 0.8rem;">
-                                <strong>164ページ：</strong>Amazonでペーパーバックと電子書籍形式で利用可能。
-                            </p>
-                            <p style="color: rgba(255,255,255,0.85); font-style: italic;">
-                                <strong>164 pages :</strong> Formats broché et eBook disponibles sur Amazon.
-                            </p>
+
                         </div>
                         
                         <!-- Right Column: Location -->
@@ -246,79 +370,48 @@
         </div>
     </section>
 
-    <!-- The Creative Process -->
-    <section id="process" style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container">
+    <!-- Connection to Basecamp Universe -->
+    <section style="padding: 4rem 2rem; background: linear-gradient(135deg, rgba(44,95,122,0.95), rgba(74,123,167,0.9)); color: var(--white);">
+        <div class="section-container" style="max-width: 900px;">
             <div class="section-header">
-                <h2 class="section-title">Our Creative Process</h2>
-                <p class="section-subtitle">Human-Guided. AI-Assisted. Always Fiction.</p>
-                <p class="section-subtitle japanese-text">人間が導き、AIが支援し、常にフィクション。</p>
-                <p class="section-subtitle" style="font-style: italic;">Guidé par l'humain. Assisté par l'IA. Toujours de la fiction.</p>
+                <h2 style="color: var(--white);">From Lens to Page</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">The Visual Foundation of Our Fiction</p>
+                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">レンズからページへ — フィクションの視覚的基礎</p>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.85); font-style: italic;">De l'objectif à la page — Les fondations visuelles de notre fiction</p>
                 <div class="section-divider"></div>
             </div>
 
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="process-number">1</div>
-                    <h4>Location Discovery</h4>
-                    <p class="japanese-text">場所の発見</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Découverte des lieux</p>
-                    <p>We explore rural Kyūshū searching for places with atmosphere—forgotten villages, mountain valleys, coastal roads.</p>
-                </div>
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center; color: rgba(255,255,255,0.95);">
+                Before we write, we explore. Through <a href="in-motion.html" style="color: #FFD700; text-decoration: underline; font-weight: 600;">photography</a>, 
+                <a href="video-production.html" style="color: #FFD700; text-decoration: underline; font-weight: 600;">video</a>, and 
+                <a href="in-motion.html#immersive" style="color: #FFD700; text-decoration: underline; font-weight: 600;">VR panoramas</a>, 
+                we immerse ourselves in Kyūshū's hidden corners.<br>
+                These visual journeys become the atmospheric foundation for our fiction.
+            </p>
+            
+            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem; text-align: center; color: rgba(255,255,255,0.9);">
+                執筆する前に、私たちは探索します。写真、映像、VRパノラマを通じて、九州の隠された場所に没入します。<br>
+                これらの視覚的な旅が、フィクションの雰囲気の基礎となります。
+            </p>
+            
+            <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; text-align: center; font-style: italic; color: rgba(255,255,255,0.9);">
+                Avant d'écrire, nous explorons. À travers la photographie, la vidéo et les panoramas VR, 
+                nous nous immergeons dans les recoins cachés de Kyūshū.<br>
+                Ces voyages visuels deviennent la base atmosphérique de notre fiction.
+            </p>
 
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <h4>Photography</h4>
-                    <p class="japanese-text">撮影</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Photographie</p>
-                    <p>We photograph the location extensively, capturing its mood, architecture, landscape, and details.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">3</div>
-                    <h4>Concept Development</h4>
-                    <p class="japanese-text">コンセプト開発</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Développement du concept</p>
-                    <p>We decide the plot, themes, characters, season, and temporal setting—the creative foundation is ours.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <h4>AI Collaboration</h4>
-                    <p class="japanese-text">AI協働</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Collaboration avec l'IA</p>
-                    <p>We work with AI to write the narrative, ensuring chronology, language quality, and emotional resonance align with our vision.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">5</div>
-                    <h4>Illustration Creation</h4>
-                    <p class="japanese-text">イラスト制作</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Création d'illustrations</p>
-                    <p>The photographs are retouched and transformed into illustrations—artistic interpretations of real places.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">6</div>
-                    <h4>Trilingual Publication</h4>
-                    <p class="japanese-text">三言語出版</p>
-                    <p style="font-style: italic; font-size: 0.95rem;">Publication trilingue</p>
-                    <p>The story is presented in Japanese, French, and English—three languages, one vision, always fiction. Each version is carefully crafted to preserve atmosphere and cultural nuance while maintaining narrative consistency.</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 8px;">
-                <p style="font-size: 1.1rem; font-style: italic; color: var(--text-light);">
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid var(--sunset-orange);">
+                <p style="font-size: 1.2rem; font-style: italic; line-height: 1.8; color: var(--white); text-align: center;">
                     "The places are real. The photographs are real. The feelings they inspire are real.<br>
-                    <strong>But the stories? The stories are always fiction.</strong>"
+                    <strong style="color: #FFD700;">But the stories? The stories are always fiction.</strong>"
                 </p>
-                <p class="japanese-text" style="font-size: 1rem; margin-top: 1rem; color: var(--text-light);">
+                <p class="japanese-text" style="font-size: 1.05rem; margin-top: 1rem; line-height: 1.9; color: rgba(255,255,255,0.95); text-align: center;">
                     「場所は実在します。写真は実在します。それらが呼び起こす感情も実在します。<br>
-                    <strong>しかし物語は？物語は常にフィクションです。</strong>」
+                    <strong style="color: #FFD700;">しかし物語は？物語は常にフィクションです。</strong>」
                 </p>
-                <p style="font-size: 1rem; margin-top: 1rem; color: var(--text-light); font-style: italic;">
+                <p style="font-size: 1rem; margin-top: 1rem; line-height: 1.8; color: rgba(255,255,255,0.95); font-style: italic; text-align: center;">
                     « Les lieux sont réels. Les photographies sont réelles. Les émotions qu'ils inspirent sont réelles.<br>
-                    <strong>Mais les histoires ? Les histoires sont toujours de la fiction.</strong> »
+                    <strong style="color: #FFD700;">Mais les histoires ? Les histoires sont toujours de la fiction.</strong> »
                 </p>
             </div>
         </div>
@@ -617,25 +710,39 @@
             </div>
 
             <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <h3 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">What's Next?</h3>
-                <p class="japanese-text" style="color: var(--text-light); margin-bottom: 0.3rem;">次の作品は？</p>
-                <p style="color: var(--text-light); font-style: italic; font-size: 0.95rem; margin-bottom: 2rem;">Et ensuite&nbsp;?</p>
-                
-                <p style="font-size: 1.1rem; line-height: 1.8; margin: 0 auto 1.5rem; max-width: 800px; text-align: left;">
-                    We're currently exploring new locations across Kyūshū. Each volume begins with&nbsp;discovery—
-                    finding a place that speaks to us, that holds atmosphere, that deserves to be remembered through&nbsp;fiction. 
-                    When the right location reveals itself, the next story will take&nbsp;shape.
-                </p>
-                <p class="japanese-text" style="font-size: 1rem; line-height: 1.9; margin: 0 auto 1.5rem; max-width: 800px; text-align: left;">
-                    現在、九州全域で新しい場所を探索しています。各巻は発見から始まります—
-                    私たちに語りかける場所、雰囲気を持つ場所、フィクションを通じて記憶されるに値する場所を見つけることから。
-                    適切な場所が現れたとき、次の物語が形になります。
-                </p>
-                <p style="font-size: 1rem; line-height: 1.8; font-style: italic; margin: 0 auto 2rem; max-width: 800px; text-align: left;">
-                    Nous explorons actuellement de nouveaux lieux à travers&nbsp;Kyūshū. Chaque volume commence par une&nbsp;découverte—
-                    trouver un lieu qui nous parle, qui a une atmosphère, qui mérite d'être rappelé à travers la&nbsp;fiction. 
-                    Quand le bon endroit se révélera, la prochaine histoire prendra&nbsp;forme.
-                </p>
+                <!-- À SUIVRE Banner -->
+                <div style="background: linear-gradient(135deg, rgba(44,95,122,0.15), rgba(74,123,167,0.1)); padding: 3rem 2rem; border-radius: 12px; margin-bottom: 3rem; border-left: 6px solid var(--ocean-blue);">
+                    <h3 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; font-weight: 700; letter-spacing: 3px;">À SUIVRE</h3>
+                    <p style="font-size: 1.3rem; color: var(--ocean-blue); font-style: italic; margin-bottom: 0.5rem;">Le voyage continue…</p>
+                    <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">旅は続く…</p>
+                    <p style="font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.3rem;">The journey continues…</p>
+                </div>
+
+                <!-- Volume 2 Details -->
+                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                    <h4 style="color: var(--sunset-orange); font-size: 1.8rem; margin-bottom: 1rem;">Volume 2 en préparation — 2026</h4>
+                    <p class="japanese-text" style="color: var(--text-light); margin-bottom: 1rem; font-size: 1.1rem;">第2巻準備中 — 2026年</p>
+                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.05rem; font-style: italic;">[Titre à venir]</p>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 1.05rem;">[Title to be announced]</p>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <p style="font-size: 1.2rem; line-height: 2; color: var(--primary-dark);">
+                            Un nouveau village.<br>
+                            Une nouvelle saison.<br>
+                            Ryo Tanaka poursuit son exploration de Kyūshū.
+                        </p>
+                        <p class="japanese-text" style="font-size: 1.1rem; line-height: 2; color: var(--text-light); margin-top: 1.5rem;">
+                            新しい村。<br>
+                            新しい季節。<br>
+                            田中涼が九州の探索を続ける。
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 2; color: var(--text-light); margin-top: 1.5rem; font-style: italic;">
+                            A new village.<br>
+                            A new season.<br>
+                            Ryo Tanaka continues his exploration of Kyūshū.
+                        </p>
+                    </div>
+                </div>
 
                 <div style="margin-top: 3rem;">
                     <a href="contact.html" class="btn btn-primary">NOTIFY ME FOR VOLUME 2</a>
@@ -647,71 +754,7 @@
         </div>
     </section>
 
-    <!-- Why AI? Philosophy Section -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 style="color: var(--white);">Why AI-Assisted?</h2>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">なぜAI支援？</p>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.85); font-style: italic;">Pourquoi assisté par l'IA ?</p>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.85);">Transparency in Our Creative Process</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.75);">私たちの創作プロセスの透明性</p>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.75); font-style: italic;">Transparence de notre processus créatif</p>
-                <div class="section-divider"></div>
-            </div>
 
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
-                <strong>We're transparent about our process.</strong> These stories are written in collaboration with AI, 
-                but the creative direction is entirely human. We choose the locations, develop the plots, create the themes, 
-                guide the emotional tone, and make every artistic decision.
-            </p>
-
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
-                <strong>私たちのプロセスは透明です。</strong>これらの物語はAIとの協働で書かれていますが、
-                創造的な方向性は完全に人間によるものです。私たちが場所を選び、プロットを開発し、
-                テーマを作り、感情的なトーンを導き、すべての芸術的決定を行います。
-            </p>
-            
-            <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-style: italic;">
-                <strong>Nous sommes transparents sur notre processus.</strong> Ces histoires sont écrites en collaboration avec l'IA, 
-                mais la direction créative est entièrement humaine. Nous choisissons les lieux, développons les intrigues, créons les thèmes, 
-                guidons le ton émotionnel et prenons toutes les décisions artistiques.
-            </p>
-
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
-                AI allows us to explore narrative possibilities and craft trilingual editions that would be 
-                impossible for a single writer. It's not replacing creativity—<strong>it's amplifying our ability 
-                to tell stories about places that deserve to be known.</strong>
-            </p>
-
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
-                AIによって、一人の作家では不可能な物語の可能性を探求し、
-                三言語版を作ることができます。創造性を置き換えるのではなく—
-                <strong>知られるべき場所について物語を語る能力を増幅させます。</strong>
-            </p>
-            
-            <p style="font-size: 1.1rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-style: italic;">
-                L'IA nous permet d'explorer des possibilités narratives et de créer des éditions trilingues qui seraient 
-                impossibles pour un seul écrivain. Elle ne remplace pas la créativité—<strong>elle amplifie notre capacité 
-                à raconter des histoires sur des lieux qui méritent d'être connus.</strong>
-            </p>
-
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange);">
-                <p style="font-size: 1.2rem; font-style: italic; line-height: 1.8; color: var(--white);">
-                    "We guide the story. AI helps us write it. The photographs are real. The places are real. 
-                    But the narrative? <strong>Always fiction.</strong>"
-                </p>
-                <p class="japanese-text" style="font-size: 1.1rem; margin-top: 1rem; line-height: 1.9; color: rgba(255,255,255,0.95);">
-                    「私たちが物語を導きます。AIは執筆を助けます。写真は実在します。場所は実在します。
-                    しかし物語は？<strong>常にフィクションです。</strong>」
-                </p>
-                <p style="font-size: 1.05rem; margin-top: 1rem; line-height: 1.8; color: rgba(255,255,255,0.95); font-style: italic;">
-                    « Nous guidons l'histoire. L'IA nous aide à l'écrire. Les photographies sont réelles. Les lieux sont réels. 
-                    Mais le récit ? <strong>Toujours de la fiction.</strong> »
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- Call to Action -->
     <section class="cta-section" style="background: var(--warm-beige); padding: 4rem 2rem; text-align: center;">
@@ -746,7 +789,9 @@
                 <p class="japanese-text">土地 — 人 — 物語</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
                     <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
@@ -777,10 +822,132 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <!-- Language Toggle Styles and Script -->
+    <style>
+        /* Language Toggle System */
+        /* By default, show English and hide Japanese & French */
+        body .japanese-text,
+        body .content-text[style*="font-style: italic"] {
+            display: none !important;
+        }
+        
+        /* When Japanese is active */
+        body[data-lang="ja"] .japanese-text {
+            display: block !important;
+        }
+        
+        body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) {
+            display: none !important;
+        }
+        
+        body[data-lang="ja"] .content-text[style*="font-style: italic"] {
+            display: none !important;
+        }
+        
+        /* When French is active */
+        body[data-lang="fr"] .content-text[style*="font-style: italic"] {
+            display: block !important;
+        }
+        
+        body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) {
+            display: none !important;
+        }
+        
+        body[data-lang="fr"] .japanese-text {
+            display: none !important;
+        }
+        
+        /* ALWAYS VISIBLE - Navigation and structural elements */
+        body .main-nav,
+        body .main-nav ul,
+        body .main-nav li,
+        body .main-nav a,
+        body h1, 
+        body h2, 
+        body .section-title, 
+        body .btn,
+        body .logo,
+        body nav,
+        body header,
+        body footer,
+        body img,
+        body .featured-meta,
+        body .language-toggle-buttons {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        body .main-nav ul {
+            display: flex !important;
+        }
+        
+        /* Active button styling */
+        .lang-btn.active {
+            background: var(--ocean-blue) !important;
+            color: white !important;
+        }
+        
+        .lang-btn:hover {
+            opacity: 0.8;
+        }
+        
+        /* Responsive language buttons */
+        @media (max-width: 768px) {
+            .language-toggle-buttons {
+                margin-left: 0.5rem;
+                gap: 0.3rem !important;
+            }
+            
+            .lang-btn {
+                padding: 0.3rem 0.6rem !important;
+                font-size: 0.75rem !important;
+            }
+            
+            /* Stack flag cards on mobile */
+            .flag-cards-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+    
+    <script>
+        // Language Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            
+            // Get saved language from localStorage or default to 'en'
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(savedLang);
+            
+            // Add click handlers to language buttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('preferredLanguage', lang);
+                });
+            });
+            
+            function setLanguage(lang) {
+                // Update body data-lang attribute
+                body.setAttribute('data-lang', lang);
+                
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

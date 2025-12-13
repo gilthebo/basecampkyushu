@@ -51,11 +51,16 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
-    <div class="japanese-toggle-container"><button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility"><span class="toggle-text">Show</span><span class="toggle-icon">JPN</span></button></div>
+    
 
     <!-- Breadcrumb Navigation -->
     <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
@@ -107,10 +112,10 @@
                     <div style="background: var(--warm-beige); padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
                         <p style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
                             <strong>📸 Design Details Coming Soon</strong><br>
-                            Final design specifications and product photography will be shared before pre-orders open in March 2026.
+                            Final design specifications and product photography will be shared by early January 2026.
                         </p>
                         <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
-                            デザインの詳細は2026年3月の予約開始前に公開されます。
+                            デザインの詳細は2026年1月上旬までに公開されます。
                         </p>
                     </div>
                 </div>
@@ -166,12 +171,12 @@
 
                     <div style="margin-top: 3rem; padding: 2rem; background: var(--warm-beige); border-radius: 8px; text-align: center;">
                         <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Pricing</h3>
-                        <p style="font-size: 2rem; font-weight: 600; color: var(--sunset-orange); margin: 1rem 0;">
-                            TBD
+                        <p style="font-size: 1.8rem; font-weight: 600; color: var(--sunset-orange); margin: 1rem 0;">
+                            ¥3,500 ~ ¥5,000
                         </p>
-                        <p style="color: var(--text-dark); font-size: 1.05rem;">Pricing to be announced with pre-order opening</p>
-                        <p class="japanese-text" style="color: var(--text-light); margin-top: 0.5rem;">
-                            価格は予約開始時に発表
+                        <p style="color: var(--text-dark); font-size: 0.95rem; font-style: italic;">Pricing not final yet</p>
+                        <p class="japanese-text" style="color: var(--text-light); margin-top: 0.5rem; font-size: 0.9rem;">
+                            価格は確定していません
                         </p>
                         
                         <!-- Pre-Order CTA -->
@@ -239,19 +244,19 @@
     <!-- Store Opening -->
     <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white);">
         <div class="section-container" style="max-width: 900px; text-align: center;">
-            <h2 style="color: var(--white);">Pre-Order Now — Purchase in March</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Pre-Orders Open | Purchase March 2026</p>
-            <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">予約受付中 — 購入：2026年3月</p>
+            <h2 style="color: var(--white);">Pre-Order Now</h2>
+            
+            <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">予約受付中 — 配送：2026年3月</p>
             <div class="section-divider" style="margin: 2rem auto;"></div>
 
             <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin: 2rem auto; max-width: 700px;">
-                We're finalizing production with our partners in Kyūshū. Pre-order now and receive your 
-                Basecamp Kyūshū signature t-shirt in <strong>March 2026</strong>.
+                We're finalizing production with our partners in Kyūshū.<br>
+                Pre-order now and receive your Basecamp Kyūshū signature t-shirt.
             </p>
 
             <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin: 2rem auto; max-width: 700px;">
-                九州のパートナーと製造を最終調整中です。今すぐ予約して、
-                <strong>2026年3月</strong>にBasecamp KyūshūシグネチャーTシャツをお受け取りください。
+                九州のパートナーと製造を最終調整中です。<br>
+                今すぐ予約して、<strong>2026年3月</strong>にBasecamp KyūshūシグネチャーTシャツをお受け取りください。
             </p>
 
             <div style="background: rgba(255,255,255,0.15); padding: 2.5rem; border-radius: 8px; margin: 3rem auto; max-width: 600px;">
@@ -280,8 +285,8 @@
                 <div class="section-divider"></div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
+            <div class="shipping-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
                     <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">🇯🇵 Japan Domestic</h4>
                     <p><strong>Free Shipping</strong> on all orders</p>
                     <p class="japanese-text" style="margin-top: 0.5rem;">全注文送料無料</p>
@@ -291,7 +296,7 @@
                     </p>
                 </div>
 
-                <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
+                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
                     <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">🌏 International</h4>
                     <p><strong>Available</strong> to select countries</p>
                     <p class="japanese-text" style="margin-top: 0.5rem;">一部の国へ発送可能</p>
@@ -301,7 +306,7 @@
                     </p>
                 </div>
 
-                <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
+                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
                     <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">📦 Packaging</h4>
                     <p><strong>Eco-friendly</strong> materials</p>
                     <p class="japanese-text" style="margin-top: 0.5rem;">環境に優しい包装</p>
@@ -322,7 +327,9 @@
                 <p class="japanese-text">土地 — 人 — 物語</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6;">
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
                     <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
@@ -353,13 +360,41 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <style>
+        body .japanese-text, body .content-text[style*="font-style: italic"] { display: none !important; }
+        body[data-lang="ja"] .japanese-text { display: block !important; }
+        body[data-lang="ja"] .content-text:not(.japanese-text) { display: none !important; }
+        body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
+        body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
+        body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
+        body .main-nav ul { display: flex !important; }
+    </style>
     <script>
-        let japaneseVisible=false;function toggleJapanese(){const e=document.querySelectorAll('.japanese-text'),t=document.getElementById('japaneseToggle'),n=t.querySelector('.toggle-text');japaneseVisible=!japaneseVisible,e.forEach(e=>{japaneseVisible?(e.style.display='',n.textContent='Hide'):(e.style.display='none',n.textContent='Show')}),localStorage.setItem('japaneseVisible',japaneseVisible)}window.addEventListener('DOMContentLoaded',()=>{const e=localStorage.getItem('japaneseVisible'),t=document.querySelectorAll('.japanese-text');'true'===e?(japaneseVisible=false,toggleJapanese()):t.forEach(e=>{e.style.display='none'})});
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(savedLang);
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('preferredLanguage', lang);
+                });
+            });
+            function setLanguage(lang) {
+                body.setAttribute('data-lang', lang);
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+                });
+            }
+        });
     </script>
 </body>
 </html>

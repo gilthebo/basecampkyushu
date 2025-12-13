@@ -39,7 +39,7 @@
 
     <style>
         /* Japanese Toggle Button - Perfectly Aligned Under Logo */
-        .japanese-toggle-container {
+        .language-toggle-container {
             position: sticky;
             top: 80px;
             z-index: 998;
@@ -50,55 +50,56 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            gap: 0.75rem;
         }
         
         /* Align with logo position */
-        .japanese-toggle-container::before {
+        .language-toggle-container::before {
             content: '';
             width: calc((100% - var(--max-width)) / 2 + var(--spacing-md));
         }
 
-        .japanese-toggle-btn {
+        .language-toggle-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0;
             background: linear-gradient(135deg, #4a7ba7 0%, #5a7a65 100%);
             color: white;
             border: 2px solid rgba(255,255,255,0.2);
             border-radius: 0;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.7rem;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 400;
+            font-size: 0.75rem;
+            font-weight: 500;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            min-width: 100px;
+            min-width: 55px;
             max-width: 100%;
         }
 
-        .japanese-toggle-btn:hover {
+        .language-toggle-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 10px rgba(74, 123, 167, 0.3);
             background: linear-gradient(135deg, #5a8bb7 0%, #6a8a75 100%);
         }
 
-        .japanese-toggle-btn:active {
+        .language-toggle-btn:active {
             transform: translateY(0);
         }
 
-        .japanese-toggle-btn.hidden-state {
+        .language-toggle-btn.hidden-state {
             background: linear-gradient(135deg, #94a3b8 0%, #cbd5e0 100%);
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
-        .japanese-toggle-btn.hidden-state:hover {
+        .language-toggle-btn.hidden-state:hover {
             background: linear-gradient(135deg, #a4b3c8 0%, #dbe5f0 100%);
         }
 
         .toggle-icon {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             display: inline-block;
             transition: transform 0.3s;
         }
@@ -109,23 +110,46 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .japanese-toggle-container {
+            .language-toggle-container {
                 padding: 0.4rem 1rem;
                 justify-content: flex-start;
+                gap: 0.5rem;
             }
             
-            .japanese-toggle-container::before {
+            .language-toggle-container::before {
                 width: 0;
             }
             
-            .japanese-toggle-btn {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-                gap: 0.4rem;
+            .language-toggle-btn {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.6rem;
+                gap: 0;
+                min-width: 50px;
             }
             
             .toggle-icon {
-                font-size: 0.9rem;
+                font-size: 0.7rem;
+            }
+            
+            .hero {
+                min-height: 300px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-attachment: scroll !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .language-toggle-btn {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.5rem;
+                min-width: 45px;
+            }
+            
+            .hero {
+                min-height: 250px !important;
+                background-size: cover !important;
+                background-position: center center !important;
             }
         }
 
@@ -134,6 +158,88 @@
             .japanese-toggle-btn {
                 font-size: 0.7rem;
                 padding: 0.35rem 0.7rem;
+            }
+        }
+        
+        /* Mobile text responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 1rem !important;
+            }
+            
+            h1 {
+                font-size: 2rem !important;
+            }
+            
+            h2 {
+                font-size: 1.8rem !important;
+            }
+            
+            h3 {
+                font-size: 1.3rem !important;
+            }
+            
+            .japanese-text {
+                font-size: 1rem !important;
+            }
+            
+            p {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            /* Hero section text */
+            .hero h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            /* Grid layouts to single column */
+            div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            
+            /* Card content */
+            div[style*="font-size: 3.5rem"] {
+                font-size: 2.5rem !important;
+            }
+            
+            div[style*="font-size: 1.5rem"] {
+                font-size: 1.2rem !important;
+            }
+            
+            div[style*="font-size: 1.05rem"] {
+                font-size: 0.9rem !important;
+            }
+            
+            div[style*="font-size: 1.1rem"] {
+                font-size: 0.95rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .japanese-text {
+                font-size: 0.9rem !important;
+            }
+            
+            p {
+                font-size: 0.85rem !important;
+            }
+            
+            div[style*="font-size: 3.5rem"] {
+                font-size: 2rem !important;
             }
         }
     </style>
@@ -200,140 +306,188 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <!-- Language Toggle Buttons -->
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
-    <!-- Japanese Language Toggle Button -->
-    <div class="japanese-toggle-container">
-        <button id="japaneseToggle" class="japanese-toggle-btn" onclick="toggleJapanese()" aria-label="Toggle Japanese text visibility">
-            <span class="toggle-text">Show</span>
-            <span class="toggle-icon">JPN</span>
-        </button>
-    </div>
-
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('images/hero-banner-latest.png'); background-size: cover; background-position: center;">
+    <section class="hero" style="background-image: url('images/hero-banner-latest.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: scroll;">
     </section>
 
-    <!-- Title Section Below Banner -->
-    <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
-        <div class="section-container" style="max-width: 900px;">
-            <p class="hero-subtitle japanese-text" style="color: var(--text-dark);">土地 — 人 — 物語</p>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 1rem 0; color: var(--primary-dark);">WHERE MOUNTAINS MEET THE SEA<br>AND STORIES TAKE FORM</h1>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dark); margin: 2rem 0; font-weight: 500;">
-                Based in Itoshima. Focused on Kyūshū.<br>
-                Creating what you carry.<br>
-                Capturing what moves you.
-            </p>
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: var(--text-dark); margin: 2rem 0;">
-                山が海と出会い、物語が形になる場所。<br>
-                拠点：糸島　対象：九州<br>
-                携えるものを創り、心を動かすものを捉える。
-            </p>
-
-        </div>
-    </section>
-
-    <!-- Why Kyūshū Section -->
-    <section class="why-kyushu" style="padding: 5rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <!-- Why Kyūshū - Full Width Blue Section -->
+    <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white);">
         <div class="section-container" style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-header" style="text-align: center;">
-                <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Why Kyūshū?</h2>
-                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">なぜ九州か？</p>
-                <div class="section-divider"></div>
+            <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+                <h2 class="section-title" style="color: var(--white); font-size: clamp(2rem, 4vw, 3rem);">Why Kyūshū</h2>
+                <p class="japanese-text" style="font-size: 1.1rem; margin-top: 0.5rem; color: rgba(255,255,255,0.9);">なぜ九州か</p>
+                <div class="section-divider" style="background: rgba(255,255,255,0.3);"></div>
             </div>
-
-            <!-- Centered intro text -->
-            <div style="text-align: center; max-width: 900px; margin: 0 auto 3rem;">
-                <p style="font-size: 1.35rem; line-height: 1.9; font-weight: 600; color: var(--primary-dark); margin-bottom: 1rem;">
-                    Japan's southernmost major island — where 13 million people live across seven prefectures, 
-                    yet 70% of international visitors never discover it.
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
+                    Because it holds everything in one island.
                 </p>
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; opacity: 0.9;">
-                    日本最南端の主要な島——1300万人が7つの県に住んでいるが、
-                    国際観光客の70%はまだ訪れていない、未発見の宝庫。
+                
+                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
+                    すべてが一つの島に存在するから。
                 </p>
-            </div>
-
-            <!-- Four key points grid - CENTERED -->
-            <div style="margin: 3rem auto; display: grid; gap: 2rem; max-width: 1100px;">
-                <div style="background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange); font-size: 1.4rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span style="font-size: 2rem;">🌋</span>
-                        <span>Living Geology & Natural Power</span>
-                    </h4>
-                    <p style="line-height: 1.8; font-size: 1.05rem; color: var(--text-dark);">
-                        <strong>5 active volcanoes</strong> including Mount Aso (one of the world's largest calderas with a 25km crater) and Sakurajima (erupts almost daily). 
-                        Over <strong>2,800 hot springs</strong> — the highest concentration in all of Japan, producing 2.8 million liters of mineral water daily. 
-                        The earth here still breathes, moves, and creates. <em>Witness geology in real-time.</em>
-                    </p>
-                    <p class="japanese-text" style="margin-top: 0.8rem; opacity: 0.85; font-size: 0.95rem;">
-                        世界最大級のカルデラを持つ阿蘇山、ほぼ毎日噴火する桜島など5つの活火山。日本一の2,800以上の温泉。生きた地球の息吹を体感できる場所。
-                    </p>
-                </div>
                 
-                <div style="background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--moss-green);">
-                    <h4 style="color: var(--moss-green); font-size: 1.4rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span style="font-size: 2rem;">🏺</span>
-                        <span>Living Craft Heritage</span>
-                    </h4>
-                    <p style="line-height: 1.8; font-size: 1.05rem; color: var(--text-dark);">
-                        <strong>Arita porcelain</strong> — the first porcelain made in Japan (1616), still crafted using 400-year-old techniques. 
-                        <strong>Imari & Karatsu kilns</strong> where masters train for decades. <strong>84 sake breweries in Saga alone</strong> 
-                        preserve Edo-period methods. <strong>Kurume kasuri</strong> indigo textiles woven entirely by hand. 
-                        <em>These aren't museums — they're living, breathing workshops where tradition meets tomorrow.</em>
-                    </p>
-                    <p class="japanese-text" style="margin-top: 0.8rem; opacity: 0.85; font-size: 0.95rem;">
-                        日本初の磁器・有田焼（1616年〜）、佐賀県だけで84の酒蔵、手織りの久留米絣。博物館ではなく、今も息づく職人の現場。
-                    </p>
-                </div>
-                
-                <div style="background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--ocean-blue);">
-                    <h4 style="color: var(--ocean-blue); font-size: 1.4rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span style="font-size: 2rem;">🎬</span>
-                        <span>Production Paradise</span>
-                    </h4>
-                    <p style="line-height: 1.8; font-size: 1.05rem; color: var(--text-dark);">
-                        <strong>90 minutes from Tokyo</strong> by direct flight. <strong>Impossible diversity</strong> within 2-hour drives: active volcanic peaks, 
-                        pristine coastal villages, thousand-year-old cedar forests, samurai castle towns, terraced rice fields. 
-                        <strong>30-50% lower production costs</strong> than Tokyo/Kyoto. <strong>Zero tourist crowds</strong> for pristine shots. 
-                        <strong>English-speaking local crews</strong> who know every hidden location. <em>Maximum visual variety, minimum logistical headaches.</em>
-                    </p>
-                    <p class="japanese-text" style="margin-top: 0.8rem; opacity: 0.85; font-size: 0.95rem;">
-                        東京から90分。2時間圏内に火山、海岸、森林、城下町が揃う。制作費30-50%削減。観光客ゼロでクリーンな撮影が可能。
-                    </p>
-                </div>
-                
-                <div style="background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange); font-size: 1.4rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span style="font-size: 2rem;">📍</span>
-                        <span>Strategic Gateway Position</span>
-                    </h4>
-                    <p style="line-height: 1.8; font-size: 1.05rem; color: var(--text-dark);">
-                        <strong>Closest point to mainland Asia</strong> — historically the gateway between Japan, Korea, and China for 2,000+ years. 
-                        <strong>Nagasaki's hidden Christian history</strong> (UNESCO World Heritage Sites). <strong>Fukuoka</strong> — Japan's 6th largest city (1.6M) 
-                        with world-class infrastructure and international airport. <strong>Kumamoto</strong> — one of Japan's three great castles. 
-                        <em>Where ancient trade routes meet modern connectivity.</em>
-                    </p>
-                    <p class="japanese-text" style="margin-top: 0.8rem; opacity: 0.85; font-size: 0.95rem;">
-                        アジア大陸に最も近い日本、2000年の交流の歴史。長崎の隠れキリシタン遺産、福岡160万人都市、熊本城。古代と現代が交差する戦略的要所。
-                    </p>
-                </div>
-            </div>
-
-            <!-- Closing statement - CENTERED -->
-            <div style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--ocean-blue) 100%); color: white; padding: 3rem 2.5rem; border-radius: 16px; text-align: center; margin: 3rem auto 0; box-shadow: 0 10px 40px rgba(0,0,0,0.25); max-width: 900px;">
-                <p style="font-size: 1.6rem; font-weight: 700; line-height: 1.7; margin: 0; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
-                    This is Japan beyond the golden route.<br>
-                    This is where stories still wait to be told.
+                <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
+                    Active volcanoes, rice terraces, fishing villages, hot spring towns, mountain shrines, ceramic workshops. Forests so dense they feel ancient. Coastlines that go on forever. In Kyūshū, you don't need to travel far to find contrast.
                 </p>
-                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 1.2rem; color: white; opacity: 1;">
-                    ゴールデンルートを超えた日本。ここには、まだ語られていない物語がある。
+                
+                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
+                    活火山、棚田、漁村、温泉街、山岳神社、陶芸工房。古代を感じるほど深い森。永遠に続く海岸線。九州では、対比を見つけるために遠くまで旅する必要はありません。
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
+                    The traditions here aren't preserved for tourists—they're still lived. Pottery studios that have fired kilns for 400 years. Fishermen who know every reef. Festivals older than the Edo period.
+                </p>
+                
+                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
+                    ここでの伝統は観光客のために保存されているのではなく、今も生きています。400年間窯を焚き続けている陶芸スタジオ。すべての岩礁を知っている漁師たち。江戸時代より古い祭り。
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.95);">
+                    And there's a rhythm here—slower, steadier, closer to the land. A reminder that not everywhere moves at the same speed. Kyūshū taught us that, and we're still learning.
+                </p>
+                
+                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9);">
+                    そして、ここにはリズムがあります―より遅く、より安定し、土地に近い。すべての場所が同じ速度で動くわけではないことを思い出させてくれます。九州が私たちに教えてくれたことであり、私たちはまだ学んでいます。
                 </p>
             </div>
         </div>
     </section>
+
+    <!-- Cards Section -->
+    <section class="why-kyushu" style="padding: 5rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="section-container" style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-bottom: 2.5rem;">
+                <style>
+                    @media (max-width: 768px) {
+                        .why-kyushu .section-container > div:last-of-type {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+                </style>
+                <!-- CARD 1: The Other Japan -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--sunset-orange); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🗾</div>
+                    <h3 style="font-size: 1.5rem; color: var(--sunset-orange); margin-bottom: 1.5rem; font-weight: 700;">The Other Japan</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Kyushu: seven prefectures, thirteen million people, yet still far from the usual tourist path.<br>
+                        A place where nature, traditions, and a slower rhythm shape everyday life.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        九州——7県・約1,300万人が暮らしながらも、観光ルートから外れた「もう一つの日本」。<br>
+                        自然と伝統、落ち着いた時間が日常をつくっています。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Kyushu : sept préfectures, treize millions d'habitants, et pourtant loin des circuits touristiques habituels.<br>
+                        Un Japon où la nature, les traditions et un rythme plus calme façonnent le quotidien.
+                    </p>
+                </div>
+
+                <!-- CARD 2: Born of Fire -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--sunset-orange); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🌋</div>
+                    <h3 style="font-size: 1.5rem; color: var(--sunset-orange); margin-bottom: 1.5rem; font-weight: 700;">Born of Fire</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        A land sculpted by volcanoes.<br>
+                        From Mount Aso's giant caldera to the ever-active Sakurajima, Kyushu is a landscape that still breathes.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        火山がつくり上げた大地。<br>
+                        阿蘇の巨大カルデラ、活動を続ける桜島——九州は今も動き続けています。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Une île sculptée par les volcans.<br>
+                        Du gigantesque volcan d'Aso à l'infatigable Sakurajima, Kyushu est une terre qui respire encore.
+                    </p>
+                </div>
+
+                <!-- CARD 3: The Onsen Kingdom -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--ocean-blue); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">♨️</div>
+                    <h3 style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 1.5rem; font-weight: 700;">The Onsen Kingdom</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Japan's richest concentration of hot springs.<br>
+                        Beppu, Yufuin, and hundreds of hidden valleys where steam and mineral waters shape local life.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        日本有数の温泉地帯。<br>
+                        別府、由布院、そして無数の温泉郷——湯けむりと鉱泉が暮らしの一部です。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        La plus grande concentration de sources chaudes du Japon.<br>
+                        Beppu, Yufuin, et des centaines de vallées cachées où vapeur et eaux minérales rythment la vie locale.
+                    </p>
+                </div>
+
+                <!-- CARD 4: Craft as a Way of Life -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--moss-green); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🏺</div>
+                    <h3 style="font-size: 1.5rem; color: var(--moss-green); margin-bottom: 1.5rem; font-weight: 700;">Craft as a Way of Life</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Arita, Imari, Karatsu — tradition practiced, not displayed.<br>
+                        Ceramics, sake brewing, indigo textiles: centuries-old skills still alive in real workshops.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        有田・伊万里・唐津——受け継がれる手仕事。<br>
+                        陶磁器、日本酒、藍染め。何百年もの技が今も工房で息づいています。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Arita, Imari, Karatsu : des traditions vivantes, pas des vitrines.<br>
+                        Céramique, saké, textiles indigo : des savoir-faire pluriséculaires encore pratiqués dans de véritables ateliers.
+                    </p>
+                </div>
+
+                <!-- CARD 5: Maximum Variety, Minimal Distance -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--ocean-blue); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🌄</div>
+                    <h3 style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 1.5rem; font-weight: 700;">Maximum Variety,<br>Minimal Distance</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Volcanoes, coasts, forests, rice terraces, fishing towns — all within reach.<br>
+                        Dense, diverse landscapes ideal for exploration and visual work.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        火山、海岸、森、棚田、漁村——すべてが近い。<br>
+                        多彩な風景が凝縮された、旅にも撮影にも最適な土地。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Volcans, côtes sauvages, forêts anciennes, villages de pêcheurs, rizières : tout est proche.<br>
+                        Un terrain dense et varié, idéal pour explorer ou filmer.
+                    </p>
+                </div>
+
+                <!-- CARD 6: History Connected to the World -->
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--moss-green); transition: transform 0.3s ease; cursor: default; text-align: center;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">⛩️</div>
+                    <h3 style="font-size: 1.5rem; color: var(--moss-green); margin-bottom: 1.5rem; font-weight: 700;">History Connected to the World</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        Japan's ancient gateway to Asia.<br>
+                        Nagasaki, Fukuoka, Kumamoto — cities shaped by centuries of exchange and modern energy.
+                    </p>
+                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        アジアと日本を結ぶ古い玄関口。<br>
+                        長崎、福岡、熊本——交流の歴史と現代の活気が重なる都市。
+                    </p>
+                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
+                        La porte historique du Japon vers l'Asie.<br>
+                        Nagasaki, Fukuoka, Kumamoto : des villes façonnées par des siècles d'échanges et une énergie moderne.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Kyushu Map Section - 7 Prefectures -->
     <section class="interactive-map-section" style="padding: 3rem 2rem 5rem; background: var(--white);">
@@ -342,80 +496,66 @@
                 <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Kyūshū Map</h2>
                 <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">九州マップ</p>
                 <div class="section-divider"></div>
-                <p class="section-subtitle" style="margin-top: 1.5rem; font-size: 1.15rem; color: var(--text-dark);">
-                    Explore Kyūshū's Seven Prefectures
-                </p>
-                <p class="section-subtitle japanese-text" style="font-size: 1rem; color: var(--text-dark); opacity: 0.9;">
-                    九州の7つの県を探索
-                </p>
             </div>
 
-            <!-- Kyushu Map Image -->
-            <div style="margin: 3rem auto; max-width: 700px;">
-                <img src="https://www.genspark.ai/api/files/s/Vnbfzq4j" alt="Kyushu Map with 7 Prefectures" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <!-- Kyushu Map Image Only -->
+            <div style="margin: 3rem auto; max-width: 750px;">
+                <img src="https://www.genspark.ai/api/files/s/hNr4rhAO" alt="Kyushu Map" style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
-            <!-- Prefecture Logos Grid -->
-            <div style="margin: 3rem auto; max-width: 900px;">
-                <p style="text-align: center; color: var(--text-dark); margin-bottom: 2rem; font-size: 1rem; font-weight: 500;">
-                    Click any prefecture logo to learn about its character
+            <!-- Prefecture Logos Grid Below Map - 4 then 3 layout -->
+            <div style="margin: 3rem auto; max-width: 800px;">
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem;">
+                    Explore the Seven Prefectures
                 </p>
-                
-                <!-- First 5 Prefectures -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; padding: 1rem; margin-bottom: 1rem;">
+                <p style="text-align: center; font-size: 1rem; color: var(--text-light); margin-bottom: 2rem;">
+                    Click each icon to discover what makes each one unique
+                </p>
+                <p class="japanese-text" style="text-align: center; font-size: 0.95rem; color: var(--text-light); margin-bottom: 2rem; opacity: 0.9;">
+                    各アイコンをクリックして、それぞれの特徴を発見してください
+                </p>
+                <!-- First 4 Prefectures -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 1rem; margin-bottom: 1rem; justify-items: center;">
                     <!-- Fukuoka -->
                     <div onclick="window.handlePrefectureClick('fukuoka-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
                         <img src="https://www.genspark.ai/api/files/s/CZqr4s6P" alt="Fukuoka Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Fukuoka</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">福岡県</p>
                     </div>
 
                     <!-- Saga -->
                     <div onclick="window.handlePrefectureClick('saga-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
                         <img src="https://www.genspark.ai/api/files/s/yw8FFScq" alt="Saga Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Saga</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">佐賀県</p>
                     </div>
 
                     <!-- Nagasaki -->
                     <div onclick="window.handlePrefectureClick('nagasaki-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
                         <img src="https://www.genspark.ai/api/files/s/bUVSBD8w" alt="Nagasaki Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Nagasaki</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">長崎県</p>
                     </div>
 
                     <!-- Kumamoto -->
                     <div onclick="window.handlePrefectureClick('kumamoto-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
-                        <img src="https://www.genspark.ai/api/files/s/rAwu930X" alt="Kumamoto Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Kumamoto</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">熊本県</p>
-                    </div>
-
-                    <!-- Oita -->
-                    <div onclick="window.handlePrefectureClick('oita-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
-                        <img src="https://www.genspark.ai/api/files/s/FDi64Aqp" alt="Oita Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Oita</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">大分県</p>
+                        <img src="https://www.genspark.ai/api/files/s/XijwX71B" alt="Kumamoto Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                 </div>
 
-                <!-- Last 2 Prefectures - Centered -->
-                <div style="display: flex; justify-content: center; gap: 3rem; padding: 1rem;">
+                <!-- Last 3 Prefectures - Centered -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 1rem; justify-items: center;">
+                    <!-- Oita -->
+                    <div onclick="window.handlePrefectureClick('oita-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
+                        <img src="https://www.genspark.ai/api/files/s/FDi64Aqp" alt="Oita Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+
                     <!-- Miyazaki -->
                     <div onclick="window.handlePrefectureClick('miyazaki-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
                         <img src="https://www.genspark.ai/api/files/s/YxweMZUp" alt="Miyazaki Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Miyazaki</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">宮崎県</p>
                     </div>
 
                     <!-- Kagoshima -->
                     <div onclick="window.handlePrefectureClick('kagoshima-home')" style="cursor: pointer; text-align: center; transition: transform 0.2s;">
-                        <img src="https://www.genspark.ai/api/files/s/XijwX71B" alt="Kagoshima Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        <p style="margin-top: 0.75rem; font-weight: 600; color: var(--primary-dark);">Kagoshima</p>
-                        <p class="japanese-text" style="font-size: 0.85rem; color: var(--text-light);">鹿児島県</p>
+                        <img src="https://www.genspark.ai/api/files/s/rAwu930X" alt="Kagoshima Prefecture" style="width: 100px; height: 100px; margin: 0 auto; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                 </div>
             </div>
+
 
             <!-- Hidden content for old SVG compatibility -->
             <div style="display: none;">
@@ -539,290 +679,26 @@
         </div>
     </section>
 
-    <!-- Three Pillars Section -->
-    <section class="three-pillars">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">What We Create</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">
-                    Three ways to experience Kyūshū — through story, screen, and style.
-                </p>
-                <p class="section-subtitle japanese-text">
-                    物語、映像、スタイル — 三つの方法で九州を体験する。
-                </p>
-            </div>
-            
-            <div class="pillars-grid">
-                <!-- Stories Pillar -->
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
-                        <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png" alt="Stories" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                    </div>
-                    <h3>STORIES</h3>
-                    <p>AI-crafted trilingual fiction born from real Kyūshū locations. We photograph hidden places, develop narratives with AI, and create illustrated novels that reveal rural Japan through imagination.</p>
-                    <p class="japanese-text">実在する九州の場所から生まれる、AI支援による三言語小説。写真から物語を紡ぎ、イラストで表現する。</p>
-                    <a href="stories.html" class="btn btn-outline">EXPLORE PROJECT</a>
-                </div>
-
-                <!-- Film Production Pillar -->
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="font-size: 4rem; margin-bottom: 1rem;">🎬</div>
-                    <h3>FILM</h3>
-                    <p>Full-service video production across Kyūshū. By M Global Japan. From location scouting to final delivery, we execute your vision with local expertise and professional crews.</p>
-                    <p class="japanese-text">九州全域での本格映像制作。M Global Japanによる、ロケハンから納品まで完全対応のプロダクション。</p>
-                    <a href="video-production.html" class="btn btn-outline">BOOK US</a>
-                </div>
-
-                <!-- Wear Pillar -->
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
-                        <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" alt="Wear" style="width: 100%; max-width: 200px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                    </div>
-                    <h3>WEAR</h3>
-                    <p>Limited edition apparel celebrating Kyūshū's spirit. Made locally in small batches, each design captures the essence of where mountains meet the sea.</p>
-                    <p class="japanese-text">九州の精神を纏う限定アパレル。地元で少量生産、山と海が出会う場所の本質を表現。</p>
-                    <a href="online-store.html" class="btn btn-outline">SHOP NOW</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fantastic Locations Carousel Section -->
-    <section style="padding: 4rem 0; background: var(--light-gray); overflow: hidden;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <h2 class="section-title">Fantastic Locations</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">
-                    Captured moments from across Kyūshū's hidden landscapes
-                </p>
-                <p class="section-subtitle japanese-text">
-                    九州の隠された風景から捉えた瞬間
-                </p>
-                <p class="section-subtitle" style="margin-top: 0.5rem;">
-                    A visual journey through the island
-                </p>
-                <p class="section-subtitle japanese-text">
-                    島を巡る映像の旅
-                </p>
-            </div>
-
-            <!-- Netflix-Style Carousel -->
-            <div class="carousel-container" style="position: relative; padding: 0 60px;">
-                <!-- Previous Button -->
-                <button class="carousel-nav prev" onclick="moveCarousel(-1)" aria-label="Previous" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(26, 35, 50, 0.8); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-                    ‹
-                </button>
-
-                <!-- Carousel Wrapper -->
-                <div class="carousel-wrapper" style="position: relative; overflow: hidden; border-radius: 12px;">
-                    <div class="carousel-track" id="carouselTrack" style="display: flex; transition: transform 1.8s ease; gap: 1rem;">
-                        <!-- Slide 1: Collage 1 -->
-                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
-                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-1_orig.png" alt="Kyūshū Landscapes Collection 1" style="width: 100%; height: auto; display: block;">
-                        </div>
-
-                        <!-- Slide 2: Collage 2 -->
-                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
-                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kyushu-landscapes-1_orig.jpg" alt="Kyūshū Landscapes Collection 2" style="width: 100%; height: auto; display: block;">
-                        </div>
-
-                        <!-- Slide 3: Collage 3 -->
-                        <div class="carousel-slide" style="min-width: 100%; flex-shrink: 0; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
-                            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loction-pic-3_orig.png" alt="Kyūshū Landscapes Collection 3" style="width: 100%; height: auto; display: block;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Next Button -->
-                <button class="carousel-nav next" onclick="moveCarousel(1)" aria-label="Next" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(26, 35, 50, 0.8); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-                    ›
-                </button>
-
-                <!-- Dot Navigation -->
-                <div class="carousel-dots" style="display: flex; justify-content: center; gap: 10px; margin-top: 2rem;">
-                    <button class="dot active" onclick="goToSlide(0)" aria-label="Go to slide 1" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: var(--primary-dark); cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="dot" onclick="goToSlide(1)" aria-label="Go to slide 2" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: transparent; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="dot" onclick="goToSlide(2)" aria-label="Go to slide 3" style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--primary-dark); background: transparent; cursor: pointer; transition: all 0.3s ease;"></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <style>
-    /* Carousel Hover Effects */
-    .carousel-nav:hover {
-        background: rgba(26, 35, 50, 0.95) !important;
-        transform: translateY(-50%) scale(1.1);
-    }
-    .carousel-slide {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .carousel-slide:hover {
-        transform: scale(1.02);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.25) !important;
-    }
-    .dot.active {
-        background: var(--primary-dark) !important;
-        transform: scale(1.3);
-    }
-    .dot:hover {
-        background: var(--ocean-blue) !important;
-        border-color: var(--ocean-blue) !important;
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-        .carousel-slide {
-            min-width: 100% !important;
-        }
-        .carousel-container {
-            padding: 0 40px !important;
-        }
-        .carousel-nav {
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 1.2rem !important;
-        }
-    }
-    </style>
-
-    <script>
-    // Carousel JavaScript
-    let currentSlide = 0;
-    let autoPlayInterval;
-    const track = document.getElementById('carouselTrack');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = slides.length;
-
-    function moveCarousel(direction) {
-        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-        updateCarousel();
-        resetAutoPlay();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-        resetAutoPlay();
-    }
-
-    function updateCarousel() {
-        // Recalculate on every update to handle responsive changes
-        const wrapper = document.querySelector('.carousel-wrapper');
-        const wrapperWidth = wrapper ? wrapper.offsetWidth : 1000;
-        const slideWidth = wrapperWidth * 1.0; // 100% of wrapper for full photo display
-        const gap = 16; // 1rem gap
-        const offset = currentSlide * (slideWidth + gap);
-        track.style.transform = `translateX(-${offset}px)`;
-        
-        // Update dots
-        dots.forEach((dot, index) => {
-            if (index === currentSlide) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-
-    function autoPlay() {
-        autoPlayInterval = setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }, 5000); // 5 seconds
-    }
-
-    function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
-        autoPlay();
-    }
-
-    function pauseAutoPlay() {
-        clearInterval(autoPlayInterval);
-    }
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-        updateCarousel();
-        autoPlay();
-        
-        // Pause on hover
-        const container = document.querySelector('.carousel-container');
-        container.addEventListener('mouseenter', pauseAutoPlay);
-        container.addEventListener('mouseleave', autoPlay);
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') moveCarousel(-1);
-            if (e.key === 'ArrowRight') moveCarousel(1);
-        });
-        
-        // Touch/Swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) moveCarousel(1);
-            if (touchEndX > touchStartX + 50) moveCarousel(-1);
-        }
-        
-        // Responsive recalculation on window resize
-        window.addEventListener('resize', updateCarousel);
-    });
-    </script>
-
-    <!-- Explore All Locations Button -->
-    <section style="padding: 3rem 2rem 4rem; background: var(--light-gray); text-align: center;">
-        <a href="in-motion.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;">
-            IN MOTION →
-        </a>
-    </section>
-
-    <!-- YouTube Video Section -->
-    <section style="padding: 5rem 2rem; background: var(--primary-dark);">
-        <div class="section-container" style="max-width: 1200px;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                <iframe 
-                    src="https://www.youtube.com/embed/joU20sPEFKs?rel=0&modestbranding=1" 
-                    title="Kyūshū Video" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                </iframe>
-            </div>
-            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.7);">
-                If video doesn't load, <a href="https://www.youtube.com/watch?v=joU20sPEFKs" target="_blank" style="color: var(--sunset-orange); text-decoration: underline;">watch directly on YouTube</a>
-            </p>
-        </div>
-    </section>
-
     <!-- Call to Action Section -->
     <section class="cta-section" style="background: var(--ocean-blue); color: var(--white); text-align: center; padding: 4rem 2rem;">
-        <div class="section-container">
-            <h2 style="color: white;">Ready to Create in Kyūshū?</h2>
-            <p class="japanese-text" style="color: white; margin-top: 1rem;">九州で創作を始めませんか？</p>
-            <p style="color: rgba(255,255,255,0.95); max-width: 600px; margin: 2rem auto; font-size: 1.3rem; font-weight: 500;">
-                The Land — The People — The Stories
+        <div class="section-container" style="max-width: 900px;">
+            <p style="font-size: 1.3rem; line-height: 1.8; color: white; margin: 0 0 1rem 0; font-weight: 600;">
+                Based in Itoshima.
             </p>
-            <p class="japanese-text" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-top: 1rem;">
-                土地 — 人 — 物語
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: white; margin: 0 0 2rem 0;">
+                拠点：糸島
             </p>
-            <div class="hero-cta" style="margin-top: 2.5rem;">
-                <a href="video-production.html" class="btn btn-primary">PLAN YOUR SHOOT</a>
-                <a href="expedition-resort.html" class="btn btn-secondary">EXPEDITION RESORT</a>
+            
+            <p style="font-size: 1.4rem; line-height: 1.8; color: white; margin: 0 0 1rem 0; font-weight: 600; font-style: italic;">
+                Where mountains meet the sea, stories are born.
+            </p>
+            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: white; margin: 0 0 2.5rem 0;">
+                山が海と出会い、物語が生まれる。
+            </p>
+            
+            <!-- About Us Button -->
+            <div style="display: flex; justify-content: center;">
+                <a href="about.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.75rem 2rem; background: var(--sunset-orange); color: white; border: 2px solid var(--sunset-orange);">ABOUT US</a>
             </div>
         </div>
     </section>
@@ -835,8 +711,9 @@
                 <p class="japanese-text">土地 — 人 — 物語</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br>Covering Japan & overseas network</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
                 <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
                     <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
                     Tokyo 156-0043
@@ -867,54 +744,124 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     
-    <!-- Japanese Toggle Script -->
+    <!-- Language Toggle Styles and Script -->
+    <style>
+        /* Language Toggle System */
+        /* By default, show English and hide Japanese & French */
+        body .japanese-text,
+        body .content-text[style*="font-style: italic"] {
+            display: none !important;
+        }
+        
+        /* When Japanese is active */
+        body[data-lang="ja"] .japanese-text {
+            display: block !important;
+        }
+        
+        body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) {
+            display: none !important;
+        }
+        
+        body[data-lang="ja"] .content-text[style*="font-style: italic"] {
+            display: none !important;
+        }
+        
+        /* When French is active */
+        body[data-lang="fr"] .content-text[style*="font-style: italic"] {
+            display: block !important;
+        }
+        
+        body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) {
+            display: none !important;
+        }
+        
+        body[data-lang="fr"] .japanese-text {
+            display: none !important;
+        }
+        
+        /* ALWAYS VISIBLE - Navigation and structural elements */
+        body .main-nav,
+        body .main-nav ul,
+        body .main-nav li,
+        body .main-nav a,
+        body h1, 
+        body h2, 
+        body .section-title, 
+        body .btn,
+        body .logo,
+        body nav,
+        body header,
+        body footer,
+        body img,
+        body .featured-meta,
+        body .language-toggle-buttons {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        body .main-nav ul {
+            display: flex !important;
+        }
+        
+        /* Active button styling */
+        .lang-btn.active {
+            background: var(--ocean-blue) !important;
+            color: white !important;
+        }
+        
+        .lang-btn:hover {
+            opacity: 0.8;
+        }
+        
+        /* Responsive language buttons */
+        @media (max-width: 768px) {
+            .language-toggle-buttons {
+                margin-left: 0.5rem;
+                gap: 0.3rem !important;
+            }
+            
+            .lang-btn {
+                padding: 0.3rem 0.6rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+    </style>
+    
     <script>
-        let japaneseVisible = false; // HIDDEN by default
-
-        function toggleJapanese() {
-            const japaneseElements = document.querySelectorAll('.japanese-text');
-            const toggleBtn = document.getElementById('japaneseToggle');
-            const textEn = toggleBtn.querySelector('.toggle-text');
+        // Language Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const body = document.body;
             
-            japaneseVisible = !japaneseVisible;
+            // Get saved language from localStorage or default to 'en'
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(savedLang);
             
-            japaneseElements.forEach(element => {
-                if (japaneseVisible) {
-                    element.style.display = '';
-                    textEn.textContent = 'Hide';
-                    toggleBtn.classList.remove('hidden-state');
-                } else {
-                    element.style.display = 'none';
-                    textEn.textContent = 'Show';
-                    toggleBtn.classList.add('hidden-state');
-                }
+            // Add click handlers to language buttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    localStorage.setItem('preferredLanguage', lang);
+                });
             });
             
-            // Save preference to localStorage
-            localStorage.setItem('japaneseVisible', japaneseVisible);
-        }
-
-        // Hide Japanese on page load (default behavior)
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedPreference = localStorage.getItem('japaneseVisible');
-            const japaneseElements = document.querySelectorAll('.japanese-text');
-            
-            // Default: Hide Japanese (false)
-            // Only show if user previously clicked "Show" (savedPreference === 'true')
-            if (savedPreference === 'true') {
-                // User wants Japanese visible
-                japaneseVisible = false; // Start as false
-                toggleJapanese(); // Toggle to true (show)
-            } else {
-                // Hide Japanese by default
-                japaneseElements.forEach(element => {
-                    element.style.display = 'none';
+            function setLanguage(lang) {
+                // Update body data-lang attribute
+                body.setAttribute('data-lang', lang);
+                
+                // Update active button
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
                 });
             }
         });
@@ -924,71 +871,71 @@
     // Prefecture data for homepage interactive map
     const prefectureDataHome = {
         'fukuoka-home': {
-            name: 'Fukuoka Prefecture - Kyushu\\'s Dynamic Crossroads',
+            name: "Fukuoka Prefecture - Kyushu's Dynamic Crossroads",
             nameJp: '福岡県',
             emoji: '🏖️',
-            description: `Fukuoka is where Kyushu's energy meets tradition. Mountains rise behind urban skylines, rivers weave through fertile plains, and the Genkai Sea frames the horizon. The city pulses with life—from the lively stalls of Nakasu Yatai to the serene gardens of Dazaifu. Temples, shrines, and modern parks coexist, while local cuisine, from tonkotsu ramen to street snacks, celebrates both history and the present. Whether hiking Mount Aburayama, strolling along the Naka River, or tasting flavors in bustling alleys, Fukuoka blends urban excitement and timeless charm.`,
-            descriptionJp: '福岡：九州の活気と伝統が交わる十字路
+            description: `Fukuoka is where Kyushu's vitality meets a deep sense of tradition. Mountains frame the city from the rear, rivers cut across broad plains, and the Genkai Sea defines its northern edge. The urban rhythm is unmistakable—seen in the buzzing Nakasu Yatai stalls—yet calm spaces like the gardens of Dazaifu offer balance. Shrines, temples, and contemporary parks sit side by side, while local dishes such as tonkotsu ramen and street-side favorites reflect both heritage and modern taste. Whether hiking Mount Aburayama, walking along the Naka River, or exploring food-filled backstreets, Fukuoka brings together energy and timeless atmosphere.`,
+            descriptionJp: `福岡県 — 九州の活気が伝統と交わる場所
 
-福岡は、九州のエネルギーと伝統が出会う場所です。都市の背後には山々がそびえ、川は肥沃な平野を縫い、玄界灘が地平線を彩ります。中洲の屋台の活気から太宰府の静寂な庭園まで、街は生き生きとしています。寺社やモダンな公園が共存し、とんこつラーメンやストリートフードなど、地元の味は歴史と現在を結びます。阿武山のハイキングや那珂川沿いの散策、路地裏での味覚体験まで、福岡は都市の活気と永遠の魅力を融合させます。'
+福岡は、九州の活気と深い伝統が調和する地域です。都市の背後には山々が連なり、広い平野を川が横切り、北側には玄界灘が広がります。中洲の屋台に代表されるような賑わいがある一方、太宰府の庭園の静けさがその対照を成します。寺社や現代的な公園が共存し、とんこつラーメンや屋台料理などの味わいには、歴史と現代の感性が息づいています。阿武山のハイキング、那珂川沿いの散策、路地裏の食文化探索など、福岡は活気と落ち着きを自然に重ね合わせています。`
         },
         'saga-home': {
-            name: 'Saga Prefecture - Kyushu\\'s Serene Tapestry of Land and Water',
+            name: "Saga Prefecture - Kyushu's Serene Tapestry of Land and Water",
             nameJp: '佐賀県',
             emoji: '🏺',
-            description: `Saga unfolds across gentle hills, fertile plains, and winding rivers that meet the Ariake Sea. Villages framed by mountains and coastlines feel timeless, while rice fields, tea plantations, and pottery kilns reflect local culture. Hidden shrines and riversides reveal quiet corners where the pace of life slows. Each season brings color—spring wisteria tunnels, summer lotus fields, autumn golden harvests—painting a contemplative view of rural Kyushu.`,
-            descriptionJp: '佐賀：九州の穏やかな大地と水の絵巻
+            description: `Saga unfolds in gentle hills, wide plains, and rivers that flow toward the Ariake Sea. Villages set between mountains and coastline feel timeless, while rice fields, tea plantations, and traditional kilns reflect the region's heritage. Hidden shrines, quiet riverbanks, and rural pathways offer moments where the pace of life naturally slows. Each season adds its own colour—spring wisteria tunnels, summer lotus ponds, and autumn's golden harvest—shaping a calm and contemplative portrait of rural Kyushu.`,
+            descriptionJp: `佐賀：九州の穏やかな大地と水の絵巻
 
-佐賀は、なだらかな丘陵、肥沃な平野、そして有明海へと流れる川に広がります。山や海に囲まれた集落は時を超えたような趣があり、田んぼや茶畑、登り窯が地域文化を映し出します。隠れた神社や川辺の静かな場所では、ゆったりとした時間が流れます。四季折々に色彩が変わり、春の藤のトンネル、夏の蓮の花、秋の黄金の収穫が、九州の田園の深みを映し出します。'
+佐賀は、なだらかな丘陵、広がる平野、そして有明海へと注ぐ川が織りなす風景の中にあります。山や海に寄り添う集落には、どこか時を超えた静けさが漂い、田んぼや茶畑、伝統的な登り窯が地域の文化を物語ります。隠れた神社や静かな川辺、田園の小道には、時間がゆっくりと流れるようなひとときがあります。春の藤のトンネル、夏の蓮の池、秋の黄金の実りなど、季節ごとの彩りが、九州の田園風景に穏やかな深みを添えています。`
         },
         'nagasaki-home': {
-            name: 'Nagasaki Prefecture - Kyushu\\'s Gateway of History and Harmony',
+            name: "Nagasaki Prefecture - Kyushu's Gateway of History and Harmony",
             nameJp: '長崎県',
             emoji: '🌋',
-            description: `Nagasaki is Kyushu's land of contrasts and connections. Once Japan's sole gateway to the world, this vibrant prefecture blends natural wonders with a unique cultural heritage. Here, the East China Sea cradles hundreds of islands—some alive with fishing villages, others home to wild horses or the quiet beauty of hidden churches. Volcanoes shape the landscape, hot springs soothe the soul, and every valley seems to guard a secret: a temple, a colonial relic, or a story of resilience.
+            description: `Nagasaki is Kyushu's land of contrasts and connections. Once Japan's only gateway to the world, the prefecture blends striking natural landscapes with a distinctive cultural heritage. The East China Sea embraces hundreds of islands—some home to lively fishing communities, others to wild horses or the quiet presence of hidden churches. Volcanoes shape the terrain, hot springs offer calm, and many valleys hide a story: a temple, a remnant of colonial history, or a testament to resilience.
 
-From the bustling streets of Dejima, where Dutch traders once exchanged knowledge and goods, to the serene beaches of the Goto Islands, Nagasaki invites exploration. Stand atop Mount Inasa for a breathtaking view of the city's lights, said to rival those of Hong Kong and Monaco. In Nagasaki, history, nature, and daily life coexist in striking harmony, offering a rich experience of Kyushu's diversity.`,
-            descriptionJp: '長崎：九州の歴史と調和の入口
+From the historic streets of Dejima, where Dutch traders once exchanged knowledge and goods, to the serene shores of the Goto Islands, Nagasaki invites slow exploration. Standing atop Mount Inasa reveals a night view said to rival those of Hong Kong and Monaco. In Nagasaki, history, nature, and daily life coexist in remarkable harmony, offering a vivid glimpse into Kyushu's depth and diversity.`,
+            descriptionJp: `長崎：九州の歴史と調和の玄関口
 
-長崎は、九州の対比と繋がりの地です。かつて日本と世界を結ぶ唯一の窓口であったこの県は、自然の驚異と独自の文化遺産が融合しています。東シナ海には多様な島々が点在し、漁村の賑わいある島もあれば、野生の馬や静寂の教会が息づく島もあります。火山が大地を形作り、温泉が心を癒し、谷や丘には寺院や植民地時代の遺構、そして人々の強さが秘められた物語が息づいています。
+長崎は、九州の「対比」と「繋がり」が交差する場所です。かつて日本と世界を結ぶ唯一の窓口であったこの県には、雄大な自然と独自に育まれた文化遺産が共に息づいています。東シナ海には数多くの島々が浮かび、賑やかな漁村がある島もあれば、野生の馬が歩き、静かな教会が佇む島もあります。火山が大地を形づくり、温泉は心をほぐし、谷や丘には寺院や植民地時代の遺構、人々の強さを物語る歴史が静かに残されています。
 
-出島の石畳を歩けば、オランダ商人が知識と品物を交換した往時を感じられ、稲佐山の頂上からは、香港やモナコに匹敵すると言われる夜景が広がります。五島列島の静かなビーチから長崎の活気ある港まで、長崎は歴史と自然、日常が織りなす調和の地であり、九州の多様性を体感できる魅力的な場所です。'
+出島の石畳を歩けば、オランダ商人が知識と品々を交換した往時の息遣いが感じられます。稲佐山の頂上から望む夜景は、香港やモナコと並ぶ美しさで知られています。五島列島の穏やかな浜辺から長崎港の活気に至るまで、長崎は歴史・自然・日常が調和する地であり、九州の多様性を豊かに体験できる魅力に満ちています。`
         },
         'kumamoto-home': {
-            name: 'Kumamoto Prefecture - Kyushu\\'s Wild Heart',
+            name: "Kumamoto Prefecture - Kyushu's Wild Heart",
             nameJp: '熊本県',
             emoji: '🏔️',
-            description: `Kumamoto is Kyushu's untamed soul, where vast plains stretch beneath Mount Aso, one of the world's largest active volcanoes. Rivers and lakes feed fertile valleys, and misty forests shelter hidden villages. Dramatic landscapes—from the Aso caldera grasslands to the Kuma region forests—reveal nature's power and resilience. Traditional crafts, local festivals, and welcoming towns flourish between mountains and plains. Every journey in Kumamoto unveils a new facet of Kyushu's raw beauty and quiet strength.`,
-            descriptionJp: '熊本：九州の荒野の心臓部
+            description: `Kumamoto is Kyushu's untamed soul, where broad plains unfold beneath Mount Aso, one of the world's largest active volcanoes. Rivers and lakes nourish fertile valleys, while mist-covered forests shelter secluded villages. From the grasslands of the Aso caldera to the deep forests of the Kuma region, dramatic landscapes reveal the strength and presence of nature. Traditional crafts, local festivals, and welcoming towns thrive between mountains and plains. Every journey through Kumamoto reveals another facet of Kyushu's raw beauty and quiet resilience.`,
+            descriptionJp: `熊本：九州の野性が息づく地
 
-熊本は、九州の野性的な魂です。世界有数の活火山・阿蘇山の下に広がる広大な平野、川や湖が肥沃な谷を育み、霧深い森が隠れた集落を守ります。阿蘇の草原から球磨の樹海まで、劇的な景観が自然の力と生命力を語ります。山と平野に抱かれた町では、伝統工芸や祭り、温かい人々の暮らしが息づきます。熊本を旅するたびに、九州の原風景と静かな強さが新たに見えてきます。'
+熊本は、九州の野性的な魂が宿る場所です。世界有数の活火山である阿蘇山の麓には広大な平野が広がり、川や湖は肥沃な谷を育み、霧に包まれた森は静かな集落を抱いています。阿蘇の草原から球磨の深い森まで、劇的な景観が自然の力強さを物語ります。山と平野に寄り添う町々では、伝統工芸や祭り、温かな暮らしが息づいています。熊本を旅するたびに、九州の原風景と静かな強さが新たに見えてきます。`
         },
         'oita-home': {
-            name: 'Oita Prefecture - Kyushu\\'s Land of Water and Mountains',
+            name: "Oita Prefecture - Kyushu's Land of Water and Mountains",
             nameJp: '大分県',
             emoji: '♨️',
-            description: `Oita is a place where nature shapes life. Rivers carve deep valleys, mountains rise behind quiet towns, and the Bungo Channel meets the coast. Water is everywhere—from Beppu's steaming streets to Yufuin's tranquil ryokan nestled among volcanic hills. The Kunisaki Peninsula offers rolling forests, hidden temples, and dramatic coastal cliffs. In Oita, nature and culture coexist, offering a rich glimpse of the island's landscapes and life.`,
-            descriptionJp: '大分：九州の水と山の県
+            description: `Oita is a place where nature shapes daily life. Rivers carve deep valleys, mountains rise behind quiet towns, and the Bungo Channel meets the coastline. Water is everywhere—from the steaming streets of Beppu to the quiet ryokan of Yufuin, set among volcanic hills. The Kunisaki Peninsula offers rolling forests, hidden temples, and dramatic coastal cliffs. In Oita, nature and culture coexist, revealing the diverse landscapes and rhythms of life across Kyushu.`,
+            descriptionJp: `大分：九州の水と山の県
 
-大分は、自然が日常を形作る場所です。川が深い谷を刻み、静かな町の背後に山々がそびえ、豊後水道が沿岸に広がります。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、至る所に水の存在が感じられます。国東半島には、広がる森や隠れた寺院、海岸沿いの劇的な崖が点在しています。大分では、自然と文化が共存し、島の多彩な景観や暮らしを豊かに感じられます。'
+大分は、自然が暮らしを形作る土地です。川は深い谷を刻み、静かな町の背後には山々が連なり、豊後水道が海岸線を形づくっています。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、水の気配は県内のあらゆる場所に見られます。国東半島には、広がる森、隠れた寺院、そして海岸沿いの迫力ある崖が点在しています。大分では、自然と文化が寄り添い、九州の多彩な景観と暮らしを豊かに感じることができます。`
         },
         'miyazaki-home': {
-            name: 'Miyazaki Prefecture - Kyushu\\'s Land of Light and Legend',
+            name: "Miyazaki Prefecture - Kyushu's Land of Light and Legend",
             nameJp: '宮崎県',
             emoji: '🌊',
             description: `Miyazaki basks in sunlight, where Pacific waves meet golden shores and forested hills cradle ancient shrines and villages. Myth and nature intertwine—from Mount Takachiho's sacred peaks to Nichinan's sunlit beaches. Cedar forests, coastal caves, and fresh seafood by the sea reveal Kyushu's natural and spiritual heritage. Miyazaki embraces life with warmth, legend, and sunlight.`,
-            descriptionJp: '宮崎：九州の光と伝説の地
+            descriptionJp: `宮崎：九州の光と伝説の地
 
-宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。杉の森の散策、海岸の洞窟探検、海の幸を味わうことで、九州の自然と霊性を温かく感じることができます。'
+宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。杉の森の散策、海岸の洞窟探検、海の幸を味わうことで、九州の自然と霊性を温かく感じることができます。`
         },
         'kagoshima-home': {
-            name: 'Kagoshima Prefecture - Kyushu\\'s Fiery Soul',
+            name: "Kagoshima Prefecture - Kyushu's Fiery Soul",
             nameJp: '鹿児島県',
             emoji: '🌸',
-            description: `Kagoshima is where volcanoes meet the sea. Sakurajima's smoldering peak dominates the bay, while islands and waves shape the coastline. Rivers carve volcanic valleys, nurturing hot springs and fertile fields. Life moves with nature's rhythm—from the bustling streets of Kagoshima City to quiet fishing villages of the Satsunan Islands. Every eruption and sunset over the sea reminds you of the earth's raw power and the resilience of those who call Kagoshima home.`,
-            descriptionJp: '鹿児島：九州の炎と流れの魂
+            description: `Kagoshima is where volcanoes meet the sea. Sakurajima towers over the bay, even as waves and island shores shape the prefecture's coast. Volcanic soils and rivers feed fertile fields, and the land's warmth gives rise to hot springs. From the busy streets of Kagoshima City to distant fishing hamlets scattered among the Satsunan Islands, life here still pulses to the rhythm of nature. Each plume of ash, each sunset over the sea — reminders of the earth's power and of the quiet strength of those who call Kagoshima home.`,
+            descriptionJp: `鹿児島：九州の火山と海の地
 
-鹿児島は、火山と海が交わる県です。桜島の煙を上げる峰が湾を見守り、島々や波が沿岸を形作ります。川は火山の谷を刻み、温泉や肥沃な畑を育みます。鹿児島市の活気ある街並みから薩南諸島の静かな漁村まで、自然のリズムに沿って暮らしが流れます。噴火や海に沈む夕日が、地球の力強さとここに生きる人々のたくましさを感じさせます。'
+鹿児島は、火山と海が隣り合う地域です。桜島が湾の中心にそびえ、島々と波が県の多様な海岸線を形づくっています。火山由来の土壌や川は農地を支え、大地の熱は各地の温泉につながっています。鹿児島市の活気ある市街地から、薩南諸島に点在する小さな漁村まで、この地域の暮らしは自然環境と密接につながっています。噴煙や海に沈む夕日は、火山の存在感と、ここで暮らす人々の確かな生活の営みを感じさせます。`
         }
     };
     
