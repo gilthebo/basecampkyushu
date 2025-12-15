@@ -202,14 +202,15 @@ p {
 }
 
 /* =============================================
-   LANGUAGE TOGGLE BUTTONS - HIDDEN FOR NOW
+   LANGUAGE TOGGLE BUTTONS - VISIBLE FOR NOW
    ============================================= */
 
-.language-toggle-buttons,
+/* Temporarily showing all language buttons until translations are complete */
+/* .language-toggle-buttons,
 .language-toggle-container,
 .language-toggle-btn {
     display: none !important;
-}
+} */
 
 /* =============================================
    GOOGLE TRANSLATE WIDGET - ENHANCED DESIGN

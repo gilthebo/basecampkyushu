@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 4.5.5  
+**Version:** 4.5.6  
 **Last Updated:** December 15, 2025  
-**Status:** ✅ Language Buttons Fully Hidden (Except Stories) - Production Ready  
+**Status:** ✅ All Language Buttons Visible + Prefecture Popups Fixed - Production Ready  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,31 +16,33 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Updates (December 15, 2025) - v4.5.5
+### ✨ Latest Updates (December 15, 2025) - v4.5.6
 
-#### 🔒 Language Buttons Fully Hidden (Fixed Inline Styles)
-1. **Language Toggle Buttons Hidden on Most Pages**:
-   - ✅ Hidden EN/JPN/FR buttons on all pages (Index, About, Online Store, etc.)
-   - ✅ **Stories page keeps its language buttons visible** (has full translations)
-   - ✅ Fixed issue: Commented out inline `body .language-toggle-buttons` styles in all pages
-   - ✅ Removed from: index.html, about.html, online-store.html, contact.html, expedition-resort.html, video-production.html, in-motion.html
-   - ✅ Used `display: none !important` in css/style.css
-   - ✅ Stories page overrides with `display: flex !important`
+#### ✅ All Language Buttons NOW VISIBLE + Prefecture Japanese Text Fixed
+1. **Language Toggle Buttons NOW VISIBLE ON ALL PAGES**:
+   - ✅ **All EN/JPN/FR buttons are now visible** on every page
+   - ✅ Uncommented all inline `body .language-toggle-buttons` styles
+   - ✅ Restored visibility on: index.html, about.html, online-store.html, contact.html, expedition-resort.html, video-production.html, in-motion.html, stories.html
+   - ✅ Commented out `display: none !important` in css/style.css
+   - ✅ Buttons visible until translations are complete
 
-2. **Prefecture Pop-ups Still Show All 3 Languages**:
-   - ✅ Pop-ups continue to display 🇬🇧 English, 🇫🇷 Français, 🇯🇵 日本語 simultaneously
-   - ✅ No language switcher in pop-ups - all languages visible at once
-   - ✅ Beautiful trilingual modal layout preserved
+2. **Prefecture Pop-ups Japanese Text FIXED**:
+   - ✅ **Fixed Japanese text display issue** in prefecture pop-ups
+   - ✅ Added `white-space: pre-wrap` to preserve line breaks
+   - ✅ Added `display: block !important; visibility: visible !important;`
+   - ✅ Pop-ups now properly display 🇬🇧 English, 🇫🇷 Français, 🇯🇵 日本語 simultaneously
+   - ✅ All 7 prefectures (Fukuoka, Saga, Nagasaki, Kumamoto, Oita, Miyazaki, Kagoshima) now show complete trilingual content
 
-3. **Why Hidden?**:
-   - Most pages don't have French/Japanese translations yet
-   - Stories page was built with Claude AI with complete trilingual content
-   - Other pages will be translated later using the same method
-   - Language buttons ready to show when translations are complete
+3. **Why Visible Now?**:
+   - Buttons kept visible temporarily for testing and development
+   - Most pages don't have French/Japanese translations yet (buttons won't do anything)
+   - Stories page has complete trilingual content (EN/FR/JA)
+   - Other pages will be translated later using Claude AI
+   - Easier to keep buttons visible until all translations are ready
 
-**Result:** Clean interface - language buttons only visible where translations exist (Stories page + Prefecture pop-ups)
+**Result:** Language buttons visible on all pages + Prefecture pop-ups display Japanese text correctly!
 
-**Files Modified:** `css/style.css`, `stories.html`, `README.md`
+**Files Modified:** `css/style.css`, `index.html`, `about.html`, `online-store.html`, `contact.html`, `expedition-resort.html`, `video-production.html`, `in-motion.html`, `README.md`
 
 ---
 

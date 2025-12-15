@@ -726,16 +726,11 @@
         body header,
         body footer,
         body img,
-        body .featured-meta {
+        body .featured-meta,
+        body .language-toggle-buttons {
             display: block !important;
             visibility: visible !important;
         }
-        
-        /* Language buttons hidden - uncomment when translations ready */
-        /* body .language-toggle-buttons {
-            display: block !important;
-            visibility: visible !important;
-        } */
         
         body .main-nav ul {
             display: flex !important;
@@ -981,7 +976,7 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
                 <!-- Japanese description -->
                 <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--ocean-blue);">
                     <h3 style="color: var(--ocean-blue); font-size: 1.2rem; margin-bottom: 0.8rem;">🇯🇵 日本語</h3>
-                    <p class="japanese-text" style="line-height: 2; font-size: 1rem; color: var(--text-dark); margin: 0;">
+                    <p class="japanese-text" style="line-height: 2; font-size: 1rem; color: var(--text-dark); margin: 0; white-space: pre-wrap; display: block !important; visibility: visible !important;">
                         ${data.descriptionJp}
                     </p>
                 </div>
