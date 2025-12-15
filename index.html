@@ -37,18 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Google Translate Widget -->
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'ja,fr,ko,zh-CN,zh-TW,es,de,it,pt,th,vi',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
     <style>
         /* Japanese Toggle Button - Perfectly Aligned Under Logo */
@@ -319,8 +308,11 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <!-- Google Translate Dropdown -->
-            <div id="google_translate_element"></div>
+            <div class="language-toggle-buttons">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
@@ -734,11 +726,16 @@
         body header,
         body footer,
         body img,
-        body .featured-meta,
-        body .language-toggle-buttons {
+        body .featured-meta {
             display: block !important;
             visibility: visible !important;
         }
+        
+        /* Language buttons hidden - uncomment when translations ready */
+        /* body .language-toggle-buttons {
+            display: block !important;
+            visibility: visible !important;
+        } */
         
         body .main-nav ul {
             display: flex !important;
@@ -1041,6 +1038,30 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
     document.addEventListener('DOMContentLoaded', function() {
         console.log('DOM loaded, map ready!');
         console.log('Prefecture data loaded:', Object.keys(prefectureDataHome).length, 'prefectures');
+        
+        // Language toggle functionality
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const body = document.body;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('preferredLanguage', lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            body.setAttribute('data-lang', lang);
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
     });
     </script>
 </body>

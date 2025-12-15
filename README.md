@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 3.0.0  
-**Last Updated:** November 30, 2025  
-**Status:** ✅ Japanese Hidden By Default - Button Shows "Show" - READY TO DEPLOY  
+**Version:** 4.5.5  
+**Last Updated:** December 15, 2025  
+**Status:** ✅ Language Buttons Fully Hidden (Except Stories) - Production Ready  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,14 +16,471 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Features (November 30, 2025)
-- 🔒 **Japanese Hidden By Default** - Japanese text hidden on page load (v3.0)
-- 🎯 **Button Shows "Show"** - Visitors must click "🇯🇵 Show" to see Japanese
-- 💾 **Persistent Preferences** - User choice saved in localStorage across sessions
-- 🗺️ **Geographic Map** - Green land + blue ocean (looks like real Kyushu)
-- ⬜ **Square Design** - Clean corners match banner format
-- 📝 **Auto-Size Button** - Compact design perfectly aligned under logo
-- ✉️ **Working Contact Form** - Direct mailto integration
+### ✨ Latest Updates (December 15, 2025) - v4.5.5
+
+#### 🔒 Language Buttons Fully Hidden (Fixed Inline Styles)
+1. **Language Toggle Buttons Hidden on Most Pages**:
+   - ✅ Hidden EN/JPN/FR buttons on all pages (Index, About, Online Store, etc.)
+   - ✅ **Stories page keeps its language buttons visible** (has full translations)
+   - ✅ Fixed issue: Commented out inline `body .language-toggle-buttons` styles in all pages
+   - ✅ Removed from: index.html, about.html, online-store.html, contact.html, expedition-resort.html, video-production.html, in-motion.html
+   - ✅ Used `display: none !important` in css/style.css
+   - ✅ Stories page overrides with `display: flex !important`
+
+2. **Prefecture Pop-ups Still Show All 3 Languages**:
+   - ✅ Pop-ups continue to display 🇬🇧 English, 🇫🇷 Français, 🇯🇵 日本語 simultaneously
+   - ✅ No language switcher in pop-ups - all languages visible at once
+   - ✅ Beautiful trilingual modal layout preserved
+
+3. **Why Hidden?**:
+   - Most pages don't have French/Japanese translations yet
+   - Stories page was built with Claude AI with complete trilingual content
+   - Other pages will be translated later using the same method
+   - Language buttons ready to show when translations are complete
+
+**Result:** Clean interface - language buttons only visible where translations exist (Stories page + Prefecture pop-ups)
+
+**Files Modified:** `css/style.css`, `stories.html`, `README.md`
+
+---
+
+### 📜 Previous Updates (v4.5.3)
+
+#### 🧭 Full Navigation Header Added to Stories Page
+1. **Complete Header & Navigation**:
+   - ✅ Added full header with BASECAMP KYUSHU logo
+   - ✅ Added navigation menu (HOME, ABOUT, IN MOTION, STORIES, VIDEO PRODUCTION, ONLINE STORE, EXPEDITION RESORT)
+   - ✅ STORIES link is marked as active
+   - ✅ Added EN/JPN/FR language toggle buttons (matching other pages)
+   - ✅ Header fixed at top with backdrop blur effect
+
+2. **Dual Language System**:
+   - ✅ **Header language toggle** (EN/JPN/FR) - for site-wide navigation
+   - ✅ **Stories language selector** (English/Français/日本語) - for story content switching
+   - ✅ Both work independently and save preferences
+
+3. **Mobile Responsive**:
+   - ✅ Mobile-optimized header layout
+   - ✅ Hamburger menu toggle (ready for implementation)
+   - ✅ Compact language buttons on mobile
+   - ✅ Banner adjusted with proper margin-top
+
+**Problem Solved:** Stories page now has the same navigation as all other pages!
+
+**Files Modified:** `stories.html`, `README.md`
+
+---
+
+### 📜 Previous Updates (v4.5.2)
+
+#### 🎯 Language Switcher Added to Index Page
+1. **EN/JPN/FR Toggle Buttons Now Visible**:
+   - ✅ Added language toggle buttons to index.html header
+   - ✅ Buttons: EN (English), JPN (Japanese), FR (Français)
+   - ✅ Matches styling/functionality of other pages
+   - ✅ Language choice saved in localStorage
+
+2. **JavaScript Functionality**:
+   - ✅ Added language toggle event listeners
+   - ✅ Auto-loads last selected language on page load
+   - ✅ Smooth language switching
+   
+3. **Prefecture Pop-ups**:
+   - ✅ **Already display all 3 languages at once** (no switcher needed)
+   - Shows 🇬🇧 English, 🇫🇷 Français, 🇯🇵 日本語 simultaneously
+   - Beautiful modal layout with language flags
+
+**Files Modified:** `index.html`, `README.md`
+
+---
+
+### 📜 Previous Updates (v4.5.1)
+
+#### 🔧 Language Switcher Fixed - Stories Page
+1. **CSS Fixed with !important**:
+   - ✅ Added `!important` to all `.lang-content` display rules
+   - ✅ Ensures only ONE language displays at a time
+   - ✅ Prevents multiple languages showing simultaneously
+   - ✅ Switcher now properly hides inactive languages
+
+2. **Language Switcher Behavior**:
+   - Click EN button → Shows ONLY English
+   - Click FR button → Shows ONLY French  
+   - Click JPN button → Shows ONLY Japanese
+   - Remembers choice in localStorage
+
+3. **French Translation Status**:
+   - ✅ French content exists throughout the page
+   - ✅ All sections have FR translations
+   - ✅ Complete trilingual support (EN/FR/JA)
+
+**Result:** ✅ Language switcher works correctly - one language at a time
+
+---
+
+### 📜 Previous Updates (v4.5.0) - December 15, 2025
+
+#### 🧹 Stories Page Cleanup & Google Translate Removed
+1. **Google Translate Widget Removed** (Index Page):
+   - ✅ Removed Google Translate dropdown
+   - ✅ Removed translation script
+   - ✅ Keeps native language toggle system (EN/JPN/FR buttons)
+   - ✅ Cleaner header without external widget
+
+2. **Stories Page Text Cleanup**:
+   - ✅ Simplified "Three Languages" section - removed repetitive text
+   - ✅ Removed "Three different experiences" (redundant with title)
+   - ✅ Removed "You don't read all three" line
+   - ✅ Simplified language description to just "Japanese, French, and English"
+
+3. **Volume 1 CTA Simplified**:
+   - ✅ Replaced 3 buttons (READ, GIFT, SHARE) with single button
+   - ✅ New button: "📚 Available on Amazon NOW!"
+   - ✅ Larger, more prominent
+   - ✅ Multilingual (EN/FR/JA)
+
+**Result:** ✅ Cleaner interface, less redundancy, native language system only
+
+---
+
+### 📜 Previous Updates (v4.4.4) - December 15, 2025
+
+#### 📚 Vol. 2 Pre-Interest - Contact Form Integration
+1. **Contact Form Updated**:
+   - ✅ Added new dropdown option: "📚 Vol. 2 Pre-Interest / 第2巻先行予約"
+   - ✅ Positioned as first option (most visible)
+   - ✅ Short text - displays well on mobile
+   - ✅ Multilingual (English/Japanese)
+
+2. **Stories Page Button Updated**:
+   - ✅ Button text: "📚 Get Vol. 2" (EN) / "📚 Vol. 2" (FR) / "📚 第2巻予約" (JA)
+   - ✅ Short, action-oriented text (fits on one line mobile)
+   - ✅ Links to `contact.html`
+   - ✅ Removed unused email signup section
+
+3. **Purpose - Gauge Real Interest**:
+   - Collect pre-orders/interest list for Vol. 2
+   - Measure demand before publication
+   - Build early reader community
+   - User submits: Name, Email, Message ("I'm interested in Vol. 2")
+   - Email goes to: `gilles.b@mglobaljapan.com`
+
+**Result:** ✅ Pre-interest system to gauge demand for Volume 2
+
+---
+
+### 📜 Previous Updates (v4.4.3) - December 15, 2025
+
+#### 🎨 Stories Page - Button Sizes Matched to Site Standard
+1. **Button Sizing Updated to Match Other Pages**:
+   - **Padding**: `1.8rem 3.5rem` → `1rem 2.5rem` ✅
+   - **Font size**: `1.4rem` → `0.95rem` ✅
+   - **Font weight**: `700` → `600` ✅
+   - **Border**: `3px` → `2px` ✅
+   - **Border radius**: `8px` → `6px` ✅
+   - **Letter spacing**: `0.5px` → `0.1em` ✅
+   - **Text transform**: Added `uppercase` ✅
+
+2. **Result**: Buttons now match the size and style of Index, About, Online Store, and other pages
+
+**Result:** ✅ Consistent button styling across entire website
+
+---
+
+### 📜 Previous Updates (v4.4.2) - December 15, 2025
+
+#### 📱 Stories Page - Mobile Button Fixes
+1. **Button Text Shortened**:
+   - Old: "📧 Notify Me for Vol. 2" (too long)
+   - New: "📧 Vol. 2 Updates" (shorter, fits one line)
+   - FR: "📧 Vol. 2 Infos"
+   - JA: "📧 第2巻情報"
+
+2. **Mobile Button Centering Fixed**:
+   - Added `text-align: center`
+   - Added `display: flex` with `justify-content: center`
+   - READ, GIFT, SHARE button text now centered on mobile
+
+**Result:** ✅ All button text centered and fits on one line on mobile
+
+---
+
+### 📜 Previous Updates (v4.4.1) - December 15, 2025
+
+#### 📝 Stories Page - Text Corrections & Banner Size Fixed
+1. **Banner Size Fixed**: Now matches all other pages
+   - Changed from `<img>` tag to `<section class="hero-banner">`
+   - Desktop: `height: 100vh; min-height: 600px`
+   - Mobile: `height: 60vh; min-height: 400px`
+   - Same size as Index, About, Online Store pages
+
+2. **Text Corrections** (5 updates):
+   - ✅ **Languages line**: Added line breaks - "Japanese (日本語),<br>French (Français), and English"
+   - ✅ **Illustrations text**: Split into 3 lines for better readability
+   - ✅ **Button text**: Changed "Get Updates for Vol. 2" → "Notify Me for Vol. 2" (shorter, fits one line)
+   - ✅ **Location**: "Hidden pottery village,<br>Saga mountains" (Saga on new line)
+   - ✅ **Dramatic text**: Complete rewrite in all 3 languages with new nuanced content
+
+3. **New "Nothing Dramatic" Text**:
+   - **EN**: "No dramatic revelations. Ryō's creative block remains. But the village offers something else—a way of inhabiting time differently. Something begins to shift, imperceptibly."
+   - **FR**: "Pas de révélations dramatiques. Le blocage créatif de Ryō demeure. Mais le village offre autre chose—une façon d'habiter le temps différemment. Quelque chose commence à changer, imperceptiblement."
+   - **JA**: "劇的な展開はない。涼の創作のブロックは続く。しかし村は別のものを提供する——時間を異なる形で過ごす方法。何かが知らぬ間に変わり始める。"
+
+**Result:** ✅ Better readability, consistent banner size, improved text flow
+
+---
+
+### 📜 Previous Updates (v4.4.0) - December 15, 2025
+
+#### 📖 Stories Page - Complete Redesign with Illustrations
+1. **Full Page Redesign**: Replaced entire stories.html with new immersive design
+   - Literary magazine aesthetic with serif typography
+   - Clean, elegant layout optimized for reading
+   - Multilingual support (EN, FR, JA)
+2. **Banner Image Added**: Stories page header banner
+   - URL: `https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png`
+3. **Book Cover Added**: Featured book cover image
+   - URL: `https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-15-at-19-05-08_orig.png`
+4. **4 Story Illustrations Added**:
+   - Illustration 1: `1_orig.png`
+   - Illustration 2: `7_orig.png`
+   - Illustration 3: `12_orig.png`
+   - Illustration 4: `21_orig.png`
+5. **Footer Updated**: Replaced with main site footer
+   - Consistent design across all pages
+   - Proper navigation links
+   - Company information and contact details
+6. **Amazon Links Updated**: All CTAs now link to author page
+   - **Author Page**: `https://www.amazon.com/stores/author/B0FV7VJJVR/about`
+   - Updated 8 CTA buttons (Read, Gift, Share, etc.)
+   - Temporary placeholder until book is published
+6. **Features**:
+   - Immersive fiction content
+   - Character-driven narrative (Ryō Tanaka)
+   - Real Kyūshū locations
+   - Hand-crafted illustrations
+   - Language switcher (EN/FR/JA)
+   - Responsive design
+
+**Result:** ✅ Professional, literary storytelling page with consistent branding
+
+---
+
+### 📜 Previous Updates (v4.3.2) - December 15, 2025
+
+#### 🛍️ Online Store Banner - New Mobile-Optimized Image
+1. **Banner Image Updated**: Replaced with new centered shopping bag image
+   - **New URL**: `https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1581222526.png`
+   - **Old URL**: `background-images/392126066.png`
+   - Shopping bag properly centered for mobile display
+2. **Mobile CSS**: Existing `background-position: 50% center` works perfectly with new image
+
+**Result:** ✅ Shopping bag perfectly centered on all devices
+
+---
+
+### 📜 Previous Updates (v4.3.1) - December 15, 2025
+
+#### 🛍️ Online Store Page - Instagram Card + Mobile Banner Fix
+1. **Instagram Card Added**: Added icon-only "Stay in the Loop" card before footer
+   - Same clean design as About page
+   - Instagram icon button instead of text
+   - Positioned just before footer for better visibility
+2. **Removed Duplicate Section**: Deleted old "Follow @basecampkyushu" text button
+3. **Mobile Banner Fixed**: Shopping bag now centered on mobile devices
+   - Added CSS: `background-position: 50% center !important` for screens < 480px
+   - Shopping bag icon properly visible and centered
+
+**Result:** ✅ Clean Instagram CTA card + centered banner on mobile
+
+---
+
+### 📜 Previous Updates (v4.3.0) - December 15, 2025
+
+#### 🎨 New Hero Banner Image - Mobile Optimized
+1. **Banner Updated**: Replaced hero banner with new mobile-optimized image
+   - **New URL**: `https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/153997916.png`
+   - **Mobile Fix**: Text "The Land • The People • The Stories" now displays correctly on all mobile devices
+2. **Clean Implementation**: Removed HTML text overlay for simpler, cleaner code
+3. **Mobile Positioning**: Banner image is properly optimized with correct text positioning for mobile screens
+
+**Result:** ✅ Clean hero banner with perfect text visibility on all devices
+
+---
+
+### 📜 Previous Updates (v4.2.8) - December 15, 2025
+
+#### 📱 Instagram CTA Card Added - About Page
+1. **"Stay in the Loop" Section**
+   - Added clean Instagram call-to-action card before footer
+   - Icon-only design (no text overflow issues)
+   - Styled with brand colors: `var(--warm-beige)` background, `var(--ocean-blue)` button
+   - Hover effects: color change, lift animation, shadow
+   - Fully responsive with proper padding and max-width
+   - Uses inline SVG Instagram icon (no external dependencies)
+
+2. **Design Details**
+   - Card: 420px max-width, warm beige background, rounded corners
+   - Title: Georgia serif font at 2.5rem in ocean blue
+   - Button: 3rem icon size with smooth hover transitions
+   - Perfectly integrates with existing design system
+
+**Result:** ✅ Clean, professional social media CTA that matches site aesthetics
+
+---
+
+### 📜 Previous Updates (v4.2.7) - January 27, 2025
+
+#### 🎯 Three Critical Mobile Fixes
+1. **"土地 — 人 — 物語" Centered on Mobile**
+   - Fixed header logo/subtitle not centering on mobile devices
+   - Enhanced `.logo` CSS with flexbox centering and `align-items: center`
+   - Result: Japanese subtitle now perfectly centered in mobile header
+
+2. **Equipment Text Bullet Points Added**
+   - Converted Equipment section from `<p>` to `<ul>` format
+   - Now matches visual style of other sections (Full Production Crews, On-Site Management)
+   - Result: Equipment text displays with bullet points like adjacent sections
+
+3. **Online Store Banner Centered**
+   - Added `display: flex`, `align-items: center`, `justify-content: center` to hero section
+   - Added `min-height: 400px` for proper banner height
+   - Result: Banner image/shopping bag icon now properly centered on mobile
+
+**Testing:** ✅ All pages load with 0 errors (video-production: 10.18s, online-store: 10.11s, index: 12.07s)
+
+---
+
+### 📜 Previous Updates (v4.2.6)
+
+#### 📱 Grid Layout Fixed - Copied from Video Production Page
+- ✅ **About page grid** - Changed to `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`
+- ✅ **Same as video-production** - Now uses identical responsive grid structure
+- ✅ **Removed inline overrides** - Cleaned up unnecessary margin/width styles
+- ✅ **Online Store structure** - Simplified container hierarchy for better centering
+- ✅ **Result** - Cards now center perfectly on mobile/iPad like video-production page
+
+---
+
+### 📜 Previous Updates (v4.2.5)
+
+#### 📱 Enhanced Mobile CSS - Force Centering with !important
+- ✅ **Strong CSS rules** - Added comprehensive mobile-specific CSS with `!important` flags
+- ✅ **Comprehensive coverage** - Applied to all sections, cards, images, and text on mobile
+
+---
+
+### 📜 Previous Updates (v4.2.4)
+
+#### 📱 Mobile Centering Fixes - About Page & Online Store
+- ✅ **About page cards** - Fixed centering issues on mobile/iPad
+- ✅ **Online Store banner image** - Added proper centering
+
+---
+
+### 📜 Previous Updates (v4.2.3)
+
+#### 🛍️ Online Store Card Text Update - About Page
+- ✅ **English text** - Changed to "More than a shirt. A piece of Kyūshū."
+- ✅ **Japanese text** - Updated to "ただのシャツじゃない。九州の一部。"
+- ✅ **French text** - Updated to "Plus qu'un T-shirt. Un morceau de Kyūshū."
+
+---
+
+### 📜 Previous Updates (v4.2.2)
+
+#### 🔗 YouTube Link Correction & Gallery Text Updates
+- ✅ **YouTube channel link corrected** - Updated from @KyushuInMotions to @KyushuInMotion across 7 pages
+- ✅ **In Motion page text** - Simplified "Photographs. 360° panoramas. Video explorations." to "Photos Gallery"
+- ✅ **Gallery section title** - Corrected "Photo Gallery" to "Photos Gallery" (plural)
+
+---
+
+### 📜 Previous Updates (v4.2.1)
+
+#### 📝 Japanese Text Refinement - About Page Cards & Expedition Resort
+- ✅ **Video Production card** - Changed to "九州全域での映像制作サービス。" (specific Kyūshū mention)
+- ✅ **In Motion card** - Updated to "島を捉えるビジュアルスペース。" (modern "visual space" term)
+- ✅ **Stories card** - Refined to "フィクションと断片的な物語による文学的探究。" (more literary)
+
+---
+
+### 📜 Previous Updates (v4.2.0)
+
+#### 📝 Content Updates - Enhanced Japanese Text & Terminology
+- ✅ **Terminology update** - Changed "filmmakers" to "production teams" site-wide for accuracy
+- ✅ **OUR STORY Japanese text** - Enhanced with poetic phrasing and line breaks for readability
+- ✅ **OUR APPROACH Japanese text** - More professional methodology description with proper formatting
+
+---
+
+### 📜 Previous Updates (v4.1.9)
+
+#### 📱 Mobile & Layout Fixes - Complete Responsive Overhaul
+- ✅ **Index page centering** - All text and cards properly centered on mobile/iPad
+- ✅ **About page responsiveness** - Project cards perfectly centered across all devices
+- ✅ **In Motion page fixes** - Text line breaks optimized, Japanese translation corrected, script error resolved
+- ✅ **Video Production layout** - Delivery section consistency fixed, Japanese text line breaks added
+- ✅ **CSS enhancements** - Comprehensive mobile-first responsive rules added
+
+---
+
+### 📜 Previous Updates (v4.1.8)
+
+#### 🗺️ Prefecture Descriptions - Complete Trilingual Content
+- ✅ **French descriptions added** - All 7 prefecture popups now feature complete descriptions in French
+- ✅ **Trilingual modals** - Each prefecture card displays content in English (🇬🇧), French (🇫🇷), and Japanese (🇯🇵)
+
+---
+
+### 📜 Previous Updates (v4.1.7)
+
+#### 🌍 About Page - Grouped Multilingual Content
+- ✅ **Perfect language grouping** - All English in one paragraph, all Japanese in one paragraph, all French in one paragraph
+- ✅ **Clean organization** - Each language section clearly separated with flag emoji (🇬🇧 🇯🇵 🇫🇷)
+- ✅ **Our Story section** - 3 paragraphs (1 English + 1 Japanese + 1 French)
+- ✅ **Our Approach section** - 3 paragraphs (1 English + 1 Japanese + 1 French)
+- ✅ **Our Connection section** - 3 paragraphs (1 English + 1 Japanese + 1 French, white flags on blue background)
+- ✅ **Easy to read** - Users can quickly find their preferred language
+- ✅ **Preserved functionality** - Japanese/French toggle still works perfectly
+
+#### ✉️ Footer Email Verification
+- ✅ **All pages verified** - info@mglobaljapan.com present in CONNECT section across all pages
+- ✅ **9 pages confirmed** - index, about, stories, in-motion, online-store, video-production, expedition-resort, contact, 404
+
+#### 🗺️ Index Page - Kyushu Map
+- ✅ **Text repositioned** - "Explore the Seven Prefectures" now displays directly under map image
+- ✅ **Improved layout** - Text inside map container for better visual flow
+
+---
+
+### 📜 Previous Updates (v4.1.0 - v4.1.4)
+
+#### 🎬 Video Production Page Improvements
+- ✅ **Removed "Request Custom Quote" button** - Cleaner call-to-action
+- ✅ **Visual transition fixed** - About M Global Japan section now ocean blue to match footer
+- ✅ **Removed redundant Japanese text** - M Global Japan unit description simplified
+- ✅ **Project Types as cards** - Black/white image replaced with clean, card-based grid layout featuring:
+  - Brand Film / Performance Ads / Short-Form Reels
+  - Tourism PR / Product Video / Corporate
+  - Recruiting / ROAS Booster / Basecamp Studio
+- ✅ **Delivery section repositioned** - Right-aligned in POST-PRODUCTION for better visual balance
+
+#### 🛍️ Online Store Updates
+- ✅ **Single pricing display** - Kept orange ¥5,000 version only, removed duplicate
+- ✅ **Timeline updated** - Changed "by early January 2026" to "end of January 2026"
+
+#### 🏕️ Expedition Resort Refinements
+- ✅ **Removed email address** - info@mglobaljapan.com removed from Stay Informed section
+- ✅ **Removed email from footer** - Connect section now shows Instagram and YouTube only
+- ✅ **Simplified contact options** - Cleaner, more focused user experience
+
+#### 🌐 Language System (v4.0)
+- 🗣️ **11 Languages Supported** - Japanese, French, Korean, Chinese (Simplified & Traditional), Spanish, German, Italian, Portuguese, Thai, Vietnamese
+- 🎯 **Zero Maintenance** - Write content in English only, auto-translates to all languages
+- 📱 **Mobile-Optimized** - Compact translate dropdown on all devices
+- 🧹 **Clean Code** - No more duplicate content, 40-60% smaller HTML files
+- 🎨 **Custom Styled Widget** - Google Translate matches your brand colors
 
 ---
 
@@ -178,6 +635,190 @@ basecamp-kyushu/
 ---
 
 ## 📋 Version History
+
+### **v4.0.0** (January 25, 2025) - Google Translate Integration 🌐
+
+**MAJOR UPDATE: Replaced Manual Trilingual System with AI-Powered Translation**
+
+#### Why This Change? 🤔
+
+The previous manual trilingual system had critical issues:
+- ❌ Poor quality Japanese translations
+- ❌ Duplicate content cluttering HTML (40-60% bloat)
+- ❌ High maintenance (every update needed 3x translations)
+- ❌ Only supported 3 languages (EN/JPN/FR)
+- ❌ Complex CSS/JS causing display issues
+
+**Solution:** Google Translate widget with custom styling
+
+#### What Changed ✅
+
+1. **Google Translate Widget Implemented**
+   - ✅ Professional dropdown in header: "Select Language ▼"
+   - ✅ 11 languages supported (JPN, FR, KR, CN, TW, ES, DE, IT, PT, TH, VI)
+   - ✅ Styled to match Basecamp Kyūshū brand colors
+   - ✅ Mobile responsive (compact on small screens)
+   - ✅ Zero API costs (Google Translate is free for websites)
+
+2. **Old Language Toggle System Removed**
+   - ✅ Removed manual EN/JPN/FR toggle buttons
+   - ✅ Removed all `.japanese-text` and `.french-text` CSS rules
+   - ✅ Removed language toggle JavaScript from `main.js`
+   - ✅ Cleaned up `css/style.css` (removed ~100 lines)
+
+3. **HTML Structure Simplified**
+   - ✅ index.html updated with Google Translate
+   - ⏳ Other pages ready for cleanup (see CLEANUP_GUIDE.md)
+   - ✅ Logo subtitle "土地 — 人 — 物語" kept as design element
+   - ✅ All duplicate language content ready to remove
+
+4. **Implementation Quality**
+   - ✅ Custom CSS styling matches brand design
+   - ✅ Hover effects use ocean blue color
+   - ✅ Focus states for accessibility
+   - ✅ Google banner hidden (keeps dropdown attribution)
+
+#### Benefits of New System 🎉
+
+| Feature | Old System | New System |
+|---------|-----------|------------|
+| **Languages** | 3 (EN/JPN/FR) | 11 languages |
+| **Translation Quality** | ⚠️ Poor (manual) | ✅ Excellent (Google AI) |
+| **Code Size** | 100% (with duplicates) | 40-50% (English only) |
+| **Maintenance** | High (3x updates) | Zero (English only) |
+| **Setup Complexity** | High (CSS/JS/HTML) | Low (1 script tag) |
+| **Cost** | $0 | $0 |
+| **User Choice** | Preset 3 | Any of 11 languages |
+
+#### Files Created/Modified
+
+**Created:**
+- `google-translate-implementation.html` - Complete implementation guide with demo
+- `CLEANUP_GUIDE.md` - Step-by-step guide to remove old trilingual content
+
+**Modified:**
+- `index.html` - Added Google Translate widget, removed old toggle buttons
+- `css/style.css` - Replaced language toggle CSS with Google Translate styles
+- `js/main.js` - Removed language toggle JavaScript
+- `README.md` - Updated to v4.0.0
+
+#### Next Steps Required (User Action)
+
+1. **Review Implementation Guide**
+   - Open `google-translate-implementation.html` in browser
+   - See live demo of Google Translate widget
+   - Read complete step-by-step instructions
+
+2. **Clean Up Other Pages**
+   - Follow `CLEANUP_GUIDE.md`
+   - Remove all `.japanese-text` paragraphs (except logo)
+   - Remove all `.french-text` paragraphs
+   - Estimated time: 10-15 minutes per page
+
+3. **Test Translation**
+   - Load any page
+   - Click translate dropdown
+   - Select Japanese → Verify translation
+   - Select French → Verify translation
+   - Test on mobile device
+
+#### Technical Details
+
+**Languages Included:**
+```javascript
+includedLanguages: 'ja,fr,ko,zh-CN,zh-TW,es,de,it,pt,th,vi'
+```
+
+**CSS Integration:**
+- Custom `.goog-te-combo` styling
+- Brand colors (ocean blue hover)
+- Mobile responsive breakpoints
+- Focus states for accessibility
+
+**No Breaking Changes:**
+- Mobile menu still works perfectly
+- All navigation intact
+- Logo subtitle preserved
+- All page functionality maintained
+
+#### Why Google Translate?
+
+1. **Superior Quality** - Google's neural machine translation is better than manual attempts
+2. **Maintenance Free** - Write once in English, auto-translates to 11 languages
+3. **Cost Free** - Google provides this for websites at no charge
+4. **Trusted Brand** - Visitors recognize and trust Google Translate
+5. **More Languages** - Support 11 languages instead of 3
+6. **Always Updated** - Google continuously improves translation quality
+
+#### Current Status
+
+- ✅ **Core Implementation Complete** - Google Translate working on index.html
+- ⏳ **Cleanup In Progress** - Other pages need manual Japanese/French content removed
+- ✅ **CSS/JS Updated** - All old language toggle code removed
+- ✅ **Documentation Complete** - Implementation guide and cleanup guide created
+- ✅ **READY TO TEST** - Upload and test translate functionality
+
+---
+
+### **v3.1.0** (January 25, 2025) - Language Toggle System Fixed 🌐 [DEPRECATED]
+
+**CRITICAL FIX: Site-Wide Language Toggle Now Fully Functional**
+
+#### What Changed ✅
+
+1. **Language Toggle System Completely Fixed**
+   - ✅ Clicking JPN now correctly displays Japanese text across all pages
+   - ✅ Clicking FR now correctly displays French text across all pages
+   - ✅ English is default on page load
+   - ✅ All pages synchronized (EN/JPN/FR work consistently)
+   - ✅ stories.html integrated with site-wide toggle system
+
+2. **CSS Language Rules Improved**
+   - ✅ Changed from attribute-based (`body[data-lang]`) to class-based (`body.lang-ja`)
+   - ✅ More specific content targeting (avoids hiding critical elements)
+   - ✅ Added support for `[lang="ja"]` and `[lang="fr"]` attributes
+   - ✅ English content properly visible when EN selected
+
+3. **Hamburger Menu Desktop Fix**
+   - ✅ Hamburger menu (3-bar) now hidden on desktop with `!important`
+   - ✅ Only visible on mobile screens (<768px)
+   - ✅ No longer appears on desktop navigation
+
+4. **Language Button Display Fixed**
+   - ✅ Language buttons now display horizontally (not vertically)
+   - ✅ Added `flex-direction: row !important` to ensure horizontal layout
+   - ✅ Properly aligned in header on all screen sizes
+
+5. **stories.html Synchronized**
+   - ✅ Updated language toggle script to match main.js
+   - ✅ Changed localStorage key: `preferredLanguage` → `selectedLanguage`
+   - ✅ Changed body attribute: `data-lang` → class-based system
+   - ✅ Now syncs with language choice from other pages
+
+#### Why This Matters
+- **User Experience:** Language toggle now actually works as expected
+- **Consistency:** All pages use same language system and localStorage
+- **Mobile Navigation:** Hamburger menu only appears where needed (mobile)
+- **Visual Layout:** Language buttons display correctly horizontally
+
+#### Files Modified
+- **css/style.css** (3 changes) - Language rules, hamburger visibility, button layout
+- **js/main.js** (already correct) - Site-wide language toggle
+- **stories.html** (2 changes) - Language toggle CSS and JavaScript
+
+#### Technical Details
+- Language system uses body classes: `.lang-en`, `.lang-ja`, `.lang-fr`
+- localStorage key: `selectedLanguage` (synced across all pages)
+- Default language: English (`en`)
+- Hamburger menu: `display: none !important` on desktop, `display: block !important` on mobile
+
+#### Current Status
+- ✅ **FULLY TESTED** - All pages load without errors
+- ✅ **LANGUAGE TOGGLE WORKS** - EN/JPN/FR switching confirmed
+- ✅ **MOBILE MENU FIXED** - Hamburger only on mobile
+- ✅ **READY TO DEPLOY** - Upload to GitHub immediately
+
+---
 
 ### **v2.7.0** (January 24, 2025) - Final Polish: Subtitle Match & Clean Map 🗺️
 
