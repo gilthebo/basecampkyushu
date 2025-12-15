@@ -201,39 +201,121 @@ p {
     width: 100%;
 }
 
-/* Language Toggle Buttons */
-.language-toggle-buttons {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+/* =============================================
+   GOOGLE TRANSLATE WIDGET - ENHANCED DESIGN
+   ============================================= */
+
+#google_translate_element {
     flex-shrink: 0;
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
-.lang-btn {
-    padding: 0.4rem 0.8rem;
-    background: var(--light-gray);
+/* Add globe icon before dropdown */
+#google_translate_element::before {
+    content: "🌐";
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+/* Hide Google's text, show only dropdown */
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0 !important;
+}
+
+.goog-te-gadget > span {
+    display: none !important;
+}
+
+.goog-te-gadget > span > a {
+    display: none !important;
+}
+
+/* Style the dropdown select - Sleek bordered design */
+.goog-te-combo {
+    background: white;
     color: var(--text-dark);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
+    border: 2px solid var(--ocean-blue);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    padding-right: 2.5rem;
+    font-size: 0.9rem;
     font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-primary);
     transition: all 0.3s ease;
-    white-space: nowrap;
+    min-width: 180px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Custom dropdown arrow */
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%234a7ba7' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
 }
 
-.lang-btn.active {
-    background: var(--ocean-blue);
-    color: white;
+.goog-te-combo:hover {
+    border-color: var(--sunset-orange);
+    box-shadow: 0 0 0 3px rgba(74, 123, 167, 0.1);
 }
 
-.lang-btn:hover {
-    opacity: 0.8;
+.goog-te-combo:focus {
+    outline: none;
+    border-color: var(--sunset-orange);
+    box-shadow: 0 0 0 3px rgba(214, 121, 66, 0.2);
+}
+
+/* Hide Google branding banner (keeps attribution in dropdown) */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+/* Hide the annoying "Original text" popup */
+body > .skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame + .skiptranslate {
+    display: none !important;
+}
+
+/* Prevent body from shifting when banner is hidden */
+body {
+    top: 0 !important;
+}
+
+#google_translate_element .skiptranslate {
+    display: inline-block !important;
+}
+
+/* Hide all Google Translate popups and notifications */
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
+.goog-te-spinner-pos,
+.goog-te-spinner {
+    display: none !important;
+}
+
+/* Hide the translation progress bar */
+.goog-te-spinner-animation {
+    display: none !important;
+}
+
+/* Ensure the widget container stays visible */
+#google_translate_element,
+#google_translate_element .skiptranslate,
+#google_translate_element .goog-te-gadget {
+    display: inline-block !important;
 }
 
 .mobile-menu-toggle {
-    display: none;
+    display: none !important; /* Hidden on desktop by default */
     background: rgba(44, 74, 110, 0.1);
     border: 1px solid rgba(44, 74, 110, 0.2);
     border-radius: 6px;
@@ -812,7 +894,7 @@ section {
     
     /* Show hamburger menu button on mobile - LEFT SIDE */
     .mobile-menu-toggle {
-        display: block;
+        display: block !important; /* Override desktop hidden state */
         z-index: 1001;
         order: 1;
         margin-right: 0.75rem;
@@ -830,29 +912,38 @@ section {
         font-size: 1.2rem;
         order: 2;
         flex-shrink: 0;
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        margin: 0 auto !important;
     }
     
     .logo span {
         font-size: 0.6rem;
+        text-align: center !important;
+        display: inline-block;
+        white-space: nowrap;
     }
     
-    /* Adjust language buttons for mobile - RIGHT SIDE */
-    .language-toggle-buttons {
-        gap: 0.3rem;
+    /* Google Translate mobile adjustments */
+    #google_translate_element {
         order: 3;
         margin-left: auto;
         flex-shrink: 0;
     }
     
-    .lang-btn {
-        padding: 0.2rem 0.35rem;
-        font-size: 0.6rem;
-        min-width: auto;
-        letter-spacing: 0;
+    #google_translate_element::before {
+        font-size: 1rem;
+        margin-right: 0.3rem;
     }
     
-    .language-toggle-buttons {
-        gap: 0.15rem !important;
+    .goog-te-combo {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.7rem;
+        padding-right: 2rem;
+        min-width: 140px;
+        border-width: 1.5px;
     }
     
     /* Keep hero/banner visible - don't overlap with header */
@@ -860,6 +951,9 @@ section {
         margin-top: var(--header-height);
         min-height: 60vh;
         height: 60vh;
+        /* Adjust background position on mobile to show full text */
+        background-position: center center !important;
+        background-size: cover !important;
     }
     
     /* Ensure breadcrumbs don't interfere */
@@ -889,6 +983,67 @@ section {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
     }
+    
+    /* Ensure all text and cards are properly centered on mobile */
+    .section-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100% !important;
+    }
+    
+    /* Center text in all sections on mobile */
+    section p,
+    section h1,
+    section h2,
+    section h3,
+    section h4 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Force all cards to be centered */
+    section > div > div[style*="background"] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* About page project cards specific */
+    .section-container div[style*="background: var(--white)"] {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    /* Online Store banner image centering */
+    img {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Online Store product details */
+    div[style*="grid-template-columns"] {
+        text-align: center !important;
+    }
+    
+    div[style*="grid-template-columns"] > div {
+        text-align: center !important;
+    }
+}
+
+/* =============================================
+   LANGUAGE TOGGLE SYSTEM - REMOVED
+   Now using Google Translate widget
+   ============================================= */
+
+/* Keep Japanese subtitle in logo as design element */
+.logo .japanese-text {
+    display: inline-block;
 }
 
 /* =============================================

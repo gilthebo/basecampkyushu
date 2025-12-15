@@ -30,6 +30,13 @@
         .japanese-toggle-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#4a7ba7 0%,#5a7a65 100%);color:white;border:2px solid rgba(255,255,255,0.2);border-radius:0;padding:0.5rem 1rem;cursor:pointer;font-size:0.85rem;font-weight:400;letter-spacing:0.05em;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.3s ease}
         .japanese-toggle-btn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(74,123,167,0.3)}
         @media (max-width:768px){.japanese-toggle-container{padding:0.4rem 1rem}.japanese-toggle-container::before{width:0}.japanese-toggle-btn{font-size:0.75rem;padding:0.4rem 0.8rem}}
+        
+        /* Center shopping bag on mobile */
+        @media (max-width: 480px) {
+            .hero {
+                background-position: 50% center !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -80,13 +87,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/392126066.png'); background-size: cover; background-position: center; height: 70vh;">
+    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1581222526.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; min-height: 400px;">
     </section>
 
     <!-- T-Shirt Collection -->
     <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container">
-            <div class="section-header">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header" style="text-align: center;">
                 <h2 class="section-title">Signature T-Shirt</h2>
                 <p class="section-subtitle japanese-text">シグネチャーTシャツ</p>
                 <div class="section-divider"></div>
@@ -99,8 +106,8 @@
                     <h3 style="text-align: center; margin-bottom: 1.5rem;">Available Colors</h3>
                     <p class="japanese-text" style="text-align: center; margin-bottom: 2rem;">カラー展開</p>
                     
-                    <div style="max-width: 1000px; margin: 0 auto 3rem;">
-                        <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" alt="Basecamp Kyūshū T-Shirts - All 4 Colors Front & Back" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                    <div style="max-width: 1000px; margin: 0 auto 3rem; text-align: center;">
+                        <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" alt="Basecamp Kyūshū T-Shirts - All 4 Colors Front & Back" style="width: 100%; max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); display: block; margin: 0 auto;">
                         <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
                             Black | Natural Beige | Sage Green | Ocean Blue — Front & Back Views
                         </p>
@@ -112,7 +119,7 @@
                     <div style="background: var(--warm-beige); padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
                         <p style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
                             <strong>📸 Design Details Coming Soon</strong><br>
-                            Final design specifications and product photography will be shared by early January 2026.
+                            Final design specifications and product photography will be shared by end of January 2026.
                         </p>
                         <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
                             デザインの詳細は2026年1月上旬までに公開されます。
@@ -121,11 +128,11 @@
                 </div>
 
                 <!-- Product Details -->
-                <div style="background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <div style="background: var(--white); padding: 3rem 2rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
                     <h3 style="text-align: center; margin-bottom: 2rem;">Product Specifications</h3>
                     <p class="japanese-text" style="text-align: center; margin-bottom: 2rem;">製品仕様</p>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
                         <div>
                             <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">Fit & Cut</h4>
                             <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light);">フィットとカット</p>
@@ -172,16 +179,24 @@
                     <div style="margin-top: 3rem; padding: 2rem; background: var(--warm-beige); border-radius: 8px; text-align: center;">
                         <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Pricing</h3>
                         <p style="font-size: 1.8rem; font-weight: 600; color: var(--sunset-orange); margin: 1rem 0;">
-                            ¥3,500 ~ ¥5,000
+                            ¥5,000
                         </p>
-                        <p style="color: var(--text-dark); font-size: 0.95rem; font-style: italic;">Pricing not final yet</p>
-                        <p class="japanese-text" style="color: var(--text-light); margin-top: 0.5rem; font-size: 0.9rem;">
-                            価格は確定していません
-                        </p>
+                        
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(0,0,0,0.1);">
+                            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1rem;">
+                                We're finalizing production with our partners in Kyūshū.<br>
+                                Pre-order now and receive your Basecamp Kyūshū signature t-shirt.
+                            </p>
+                            <p class="japanese-text" style="font-size: 1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1.5rem;">
+                                九州のパートナーと製造を最終調整中です。<br>
+                                今すぐ予約して、<strong>2026年3月</strong>にBasecamp KyūshūシグネチャーTシャツをお受け取りください。
+                            </p>
+                        </div>
+                        
                         
                         <!-- Pre-Order CTA -->
                         <a href="contact.html" style="display: inline-flex; align-items: center; gap: 10px; background: var(--sunset-orange); color: var(--white); padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3); transition: transform 0.3s ease; margin-top: 1.5rem;">
-                            PRE-ORDER NOW — MARCH 2026
+                            PRE-ORDER NOW
                         </a>
                         <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 1rem;">
                             Made in Kyūshū | Free Size
@@ -241,41 +256,6 @@
         </div>
     </section>
 
-    <!-- Store Opening -->
-    <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white);">
-        <div class="section-container" style="max-width: 900px; text-align: center;">
-            <h2 style="color: var(--white);">Pre-Order Now</h2>
-            
-            <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">予約受付中 — 配送：2026年3月</p>
-            <div class="section-divider" style="margin: 2rem auto;"></div>
-
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin: 2rem auto; max-width: 700px;">
-                We're finalizing production with our partners in Kyūshū.<br>
-                Pre-order now and receive your Basecamp Kyūshū signature t-shirt.
-            </p>
-
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin: 2rem auto; max-width: 700px;">
-                九州のパートナーと製造を最終調整中です。<br>
-                今すぐ予約して、<strong>2026年3月</strong>にBasecamp KyūshūシグネチャーTシャツをお受け取りください。
-            </p>
-
-            <div style="background: rgba(255,255,255,0.15); padding: 2.5rem; border-radius: 8px; margin: 3rem auto; max-width: 600px;">
-                <h3 style="color: var(--white); margin-bottom: 1rem;">Stay in the Loop</h3>
-                <p style="color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
-                    Be the first to know when pre-orders open and get behind-the-scenes updates.
-                </p>
-                <p class="japanese-text" style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">
-                    予約開始情報や制作の舞台裏をいち早くお届けします。
-                </p>
-                <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--sunset-orange); color: var(--white); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
-                    Follow @basecampkyushu
-                </a>
-            </div>
-
-
-        </div>
-    </section>
-
     <!-- Shipping Info -->
     <section style="padding: 4rem 2rem; background: var(--white);">
         <div class="section-container" style="max-width: 900px;">
@@ -319,6 +299,26 @@
         </div>
     </section>
 
+    <!-- Stay in the Loop - Instagram Section -->
+    <section style="padding: 4rem 2rem; background: var(--white); display: flex; justify-content: center; align-items: center;">
+        <div style="background: var(--warm-beige); border-radius: 20px; padding: 3.5rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <h2 style="font-family: 'Georgia', serif; font-size: 2.5rem; color: var(--ocean-blue); margin-bottom: 1.2rem; font-weight: 400; line-height: 1.3;">
+                Stay in the Loop
+            </h2>
+            <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 2.5rem; color: var(--text-dark);">
+                Get behind-the-scenes updates.
+            </p>
+            <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" 
+               style="display: inline-flex; align-items: center; justify-content: center; background-color: var(--ocean-blue); color: var(--white); border-radius: 12px; padding: 1.2rem; width: 100%; font-size: 3rem; transition: all 0.3s ease; text-decoration: none;"
+               onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(74, 123, 167, 0.3)'" 
+               onmouseout="this.style.backgroundColor='var(--ocean-blue)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display: block;">
+                    <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
@@ -352,7 +352,7 @@
                 <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
                     <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
                 </ul>

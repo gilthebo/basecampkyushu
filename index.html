@@ -36,6 +36,19 @@
     <link rel="stylesheet" href="css/map-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Translate Widget -->
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ja,fr,ko,zh-CN,zh-TW,es,de,it,pt,th,vi',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <style>
         /* Japanese Toggle Button - Perfectly Aligned Under Logo */
@@ -306,18 +319,14 @@
                     <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 </ul>
             </nav>
-            <!-- Language Toggle Buttons -->
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
-            </div>
+            <!-- Google Translate Dropdown -->
+            <div id="google_translate_element"></div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('images/hero-banner-latest.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: scroll;">
+    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/153997916.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: scroll;">
     </section>
 
     <!-- Why Kyūshū - Full Width Blue Section -->
@@ -325,7 +334,6 @@
         <div class="section-container" style="max-width: 1200px; margin: 0 auto;">
             <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
                 <h2 class="section-title" style="color: var(--white); font-size: clamp(2rem, 4vw, 3rem);">Why Kyūshū</h2>
-                <p class="japanese-text" style="font-size: 1.1rem; margin-top: 0.5rem; color: rgba(255,255,255,0.9);">なぜ九州か</p>
                 <div class="section-divider" style="background: rgba(255,255,255,0.3);"></div>
             </div>
             
@@ -334,32 +342,16 @@
                     Because it holds everything in one island.
                 </p>
                 
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                    すべてが一つの島に存在するから。
-                </p>
-                
                 <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
                     Active volcanoes, rice terraces, fishing villages, hot spring towns, mountain shrines, ceramic workshops. Forests so dense they feel ancient. Coastlines that go on forever. In Kyūshū, you don't need to travel far to find contrast.
-                </p>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                    活火山、棚田、漁村、温泉街、山岳神社、陶芸工房。古代を感じるほど深い森。永遠に続く海岸線。九州では、対比を見つけるために遠くまで旅する必要はありません。
                 </p>
                 
                 <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
                     The traditions here aren't preserved for tourists—they're still lived. Pottery studios that have fired kilns for 400 years. Fishermen who know every reef. Festivals older than the Edo period.
                 </p>
                 
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                    ここでの伝統は観光客のために保存されているのではなく、今も生きています。400年間窯を焚き続けている陶芸スタジオ。すべての岩礁を知っている漁師たち。江戸時代より古い祭り。
-                </p>
-                
                 <p style="font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.95);">
                     And there's a rhythm here—slower, steadier, closer to the land. A reminder that not everywhere moves at the same speed. Kyūshū taught us that, and we're still learning.
-                </p>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9);">
-                    そして、ここにはリズムがあります―より遅く、より安定し、土地に近い。すべての場所が同じ速度で動くわけではないことを思い出させてくれます。九州が私たちに教えてくれたことであり、私たちはまだ学んでいます。
                 </p>
             </div>
         </div>
@@ -384,14 +376,6 @@
                         Kyushu: seven prefectures, thirteen million people, yet still far from the usual tourist path.<br>
                         A place where nature, traditions, and a slower rhythm shape everyday life.
                     </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        九州——7県・約1,300万人が暮らしながらも、観光ルートから外れた「もう一つの日本」。<br>
-                        自然と伝統、落ち着いた時間が日常をつくっています。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Kyushu : sept préfectures, treize millions d'habitants, et pourtant loin des circuits touristiques habituels.<br>
-                        Un Japon où la nature, les traditions et un rythme plus calme façonnent le quotidien.
-                    </p>
                 </div>
 
                 <!-- CARD 2: Born of Fire -->
@@ -401,14 +385,6 @@
                     <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
                         A land sculpted by volcanoes.<br>
                         From Mount Aso's giant caldera to the ever-active Sakurajima, Kyushu is a landscape that still breathes.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        火山がつくり上げた大地。<br>
-                        阿蘇の巨大カルデラ、活動を続ける桜島——九州は今も動き続けています。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Une île sculptée par les volcans.<br>
-                        Du gigantesque volcan d'Aso à l'infatigable Sakurajima, Kyushu est une terre qui respire encore.
                     </p>
                 </div>
 
@@ -420,14 +396,6 @@
                         Japan's richest concentration of hot springs.<br>
                         Beppu, Yufuin, and hundreds of hidden valleys where steam and mineral waters shape local life.
                     </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        日本有数の温泉地帯。<br>
-                        別府、由布院、そして無数の温泉郷——湯けむりと鉱泉が暮らしの一部です。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        La plus grande concentration de sources chaudes du Japon.<br>
-                        Beppu, Yufuin, et des centaines de vallées cachées où vapeur et eaux minérales rythment la vie locale.
-                    </p>
                 </div>
 
                 <!-- CARD 4: Craft as a Way of Life -->
@@ -438,14 +406,6 @@
                         Arita, Imari, Karatsu — tradition practiced, not displayed.<br>
                         Ceramics, sake brewing, indigo textiles: centuries-old skills still alive in real workshops.
                     </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        有田・伊万里・唐津——受け継がれる手仕事。<br>
-                        陶磁器、日本酒、藍染め。何百年もの技が今も工房で息づいています。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Arita, Imari, Karatsu : des traditions vivantes, pas des vitrines.<br>
-                        Céramique, saké, textiles indigo : des savoir-faire pluriséculaires encore pratiqués dans de véritables ateliers.
-                    </p>
                 </div>
 
                 <!-- CARD 5: Maximum Variety, Minimal Distance -->
@@ -453,16 +413,9 @@
                     <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🌄</div>
                     <h3 style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 1.5rem; font-weight: 700;">Maximum Variety,<br>Minimal Distance</h3>
                     <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Volcanoes, coasts, forests, rice terraces, fishing towns — all within reach.<br>
+                        Volcanoes, coasts, forests, rice terraces, fishing towns<br>
+                        — all within reach.<br>
                         Dense, diverse landscapes ideal for exploration and visual work.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        火山、海岸、森、棚田、漁村——すべてが近い。<br>
-                        多彩な風景が凝縮された、旅にも撮影にも最適な土地。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        Volcans, côtes sauvages, forêts anciennes, villages de pêcheurs, rizières : tout est proche.<br>
-                        Un terrain dense et varié, idéal pour explorer ou filmer.
                     </p>
                 </div>
 
@@ -473,14 +426,6 @@
                     <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
                         Japan's ancient gateway to Asia.<br>
                         Nagasaki, Fukuoka, Kumamoto — cities shaped by centuries of exchange and modern energy.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        アジアと日本を結ぶ古い玄関口。<br>
-                        長崎、福岡、熊本——交流の歴史と現代の活気が重なる都市。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1rem;">
-                        La porte historique du Japon vers l'Asie.<br>
-                        Nagasaki, Fukuoka, Kumamoto : des villes façonnées par des siècles d'échanges et une énergie moderne.
                     </p>
                 </div>
             </div>
@@ -494,25 +439,21 @@
         <div style="max-width: 1200px; margin: 0 auto;">
             <div class="section-header" style="text-align: center;">
                 <h2 class="section-title" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Kyūshū Map</h2>
-                <p class="japanese-text" style="font-size: 1.2rem; margin-top: 0.5rem; color: var(--primary-dark);">九州マップ</p>
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--primary-dark); margin-top: 0.5rem; margin-bottom: 0;">
+                    Explore the Seven Prefectures
+                </p>
                 <div class="section-divider"></div>
             </div>
 
-            <!-- Kyushu Map Image Only -->
+            <!-- Kyushu Map Image -->
             <div style="margin: 3rem auto; max-width: 750px;">
                 <img src="https://www.genspark.ai/api/files/s/hNr4rhAO" alt="Kyushu Map" style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
             </div>
 
             <!-- Prefecture Logos Grid Below Map - 4 then 3 layout -->
             <div style="margin: 3rem auto; max-width: 800px;">
-                <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.8rem;">
-                    Explore the Seven Prefectures
-                </p>
                 <p style="text-align: center; font-size: 1rem; color: var(--text-light); margin-bottom: 2rem;">
                     Click each icon to discover what makes each one unique
-                </p>
-                <p class="japanese-text" style="text-align: center; font-size: 0.95rem; color: var(--text-light); margin-bottom: 2rem; opacity: 0.9;">
-                    各アイコンをクリックして、それぞれの特徴を発見してください
                 </p>
                 <!-- First 4 Prefectures -->
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 1rem; margin-bottom: 1rem; justify-items: center;">
@@ -685,15 +626,9 @@
             <p style="font-size: 1.3rem; line-height: 1.8; color: white; margin: 0 0 1rem 0; font-weight: 600;">
                 Based in Itoshima.
             </p>
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: white; margin: 0 0 2rem 0;">
-                拠点：糸島
-            </p>
             
-            <p style="font-size: 1.4rem; line-height: 1.8; color: white; margin: 0 0 1rem 0; font-weight: 600; font-style: italic;">
+            <p style="font-size: 1.4rem; line-height: 1.8; color: white; margin: 0 0 2.5rem 0; font-weight: 600; font-style: italic;">
                 Where mountains meet the sea, stories are born.
-            </p>
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: white; margin: 0 0 2.5rem 0;">
-                山が海と出会い、物語が生まれる。
             </p>
             
             <!-- About Us Button -->
@@ -736,7 +671,7 @@
                 <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
                     <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
                 </ul>
@@ -877,7 +812,8 @@
             description: `Fukuoka is where Kyushu's vitality meets a deep sense of tradition. Mountains frame the city from the rear, rivers cut across broad plains, and the Genkai Sea defines its northern edge. The urban rhythm is unmistakable—seen in the buzzing Nakasu Yatai stalls—yet calm spaces like the gardens of Dazaifu offer balance. Shrines, temples, and contemporary parks sit side by side, while local dishes such as tonkotsu ramen and street-side favorites reflect both heritage and modern taste. Whether hiking Mount Aburayama, walking along the Naka River, or exploring food-filled backstreets, Fukuoka brings together energy and timeless atmosphere.`,
             descriptionJp: `福岡県 — 九州の活気が伝統と交わる場所
 
-福岡は、九州の活気と深い伝統が調和する地域です。都市の背後には山々が連なり、広い平野を川が横切り、北側には玄界灘が広がります。中洲の屋台に代表されるような賑わいがある一方、太宰府の庭園の静けさがその対照を成します。寺社や現代的な公園が共存し、とんこつラーメンや屋台料理などの味わいには、歴史と現代の感性が息づいています。阿武山のハイキング、那珂川沿いの散策、路地裏の食文化探索など、福岡は活気と落ち着きを自然に重ね合わせています。`
+福岡は、九州の活気と深い伝統が調和する地域です。都市の背後には山々が連なり、広い平野を川が横切り、北側には玄界灘が広がります。中洲の屋台に代表されるような賑わいがある一方、太宰府の庭園の静けさがその対照を成します。寺社や現代的な公園が共存し、とんこつラーメンや屋台料理などの味わいには、歴史と現代の感性が息づいています。阿武山のハイキング、那珂川沿いの散策、路地裏の食文化探索など、福岡は活気と落ち着きを自然に重ね合わせています。`,
+            descriptionFr: `Fukuoka est le point de rencontre entre la vitalité de Kyūshū et un profond attachement à la tradition. La ville s'adosse aux montagnes, s'étend sur de vastes plaines traversées par des rivières, et s'ouvre au nord sur la mer de Genkai. Son rythme urbain est immédiatement perceptible — notamment dans l'animation des yatai de Nakasu — tout en trouvant un contrepoint apaisant dans des lieux comme les jardins de Dazaifu. Sanctuaires, temples et parcs contemporains cohabitent harmonieusement, tandis que la cuisine locale, du ramen tonkotsu aux spécialités de rue, reflète à la fois l'héritage et les goûts actuels. Que l'on gravisse le mont Aburayama, que l'on longe la rivière Naka ou que l'on se perde dans des ruelles animées par la gastronomie, Fukuoka réunit énergie et atmosphère intemporelle.`
         },
         'saga-home': {
             name: "Saga Prefecture - Kyushu's Serene Tapestry of Land and Water",
@@ -886,7 +822,8 @@
             description: `Saga unfolds in gentle hills, wide plains, and rivers that flow toward the Ariake Sea. Villages set between mountains and coastline feel timeless, while rice fields, tea plantations, and traditional kilns reflect the region's heritage. Hidden shrines, quiet riverbanks, and rural pathways offer moments where the pace of life naturally slows. Each season adds its own colour—spring wisteria tunnels, summer lotus ponds, and autumn's golden harvest—shaping a calm and contemplative portrait of rural Kyushu.`,
             descriptionJp: `佐賀：九州の穏やかな大地と水の絵巻
 
-佐賀は、なだらかな丘陵、広がる平野、そして有明海へと注ぐ川が織りなす風景の中にあります。山や海に寄り添う集落には、どこか時を超えた静けさが漂い、田んぼや茶畑、伝統的な登り窯が地域の文化を物語ります。隠れた神社や静かな川辺、田園の小道には、時間がゆっくりと流れるようなひとときがあります。春の藤のトンネル、夏の蓮の池、秋の黄金の実りなど、季節ごとの彩りが、九州の田園風景に穏やかな深みを添えています。`
+佐賀は、なだらかな丘陵、広がる平野、そして有明海へと注ぐ川が織りなす風景の中にあります。山や海に寄り添う集落には、どこか時を超えた静けさが漂い、田んぼや茶畑、伝統的な登り窯が地域の文化を物語ります。隠れた神社や静かな川辺、田園の小道には、時間がゆっくりと流れるようなひとときがあります。春の藤のトンネル、夏の蓮の池、秋の黄金の実りなど、季節ごとの彩りが、九州の田園風景に穏やかな深みを添えています。`,
+            descriptionFr: `Saga se déploie entre collines douces, vastes plaines et rivières qui s'écoulent vers la mer d'Ariake. Les villages nichés entre montagnes et littoral semblent hors du temps, tandis que les rizières, les plantations de thé et les fours traditionnels témoignent de l'héritage de la région. Sanctuaires discrets, berges silencieuses et chemins ruraux offrent des moments où le rythme de la vie ralentit naturellement. Chaque saison y apporte sa propre palette — tunnels de glycines au printemps, bassins de lotus en été, récoltes dorées à l'automne — dessinant le portrait paisible et contemplatif d'un Kyūshū rural.`
         },
         'nagasaki-home': {
             name: "Nagasaki Prefecture - Kyushu's Gateway of History and Harmony",
@@ -899,7 +836,8 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
 
 長崎は、九州の「対比」と「繋がり」が交差する場所です。かつて日本と世界を結ぶ唯一の窓口であったこの県には、雄大な自然と独自に育まれた文化遺産が共に息づいています。東シナ海には数多くの島々が浮かび、賑やかな漁村がある島もあれば、野生の馬が歩き、静かな教会が佇む島もあります。火山が大地を形づくり、温泉は心をほぐし、谷や丘には寺院や植民地時代の遺構、人々の強さを物語る歴史が静かに残されています。
 
-出島の石畳を歩けば、オランダ商人が知識と品々を交換した往時の息遣いが感じられます。稲佐山の頂上から望む夜景は、香港やモナコと並ぶ美しさで知られています。五島列島の穏やかな浜辺から長崎港の活気に至るまで、長崎は歴史・自然・日常が調和する地であり、九州の多様性を豊かに体験できる魅力に満ちています。`
+出島の石畳を歩けば、オランダ商人が知識と品々を交換した往時の息遣いが感じられます。稲佐山の頂上から望む夜景は、香港やモナコと並ぶ美しさで知られています。五島列島の穏やかな浜辺から長崎港の活気に至るまで、長崎は歴史・自然・日常が調和する地であり、九州の多様性を豊かに体験できる魅力に満ちています。`,
+            descriptionFr: `Nagasaki est une terre de contrastes et de liens au sein de Kyūshū. Autrefois unique porte du Japon vers le monde extérieur, la préfecture mêle des paysages naturels saisissants à un héritage culturel singulier. La mer de Chine orientale enlace des centaines d'îles — certaines animées par des communautés de pêcheurs, d'autres habitées par des chevaux sauvages ou par la présence discrète d'églises cachées. Les volcans façonnent le relief, les sources thermales invitent au calme, et de nombreuses vallées abritent une histoire : un temple, une trace du passé colonial, ou un témoignage de résilience. Des rues historiques de Dejima, où les marchands hollandais échangeaient savoirs et marchandises, aux rivages paisibles des îles Gotō, Nagasaki se prête à une exploration lente. Depuis le sommet du mont Inasa, la vue nocturne — souvent comparée à celles de Hong Kong et de Monaco — révèle un paysage urbain lumineux et contenu. À Nagasaki, histoire, nature et vie quotidienne coexistent en une harmonie remarquable, offrant un aperçu sensible de la profondeur et de la diversité de Kyūshū.`
         },
         'kumamoto-home': {
             name: "Kumamoto Prefecture - Kyushu's Wild Heart",
@@ -908,7 +846,8 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
             description: `Kumamoto is Kyushu's untamed soul, where broad plains unfold beneath Mount Aso, one of the world's largest active volcanoes. Rivers and lakes nourish fertile valleys, while mist-covered forests shelter secluded villages. From the grasslands of the Aso caldera to the deep forests of the Kuma region, dramatic landscapes reveal the strength and presence of nature. Traditional crafts, local festivals, and welcoming towns thrive between mountains and plains. Every journey through Kumamoto reveals another facet of Kyushu's raw beauty and quiet resilience.`,
             descriptionJp: `熊本：九州の野性が息づく地
 
-熊本は、九州の野性的な魂が宿る場所です。世界有数の活火山である阿蘇山の麓には広大な平野が広がり、川や湖は肥沃な谷を育み、霧に包まれた森は静かな集落を抱いています。阿蘇の草原から球磨の深い森まで、劇的な景観が自然の力強さを物語ります。山と平野に寄り添う町々では、伝統工芸や祭り、温かな暮らしが息づいています。熊本を旅するたびに、九州の原風景と静かな強さが新たに見えてきます。`
+熊本は、九州の野性的な魂が宿る場所です。世界有数の活火山である阿蘇山の麓には広大な平野が広がり、川や湖は肥沃な谷を育み、霧に包まれた森は静かな集落を抱いています。阿蘇の草原から球磨の深い森まで、劇的な景観が自然の力強さを物語ります。山と平野に寄り添う町々では、伝統工芸や祭り、温かな暮らしが息づいています。熊本を旅するたびに、九州の原風景と静かな強さが新たに見えてきます。`,
+            descriptionFr: `Kumamoto incarne l'âme indomptée de Kyūshū, là où de vastes plaines s'étendent au pied du mont Aso, l'un des plus grands volcans actifs du monde. Rivières et lacs irriguent des vallées fertiles, tandis que des forêts embrumées abritent des villages retirés. Des prairies de la caldeira d'Aso aux forêts profondes de la région de Kuma, les paysages spectaculaires révèlent la force brute et la présence constante de la nature. Entre montagnes et plaines, les savoir-faire traditionnels, les festivals locaux et des villes accueillantes continuent de vivre à un rythme ancré dans le territoire. Chaque traversée de Kumamoto dévoile une nouvelle facette de la beauté sauvage de Kyūshū et de sa résilience silencieuse.`
         },
         'oita-home': {
             name: "Oita Prefecture - Kyushu's Land of Water and Mountains",
@@ -917,7 +856,8 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
             description: `Oita is a place where nature shapes daily life. Rivers carve deep valleys, mountains rise behind quiet towns, and the Bungo Channel meets the coastline. Water is everywhere—from the steaming streets of Beppu to the quiet ryokan of Yufuin, set among volcanic hills. The Kunisaki Peninsula offers rolling forests, hidden temples, and dramatic coastal cliffs. In Oita, nature and culture coexist, revealing the diverse landscapes and rhythms of life across Kyushu.`,
             descriptionJp: `大分：九州の水と山の県
 
-大分は、自然が暮らしを形作る土地です。川は深い谷を刻み、静かな町の背後には山々が連なり、豊後水道が海岸線を形づくっています。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、水の気配は県内のあらゆる場所に見られます。国東半島には、広がる森、隠れた寺院、そして海岸沿いの迫力ある崖が点在しています。大分では、自然と文化が寄り添い、九州の多彩な景観と暮らしを豊かに感じることができます。`
+大分は、自然が暮らしを形作る土地です。川は深い谷を刻み、静かな町の背後には山々が連なり、豊後水道が海岸線を形づくっています。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、水の気配は県内のあらゆる場所に見られます。国東半島には、広がる森、隠れた寺院、そして海岸沿いの迫力ある崖が点在しています。大分では、自然と文化が寄り添い、九州の多彩な景観と暮らしを豊かに感じることができます。`,
+            descriptionFr: `Ōita est un territoire où la nature façonne le quotidien. Les rivières creusent des vallées profondes, les montagnes se dressent derrière des villes paisibles, et le canal de Bungo borde le littoral. L'eau est omniprésente — des rues fumantes de Beppu aux ryokan discrets de Yufuin, nichés parmi les collines volcaniques. La péninsule de Kunisaki dévoile des forêts ondoyantes, des temples dissimulés et des falaises côtières spectaculaires. À Ōita, nature et culture coexistent étroitement, révélant la diversité des paysages et des rythmes de vie qui traversent Kyūshū.`
         },
         'miyazaki-home': {
             name: "Miyazaki Prefecture - Kyushu's Land of Light and Legend",
@@ -926,7 +866,8 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
             description: `Miyazaki basks in sunlight, where Pacific waves meet golden shores and forested hills cradle ancient shrines and villages. Myth and nature intertwine—from Mount Takachiho's sacred peaks to Nichinan's sunlit beaches. Cedar forests, coastal caves, and fresh seafood by the sea reveal Kyushu's natural and spiritual heritage. Miyazaki embraces life with warmth, legend, and sunlight.`,
             descriptionJp: `宮崎：九州の光と伝説の地
 
-宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。杉の森の散策、海岸の洞窟探検、海の幸を味わうことで、九州の自然と霊性を温かく感じることができます。`
+宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。杉の森の散策、海岸の洞窟探検、海の幸を味わうことで、九州の自然と霊性を温かく感じることができます。`,
+            descriptionFr: `Miyazaki se déploie sous une lumière généreuse, là où les vagues du Pacifique rencontrent des rivages dorés et où les collines boisées abritent sanctuaires anciens et villages discrets. Mythe et nature s'y entremêlent — des sommets sacrés de Takachiho aux plages baignées de soleil de Nichinan. Forêts de cèdres, grottes marines et fruits de mer dégustés face à l'océan révèlent une facette à la fois naturelle et spirituelle de Kyūshū. Miyazaki incarne une terre de chaleur, de légendes et de lumière.`
         },
         'kagoshima-home': {
             name: "Kagoshima Prefecture - Kyushu's Fiery Soul",
@@ -935,7 +876,8 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
             description: `Kagoshima is where volcanoes meet the sea. Sakurajima towers over the bay, even as waves and island shores shape the prefecture's coast. Volcanic soils and rivers feed fertile fields, and the land's warmth gives rise to hot springs. From the busy streets of Kagoshima City to distant fishing hamlets scattered among the Satsunan Islands, life here still pulses to the rhythm of nature. Each plume of ash, each sunset over the sea — reminders of the earth's power and of the quiet strength of those who call Kagoshima home.`,
             descriptionJp: `鹿児島：九州の火山と海の地
 
-鹿児島は、火山と海が隣り合う地域です。桜島が湾の中心にそびえ、島々と波が県の多様な海岸線を形づくっています。火山由来の土壌や川は農地を支え、大地の熱は各地の温泉につながっています。鹿児島市の活気ある市街地から、薩南諸島に点在する小さな漁村まで、この地域の暮らしは自然環境と密接につながっています。噴煙や海に沈む夕日は、火山の存在感と、ここで暮らす人々の確かな生活の営みを感じさせます。`
+鹿児島は、火山と海が隣り合う地域です。桜島が湾の中心にそびえ、島々と波が県の多様な海岸線を形づくっています。火山由来の土壌や川は農地を支え、大地の熱は各地の温泉につながっています。鹿児島市の活気ある市街地から、薩南諸島に点在する小さな漁村まで、この地域の暮らしは自然環境と密接につながっています。噴煙や海に沈む夕日は、火山の存在感と、ここで暮らす人々の確かな生活の営みを感じさせます。`,
+            descriptionFr: `Kagoshima est le point de rencontre entre les volcans et la mer. Le Sakurajima domine la baie, tandis que les vagues et les îles dessinent le littoral de la préfecture. Les sols volcaniques et les rivières nourrissent des terres fertiles, et la chaleur du sous-sol fait jaillir les sources thermales. Des rues animées de la ville de Kagoshima aux hameaux de pêche isolés des îles Satsunan, la vie suit encore le rythme de la nature. Chaque panache de cendres, chaque coucher de soleil sur la mer rappelle à la fois la puissance de la terre et la force tranquille de ceux qui appellent Kagoshima leur foyer.`
         }
     };
     
@@ -1023,13 +965,25 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
                 
                 <!-- English description -->
                 <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--ocean-blue); font-size: 1.2rem; margin-bottom: 0.8rem;">🇬🇧 English</h3>
                     <p style="line-height: 1.9; font-size: 1.05rem; color: var(--text-dark);">
                         ${data.description}
                     </p>
                 </div>
                 
+                <!-- French description -->
+                ${data.descriptionFr ? `
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--ocean-blue); font-size: 1.2rem; margin-bottom: 0.8rem;">🇫🇷 Français</h3>
+                    <p class="french-text" style="line-height: 1.9; font-size: 1.05rem; color: var(--text-dark);">
+                        ${data.descriptionFr}
+                    </p>
+                </div>
+                ` : ''}
+                
                 <!-- Japanese description -->
                 <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--ocean-blue);">
+                    <h3 style="color: var(--ocean-blue); font-size: 1.2rem; margin-bottom: 0.8rem;">🇯🇵 日本語</h3>
                     <p class="japanese-text" style="line-height: 2; font-size: 1rem; color: var(--text-dark); margin: 0;">
                         ${data.descriptionJp}
                     </p>
@@ -1072,6 +1026,14 @@ From the historic streets of Dejima, where Dutch traders once exchanged knowledg
             showPrefectureModal(data);
         } else {
             console.error('No data found for:', prefectureId);
+        }
+    };
+    
+    // Handle prefecture click function
+    window.handlePrefectureClick = function(prefectureId) {
+        const data = prefectureDataHome[prefectureId];
+        if (data) {
+            showPrefectureModal(data);
         }
     };
     

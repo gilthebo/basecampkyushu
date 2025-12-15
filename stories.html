@@ -3,785 +3,1641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kyūshū Stories - AI-assisted trilingual fiction from real rural Kyūshū locations. Discover our creative process and read Whispers of Ashes.">
-    <meta name="keywords" content="AI fiction, trilingual novel, Kyūshū stories, Japanese literature, creative writing, AI storytelling, Saga Prefecture, Okawachiyama">
-    <title>Kyūshū Stories - Basecamp Kyūshū</title>
+    <title>STORIES — Basecamp Kyūshū</title>
+    <meta name="description" content="Fiction from real Kyūshū. Follow one writer's journey through hidden places.">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://yourdomain.com/stories.html">
-    <meta property="og:title" content="Kyūshū Stories | AI-Assisted Trilingual Fiction">
-    <meta property="og:description" content="Whispers of Ashes - A trilingual novel set in a forgotten pottery village in Saga. Written in Japanese, French, and English with AI assistance.">
-    <meta property="og:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png">
-    <meta property="og:site_name" content="Basecamp Kyūshū">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://basecampkyushu.com/stories">
+    <meta property="og:title" content="Basecamp Kyūshū — STORIES">
+    <meta property="og:description" content="Follow Ryō Tanaka's journey through hidden Kyūshū. Immersive fiction from real places.">
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kyūshū Stories - AI-Assisted Fiction">
-    <meta name="twitter:description" content="Trilingual novels from hidden Kyūshū villages. Japanese, French, and English.">
-    <meta name="twitter:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png">
+    <!-- Multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://basecampkyushu.com/stories?lang=en">
+    <link rel="alternate" hreflang="fr" href="https://basecampkyushu.com/stories?lang=fr">
+    <link rel="alternate" hreflang="ja" href="https://basecampkyushu.com/stories?lang=ja">
+    <link rel="alternate" hreflang="x-default" href="https://basecampkyushu.com/stories">
     
-    <link rel="canonical" content="https://yourdomain.com/stories.html">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-dark: #2C2C2C;
+            --accent-copper: #B87333;
+            --bg-cream: #F5F5F0;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --sage-green: #8B9D83;
+            --border-light: #E0E0E0;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.75rem; }
+        h2 { font-size: 2rem; color: var(--primary-dark); }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            font-family: 'Source Sans Pro', -apple-system, sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            color: var(--accent-copper);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        a:hover { opacity: 0.8; }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        section:last-of-type { border-bottom: none; }
+        
+        html { scroll-behavior: smooth; }
+        
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Inline display for buttons and inline elements */
+        .btn .lang-content { display: none; }
+        .btn .lang-content.active { display: inline; }
+        button .lang-content { display: none; }
+        button .lang-content.active { display: inline; }
+        
+        /* ============================================
+           LANGUAGE SELECTOR
+           ============================================ */
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .lang-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn:hover {
+            background: #f5f5f0;
+            color: #333;
+            border-color: var(--accent-copper);
+        }
+        
+        .lang-btn.active {
+            background: var(--accent-copper);
+            color: white;
+            border-color: var(--accent-copper);
+        }
+        
+        /* ============================================
+           BANNER
+           ============================================ */
+        .top-banner {
+            width: 100%;
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 50%, #f5f5dc 100%);
+            padding: 0;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .banner-logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .banner-tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, rgba(44, 44, 44, 0.95) 0%, rgba(74, 85, 104, 0.95) 100%);
+            border-bottom: none;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero .subhead {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .trust-badge {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1.5rem;
+        }
+        
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            letter-spacing: 0.1em;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-copper);
+            color: white;
+            border-color: var(--accent-copper);
+        }
+        
+        .btn-primary:hover {
+            background-color: #a35f25;
+            border-color: #8b4e1f;
+            opacity: 1;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 115, 51, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--accent-copper);
+            border: 2px solid var(--accent-copper);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-copper);
+            color: white;
+            opacity: 1;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 115, 51, 0.3);
+        }
+        
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        .concept { background-color: white; }
+        
+        .concept-intro {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .concept-box {
+            padding: 1.5rem;
+            background: var(--bg-cream);
+            border-left: 4px solid var(--accent-copper);
+        }
+        
+        .concept-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-copper);
+        }
+        
+        .concept-box p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .highlight-box {
+            background: var(--sage-green);
+            color: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .highlight-box p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        /* Trilingual Section */
+        .trilingual {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: white;
+        }
+        
+        .trilingual h2 { color: white; }
+        
+        .language-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .language-box {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .language-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .language-box p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .use-case-box {
+            background: rgba(255,255,255,0.15);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .use-case-box p {
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+        
+        .divider { opacity: 0.5; }
+        
+        /* Audience Section */
+        .audience { background-color: white; }
+        
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .audience-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .audience-column.for-you h3 { color: #10b981; }
+        .audience-column.not-for-you h3 { color: #ef4444; }
+        
+        .audience-list {
+            list-style: none;
+        }
+        
+        .audience-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.05rem;
+        }
+        
+        .audience-list li:before {
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .for-you li:before {
+            content: "✓";
+            color: #10b981;
+        }
+        
+        .not-for-you li:before {
+            content: "✗";
+            color: #ef4444;
+        }
+        
+        .audience-note {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            font-style: italic;
+        }
+        
+        /* Volume Section */
+        .volume-one { background-color: var(--bg-cream); }
+        
+        .volume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .volume-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 2rem 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        
+        .volume-story {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin: 2rem 0;
+        }
+        
+        .testimonials { margin: 3rem 0; }
+        
+        .testimonial {
+            padding: 1.5rem;
+            background: white;
+            border-left: 4px solid var(--sage-green);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-source {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* FAQ */
+        .faq { background-color: white; }
+        
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .faq-item:last-child { border-bottom: none; }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        /* Email Signup */
+        .signup {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        
+        .signup form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .signup input[type="email"] {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .signup button[type="submit"] {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: var(--accent-copper);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .signup button[type="submit"]:hover {
+            background-color: #a35f25;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-copper);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-copper);
+        }
+        
+        .japanese-text {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+        }
+        
+        /* ============================================
+           MOBILE RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .language-selector {
+                padding: 1rem 0.5rem;
+            }
+            
+            .lang-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-banner {
+                height: 60vh !important;
+                min-height: 400px !important;
+            }
+            
+            .hero h1 { font-size: 2.25rem; }
+            .hero .subhead { font-size: 1.15rem; }
+            
+            .concept-grid,
+            .language-boxes,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn { 
+                width: 100%; 
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            section { padding: 3rem 0; }
+            .container { padding: 0 1.5rem; }
+        }
+        
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--accent-copper);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .sticky-cta .btn {
+            background: white;
+            color: var(--accent-copper);
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .sticky-cta { display: block; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="main-header">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="in-motion.html">IN MOTION</a></li>
-                    <li><a href="stories.html" class="active">STORIES</a></li>
-                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                    <li><a href="online-store.html">ONLINE STORE</a></li>
-                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
-                </ul>
-            </nav>
-            <!-- Language Toggle Buttons -->
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
-        </div>
-    </header>
-
-    <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; font-size: 0.9rem;">
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index.html" style="color: var(--text-dark); text-decoration: none;">
-                    <span itemprop="name">Home</span>
+    
+    <!-- ============================================
+         TOP BANNER
+         ============================================ -->
+    <section class="hero-banner" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png'); background-size: cover; background-position: center; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center;">
+    </section>
+    
+    <!-- ============================================
+         LANGUAGE SELECTOR
+         ============================================ -->
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+    </div>
+    
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="lang-content lang-en active">Fiction from Real Kyūshū</h1>
+            <h1 class="lang-content lang-fr">Fiction Enracinée dans le Kyūshū Réel</h1>
+            <h1 class="lang-content lang-ja">実在の九州から生まれた物語</h1>
+            
+            <p class="subhead lang-content lang-en active">
+                Follow one writer's journey through hidden places.<br>
+                <strong>One island. Many stories. One search.</strong>
+            </p>
+            <p class="subhead lang-content lang-fr">
+                Suivez le voyage d'un écrivain à travers des lieux cachés.<br>
+                <strong>Une île. Plusieurs histoires. Une quête.</strong>
+            </p>
+            <p class="subhead lang-content lang-ja">
+                隠された場所を巡る、ある作家の旅を追う。<br>
+                <strong>一つの島。多くの物語。一つの探求。</strong>
+            </p>
+            
+            <p class="description lang-content lang-en active">
+                Ryō Tanaka travels Kyūshū seeking inspiration he's lost. Each volume takes him somewhere 
+                different — a new corner of the island, a new encounter, a new story. Through his eyes, 
+                we discover another Kyūshū, another Japan.
+            </p>
+            <p class="description lang-content lang-fr">
+                Ryō Tanaka parcourt le Kyūshū à la recherche de l'inspiration perdue. Chaque volume 
+                l'emmène ailleurs — un nouveau coin de l'île, une nouvelle rencontre, un nouveau récit. 
+                À travers ses yeux, nous découvrons un autre Kyūshū, un autre Japon.
+            </p>
+            <p class="description lang-content lang-ja">
+                田中涼は失ったインスピレーションを求めて九州を旅する。各巻で彼は異なる場所へ——
+                島の新しい場所、新しい出会い、新しい物語。彼の目を通して、もう一つの九州、もう一つの日本を発見する。
+            </p>
+            
+            <div class="cta-group">
+                <a href="#volume-one" class="btn btn-primary">
+                    <span class="lang-content lang-en active">📖 Read Volume 1</span>
+                    <span class="lang-content lang-fr">📖 Lire le Volume 1</span>
+                    <span class="lang-content lang-ja">📖 第1巻を読む</span>
                 </a>
-                <meta itemprop="position" content="1" />
-                <span style="margin-left: 0.5rem; color: var(--text-light);">›</span>
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name" style="color: var(--sunset-orange); font-weight: 500;">Stories</span>
-                <meta itemprop="position" content="2" />
-            </li>
-        </ol>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png'); background-size: cover; background-position: center;">
-    </section>
-
-    <!-- Title Content Below Banner -->
-    <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
-        <h1 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">BASECAMP KYUSHU STORIES</h1>
-        <p style="font-size: 1.4rem; color: var(--ocean-blue); margin-bottom: 0.5rem; font-style: italic;">When the lens stops, the words begin</p>
-        <p class="japanese-text" style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 0.5rem;">レンズが止まるとき、言葉が始まる</p>
-        <p class="french-text" style="font-size: 1.2rem; color: var(--text-light); font-style: italic; margin-bottom: 2rem;">Quand l'objectif se tait, les mots murmurent</p>
-    </section>
-
-    <!-- Series Introduction - Visual Impact Section -->
-    <section style="padding: 6rem 2rem; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--ocean-blue) 100%); color: var(--white); text-align: center; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png'); background-size: cover; background-position: center; opacity: 0.08; z-index: 0;"></div>
-        
-        <div class="section-container" style="max-width: 1000px; position: relative; z-index: 1;">
-            <div style="background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); padding: 3rem 2.5rem; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15);">
-                <p style="font-size: 1.25rem; line-height: 1.9; margin-bottom: 1.5rem; color: #E8F4F8; font-weight: 400;">
-                    A series of atmospheric fictions, attentive to landscapes, gestures, and the margins of the island.<br><br>
-                    Each volume explores a region, a season, a rhythm.<br><br>
-                    This first tome is anchored in Saga, in its retreats and thresholds.
-                </p>
                 
-                <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: #FFE5CC;">
-                    風景、仕草、島の周縁に注意を払った雰囲気小説のシリーズです。<br><br>
-                    各巻は地域、季節、リズムを探求します。<br><br>
-                    この第一巻は佐賀に根ざし、その後退と敷居に根ざしています。
-                </p>
-                
-                <p class="french-text" style="font-size: 1.2rem; line-height: 1.9; color: #D4E8FF; font-style: italic;">
-                    Une série de fictions d'atmosphère, attentive aux paysages, aux gestes et aux marges de l'île.<br><br>
-                    Chaque volume explore une région, une saison, un rythme.<br><br>
-                    Ce premier tome s'ancre à Saga, dans ses retraits et ses seuils.
-                </p>
+                <a href="#concept" class="btn btn-secondary">
+                    <span class="lang-content lang-en active">🗺️ About the Journey</span>
+                    <span class="lang-content lang-fr">🗺️ À Propos du Voyage</span>
+                    <span class="lang-content lang-ja">🗺️ 旅について</span>
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Project Overview -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 900px;">
-            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center;">
-                From our visual explorations across Kyūshū emerges another voice: fiction.<br>
-                Not action-driven plots, but atmospheric narratives where silence, gesture, and landscape tell the story.
-            </p>
             
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; text-align: center; margin-bottom: 1.5rem;">
-                九州の視覚的な探索から、もう一つの声が生まれます：フィクション。<br>
-                アクション主導ではなく、沈黙、しぐさ、風景が物語を紡ぐ雰囲気のナラティブ。
+            <p class="trust-badge lang-content lang-en active">
+                Trilingual Editions • Illustrated • Based on Real Places
             </p>
-            
-            <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; font-style: italic;">
-                De nos explorations visuelles à travers Kyūshū naît une autre voix : la fiction.<br>
-                Non pas des intrigues d'action, mais des récits d'atmosphère où silence, geste et paysage racontent l'histoire.
+            <p class="trust-badge lang-content lang-fr">
+                Éditions Trilingues • Illustrées • Inspirées de Lieux Réels
+            </p>
+            <p class="trust-badge lang-content lang-ja">
+                三ヶ国語版 • イラスト付き • 実在の場所を基にした作品
             </p>
         </div>
     </section>
     
-    <!-- Three Linguistic Voices -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">One Story, Three Voices</h2>
-                <p class="section-subtitle japanese-text">一つの物語、三つの響き</p>
-                <p class="section-subtitle" style="font-style: italic;">Une histoire, trois voix</p>
-                <div class="section-divider"></div>
-            </div>
+    <!-- ============================================
+         CONCEPT SECTION
+         ============================================ -->
+    <section id="concept" class="concept">
+        <div class="container">
+            <h2 class="lang-content lang-en active">The Journey</h2>
+            <h2 class="lang-content lang-fr">Le Voyage</h2>
+            <h2 class="lang-content lang-ja">旅路</h2>
             
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
-                Each language reveals a different hue of the story:
+            <p class="concept-intro lang-content lang-en active">
+                <strong>Ryō Tanaka</strong> is a writer from Hokkaido. His manuscript sits stalled 
+                at page forty — too clear to abandon, too vague to continue.
             </p>
-            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
-                言語が変われば、物語の色もかすかに変わります。
+            <p class="concept-intro lang-content lang-fr">
+                <strong>Ryō Tanaka</strong> est un écrivain d'Hokkaido. Son manuscrit est bloqué 
+                à la page quarante — trop clair pour l'abandonner, trop vague pour continuer.
             </p>
-            <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem; text-align: center; font-style: italic;">
-                Chaque langue révèle une couleur différente du récit :
+            <p class="concept-intro lang-content lang-ja">
+                <strong>田中涼</strong>は北海道出身の作家。彼の原稿は40ページで止まったまま——
+                捨てるには明確すぎて、進めるにはあいまいすぎる。
             </p>
             
-            <div class="flag-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
-                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇯🇵</div>
-                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">Japanese</h4>
-                    <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">日本語</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6;">Japanese evokes the subtlety of silence</p>
-                    <p class="japanese-text" style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">日本語は、静けさのやわらかな余白をにじませ</p>
+            <p class="concept-intro lang-content lang-en active">
+                He travels south to Kyūshū, not to escape, but to discover. Each volume follows 
+                him to a different place on the island — each with its own story to tell, its own 
+                way of revealing itself.
+            </p>
+            <p class="concept-intro lang-content lang-fr">
+                Il voyage vers le sud, au Kyūshū, non pour s'échapper, mais pour découvrir. 
+                Chaque volume le suit dans un lieu différent de l'île — chacun avec sa propre 
+                histoire à raconter, sa propre manière de se révéler.
+            </p>
+            <p class="concept-intro lang-content lang-ja">
+                彼は逃げるためではなく、発見するために南の九州へ向かう。各巻で彼は島の異なる場所へ——
+                それぞれに語るべき物語があり、それぞれに姿を現す方法がある。
+            </p>
+            
+            <div class="concept-grid">
+                <div class="concept-box">
+                    <h3 class="lang-content lang-en active">What He's Searching For</h3>
+                    <h3 class="lang-content lang-fr">Ce Qu'il Cherche</h3>
+                    <h3 class="lang-content lang-ja">彼が探しているもの</h3>
+                    
+                    <p class="lang-content lang-en active">Lost inspiration. Creative rhythm. The ability to write again.</p>
+                    <p class="lang-content lang-fr">L'inspiration perdue. Le rythme créatif. La capacité d'écrire à nouveau.</p>
+                    <p class="lang-content lang-ja">失われたインスピレーション。創造のリズム。再び書く力。</p>
                 </div>
                 
-                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇫🇷</div>
-                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">French</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem; font-style: italic;">Français</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6;">French unveils a more intimate melancholy</p>
-                    <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem; font-style: italic;">le français dévoile une mélancolie plus intime</p>
-                </div>
-                
-                <div style="text-align: center; padding: 1.5rem; background: var(--light-gray); border-radius: 8px;">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🇬🇧</div>
-                    <h4 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">English</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">英語</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6;">English opens a space for broader contemplation</p>
-                    <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">英語は、広がりある観照の空間をそっと開きます</p>
+                <div class="concept-box">
+                    <h3 class="lang-content lang-en active">What He Finds</h3>
+                    <h3 class="lang-content lang-fr">Ce Qu'il Trouve</h3>
+                    <h3 class="lang-content lang-ja">彼が見つけるもの</h3>
+                    
+                    <p class="lang-content lang-en active">The island itself — stories that unfold in ways he doesn't expect. Each volume different.</p>
+                    <p class="lang-content lang-fr">L'île elle-même — des récits qui se déroulent de manières inattendues. Chaque volume différent.</p>
+                    <p class="lang-content lang-ja">島そのもの——予期しない形で展開する物語。各巻が異なる。</p>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 2.5rem; font-size: 1.05rem; color: var(--text-dark);">
-                A book meant to be shared, gifted, and experienced in the language that resonates most.
+            <div class="highlight-box">
+                <p class="lang-content lang-en active">
+                    No quick resolutions. Just slow accumulation.<br>
+                    Fiction rooted in real, extensively documented locations.
+                </p>
+                <p class="lang-content lang-fr">
+                    Pas de résolution rapide. Juste une lente accumulation.<br>
+                    Fiction enracinée dans des lieux réels, extensivement documentés.
+                </p>
+                <p class="lang-content lang-ja">
+                    急な解決はない。ただゆっくりとした積み重ね。<br>
+                    実在し、詳細に記録された場所に根ざした物語。
+                </p>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 1.1rem;" class="lang-content lang-en active">
+                This is how <strong>Basecamp Kyūshū</strong> explores the island — through deep 
+                attention and respect for what remains hidden. Now that exploration becomes fiction.
             </p>
-            <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; font-size: 1rem;">
-                贈る、共有する、交換する—誰もが自分に合う言語で読める一冊。
+            <p style="margin-top: 2rem; font-size: 1.1rem;" class="lang-content lang-fr">
+                C'est ainsi que <strong>Basecamp Kyūshū</strong> explore l'île — par une attention 
+                profonde et un respect pour ce qui reste caché. Aujourd'hui, cette exploration devient fiction.
             </p>
-            <p style="text-align: center; margin-top: 0.5rem; font-size: 1rem; font-style: italic;">
-                Un livre fait pour être partagé, offert, et vécu dans la langue qui résonne le plus.
+            <p style="margin-top: 2rem; font-size: 1.1rem;" class="lang-content lang-ja">
+                これが<strong>Basecamp九州</strong>が島を探索する方法——深い注意と、隠されたものへの敬意を持って。
+                今、その探索がフィクションとなる。
+            </p>
+            
+            <h3 style="margin-top: 3rem; font-size: 1.5rem;" class="lang-content lang-en active">How the Series Unfolds</h3>
+            <h3 style="margin-top: 3rem; font-size: 1.5rem;" class="lang-content lang-fr">Comment la Série Se Déroule</h3>
+            <h3 style="margin-top: 3rem; font-size: 1.5rem;" class="lang-content lang-ja">シリーズの展開</h3>
+            
+            <p class="lang-content lang-en active">
+                <strong>Each volume follows Ryō to a different corner of Kyūshū.</strong> Different geographies. 
+                Different crafts. Different communities. Different tones. Volume 1 is contemplative and silent. 
+                Volume 2 might be something else entirely — more mysterious, more intense, more surprising. 
+                We'll see what each place calls for.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Chaque volume suit Ryō dans un coin différent du Kyūshū.</strong> Différentes géographies. 
+                Différents artisanats. Différentes communautés. Différents tons. Le Volume 1 est contemplatif et 
+                silencieux. Le Volume 2 pourrait être tout autre chose — plus mystérieux, plus intense, plus 
+                surprenant. Nous verrons ce que chaque lieu exige.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>各巻で涼は九州の異なる場所へ向かう。</strong>異なる地理。異なる工芸。異なる共同体。
+                異なるトーン。第1巻は瞑想的で静か。第2巻は全く別のものになるかもしれない——より神秘的、
+                より強烈、より驚くべきもの。それぞれの場所が何を求めるか見ていく。
+            </p>
+            
+            <p class="lang-content lang-en active">
+                <strong>This is a way to discover another Kyūshū, another Japan.</strong> Not the tourist narrative. 
+                Not the guidebook version. But stories rooted in real places — sometimes quiet, sometimes surprising, 
+                always immersive. Through Ryō's journey, we explore what makes this island unique.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>C'est une façon de découvrir un autre Kyūshū, un autre Japon.</strong> Pas le récit touristique. 
+                Pas la version du guide. Mais des histoires enracinées dans des lieux réels — parfois calmes, parfois 
+                surprenantes, toujours immersives. À travers le voyage de Ryō, nous explorons ce qui rend cette île unique.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>これは別の九州、別の日本を発見する方法だ。</strong>観光の物語ではない。ガイドブック版でもない。
+                実在の場所に根ざした物語——時には静かに、時には驚くべきもので、常に没入的。
+                涼の旅を通じて、この島を独特にするものを探索する。
+            </p>
+            
+            <p class="lang-content lang-en active">
+                <strong>Where the series goes is not predetermined.</strong> We decide based on the places 
+                we discover, what they offer, what stories want to be told. Some volumes might feel completely 
+                different from Volume 1 — that's the point. Kyūshū is diverse. The stories should be too.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Où va la série n'est pas prédéterminé.</strong> Nous décidons en fonction des lieux 
+                que nous découvrons, de ce qu'ils offrent, des histoires qui veulent être racontées. Certains 
+                volumes peuvent sembler complètement différents du Volume 1 — c'est le but. Le Kyūshū est divers. 
+                Les histoires doivent l'être aussi.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>シリーズがどこへ向かうかは決められていない。</strong>発見する場所、それらが提供するもの、
+                語られたい物語に基づいて決める。ある巻は第1巻とは全く異なる感じになるかもしれない——それが要点だ。
+                九州は多様だ。物語もそうあるべきだ。
+            </p>
+            
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-en active">A New Way to See Kyūshū</h3>
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-fr">Une Nouvelle Façon de Voir le Kyūshū</h3>
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-ja">九州を見る新しい方法</h3>
+            
+            <p class="lang-content lang-en active">
+                Before writing each volume, <strong>Basecamp Kyūshū explores these locations extensively.</strong> 
+                We walk, photograph, document, and listen. Then fiction takes over — transforming exploration 
+                into immersive stories.
+            </p>
+            <p class="lang-content lang-fr">
+                Avant d'écrire chaque volume, <strong>Basecamp Kyūshū explore ces lieux de manière approfondie.</strong> 
+                Nous marchons, photographions, documentons et écoutons. Puis la fiction prend le relais — transformant 
+                l'exploration en histoires immersives.
+            </p>
+            <p class="lang-content lang-ja">
+                各巻を書く前に、<strong>Basecamp九州はこれらの場所を広範囲に探索する。</strong>
+                歩き、撮影し、記録し、聞く。そしてフィクションが始まる——探索を没入的な物語に変える。
+            </p>
+            
+            <p class="lang-content lang-en active">
+                <strong>A unique approach.</strong> A new perspective. Something different from what you may 
+                have seen or heard about Kyūshū before.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Une approche unique.</strong> Une nouvelle perspective. Quelque chose de différent de 
+                ce que vous avez pu voir ou entendre sur le Kyūshū auparavant.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>ユニークなアプローチ。</strong>新しい視点。これまで九州について見たり聞いたりしたものとは
+                異なるもの。
+            </p>
+            
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-en active">What to Expect</h3>
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-fr">À Quoi S'attendre</h3>
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-ja">期待すること</h3>
+            
+            <p class="lang-content lang-en active">
+                <strong>Immersive fiction, always.</strong> But not always the same tone. Volume 1 is contemplative 
+                and quiet. Future volumes might be different — mysterious, intense, surprising. What remains constant: 
+                deep attention to place, respect for what's hidden, stories that accumulate rather than resolve dramatically.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Fiction immersive, toujours.</strong> Mais pas toujours le même ton. Le Volume 1 est contemplatif 
+                et calme. Les futurs volumes pourraient être différents — mystérieux, intenses, surprenants. Ce qui reste 
+                constant : une attention profonde au lieu, un respect pour ce qui est caché, des histoires qui s'accumulent 
+                plutôt que de se résoudre de manière dramatique.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>没入的なフィクション、常に。</strong>しかし常に同じトーンとは限らない。第1巻は瞑想的で静か。
+                将来の巻は異なるかもしれない——神秘的、強烈、驚くべきもの。一定しているもの：場所への深い注意、
+                隠されたものへの敬意、劇的に解決するのではなく積み重なる物語。
+            </p>
+            
+            <p class="lang-content lang-en active">
+                <strong>What accumulates instead:</strong> Sensory details. Small encounters. Observations about craft, 
+                tradition, community. The texture of rain on tile. The weight of a ceramic bowl in hand. The rhythm of a 
+                village waking. Moments that don't advance a plot but deepen understanding.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Ce qui s'accumule à la place :</strong> Détails sensoriels. Petites rencontres. Observations sur 
+                l'artisanat, la tradition, la communauté. La texture de la pluie sur les tuiles. Le poids d'un bol en 
+                céramique dans la main. Le rythme d'un village qui se réveille. Des moments qui ne font pas avancer une 
+                intrigue mais approfondissent la compréhension.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>代わりに積み重なるもの：</strong>感覚的な詳細。小さな出会い。工芸、伝統、コミュニティに
+                ついての観察。瓦の上の雨の質感。手の中の陶器の碗の重み。目覚める村のリズム。
+                物語を進めるのではなく、理解を深める瞬間。
+            </p>
+            
+            <p class="lang-content lang-en active">
+                <strong>For readers who want to experience places through immersive fiction.</strong> Who value 
+                atmosphere and observation. Who believe stories can reveal what photographs cannot. The journey 
+                continues — where it goes, we'll discover together.
+            </p>
+            <p class="lang-content lang-fr">
+                <strong>Pour les lecteurs qui veulent vivre des lieux à travers une fiction immersive.</strong> 
+                Qui apprécient l'atmosphère et l'observation. Qui croient que les histoires peuvent révéler ce 
+                que les photographies ne peuvent pas. Le voyage continue — où il mène, nous le découvrirons ensemble.
+            </p>
+            <p class="lang-content lang-ja">
+                <strong>没入的なフィクションを通じて場所を体験したい読者のために。</strong>雰囲気と観察を大切にする人のために。
+                物語が写真では伝えられないものを明らかにできると信じる人のために。旅は続く——どこへ向かうか、一緒に発見していく。
             </p>
         </div>
     </section>
-
-    <!-- Featured Project: Whispers of Ashes -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 style="color: var(--white);">VOLUME 1: WHISPERS OF ASHES</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">灰の囁き / Les Murmures des Cendres</p>
-                <p style="color: var(--sunset-orange); font-weight: 600; margin-top: 0.5rem;">First Project Completed — Now Available</p>
-                <p class="japanese-text" style="color: rgba(255,255,255,0.8); margin-top: 0.3rem;">第一作完成 — 現在利用可能</p>
-                <p style="color: rgba(255,255,255,0.8); font-style: italic; margin-top: 0.3rem;">Premier projet terminé — Maintenant disponible</p>
-                <div class="section-divider"></div>
+    
+    <!-- ============================================
+         TRILINGUAL SECTION
+         ============================================ -->
+    <section class="trilingual">
+        <div class="container">
+            <h2 class="lang-content lang-en active">Three Languages, Three Experiences</h2>
+            <h2 class="lang-content lang-fr">Trois Langues, Trois Expériences</h2>
+            <h2 class="lang-content lang-ja">三つの言語、三つの体験</h2>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Every volume is written in <strong>Japanese, French, and English</strong><br>
+                — complete stories in one book.
+            </p>
+            
+            <div class="language-boxes">
+                <div class="language-box">
+                    <h3><span class="lang-content lang-en active">Japanese</span><span class="lang-content lang-fr">Japonais</span><span class="lang-content lang-ja">日本語</span></h3>
+                    <p class="lang-content lang-en active">Captures the silence and restraint</p>
+                    <p class="lang-content lang-fr">Capture le silence et la retenue</p>
+                    <p class="lang-content lang-ja">沈黙と抑制を捉える</p>
+                </div>
+                
+                <div class="language-box">
+                    <h3><span class="lang-content lang-en active">French</span><span class="lang-content lang-fr">Français</span><span class="lang-content lang-ja">フランス語</span></h3>
+                    <p class="lang-content lang-en active">Reveals intimate melancholy</p>
+                    <p class="lang-content lang-fr">Révèle une mélancolie intime</p>
+                    <p class="lang-content lang-ja">親密な憂鬱を明らかにする</p>
+                </div>
+                
+                <div class="language-box">
+                    <h3><span class="lang-content lang-en active">English</span><span class="lang-content lang-fr">Anglais</span><span class="lang-content lang-ja">英語</span></h3>
+                    <p class="lang-content lang-en active">Opens contemplative breadth</p>
+                    <p class="lang-content lang-fr">Ouvre une ampleur contemplative</p>
+                    <p class="lang-content lang-ja">瞑想的な広がりを開く</p>
+                </div>
             </div>
-
-            <!-- Metadata badges -->
-            <div class="featured-meta" style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
-                <span style="background: rgba(214, 121, 66, 0.2); color: var(--sunset-orange); padding: 0.5rem 1rem; border-radius: 20px;">Saga Prefecture</span>
-                <span style="background: rgba(74, 123, 167, 0.2); color: var(--ocean-blue); padding: 0.5rem 1rem; border-radius: 20px;">Trilingual Edition</span>
-                <span style="background: rgba(214, 121, 66, 0.2); color: var(--sunset-orange); padding: 0.5rem 1rem; border-radius: 20px;">Illustrated</span>
-<span style="background: rgba(74, 123, 167, 0.2); color: var(--ocean-blue); padding: 0.5rem 1rem; border-radius: 20px;">Atmospheric Fiction</span>
+            
+            <p style="font-size: 1.15rem; margin: 2rem 0;" class="lang-content lang-en active">
+                <strong>Each language carries different emotional weight.</strong>
+            </p>
+            <p style="font-size: 1.15rem; margin: 2rem 0;" class="lang-content lang-fr">
+                <strong>Chaque langue porte un poids émotionnel différent.</strong>
+            </p>
+            <p style="font-size: 1.15rem; margin: 2rem 0;" class="lang-content lang-ja">
+                <strong>それぞれの言語が異なる感情の重みを持つ。</strong>
+            </p>
+            
+            <p class="lang-content lang-en active">
+                You choose your door. You share the book.
+            </p>
+            <p class="lang-content lang-fr">
+                Vous choisissez votre porte. Vous partagez le livre.
+            </p>
+            <p class="lang-content lang-ja">
+                あなたの扉を選び、本を共有する。
+            </p>
+            
+            <div class="use-case-box">
+                <p class="lang-content lang-en active"><strong>You read in Japanese</strong></p>
+                <p class="lang-content lang-fr"><strong>Vous lisez en japonais</strong></p>
+                <p class="lang-content lang-ja"><strong>あなたは日本語で読む</strong></p>
+                
+                <p class="divider">• • •</p>
+                
+                <p class="lang-content lang-en active"><strong>Your friend reads in French</strong></p>
+                <p class="lang-content lang-fr"><strong>Votre ami lit en français</strong></p>
+                <p class="lang-content lang-ja"><strong>友人はフランス語で読む</strong></p>
+                
+                <p class="divider">• • •</p>
+                
+                <p class="lang-content lang-en active"><strong>Your colleague reads in English</strong></p>
+                <p class="lang-content lang-fr"><strong>Votre collègue lit en anglais</strong></p>
+                <p class="lang-content lang-ja"><strong>同僚は英語で読む</strong></p>
+                
+                <p style="margin-top: 1.5rem; font-size: 1.2rem;" class="lang-content lang-en active">
+                    <strong>Same book. Same journey.</strong>
+                </p>
+                <p style="margin-top: 1.5rem; font-size: 1.2rem;" class="lang-content lang-fr">
+                    <strong>Même livre. Même voyage.</strong>
+                </p>
+                <p style="margin-top: 1.5rem; font-size: 1.2rem;" class="lang-content lang-ja">
+                    <strong>同じ本。同じ旅。</strong>
+                </p>
             </div>
-
-            <!-- ROW 1: Story + Themes (horizontal) -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
-                        <!-- Left Column: Story -->
-                        <div>
-                            <h3 style="color: var(--sunset-orange); margin-bottom: 1.5rem;">The Story</h3>
-                            
-                            <!-- ENGLISH VERSION -->
-                            <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--ocean-blue); margin-bottom: 1.5rem;">
-                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇬🇧 English</p>
-                                <p style="color: rgba(255,255,255,0.95); font-size: 0.95rem; line-height: 1.8;">
-                                    He came to Kyūshū to rediscover a lost rhythm.<br><br>
-                                    
-                                    In Sapporo, he left behind an interrupted manuscript, stopped at a point where continuing seemed impossible. 
-                                    He chose the south, not to escape, but to enter a different relationship with time. 
-                                    Where landscapes don't impose themselves, where one never quite arrives by chance.<br><br>
-                                    
-                                    In a pottery village hidden between mountains and rice paddies, ancient gestures continue without sound. 
-                                    The kilns still breathe, the alleys trace their own thresholds, and the chimneys watch over a knowledge 
-                                    that fire has learned to measure differently than days. Nothing here is spectacular, but each detail 
-                                    seems charged with a discreet presence.<br><br>
-                                    
-                                    Through walking and observation, the stay becomes something other than a simple passage. 
-                                    Places cease to be backdrops. Silence acts. And what seemed immobile gradually reveals its depth.
-                                </p>
-                            </div>
-                            
-                            <!-- JAPANESE VERSION -->
-                            <div class="japanese-text" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--sunset-orange); margin-bottom: 1.5rem;">
-                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇯🇵 日本語</p>
-                                <p style="color: rgba(255,255,255,0.9); font-size: 0.92rem; line-height: 1.9;">
-                                    彼は失われたリズムを取り戻すために九州にやって来た。<br><br>
-                                    
-                                    札幌では、中断された原稿を置き去りにした。続けることが不可能に思えた地点で止まっていた。
-                                    南を選んだのは、逃げるためではなく、時間との異なる関係に入るためだった。
-                                    風景が押し付けられることのない場所、決して偶然にたどり着くことのない場所。<br><br>
-                                    
-                                    山と田んぼの間に隠された陶芸の村では、古い仕草が音もなく続いている。
-                                    窯はまだ呼吸し、路地は独自の敷居を描き、煙突は日々とは異なる方法で火が学んだ知識を見守っている。
-                                    ここでは何も壮観ではないが、それぞれの細部が控えめな存在感に満ちているようだ。<br><br>
-                                    
-                                    歩き、観察することで、滞在は単なる通過以上のものになる。
-                                    場所は背景であることをやめる。沈黙が作用する。そして、動かないように見えたものが、徐々にその深さを明らかにする。
-                                </p>
-                            </div>
-                            
-                        </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         PREMIUM ILLUSTRATED EDITION
+         ============================================ -->
+    <section class="premium-edition" style="background-color: white; padding: 5rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
+                    <span class="lang-content lang-en active">✨ Premium Illustrated Edition</span>
+                    <span class="lang-content lang-fr">✨ Édition Illustrée Premium</span>
+                    <span class="lang-content lang-ja">✨ プレミアムイラスト版</span>
+                </h2>
+                <p style="font-size: 1.3rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                    <span class="lang-content lang-en active">More than a book—a complete visual journey through Kyūshū</span>
+                    <span class="lang-content lang-fr">Plus qu'un livre—un voyage visuel complet à travers le Kyūshū</span>
+                    <span class="lang-content lang-ja">単なる本ではない——九州を巡る完全なビジュアルジャーニー</span>
+                </p>
+            </div>
+            
+            <!-- Book Cover -->
+            <div style="max-width: 500px; margin: 0 auto 3rem auto;">
+                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-15-at-19-05-08_orig.png" 
+                     alt="Whispers of Ashes Cover" 
+                     style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+            </div>
+            
+            <!-- Premium Features -->
+            <div style="background: var(--bg-cream); padding: 2.5rem; border-radius: 8px; border-left: 4px solid var(--accent-copper); margin-bottom: 3rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: var(--accent-copper);">
+                    <span class="lang-content lang-en active">🎨 20+ Exclusive Illustrations Included</span>
+                    <span class="lang-content lang-fr">🎨 Plus de 20 Illustrations Exclusives Incluses</span>
+                    <span class="lang-content lang-ja">🎨 20以上の限定イラストを収録</span>
+                </h3>
+                <p style="font-size: 1.15rem; line-height: 1.8; text-align: center; max-width: 600px; margin: 0 auto;">
+                    <span class="lang-content lang-en active">
+                        Experience the visual journey alongside the narrative.<br>
+                        Hand-crafted illustrations bring Kyūshū's hidden places to life—<br>
+                        complete your immersion after reading.
+                    </span>
+                    <span class="lang-content lang-fr">
+                        Vivez le voyage visuel aux côtés du récit. Des illustrations soigneusement créées donnent 
+                        vie aux lieux cachés du Kyūshū—complétez votre immersion après la lecture.
+                    </span>
+                    <span class="lang-content lang-ja">
+                        物語と共にビジュアルジャーニーを体験。丁寧に作られたイラストが九州の隠れた場所に
+                        命を吹き込みます——読後に没入を完成させます。
+                    </span>
+                </p>
+            </div>
+            
+            <!-- Sample Illustrations Grid -->
+            <div style="margin-top: 3rem;">
+                <h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 2rem; color: var(--text-muted);">
+                    <span class="lang-content lang-en active">Sample Illustrations</span>
+                    <span class="lang-content lang-fr">Exemples d'Illustrations</span>
+                    <span class="lang-content lang-ja">イラストサンプル</span>
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/1_orig.png" 
+                         alt="Kyushu sunset valley" 
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/7_orig.png" 
+                         alt="Village street at dusk" 
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/12_orig.png" 
+                         alt="Potter at kiln" 
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/21_orig.png" 
+                         alt="Village at night" 
+                         style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                </div>
+            </div>
+            
+            <!-- Premium Features List -->
+            <div style="margin-top: 4rem; text-align: center;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">
+                    <span class="lang-content lang-en active">What Makes This Edition Premium</span>
+                    <span class="lang-content lang-fr">Ce Qui Rend Cette Édition Premium</span>
+                    <span class="lang-content lang-ja">このプレミアム版の特徴</span>
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    <div style="padding: 1.5rem;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📖</div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+                            <span class="lang-content lang-en active">Trilingual Edition</span>
+                            <span class="lang-content lang-fr">Édition Trilingue</span>
+                            <span class="lang-content lang-ja">三ヶ国語版</span>
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">
+                            <span class="lang-content lang-en active">Three complete stories in one volume</span>
+                            <span class="lang-content lang-fr">Trois histoires complètes en un volume</span>
+                            <span class="lang-content lang-ja">一冊に三つの完全な物語</span>
+                        </p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+                            <span class="lang-content lang-en active">20+ Illustrations</span>
+                            <span class="lang-content lang-fr">20+ Illustrations</span>
+                            <span class="lang-content lang-ja">20以上のイラスト</span>
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">
+                            <span class="lang-content lang-en active">Exclusive visual journey included</span>
+                            <span class="lang-content lang-fr">Voyage visuel exclusif inclus</span>
+                            <span class="lang-content lang-ja">限定ビジュアルジャーニー収録</span>
+                        </p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📍</div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+                            <span class="lang-content lang-en active">Real Locations</span>
+                            <span class="lang-content lang-fr">Lieux Réels</span>
+                            <span class="lang-content lang-ja">実在の場所</span>
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">
+                            <span class="lang-content lang-en active">Based on extensively documented places</span>
+                            <span class="lang-content lang-fr">Basé sur des lieux extensivement documentés</span>
+                            <span class="lang-content lang-ja">詳細に記録された場所を基にした作品</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         AUDIENCE SECTION
+         ============================================ -->
+    <section id="audience" class="audience">
+        <div class="container">
+            <h2 class="lang-content lang-en active">Is This Journey for You?</h2>
+            <h2 class="lang-content lang-fr">Ce Voyage Est-il Pour Vous ?</h2>
+            <h2 class="lang-content lang-ja">この旅はあなたのためのものか？</h2>
+            
+            <div class="audience-grid">
+                <div class="audience-column for-you">
+                    <h3 class="lang-content lang-en active">✓ This is for you if:</h3>
+                    <h3 class="lang-content lang-fr">✓ C'est pour vous si :</h3>
+                    <h3 class="lang-content lang-ja">✓ こんな方に：</h3>
+                    
+                    <ul class="audience-list">
+                        <li class="lang-content lang-en active">You're drawn to atmosphere over action</li>
+                        <li class="lang-content lang-fr">Vous êtes attiré par l'atmosphère plutôt que l'action</li>
+                        <li class="lang-content lang-ja">行動よりも雰囲気に惹かれる</li>
                         
-                        <!-- Right Column: Themes + French Story -->
-                        <div>
-
-                            <h3 style="color: var(--sunset-orange); margin-top: 0;">Themes</h3>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">テーマ</p>
-                            <p class="french-text" style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">Thèmes</p>
-                            
-                            <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; font-size: 0.95rem;">
-                                <li>• Forgotten crafts and fading traditions</li>
-                                <li>• The weight of inheritance</li>
-                                <li>• Mountains that remember</li>
-                                <li>• Silence as a character</li>
-                            </ul>
-                            
-                            <ul class="japanese-text" style="list-style: none; padding: 0; color: rgba(255,255,255,0.85); margin-bottom: 0.8rem; font-size: 0.9rem;">
-                                <li>• 忘れられた工芸と色褸せる伝統</li>
-                                <li>• 継承の重み</li>
-                                <li>• 記憶する山々</li>
-                                <li>• 登場人物としての沈黙</li>
-                            </ul>
-                            
-                            <ul class="french-text" style="list-style: none; padding: 0; color: rgba(255,255,255,0.85); font-style: italic; font-size: 0.9rem; margin-bottom: 2rem;">
-                                <li>• Artisanats oubliés et traditions qui s'estompent</li>
-                                <li>• Le poids de l'héritage</li>
-                                <li>• Des montagnes qui se souviennent</li>
-                                <li>• Le silence comme personnage</li>
-                            </ul>
-                            
-                            <!-- FRENCH STORY VERSION -->
-                            <div class="french-text" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; border-left: 3px solid var(--primary-dark); margin-top: 2rem;">
-                                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">🇫🇷 Français</p>
-                                <p style="color: rgba(255,255,255,0.9); font-style: italic; font-size: 0.93rem; line-height: 1.8;">
-                                    Il est venu à Kyūshū pour retrouver un rythme perdu.<br><br>
-                                    
-                                    À Sapporo, il a laissé un manuscrit interrompu, arrêté à un point où continuer semblait impossible. 
-                                    Il choisit le sud, non pour s'éloigner, mais pour entrer dans un autre rapport au temps. 
-                                    Là où les paysages ne s'imposent pas, où l'on n'arrive jamais tout à fait par hasard.<br><br>
-                                    
-                                    Dans un village de potiers dissimulé entre montagnes et rizières, les gestes anciens se poursuivent sans bruit. 
-                                    Les fours respirent encore, les ruelles tracent leurs propres seuils, et les cheminées veillent sur un savoir 
-                                    que le feu a appris à mesurer autrement que les jours. Rien n'y est spectaculaire, mais chaque détail 
-                                    semble chargé d'une présence discrète.<br><br>
-                                    
-                                    Au fil de la marche et de l'observation, le séjour devient autre chose qu'un simple passage. 
-                                    Les lieux cessent d'être des décors. Le silence agit. Et ce qui paraissait immobile révèle, peu à peu, sa profondeur.
-                                </p>
-                            </div>
-                </div>
-            </div>
-            
-            <!-- CENTERED BOOK COVER - Visual Divider -->
-            <div style="max-width: 600px; margin: 4rem auto; text-align: center;">
-                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-13-at-14-05-33_orig.png" alt="Whispers of Ashes - Trilingual Novel Cover" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
-            </div>
-            
-            <!-- ROW 2: What You Get + Location (horizontal) -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
-                        <!-- Left Column: What You Get -->
-                        <div>
-                            <h3 style="color: var(--sunset-orange); margin-top: 0;">What You Get</h3>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 0.5rem;">内容</p>
-                            <p style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.95rem; margin-bottom: 1rem;">Ce que vous obtenez</p>
-                            
-                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">
-                            <strong>Complete Story in 3 Languages:</strong> Japanese (日本語) • French (Français) • English<br>
-                            Each language offers a unique atmosphere and perspective. Different readers can share the book, reading their own language, 
-                            then discuss together. Illustrations appear at the end, shared by all.
-                        </p>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-bottom: 1rem;">
-                                <strong>3言語での完全な物語：</strong>日本語 • フランス語 • 英語<br>
-                                各言語は独特の雰囲気と視点を提供します。異なる読者が本を共有し、自分の言語で読んでから一緒に話し合うことができます。イラストは最後にあり、全員で共有します。
-                            </p>
-                            <p style="color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 1.5rem;">
-                                <strong>Histoire complète en 3 langues :</strong> Japonais (日本語) • Français • Anglais<br>
-                                Chaque langue offre une atmosphère et une perspective uniques. Différents lecteurs peuvent partager le livre, lire dans leur propre langue, 
-                                puis discuter ensemble. Les illustrations apparaissent à la fin, partagées par tous.
-                            </p>
-                            
-                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem;">
-                                <strong>Artistic Illustrations:</strong> Photographs from the real pottery village, 
-                                transformed into visual interpretations that accompany the narrative.
-                            </p>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-bottom: 0.8rem;">
-                                <strong>芸術的なイラスト：</strong>実際の陶器の村からの写真を、物語に伴う視覚的な解釈に変換しました。
-                            </p>
-                            <p style="color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 1.5rem;">
-                                <strong>Illustrations artistiques :</strong> Photographies du véritable village de poterie, 
-                                transformées en interprétations visuelles qui accompagnent le récit.
-                            </p>
-                            
-
-                        </div>
+                        <li class="lang-content lang-en active">You've experienced creative block</li>
+                        <li class="lang-content lang-fr">Vous avez connu le blocage créatif</li>
+                        <li class="lang-content lang-ja">創作のスランプを経験したことがある</li>
                         
-                        <!-- Right Column: Location -->
-                        <div>
-                            <h3 style="color: var(--sunset-orange); margin-top: 0;">The Location</h3>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 0.5rem;">場所</p>
-                            <p style="color: rgba(255,255,255,0.7); font-style: italic; font-size: 0.95rem; margin-bottom: 1rem;">Le lieu</p>
-                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">
-                                Inspired by a hidden ceramic village in Saga Prefecture's mountains. We photographed the 
-                                kilns, narrow streets, and mountain atmosphere that became the foundation for this fictional narrative.
-                            </p>
-                            <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-bottom: 1rem;">
-                                佐賀県の山中に隠れた陶磁器の村からインスピレーションを得ました。
-                                窯、狭い路地、山の雰囲気を撮影し、このフィクションの物語の基礎となりました。
-                            </p>
-                            <p style="color: rgba(255,255,255,0.85); font-style: italic;">
-                        Inspiré par un village de céramique caché dans les montagnes de la préfecture de Saga. Nous avons photographé les 
-                                fours, les rues étroites et l'atmosphère montagnarde qui sont devenus la base de ce récit fictif.
-                            </p>
-                        </div>
-                    </div>
+                        <li class="lang-content lang-en active">You want Japan beyond tourist narratives</li>
+                        <li class="lang-content lang-fr">Vous voulez le Japon au-delà des récits touristiques</li>
+                        <li class="lang-content lang-ja">観光的な物語を超えた日本を求めている</li>
+                        
+                        <li class="lang-content lang-en active">You value immersive, sensory storytelling</li>
+                        <li class="lang-content lang-fr">Vous appréciez la narration immersive et sensorielle</li>
+                        <li class="lang-content lang-ja">没入型で感覚的な物語を大切にする</li>
+                        
+                        <li class="lang-content lang-en active">You like stories that accumulate, not resolve</li>
+                        <li class="lang-content lang-fr">Vous aimez les histoires qui s'accumulent, sans résolution</li>
+                        <li class="lang-content lang-ja">解決ではなく積み重なる物語が好き</li>
+                        
+                        <li class="lang-content lang-en active">You want fiction that feels documentary-real</li>
+                        <li class="lang-content lang-fr">Vous voulez une fiction qui semble documentaire-réelle</li>
+                        <li class="lang-content lang-ja">ドキュメンタリーのようにリアルなフィクションを求めている</li>
+                        
+                        <li class="lang-content lang-en active">You can share books across languages</li>
+                        <li class="lang-content lang-fr">Vous pouvez partager des livres entre langues</li>
+                        <li class="lang-content lang-ja">言語を超えて本を共有できる</li>
+                        
+                        <li class="lang-content lang-en active">You're willing to travel slowly</li>
+                        <li class="lang-content lang-fr">Vous êtes prêt à voyager lentement</li>
+                        <li class="lang-content lang-ja">ゆっくりと旅をする意志がある</li>
+                    </ul>
+                </div>
+                
+                <div class="audience-column not-for-you">
+                    <h3 class="lang-content lang-en active">✗ This is NOT for you if:</h3>
+                    <h3 class="lang-content lang-fr">✗ Ce n'est PAS pour vous si :</h3>
+                    <h3 class="lang-content lang-ja">✗ こんな方には向いていません：</h3>
+                    
+                    <ul class="audience-list">
+                        <li class="lang-content lang-en active">You need plot twists and resolutions</li>
+                        <li class="lang-content lang-fr">Vous avez besoin de rebondissements et de résolutions</li>
+                        <li class="lang-content lang-ja">どんでん返しや解決が必要</li>
+                        
+                        <li class="lang-content lang-en active">You want practical travel information</li>
+                        <li class="lang-content lang-fr">Vous voulez des informations pratiques de voyage</li>
+                        <li class="lang-content lang-ja">実用的な旅行情報を求めている</li>
+                        
+                        <li class="lang-content lang-en active">You prefer fast-paced narratives</li>
+                        <li class="lang-content lang-fr">Vous préférez les récits au rythme rapide</li>
+                        <li class="lang-content lang-ja">速いテンポの物語を好む</li>
+                        
+                        <li class="lang-content lang-en active">You expect problems to be solved</li>
+                        <li class="lang-content lang-fr">Vous vous attendez à ce que les problèmes soient résolus</li>
+                        <li class="lang-content lang-ja">問題が解決されることを期待している</li>
+                        
+                        <li class="lang-content lang-en active">You need clear beginnings/middles/endings</li>
+                        <li class="lang-content lang-fr">Vous avez besoin de débuts/milieux/fins clairs</li>
+                        <li class="lang-content lang-ja">明確な始まり・中間・終わりが必要</li>
+                        
+                        <li class="lang-content lang-en active">You want action-driven stories</li>
+                        <li class="lang-content lang-fr">Vous voulez des histoires axées sur l'action</li>
+                        <li class="lang-content lang-ja">アクション主導の物語を求めている</li>
+                        
+                        <li class="lang-content lang-en active">You prefer traditional novel structures</li>
+                        <li class="lang-content lang-fr">Vous préférez les structures romanesques traditionnelles</li>
+                        <li class="lang-content lang-ja">伝統的な小説の構造を好む</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="audience-note">
+                <p class="lang-content lang-en active">
+                    <strong>Important:</strong> Ryō's creative block doesn't lift in Volume 1. 
+                    His search continues across the series. That's the point.
+                </p>
+                <p class="lang-content lang-fr">
+                    <strong>Important :</strong> Le blocage créatif de Ryō ne se lève pas dans le Volume 1. 
+                    Sa quête continue à travers la série. C'est le but.
+                </p>
+                <p class="lang-content lang-ja">
+                    <strong>重要：</strong>涼の創作のブロックは第1巻では解消されません。
+                    彼の探求はシリーズを通じて続きます。それが本質です。
+                </p>
+            </div>
+            
+            <div class="cta-group" style="margin-top: 3rem;">
+                <a href="#volume-one" class="btn btn-primary">
+                    <span class="lang-content lang-en active">📖 Read Volume 1</span>
+                    <span class="lang-content lang-fr">📖 Lire le Volume 1</span>
+                    <span class="lang-content lang-ja">📖 第1巻を読む</span>
+                </a>
+                
+                <a href="contact.html" class="btn btn-secondary">
+                    <span class="lang-content lang-en active">📚 Get Vol. 2</span>
+                    <span class="lang-content lang-fr">📚 Vol. 2</span>
+                    <span class="lang-content lang-ja">📚 第2巻予約</span>
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- Connection to Basecamp Universe -->
-    <section style="padding: 4rem 2rem; background: linear-gradient(135deg, rgba(44,95,122,0.95), rgba(74,123,167,0.9)); color: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 style="color: var(--white);">From Lens to Page</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">The Visual Foundation of Our Fiction</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">レンズからページへ — フィクションの視覚的基礎</p>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.85); font-style: italic;">De l'objectif à la page — Les fondations visuelles de notre fiction</p>
-                <div class="section-divider"></div>
+    
+    <!-- ============================================
+         VOLUME 1 SECTION
+         ============================================ -->
+    <section id="volume-one" class="volume-one">
+        <div class="container">
+            <div class="volume-header">
+                <h2 class="lang-content lang-en active">Volume 1 — Whispers of Ashes</h2>
+                <h2 class="lang-content lang-fr">Volume 1 — Murmures des Cendres</h2>
+                <h2 class="lang-content lang-ja">第1巻——灰の囁き</h2>
+                
+                <p style="font-size: 1.2rem; font-style: italic; color: var(--text-muted);">
+                    <span class="lang-content lang-en active">Murmures des Cendres / 灰の囁き</span>
+                    <span class="lang-content lang-fr">Whispers of Ashes / 灰の囁き</span>
+                    <span class="lang-content lang-ja">Whispers of Ashes / Murmures des Cendres</span>
+                </p>
+                
+                <div class="volume-meta">
+                    <span class="lang-content lang-en active"><strong>Location:</strong> Hidden pottery village,<br>Saga mountains</span>
+                    <span class="lang-content lang-fr"><strong>Lieu :</strong> Village de potiers caché, montagnes de Saga</span>
+                    <span class="lang-content lang-ja"><strong>場所：</strong>隠れた陶器の村、佐賀の山々</span>
+                    
+                    <span class="lang-content lang-en active"><strong>Season:</strong> Late autumn</span>
+                    <span class="lang-content lang-fr"><strong>Saison :</strong> Fin d'automne</span>
+                    <span class="lang-content lang-ja"><strong>季節：</strong>晩秋</span>
+                    
+                    <span class="lang-content lang-en active"><strong>Tone:</strong> Contemplative, silent</span>
+                    <span class="lang-content lang-fr"><strong>Ton :</strong> Contemplatif, silencieux</span>
+                    <span class="lang-content lang-ja"><strong>トーン：</strong>瞑想的、静寂</span>
+                </div>
             </div>
+            
+            <div class="volume-story">
+                <p class="lang-content lang-en active">
+                    Ryō arrives with a manuscript stalled at page forty — too clear to abandon, 
+                    too vague to continue. He's chosen Kyūshū not to escape, but to enter a 
+                    different relationship with time.
+                </p>
+                <p class="lang-content lang-fr">
+                    Ryō arrive avec un manuscrit bloqué à la page quarante — trop clair pour l'abandonner, 
+                    trop vague pour continuer. Il a choisi le Kyūshū non pour s'échapper, mais pour entrer 
+                    dans une relation différente avec le temps.
+                </p>
+                <p class="lang-content lang-ja">
+                    涼は40ページで止まった原稿を抱えて到着する——捨てるには明確すぎて、
+                    進めるにはあいまいすぎる。彼が九州を選んだのは逃げるためではなく、
+                    時間との異なる関係に入るためだった。
+                </p>
+                
+                <p class="lang-content lang-en active">
+                    <strong>In a mountain village where thirty kilns still burn,</strong> where ash 
+                    becomes glaze and brick chimneys stand watch over generations, he discovers a 
+                    place that doesn't perform for visitors.
+                </p>
+                <p class="lang-content lang-fr">
+                    <strong>Dans un village de montagne où trente fours brûlent encore,</strong> où la cendre 
+                    devient glaçure et où les cheminées de brique veillent sur les générations, il découvre 
+                    un lieu qui ne se met pas en scène pour les visiteurs.
+                </p>
+                <p class="lang-content lang-ja">
+                    <strong>三十の窯がまだ燃える山の村で、</strong>灰が釉薬となり、
+                    煉瓦の煙突が何世代も見守る場所で、彼は訪問者のために演じない村を発見する。
+                </p>
+                
+                <p class="lang-content lang-en active">
+                    Steep stone lanes. Workshops closing at dusk. A potter who offers shelter during 
+                    a rainstorm. A purchase that becomes more than transaction. A cemetery where the 
+                    village watches over its dead.
+                </p>
+                <p class="lang-content lang-fr">
+                    Des ruelles pavées escarpées. Des ateliers qui ferment au crépuscule. Un potier qui 
+                    offre un abri pendant une tempête. Un achat qui devient plus qu'une transaction. 
+                    Un cimetière où le village veille sur ses morts.
+                </p>
+                <p class="lang-content lang-ja">
+                    急な石の小道。夕暮れに閉まる工房。嵐の中で避難所を提供する陶工。
+                    単なる取引以上のものとなる購入。村が死者を見守る墓地。
+                </p>
+                
+                <p class="lang-content lang-en active">
+                    <strong>Over one rainy night, through quiet observation and small encounters,</strong> 
+                    the village reveals what cameras miss: the weight of tradition, the texture of 
+                    solitude, the strange intimacy of being a temporary guest in a permanent world.
+                </p>
+                <p class="lang-content lang-fr">
+                    <strong>Au cours d'une nuit pluvieuse, par l'observation silencieuse et de petites rencontres,</strong> 
+                    le village révèle ce que les caméras manquent : le poids de la tradition, la texture de 
+                    la solitude, l'étrange intimité d'être un invité temporaire dans un monde permanent.
+                </p>
+                <p class="lang-content lang-ja">
+                    <strong>雨の夜、静かな観察と小さな出会いを通じて、</strong>
+                    村はカメラが見逃すものを明らかにする：伝統の重み、孤独の質感、
+                    永続する世界における一時的なゲストであることの奇妙な親密さ。
+                </p>
+                
+                <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-en active">
+                    <strong>No dramatic revelations. Ryō's creative block remains. But the village offers something else—a way of inhabiting time differently. Something begins to shift, imperceptibly.</strong>
+                </p>
+                <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-fr">
+                    <strong>Pas de révélations dramatiques. Le blocage créatif de Ryō demeure. Mais le village offre autre chose—une façon d'habiter le temps différemment. Quelque chose commence à changer, imperceptiblement.</strong>
+                </p>
+                <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-ja">
+                    <strong>劇的な展開はない。涼の創作のブロックは続く。しかし村は別のものを提供する——時間を異なる形で過ごす方法。何かが知らぬ間に変わり始める。</strong>
+                </p>
+            
+            <div class="cta-group" style="text-align: center;">
+                <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" class="btn btn-primary" target="_blank" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
+                    <span class="lang-content lang-en active">📚 Available on Amazon NOW!</span>
+                    <span class="lang-content lang-fr">📚 Disponible sur Amazon MAINTENANT!</span>
+                    <span class="lang-content lang-ja">📚 Amazon で発売中!</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         PREVIEW SECTION
+         ============================================ -->
+    <section class="preview" style="background-color: white; padding: 5rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;" class="lang-content lang-en active">Preview Volume 1</h2>
+            <h2 style="text-align: center; margin-bottom: 3rem;" class="lang-content lang-fr">Aperçu du Volume 1</h2>
+            <h2 style="text-align: center; margin-bottom: 3rem;" class="lang-content lang-ja">第1巻プレビュー</h2>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 2.5rem; font-style: italic; color: var(--accent-copper); margin-bottom: 0.5rem;">
+                    Whispers of Ashes
+                </h3>
+                <p style="font-size: 1.5rem; color: var(--text-muted); font-style: italic;">
+                    Murmures des Cendres • 灰の囁き
+                </p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto; padding: 2rem; background: var(--bg-cream); border-left: 4px solid var(--accent-copper);">
+                <!-- English Prologue -->
+                <div class="lang-content lang-en active">
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        The train moved between rice fields and low hills. At each stop, the same clear jingle — 
+                        three rising notes — dissolved into the warm air. The doors opened to empty platforms, 
+                        then closed again without a sound.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        This repetition gave the journey something strangely suspended, as though time itself were 
+                        hesitating to resume its course.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        He had chosen Kyūshū for precisely this feeling. The island did not reveal itself at once: 
+                        here, the landscapes did not impose themselves, they allowed one to approach. You did not 
+                        discover them; you entered them.
+                    </p>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: 2rem;">
+                        — Prologue, Volume 1
+                    </p>
+                </div>
+                
+                <!-- French Prologue -->
+                <div class="lang-content lang-fr">
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        Le train avançait entre rizières et collines basses. À chaque arrêt, le même jingle clair — 
+                        trois notes montantes — se dissolvait dans l'air tiède. Les portes s'ouvraient sur des quais 
+                        vides, puis se refermaient sans un bruit.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        Cette répétition donnait au trajet quelque chose d'étrangement suspendu, comme si le temps 
+                        hésitait à reprendre son cours.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        Il avait choisi Kyūshū pour cette sensation-là. L'île ne se livrait pas d'emblée : ici, 
+                        les paysages ne s'imposaient pas, ils se laissaient approcher. On ne les découvrait pas ; 
+                        on entrait en eux.
+                    </p>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: 2rem;">
+                        — Prologue, Volume 1
+                    </p>
+                </div>
+                
+                <!-- Japanese Prologue -->
+                <div class="lang-content lang-ja">
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        列車は、水田と低い丘のあいだを進んでいた。停車するたび、同じ発車メロディ——上がっていく三つの音——が、
+                        ぬるんだ空気の中にほどけていく。扉は人影のないホームに向かって静かに開き、音もなく閉じられる。
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        その繰り返しが、旅の時間をどこか宙に留めていた。まるで、時が次へ進むのをためらっているかのように。
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; font-style: italic;">
+                        彼が九州を選んだのは、この感覚のためだった。この島は、はじめからすべてを差し出してはこない。
+                        風景は押し寄せず、ただ近づくことを許す。見つけるのではない。入り込んでいくものだった。
+                    </p>
+                    <p style="font-size: 1rem; text-align: center; color: var(--text-muted); margin-top: 2rem;">
+                        — プロローグ、第1巻
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" target="_blank" style="color: var(--accent-copper); font-size: 1.1rem; text-decoration: underline;">
+                    <span class="lang-content lang-en active">Continue reading on Amazon →</span>
+                    <span class="lang-content lang-fr">Continuer la lecture sur Amazon →</span>
+                    <span class="lang-content lang-ja">Amazonで続きを読む →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         FAQ SECTION
+         ============================================ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="lang-content lang-en active">Common Questions</h2>
+            <h2 class="lang-content lang-fr">Questions Fréquentes</h2>
+            <h2 class="lang-content lang-ja">よくある質問</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question lang-content lang-en active">Is this based on real places?</p>
+                <p class="faq-question lang-content lang-fr">Est-ce basé sur des lieux réels ?</p>
+                <p class="faq-question lang-content lang-ja">これは実在の場所に基づいていますか？</p>
+                
+                <p class="lang-content lang-en active">
+                    Yes. Extensively photographed and documented by Basecamp Kyūshū before writing. 
+                    But exact locations stay private to protect their quietness.
+                </p>
+                <p class="lang-content lang-fr">
+                    Oui. Extensivement photographié et documenté par Basecamp Kyūshū avant l'écriture. 
+                    Mais les emplacements exacts restent privés pour protéger leur tranquillité.
+                </p>
+                <p class="lang-content lang-ja">
+                    はい。執筆前にBasecamp九州によって詳細に撮影され記録されました。
+                    しかし、その静けさを守るため、正確な場所は非公開にしています。
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question lang-content lang-en active">Does Ryō's creative block get resolved?</p>
+                <p class="faq-question lang-content lang-fr">Le blocage créatif de Ryō est-il résolu ?</p>
+                <p class="faq-question lang-content lang-ja">涼の創作のブロックは解消されますか？</p>
+                
+                <p class="lang-content lang-en active">
+                    Not in Volume 1. His search continues across volumes. This is a slow accumulation, 
+                    not a dramatic arc. Inspiration doesn't return with a plot twist — it builds through 
+                    attention, place, and time.
+                </p>
+                <p class="lang-content lang-fr">
+                    Pas dans le Volume 1. Sa quête continue à travers les volumes. C'est une lente accumulation, 
+                    pas un arc dramatique. L'inspiration ne revient pas avec un rebondissement — elle se construit 
+                    par l'attention, le lieu et le temps.
+                </p>
+                <p class="lang-content lang-ja">
+                    第1巻では解消されません。彼の探求は各巻を通じて続きます。これはゆっくりとした積み重ねであり、
+                    劇的な展開ではありません。インスピレーションはどんでん返しでは戻ってこない——
+                    それは注意、場所、時間を通じて築かれます。
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question lang-content lang-en active">Do I need to read all three languages?</p>
+                <p class="faq-question lang-content lang-fr">Dois-je lire les trois langues ?</p>
+                <p class="faq-question lang-content lang-ja">三つの言語すべてを読む必要がありますか？</p>
+                
+                <p class="lang-content lang-en active">
+                    No. Each is complete. Read in your language, or explore all three — both approaches work.
+                </p>
+                <p class="lang-content lang-fr">
+                    Non. Chacune est complète. Lisez dans votre langue, ou explorez les trois — les deux approches fonctionnent.
+                </p>
+                <p class="lang-content lang-ja">
+                    いいえ。それぞれが完全です。あなたの言語で読むか、三つすべてを探索するか——
+                    どちらのアプローチも機能します。
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question lang-content lang-en active">Is there a continuous story?</p>
+                <p class="faq-question lang-content lang-fr">Y a-t-il une histoire continue ?</p>
+                <p class="faq-question lang-content lang-ja">続きの物語はありますか？</p>
+                
+                <p class="lang-content lang-en active">
+                    Yes. Ryō Tanaka appears in all volumes, traveling to different places. Each volume 
+                    stands alone, but his journey continues.
+                </p>
+                <p class="lang-content lang-fr">
+                    Oui. Ryō Tanaka apparaît dans tous les volumes, voyageant vers différents endroits. 
+                    Chaque volume est autonome, mais son voyage continue.
+                </p>
+                <p class="lang-content lang-ja">
+                    はい。田中涼はすべての巻に登場し、異なる場所を旅します。
+                    各巻は独立していますが、彼の旅は続きます。
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-question lang-content lang-en active">When is Volume 2?</p>
+                <p class="faq-question lang-content lang-fr">Quand sort le Volume 2 ?</p>
+                <p class="faq-question lang-content lang-ja">第2巻はいつですか？</p>
+                
+                <p class="lang-content lang-en active">
+                    2026, probably. Each volume requires extensive location work — exploration, documentation, 
+                    writing, illustration. We don't rush.
+                </p>
+                <p class="lang-content lang-fr">
+                    2026, probablement. Chaque volume nécessite un travail de localisation approfondi — exploration, 
+                    documentation, écriture, illustration. Nous ne nous précipitons pas.
+                </p>
+                <p class="lang-content lang-ja">
+                    おそらく2026年。各巻には広範な現地作業が必要です——探索、記録、執筆、イラスト。
+                    急ぐことはしません。
+                </p>
+            </div>
+        </div>
+    </section>
+    
 
-            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; text-align: center; color: rgba(255,255,255,0.95);">
-                Before we write, we explore. Through <a href="in-motion.html" style="color: #FFD700; text-decoration: underline; font-weight: 600;">photography</a>, 
-                <a href="video-production.html" style="color: #FFD700; text-decoration: underline; font-weight: 600;">video</a>, and 
-                <a href="in-motion.html#immersive" style="color: #FFD700; text-decoration: underline; font-weight: 600;">VR panoramas</a>, 
-                we immerse ourselves in Kyūshū's hidden corners.<br>
-                These visual journeys become the atmospheric foundation for our fiction.
+    <!-- ============================================
+         VOLUME 1 IS WAITING SECTION
+         ============================================ -->
+    <section class="volume-waiting" style="background: linear-gradient(135deg, #2C2C2C 0%, #4a5568 100%); color: white; text-align: center; padding: 5rem 0;">
+        <div class="container">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;" class="lang-content lang-en active">Volume 1 is Waiting</h2>
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;" class="lang-content lang-fr">Le Volume 1 Vous Attend</h2>
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;" class="lang-content lang-ja">第1巻があなたを待っています</h2>
+            
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-en active">
+                Ryō's journey through Kyūshū begins in a pottery village in the mist.
+            </p>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-fr">
+                Le voyage de Ryō à travers le Kyūshū commence dans un village de potiers dans la brume.
+            </p>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-ja">
+                田中涼の九州の旅は、霧の中の陶器の村から始まる。
             </p>
             
-            <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem; text-align: center; color: rgba(255,255,255,0.9);">
-                執筆する前に、私たちは探索します。写真、映像、VRパノラマを通じて、九州の隠された場所に没入します。<br>
-                これらの視覚的な旅が、フィクションの雰囲気の基礎となります。
-            </p>
-            
-            <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; text-align: center; font-style: italic; color: rgba(255,255,255,0.9);">
-                Avant d'écrire, nous explorons. À travers la photographie, la vidéo et les panoramas VR, 
-                nous nous immergeons dans les recoins cachés de Kyūshū.<br>
-                Ces voyages visuels deviennent la base atmosphérique de notre fiction.
-            </p>
-
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid var(--sunset-orange);">
-                <p style="font-size: 1.2rem; font-style: italic; line-height: 1.8; color: var(--white); text-align: center;">
-                    "The places are real. The photographs are real. The feelings they inspire are real.<br>
-                    <strong style="color: #FFD700;">But the stories? The stories are always fiction.</strong>"
-                </p>
-                <p class="japanese-text" style="font-size: 1.05rem; margin-top: 1rem; line-height: 1.9; color: rgba(255,255,255,0.95); text-align: center;">
-                    「場所は実在します。写真は実在します。それらが呼び起こす感情も実在します。<br>
-                    <strong style="color: #FFD700;">しかし物語は？物語は常にフィクションです。</strong>」
-                </p>
-                <p style="font-size: 1rem; margin-top: 1rem; line-height: 1.8; color: rgba(255,255,255,0.95); font-style: italic; text-align: center;">
-                    « Les lieux sont réels. Les photographies sont réelles. Les émotions qu'ils inspirent sont réelles.<br>
-                    <strong style="color: #FFD700;">Mais les histoires ? Les histoires sont toujours de la fiction.</strong> »
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Excerpt Section -->
-    <section id="excerpt" style="padding: 4rem 2rem; background: var(--warm-beige);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Read an Excerpt</h2>
-                <p class="section-subtitle">Chapter 1: The Snake Road</p>
-                <p class="section-subtitle japanese-text">第1章：蛇の道</p>
-                <p class="section-subtitle" style="font-style: italic;">Chapitre 1 : La route du serpent</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-                <p style="font-style: italic; line-height: 1.9; margin-bottom: 1.5rem;">
-                    "The afternoon train slowed and stopped at a small, almost deserted station. Grey wooden structure, 
-                    tired clock, hot drinks vending machine humming low in the silence. There was no reason to stop here.
-                </p>
-                <p style="font-style: italic; line-height: 1.9; margin-bottom: 1.5rem;">
-                    The bus schedule on his phone was predictable. Only four trips a day. The next one to town—too early.
-                </p>
-                <p style="font-style: italic; line-height: 1.9; margin-bottom: 1.5rem;">
-                    He pocketed the device, adjusted his bag strap, and decided to walk. Just 5 kilometers. But a gentle, 
-                    continuous climb—the kind of incline that would irritate a cyclist.
-                </p>
-                <p style="font-style: italic; line-height: 1.9; margin-bottom: 1.5rem;">
-                    The pavement dissolved quickly into countryside, snaking between rice paddies. The view shifted with 
-                    every turn. From above, it would have looked like a single dark line drawn across a board of gold and green..."
-                </p>
-
-                <div style="margin: 2rem 0; padding: 1.5rem; background: var(--light-gray); border-left: 4px solid var(--sunset-orange);">
-                    <p class="japanese-text" style="line-height: 1.9; margin-bottom: 1rem;">
-                        「午後の列車が速度を落とし、ほとんど無人の小さな駅に停まった。
-                        灰色に褪せた木の駅舎、疲れた時計、静寂の中で低く唸るホットドリンクの自販機。
-                        足を止める理由はどこにもない。
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.9; margin-bottom: 1rem;">
-                        スマートフォンに映るバスの時刻表は、予想どおりだった。
-                        一日にわずか四本。次の街行きは早すぎる。
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.9; margin-bottom: 1rem;">
-                        彼は端末をしまい、バッグのストラップを直し、歩くことにした。
-                        たった5キロ。だが、緩やかに続く上り坂――自転車なら苛立ちを覚えるような傾斜だ。
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.9;">
-                        舗道はすぐに田園の中へ溶け込み、稲田のあいだを蛇のようにくねりながら続いていた。
-                        曲がるたびに景色が切り替わる。上から見れば、黄金と緑の盤に一本の濃い線が引かれているようだった...」
-                    </p>
-                </div>
+            <div class="cta-group">
+                <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" class="btn btn-primary" target="_blank">
+                    <span class="lang-content lang-en active">📖 READ</span>
+                    <span class="lang-content lang-fr">📖 LIRE</span>
+                    <span class="lang-content lang-ja">📖 読む</span>
+                </a>
                 
-                <div style="margin: 2rem 0; padding: 1.5rem; background: var(--light-gray); border-left: 4px solid var(--ocean-blue);">
-                    <p style="line-height: 1.9; margin-bottom: 1rem; font-style: italic;">
-                        « Le train de l'après-midi ralentit et s'arrêta à une petite gare presque déserte. Structure en bois gris, 
-                        horloge fatiguée, distributeur de boissons chaudes bourdonnant faiblement dans le silence. Il n'y avait aucune raison de s'arrêter ici.
-                    </p>
-                    <p style="line-height: 1.9; margin-bottom: 1rem; font-style: italic;">
-                        L'horaire des bus sur son téléphone était prévisible. Seulement quatre trajets par jour. Le prochain pour la ville—trop tôt.
-                    </p>
-                    <p style="line-height: 1.9; margin-bottom: 1rem; font-style: italic;">
-                        Il rangea l'appareil dans sa poche, ajusta la lanière de son sac et décida de marcher. Seulement 5 kilomètres. Mais une montée douce 
-                        et continue—le genre de pente qui agacerait un cycliste.
-                    </p>
-                    <p style="line-height: 1.9; font-style: italic;">
-                        Le trottoir se dissolvait rapidement dans la campagne, serpentant entre les rizières. La vue changeait à 
-                        chaque virage. D'en haut, cela aurait ressemblé à une seule ligne sombre tracée sur un damier d'or et de vert... »
-                    </p>
-                </div>
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p style="font-size: 0.95rem; color: var(--text-light); font-style: italic;">
-                        From "Whispers of Ashes" - Chapter 1<br>
-                        A trilingual novel by Basecamp Kyūshū
-                    </p>
-                    <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
-                        「灰の囁き」第1章より<br>
-                        Basecamp Kyūshū 三言語小説
-                    </p>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem; font-style: italic;">
-                        Extrait de « Les Murmures des Cendres » - Chapitre 1<br>
-                        Un roman trilingue de Basecamp Kyūshū
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Trilingual? -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Why a Trilingual Edition?</h2>
-                <p class="section-subtitle japanese-text">なぜ三言語版？</p>
-                <p class="section-subtitle" style="font-style: italic;">Pourquoi une édition trilingue ?</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="background: var(--light-gray); padding: 3rem; border-radius: 8px;">
-                <h3 style="color: var(--ocean-blue); margin-bottom: 1.5rem; text-align: center;">Not for Trilinguals. For Everyone.</h3>
-                <p class="japanese-text" style="text-align: center; margin-bottom: 0.5rem;">三カ国語話者のためではなく、全ての人のために。</p>
-                <p style="text-align: center; font-style: italic; margin-bottom: 1.5rem;">Pas pour les trilingues. Pour tout le monde.</p>
+                <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" class="btn btn-primary" target="_blank">
+                    <span class="lang-content lang-en active">🎁 GIFT</span>
+                    <span class="lang-content lang-fr">🎁 OFFRIR</span>
+                    <span class="lang-content lang-ja">🎁 贈る</span>
+                </a>
                 
-                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    This isn't an academic exercise for language scholars. It's a <strong>practical cultural gift</strong> 
-                    that solves a simple problem: <em>How do you share a story about Japan with friends and family 
-                    who speak different languages?</em>
-                </p>
-                
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                    これは言語学者のための学術的な本ではありません。シンプルな問題を解決する
-                    <strong>実用的な文化的な贈り物</strong>です：<em>異なる言語を話す友人や家族と、
-                    日本についての物語をどう共有するか？</em>
-                </p>
-                
-                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; font-style: italic;">
-                    Ce n'est pas un exercice académique pour les linguistes. C'est un <strong>cadeau culturel pratique</strong>
-                    qui résoud un problème simple : <em>Comment partager une histoire sur le Japon avec des amis et 
-                    la famille qui parlent différentes langues ?</em>
-                </p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange);">
-                        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Three Books, One Price</h4>
-                        <p style="line-height: 1.6;">Complete story in Japanese, French, AND English. Each version is independent and fully readable.</p>
-                    </div>
-                    
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--ocean-blue);">
-                        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Perfect Gift</h4>
-                        <p style="line-height: 1.6;">Buy once, share with anyone. French speaker? English friend? Japanese family? One book covers everyone.</p>
-                    </div>
-                    
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--mountain-green);">
-                        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Cross-Cultural Value</h4>
-                        <p style="line-height: 1.6;">See how the same story breathes differently in each language. Compare if curious, or just enjoy yours.</p>
-                    </div>
-                </div>
-
-                <!-- Practical Use Cases -->
-                <div style="background: var(--white); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange); margin: 2rem 0;">
-                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">This is a Practical Gift Edition</h4>
-                    <p style="line-height: 1.7; margin-bottom: 1rem;">Perfect for:</p>
-                    <ul style="line-height: 2; margin-left: 1.5rem;">
-                        <li><strong>French speaker?</strong> Give it to your English-speaking friend.</li>
-                        <li><strong>Parent in Tokyo?</strong> Send it to family back home.</li>
-                        <li><strong>Book club?</strong> Everyone reads their own language.</li>
-                        <li><strong>Mixed-language household?</strong> One book, multiple readers.</li>
-                    </ul>
-                </div>
-
-                <!-- How It Works -->
-                <div style="background: var(--white); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
-                    <h4 style="color: var(--ocean-blue); margin-bottom: 1rem;">Each Section is Complete and Independent</h4>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
-                        Read one language, or compare if curious. The choice is yours.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1rem; line-height: 1.9; margin-bottom: 1rem;">
-                        各セクションは完全で独立しています。一つの言語をお読みいただくか、
-                        ご興味があれば比較してお楽しみください。選択はあなた次第です。
-                    </p>
-                    <p style="font-size: 1rem; line-height: 1.8; font-style: italic;">
-                        Lisez une langue, ou comparez si vous êtes curieux. Le choix vous appartient.
-                    </p>
-                    </p>
-                </div>
-
-                <!-- The Strategy -->
-                <div style="background: var(--white); padding: 2rem; border-radius: 8px; border-top: 3px solid var(--ocean-blue); margin: 2rem 0;">
-                    <h4 style="color: var(--ocean-blue); margin-bottom: 1rem;">The Strategy Behind This Format</h4>
-                    <p style="line-height: 1.8; margin-bottom: 1rem;">
-                        Traditional publishing forces you to choose: Japanese edition OR French edition OR English edition. 
-                        This means if you want to share a story about Japan with someone who reads a different language, 
-                        you need to buy multiple books or hope a translation exists.
-                    </p>
-                    <p style="line-height: 1.8; margin-bottom: 1rem;">
-                        <strong>This edition solves that problem.</strong> Buy once. Share across languages. 
-                        It's practical, economical, and celebrates the multilingual nature of cultural exchange.
-                    </p>
-                    <p class="japanese-text" style="line-height: 1.9;">
-                        従来の出版では、日本語版、フランス語版、英語版のいずれかを選択する必要があります。
-                        このエディションはその問題を解決します。一度購入すれば、言語を超えて共有できます。
-                        実用的で経済的、そして文化交流の多言語性を祝福します。
-                    </p>
-                </div>
-
-                <!-- Final Statement -->
-                <div style="background: rgba(44, 95, 122, 0.1); padding: 2rem; border-radius: 8px; text-align: center;">
-                    <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 1rem;">
-                        A New Concept in Cultural Publishing
-                    </p>
-                    <p style="line-height: 1.7;">
-                        Not a translation exercise. Not a language-learning tool. <br>
-                        <strong>A practical way to share stories about Japan across language barriers.</strong>
-                    </p>
-                    <p class="japanese-text" style="margin-top: 1rem; line-height: 1.8;">
-                        翻訳の練習でも、言語学習ツールでもありません。<br>
-                        <strong>言語の壁を越えて日本についての物語を共有する実用的な方法です。</strong>
-                    </p>
-                </div>
-
-                <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--ocean-blue);">
-                    <p style="font-style: italic; color: var(--text-light);">
-                        Monolingual editions available separately for those who prefer a single-language experience.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Get the Book -->
-    <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white); text-align: center;">
-        <div class="section-container" style="max-width: 800px;">
-            <h2 style="color: var(--white); font-size: 2.5rem; margin-bottom: 1rem;">Get Whispers of Ashes</h2>
-            <p style="font-size: 1.3rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 600;">First Project Completed — Now Available</p>
-            <p class="japanese-text" style="font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 3rem;">第一巻「灰の囁き」公開中</p>
-
-            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                <h3 style="color: var(--white); margin-bottom: 1.5rem; font-size: 1.5rem;">Available Editions</h3>
-                
-                <!-- Deluxe Trilingual Edition -->
-                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border: 3px solid #FFD700;">
-                    <p style="font-size: 0.9rem; color: #FFD700; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(255,215,0,0.5);">✨ COMPLETE EXPERIENCE</p>
-                    <h4 style="color: var(--white); margin-bottom: 1.5rem; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">📚 Trilingual Deluxe Edition</h4>
-                    
-                    <!-- Formats - MAXIMUM VISIBILITY -->
-                    <div style="background: #FFFFFF; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                        <p style="font-size: 1.4rem; line-height: 1.6; margin: 0; color: #1a2332; font-weight: 700; text-align: center;">
-                            📖 Paperback & Kindle
-                        </p>
-                        <p style="font-size: 1.15rem; margin: 0.5rem 0 0 0; color: #1a2332; font-weight: 600; text-align: center;">
-                            Three complete stories in one volume
-                        </p>
-                    </div>
-                    
-                    <ul style="list-style: none; padding-left: 1rem; font-size: 1.1rem; line-height: 2.2; font-weight: 600;">
-                        <li>🇯🇵 <strong style="color: #FFFFFF;">Japanese</strong> <span style="color: rgba(255,255,255,0.8);">(日本語)</span></li>
-                        <li>🇫🇷 <strong style="color: #FFFFFF;">French</strong> <span style="color: rgba(255,255,255,0.8);">(Français)</span></li>
-                        <li>🇬🇧 <strong style="color: #FFFFFF;">English</strong></li>
-                    </ul>
-                    
-                    <!-- Illustrations Bonus - MAXIMUM IMPACT -->
-                    <div style="margin-top: 1.5rem; padding: 1.8rem; background: #FFD700; border-radius: 8px; box-shadow: 0 6px 20px rgba(255,215,0,0.4);">
-                        <p style="font-size: 1.5rem; margin: 0; color: #1a2332; font-weight: 900; line-height: 1.4; text-align: center; text-transform: uppercase; letter-spacing: 1px;">
-                            🎨 BONUS: FULL ILLUSTRATION PACKAGE
-                        </p>
-                        <p style="font-size: 1.2rem; margin: 1rem 0 0 0; color: #1a2332; font-weight: 600; line-height: 1.6; text-align: center;">
-                            Experience the visual journey alongside all three narratives
-                        </p>
-                    </div>
-                    
-                    <p class="japanese-text" style="font-size: 0.95rem; color: #FFD700; margin-top: 1.2rem; font-style: italic; font-weight: 600;">
-                        三言語デラックス版 - 完全イラスト付き
-                    </p>
-                </div>
-
-                <!-- Single Language Editions -->
-                <div style="padding: 1rem 0;">
-                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem; font-style: italic;">
-                        Prefer to read in one language? Digital editions available:
-                    </p>
-                    <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 2;">
-                        <li>🇬🇧 <strong>English Only</strong> - Kindle eBook</li>
-                        <li>🇫🇷 <strong>Français uniquement</strong> (French Only) - Kindle eBook</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
-                <a href="https://www.amazon.com/stores/GILLES-B/author/B0FV7VJJVR" target="_blank" rel="noopener noreferrer" class="btn" style="background: var(--sunset-orange); color: var(--white); padding: 1rem 2rem; font-size: 1.1rem; border-radius: 8px; text-decoration: none; display: inline-block;">
-                    BUY ON AMAZON
+                <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" class="btn btn-primary" target="_blank">
+                    <span class="lang-content lang-en active">📤 SHARE</span>
+                    <span class="lang-content lang-fr">📤 PARTAGER</span>
+                    <span class="lang-content lang-ja">📤 共有</span>
                 </a>
             </div>
-
-            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-top: 1.5rem; line-height: 1.6;">
-                🎁 <strong>Perfect for gifting</strong> - Share the same story with international friends and family, each reading in their preferred language
-            </p>
-            <p class="japanese-text" style="font-size: 0.95rem; color: rgba(255,255,255,0.85); margin-top: 0.8rem;">
-                贈り物に最適 - 国際的な友人や家族と同じ物語を共有し、それぞれが好きな言語で読む
-            </p>
-            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-top: 0.8rem; font-style: italic;">
-                Idéal comme cadeau - Partagez la même histoire avec vos proches internationaux
-            </p>
         </div>
     </section>
-
-    <!-- Future Volumes -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">The Series Continues</h2>
-                <p class="section-subtitle">Basecamp Kyūshū Stories - Volume 2 & Beyond</p>
-                <p class="section-subtitle japanese-text">ベースキャンプ九州ストーリーズ - 第2巻以降</p>
-                <p class="section-subtitle" style="font-style: italic;">Basecamp Kyūshū Stories - Volume 2 et au-delà</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <!-- À SUIVRE Banner -->
-                <div style="background: linear-gradient(135deg, rgba(44,95,122,0.15), rgba(74,123,167,0.1)); padding: 3rem 2rem; border-radius: 12px; margin-bottom: 3rem; border-left: 6px solid var(--ocean-blue);">
-                    <h3 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; font-weight: 700; letter-spacing: 3px;">À SUIVRE</h3>
-                    <p style="font-size: 1.3rem; color: var(--ocean-blue); font-style: italic; margin-bottom: 0.5rem;">Le voyage continue…</p>
-                    <p class="japanese-text" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem;">旅は続く…</p>
-                    <p style="font-size: 1.15rem; color: var(--text-dark); margin-bottom: 0.3rem;">The journey continues…</p>
-                </div>
-
-                <!-- Volume 2 Details -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
-                    <h4 style="color: var(--sunset-orange); font-size: 1.8rem; margin-bottom: 1rem;">Volume 2 en préparation — 2026</h4>
-                    <p class="japanese-text" style="color: var(--text-light); margin-bottom: 1rem; font-size: 1.1rem;">第2巻準備中 — 2026年</p>
-                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.05rem; font-style: italic;">[Titre à venir]</p>
-                    <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 1.05rem;">[Title to be announced]</p>
-                    
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <p style="font-size: 1.2rem; line-height: 2; color: var(--primary-dark);">
-                            Un nouveau village.<br>
-                            Une nouvelle saison.<br>
-                            Ryo Tanaka poursuit son exploration de Kyūshū.
-                        </p>
-                        <p class="japanese-text" style="font-size: 1.1rem; line-height: 2; color: var(--text-light); margin-top: 1.5rem;">
-                            新しい村。<br>
-                            新しい季節。<br>
-                            田中涼が九州の探索を続ける。
-                        </p>
-                        <p style="font-size: 1.1rem; line-height: 2; color: var(--text-light); margin-top: 1.5rem; font-style: italic;">
-                            A new village.<br>
-                            A new season.<br>
-                            Ryo Tanaka continues his exploration of Kyūshū.
-                        </p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 3rem;">
-                    <a href="contact.html" class="btn btn-primary">NOTIFY ME FOR VOLUME 2</a>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 1rem;">
-                        Follow our exploration on Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" style="color: var(--ocean-blue); text-decoration: underline;">@basecampkyushu</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Call to Action -->
-    <section class="cta-section" style="background: var(--warm-beige); padding: 4rem 2rem; text-align: center;">
-        <div class="section-container">
-            <h2>Bring Your Story to&nbsp;Life</h2>
-            <p class="japanese-text">あなたの物語を形にする</p>
-            <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 2rem auto;">
-                Our storytelling is also a visual&nbsp;narrative. Discover how we capture Kyūshū through&nbsp;film.
-            </p>
-            <p class="japanese-text" style="color: var(--text-light); max-width: 700px; margin: 1rem auto 3rem;">
-                私たちの物語は視覚的な物語でもあります。映像で九州を捉える方法をご覧ください。
-            </p>
-            <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center; max-width: 500px; margin: 0 auto 2rem;">
-                <a href="video-production.html" class="btn btn-primary" style="width: 100%; max-width: 400px; justify-content: center;">
-                    DISCOVER OUR VIDEO PRODUCTION
-                </a>
-                <a href="online-store.html" class="btn btn-secondary" style="width: 100%; max-width: 400px; justify-content: center;">
-                    SUPPORT US — WEAR THE BRAND
-                </a>
-            </div>
-            <p style="color: var(--text-light); margin-top: 1.5rem; font-size: 1rem;">
-                Follow us on Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" style="color: var(--ocean-blue); text-decoration: underline; font-weight: 600;">@basecampkyushu</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -802,10 +1658,11 @@
                 <h4>EXPLORE</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
+                    <li><a href="in-motion.html">In Motion</a></li>
                     <li><a href="stories.html">Stories Project</a></li>
                     <li><a href="video-production.html">Video Production</a></li>
                     <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
                 </ul>
             </div>
 
@@ -814,7 +1671,7 @@
                 <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotions" target="_blank">@KyushuInMotions</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
                     <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
                 </ul>
@@ -822,132 +1679,72 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
     
-    <!-- Language Toggle Styles and Script -->
-    <style>
-        /* Language Toggle System */
-        /* By default, show English and hide Japanese & French */
-        body .japanese-text,
-        body .content-text[style*="font-style: italic"] {
-            display: none !important;
-        }
-        
-        /* When Japanese is active */
-        body[data-lang="ja"] .japanese-text {
-            display: block !important;
-        }
-        
-        body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) {
-            display: none !important;
-        }
-        
-        body[data-lang="ja"] .content-text[style*="font-style: italic"] {
-            display: none !important;
-        }
-        
-        /* When French is active */
-        body[data-lang="fr"] .content-text[style*="font-style: italic"] {
-            display: block !important;
-        }
-        
-        body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) {
-            display: none !important;
-        }
-        
-        body[data-lang="fr"] .japanese-text {
-            display: none !important;
-        }
-        
-        /* ALWAYS VISIBLE - Navigation and structural elements */
-        body .main-nav,
-        body .main-nav ul,
-        body .main-nav li,
-        body .main-nav a,
-        body h1, 
-        body h2, 
-        body .section-title, 
-        body .btn,
-        body .logo,
-        body nav,
-        body header,
-        body footer,
-        body img,
-        body .featured-meta,
-        body .language-toggle-buttons {
-            display: block !important;
-            visibility: visible !important;
-        }
-        
-        body .main-nav ul {
-            display: flex !important;
-        }
-        
-        /* Active button styling */
-        .lang-btn.active {
-            background: var(--ocean-blue) !important;
-            color: white !important;
-        }
-        
-        .lang-btn:hover {
-            opacity: 0.8;
-        }
-        
-        /* Responsive language buttons */
-        @media (max-width: 768px) {
-            .language-toggle-buttons {
-                margin-left: 0.5rem;
-                gap: 0.3rem !important;
-            }
-            
-            .lang-btn {
-                padding: 0.3rem 0.6rem !important;
-                font-size: 0.75rem !important;
-            }
-            
-            /* Stack flag cards on mobile */
-            .flag-cards-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
+    <!-- ============================================
+         STICKY CTA (Mobile)
+         ============================================ -->
+    <div class="sticky-cta">
+        <a href="https://www.amazon.com/stores/author/B0FV7VJJVR/about" class="btn" target="_blank">
+            <span class="lang-content lang-en active">📖 Read Volume 1</span>
+            <span class="lang-content lang-fr">📖 Lire le Volume 1</span>
+            <span class="lang-content lang-ja">📖 第1巻を読む</span>
+        </a>
+    </div>
     
+    <!-- ============================================
+         LANGUAGE SWITCHING JAVASCRIPT
+         ============================================ -->
     <script>
-        // Language Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.lang-btn');
-            const body = document.body;
-            
-            // Get saved language from localStorage or default to 'en'
-            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-            setLanguage(savedLang);
-            
-            // Add click handlers to language buttons
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                    localStorage.setItem('preferredLanguage', lang);
-                });
+    (function() {
+        const browserLang = navigator.language.substring(0, 2);
+        const supportedLangs = ['en', 'fr', 'ja'];
+        let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && supportedLangs.includes(savedLang)) {
+            currentLang = savedLang;
+        }
+        
+        const metaDescriptions = {
+            en: "Follow Ryō Tanaka's journey through hidden Kyūshū. Immersive fiction from real places. Trilingual editions.",
+            fr: "Suivez le voyage de Ryō Tanaka à travers le Kyūshū caché. Fiction immersive enracinée dans des lieux réels.",
+            ja: "田中涼の隠れた九州を巡る旅を追う。実在の場所から生まれた没入型フィクション。"
+        };
+        
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
             });
-            
-            function setLanguage(lang) {
-                // Update body data-lang attribute
-                body.setAttribute('data-lang', lang);
-                
-                // Update active button
-                langButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.getAttribute('data-lang') === lang) {
-                        btn.classList.add('active');
-                    }
-                });
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.querySelector('[data-lang="' + lang + '"]');
+            if (activeBtn) {
+                activeBtn.classList.add('active');
             }
+            localStorage.setItem('preferredLanguage', lang);
+            document.documentElement.lang = lang;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', metaDescriptions[lang]);
+            }
+            currentLang = lang;
+        }
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                switchLanguage(this.dataset.lang);
+            });
         });
+        
+        switchLanguage(currentLang);
+    })();
     </script>
+    
 </body>
 </html>
