@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 6.3.4  
+**Version:** 6.3.5  
 **Last Updated:** December 18, 2025  
-**Status:** ✅ Mobile Menu + Language Switcher + Video Production Content Cleaned  
+**Status:** ✅ Mobile Menu + Language Switcher + Smooth Scroll Anchor Links Fixed  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 

@@ -821,6 +821,26 @@ if (mobileMenuToggle && navLinks) {
         });
     });
 }
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        var targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            var navbarHeight = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 80;
+            var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 </script>
 
 <!-- Mobile Menu & Main JavaScript -->
