@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/stories">
     <meta property="og:title" content="Basecamp Kyūshū — STORIES">
-    <meta property="og:description" content="Follow Ryō Tanaka's journey through hidden Kyūshū. Immersive fiction from real places.">
+    <meta property="og:description" content="Follow a writer's journey through hidden Kyūshū. Immersive fiction from real places.">
     
     <!-- Multilingual SEO -->
     <link rel="alternate" hreflang="en" href="https://basecampkyushu.com/stories?lang=en">
@@ -31,9 +31,12 @@
         :root {
             --primary-dark: #2C2C2C;
             --accent-copper: #B87333;
+            --accent-earth: #8B7355;
             --bg-cream: #F5F5F0;
             --text-dark: #333333;
             --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
             --sage-green: #8B9D83;
             --border-light: #E0E0E0;
         }
@@ -97,184 +100,108 @@
         span.lang-content.active { display: inline !important; }
         
         /* ============================================
-           HEADER & NAVIGATION
+           NAVIGATION - SAME AS INDEX
            ============================================ */
-        :root {
-            --header-height: 80px;
-            --max-width: 1400px;
-            --spacing-md: 2rem;
-            --font-heading: 'Georgia', 'Times New Roman', serif;
-            --font-primary: 'Source Sans Pro', -apple-system, sans-serif;
-            --sunset-orange: #D67942;
-            --ocean-blue: #4A7BA7;
-            --transition-medium: all 0.3s ease;
-        }
-        
-        .main-header {
+        nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            min-height: var(--header-height);
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            top: 0; left: 0; right: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition-medium);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
-        
-        .main-header.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+            padding: 1rem 0;
         }
-        
         .nav-container {
-            max-width: var(--max-width);
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
-            height: var(--header-height);
+            padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 0.5rem;
-            flex-wrap: nowrap;
+            align-items: center;
         }
-        
         .logo {
-            font-family: var(--font-heading);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
+            font-weight: 700;
             color: var(--primary-dark);
-            flex-shrink: 0;
+            text-decoration: none;
+            letter-spacing: 1px;
         }
-        
-        .logo span {
-            display: block;
+        .logo-subtitle {
             font-size: 0.7rem;
-            margin-top: -0.25rem;
-            opacity: 0.7;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 2px;
         }
-        
-        .main-nav {
-            display: flex;
-            flex: 1;
-        }
-        
-        .main-nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
             gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-            flex-wrap: nowrap;
+            list-style: none;
             align-items: center;
         }
-        
-        .main-nav a {
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+        .nav-links a {
             color: var(--text-dark);
-            padding: 0.5rem 0;
-            position: relative;
-            white-space: nowrap;
-            display: inline-block;
-        }
-        
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--sunset-orange);
-            transition: var(--transition-medium);
-        }
-        
-        .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
-        
-        .language-toggle-buttons {
-            display: flex !important;
-            gap: 0.5rem;
-            flex-shrink: 0;
-        }
-        
-        .language-toggle-buttons .lang-btn {
-            background: white;
-            color: var(--text-dark);
-            border: 2px solid var(--ocean-blue);
-            border-radius: 6px;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .language-toggle-buttons .lang-btn:hover {
-            background: var(--ocean-blue);
-            color: white;
-        }
-        
-        .language-toggle-buttons .lang-btn.active {
-            background: var(--sunset-orange);
-            border-color: var(--sunset-orange);
-            color: white;
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            flex-shrink: 0;
-        }
-        
-        /* ============================================
-           LANGUAGE SELECTOR (Stories Page Specific)
-           ============================================ */
-        .language-selector {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            background: white;
-            padding: 1.5rem 1rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .lang-btn {
-            padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: 2px solid #E0E0E0;
-            border-radius: 4px;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #666;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
             transition: all 0.3s;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-earth);
+            background: rgba(139, 115, 85, 0.1);
+            transform: translateY(-2px);
+        }
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            border-left: 1px solid var(--text-muted);
+            padding-left: 0.8rem;
+            margin-left: 0.8rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            line-height: 1;
+            min-width: 40px;
+            text-align: center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent-earth);
+            color: var(--white);
+            border-color: var(--accent-earth);
         }
         
-        .lang-btn:hover {
-            background: #f5f5f0;
-            color: #333;
-            border-color: var(--accent-copper);
-        }
-        
-        .lang-btn.active {
-            background: var(--accent-copper);
-            color: white;
-            border-color: var(--accent-copper);
-        }
+
         
         /* ============================================
-           BANNER
+           HERO BANNER
            ============================================ */
+        .hero-banner {
+            min-height: 100vh;
+            background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
         .top-banner {
             width: 100%;
             background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 50%, #f5f5dc 100%);
@@ -720,45 +647,140 @@
         /* ============================================
            MOBILE RESPONSIVE
            ============================================ */
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+        }
+        
+        /* MOBILE MENU STYLES */
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
         @media (max-width: 768px) {
-            /* Header & Navigation Mobile */
             .nav-container {
-                padding: 0 1rem;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.75rem 1rem;
             }
             
             .logo {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                flex: 1;
             }
             
-            .logo span {
+            .logo-subtitle {
                 font-size: 0.6rem;
             }
             
-            .main-nav {
-                display: none;
-            }
-            
-            .language-toggle-buttons {
+            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
+            .language-switcher {
+                display: flex !important;
+                flex-direction: row;
                 gap: 0.3rem;
-            }
-            
-            .language-toggle-buttons .lang-btn {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            /* Language selector (Stories specific) */
-            .language-selector {
-                padding: 1rem 0.5rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                position: relative;
+                z-index: 1002;
             }
             
             .lang-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.35rem 0.5rem;
+                font-size: 0.7rem;
+                min-width: 34px;
+                height: 28px;
+                border-radius: 4px;
+                line-height: 1;
+                font-weight: 600;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+                flex-shrink: 0;
+            }
+            
+            /* Hide desktop nav links, show in dropdown when active */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
             }
             
             .hero-banner {
@@ -819,48 +841,36 @@
 <body>
     
     <!-- ============================================
-         HEADER / NAVIGATION
+         NAVIGATION - SAME AS INDEX
          ============================================ -->
-    <header class="main-header">
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
+                BASECAMP KYŪSHŪ
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="in-motion.html">IN MOTION</a></li>
-                    <li><a href="stories.html" class="active">STORIES</a></li>
-                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                    <li><a href="online-store.html">ONLINE STORE</a></li>
-                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
-                </ul>
-            </nav>
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
-    </header>
-    
+    </nav>
+
     <!-- ============================================
-         TOP BANNER
+         HERO BANNER
          ============================================ -->
-    <section class="hero-banner" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-11-23-at-14-12-40_orig.png'); background-size: cover; background-position: center; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center; margin-top: var(--header-height);">
-    </section>
-    
-    <!-- ============================================
-         LANGUAGE SELECTOR
-         ============================================ -->
-    <div class="language-selector">
-        <button class="lang-btn active" data-lang="en">English</button>
-        <button class="lang-btn" data-lang="fr">Français</button>
-        <button class="lang-btn" data-lang="ja">日本語</button>
-    </div>
+    <section class="hero-banner"></section>
     
     <!-- ============================================
          HERO SECTION
@@ -885,17 +895,17 @@
             </p>
             
             <p class="description lang-content lang-en active">
-                Ryō Tanaka travels Kyūshū seeking inspiration he's lost. Each volume takes him somewhere 
+                A writer travels Kyūshū seeking inspiration he's lost. Each volume takes him somewhere 
                 different — a new corner of the island, a new encounter, a new story. Through his eyes, 
                 we discover another Kyūshū, another Japan.
             </p>
             <p class="description lang-content lang-fr">
-                Ryō Tanaka parcourt le Kyūshū à la recherche de l'inspiration perdue. Chaque volume 
+                Un écrivain parcourt Kyūshū à la recherche de l'inspiration perdue. Chaque volume 
                 l'emmène ailleurs — un nouveau coin de l'île, une nouvelle rencontre, un nouveau récit. 
                 À travers ses yeux, nous découvrons un autre Kyūshū, un autre Japon.
             </p>
             <p class="description lang-content lang-ja">
-                田中涼は失ったインスピレーションを求めて九州を旅する。各巻で彼は異なる場所へ——
+                ある作家は失ったインスピレーションを求めて九州を旅する。各巻で彼は異なる場所へ——
                 島の新しい場所、新しい出会い、新しい物語。彼の目を通して、もう一つの九州、もう一つの日本を発見する。
             </p>
             
@@ -935,15 +945,15 @@
             <h2 class="lang-content lang-ja">旅路</h2>
             
             <p class="concept-intro lang-content lang-en active">
-                <strong>Ryō Tanaka</strong> is a writer from Hokkaido. His manuscript sits stalled 
+                <strong>A writer</strong> from Hokkaido. His manuscript sits stalled 
                 at page forty — too clear to abandon, too vague to continue.
             </p>
             <p class="concept-intro lang-content lang-fr">
-                <strong>Ryō Tanaka</strong> est un écrivain d'Hokkaido. Son manuscrit est bloqué 
+                <strong>Un écrivain</strong> d'Hokkaido. Son manuscrit est bloqué 
                 à la page quarante — trop clair pour l'abandonner, trop vague pour continuer.
             </p>
             <p class="concept-intro lang-content lang-ja">
-                <strong>田中涼</strong>は北海道出身の作家。彼の原稿は40ページで止まったまま——
+                <strong>ある作家</strong>は北海道出身。彼の原稿は40ページで止まったまま——
                 捨てるには明確すぎて、進めるにはあいまいすぎる。
             </p>
             
@@ -1017,37 +1027,54 @@
             <h3 style="margin-top: 3rem; font-size: 1.5rem;" class="lang-content lang-ja">シリーズの展開</h3>
             
             <p class="lang-content lang-en active">
-                <strong>Each volume follows Ryō to a different corner of Kyūshū.</strong> Different geographies. 
+                <strong>Each volume follows the writer to a different corner of Kyūshū.</strong> Different geographies. 
                 Different crafts. Different communities. Different tones. Volume 1 is contemplative and silent. 
                 Volume 2 might be something else entirely — more mysterious, more intense, more surprising. 
                 We'll see what each place calls for.
             </p>
+            
+            <p class="lang-content lang-en active">
+                Each volume stands alone— a complete story tied to a specific place in Kyūshū. You can read them 
+                in any order. Some readers will discover all volumes. Others will find the one tied to a place 
+                they know, or want to know.
+            </p>
             <p class="lang-content lang-fr">
-                <strong>Chaque volume suit Ryō dans un coin différent du Kyūshū.</strong> Différentes géographies. 
+                <strong>Chaque volume suit l'écrivain dans un coin différent de Kyūshū.</strong> Différentes géographies. 
                 Différents artisanats. Différentes communautés. Différents tons. Le Volume 1 est contemplatif et 
                 silencieux. Le Volume 2 pourrait être tout autre chose — plus mystérieux, plus intense, plus 
                 surprenant. Nous verrons ce que chaque lieu exige.
             </p>
+            
+            <p class="lang-content lang-fr">
+                Chaque volume est autonome — une histoire complète liée à un lieu spécifique de Kyūshū. Vous pouvez 
+                les lire dans n'importe quel ordre. Certains lecteurs découvriront tous les volumes. D'autres 
+                trouveront celui lié à un lieu qu'ils connaissent, ou veulent connaître.
+            </p>
             <p class="lang-content lang-ja">
-                <strong>各巻で涼は九州の異なる場所へ向かう。</strong>異なる地理。異なる工芸。異なる共同体。
+                <strong>各巻で作家は九州の異なる場所へ向かう。</strong>異なる地理。異なる工芸。異なる共同体。
                 異なるトーン。第1巻は瞑想的で静か。第2巻は全く別のものになるかもしれない——より神秘的、
                 より強烈、より驚くべきもの。それぞれの場所が何を求めるか見ていく。
+            </p>
+            
+            <p class="lang-content lang-ja">
+                各巻は独立している——九州の特定の場所に結びついた完全な物語。どの順序で読んでも構わない。
+                すべての巻を発見する読者もいれば、自分が知っている、または知りたい場所に結びついた巻を見つける読者もいる。
             </p>
             
             <p class="lang-content lang-en active">
                 <strong>This is a way to discover another Kyūshū, another Japan.</strong> Not the tourist narrative. 
                 Not the guidebook version. But stories rooted in real places — sometimes quiet, sometimes surprising, 
-                always immersive. Through Ryō's journey, we explore what makes this island unique.
+                always immersive. Through the writer's journey, we explore what makes this island unique.
             </p>
             <p class="lang-content lang-fr">
                 <strong>C'est une façon de découvrir un autre Kyūshū, un autre Japon.</strong> Pas le récit touristique. 
                 Pas la version du guide. Mais des histoires enracinées dans des lieux réels — parfois calmes, parfois 
-                surprenantes, toujours immersives. À travers le voyage de Ryō, nous explorons ce qui rend cette île unique.
+                surprenantes, toujours immersives. À travers le voyage de l'écrivain, nous explorons ce qui rend cette île unique.
             </p>
             <p class="lang-content lang-ja">
                 <strong>これは別の九州、別の日本を発見する方法だ。</strong>観光の物語ではない。ガイドブック版でもない。
                 実在の場所に根ざした物語——時には静かに、時には驚くべきもので、常に没入的。
-                涼の旅を通じて、この島を独特にするものを探索する。
+                作家の旅を通じて、この島を独特にするものを探索する。
             </p>
             
             <p class="lang-content lang-en active">
@@ -1068,7 +1095,7 @@
             </p>
             
             <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-en active">A New Way to See Kyūshū</h3>
-            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-fr">Une Nouvelle Façon de Voir le Kyūshū</h3>
+            <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-fr">Une Nouvelle Façon de Voir Kyūshū</h3>
             <h3 style="margin-top: 2rem; font-size: 1.5rem;" class="lang-content lang-ja">九州を見る新しい方法</h3>
             
             <p class="lang-content lang-en active">
@@ -1092,7 +1119,7 @@
             </p>
             <p class="lang-content lang-fr">
                 <strong>Une approche unique.</strong> Une nouvelle perspective. Quelque chose de différent de 
-                ce que vous avez pu voir ou entendre sur le Kyūshū auparavant.
+                ce que vous avez pu voir ou entendre sur Kyūshū auparavant.
             </p>
             <p class="lang-content lang-ja">
                 <strong>ユニークなアプローチ。</strong>新しい視点。これまで九州について見たり聞いたりしたものとは
@@ -1454,15 +1481,15 @@
             
             <div class="audience-note">
                 <p class="lang-content lang-en active">
-                    <strong>Important:</strong> Ryō's creative block doesn't lift in Volume 1. 
+                    <strong>Important:</strong> The writer's creative block doesn't lift in Volume 1. 
                     His search continues across the series. That's the point.
                 </p>
                 <p class="lang-content lang-fr">
-                    <strong>Important :</strong> Le blocage créatif de Ryō ne se lève pas dans le Volume 1. 
+                    <strong>Important :</strong> Le blocage créatif de l'écrivain ne se lève pas dans le Volume 1. 
                     Sa quête continue à travers la série. C'est le but.
                 </p>
                 <p class="lang-content lang-ja">
-                    <strong>重要：</strong>涼の創作のブロックは第1巻では解消されません。
+                    <strong>重要：</strong>作家の創作のブロックは第1巻では解消されません。
                     彼の探求はシリーズを通じて続きます。それが本質です。
                 </p>
             </div>
@@ -1516,17 +1543,17 @@
             
             <div class="volume-story">
                 <p class="lang-content lang-en active">
-                    Ryō arrives with a manuscript stalled at page forty — too clear to abandon, 
+                    The writer arrives with a manuscript stalled at page forty — too clear to abandon, 
                     too vague to continue. He's chosen Kyūshū not to escape, but to enter a 
                     different relationship with time.
                 </p>
                 <p class="lang-content lang-fr">
-                    Ryō arrive avec un manuscrit bloqué à la page quarante — trop clair pour l'abandonner, 
+                    L'écrivain arrive avec un manuscrit bloqué à la page quarante — trop clair pour l'abandonner, 
                     trop vague pour continuer. Il a choisi le Kyūshū non pour s'échapper, mais pour entrer 
                     dans une relation différente avec le temps.
                 </p>
                 <p class="lang-content lang-ja">
-                    涼は40ページで止まった原稿を抱えて到着する——捨てるには明確すぎて、
+                    作家は40ページで止まった原稿を抱えて到着する——捨てるには明確すぎて、
                     進めるにはあいまいすぎる。彼が九州を選んだのは逃げるためではなく、
                     時間との異なる関係に入るためだった。
                 </p>
@@ -1578,13 +1605,13 @@
                 </p>
                 
                 <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-en active">
-                    <strong>No dramatic revelations. Ryō's creative block remains. But the village offers something else—a way of inhabiting time differently. Something begins to shift, imperceptibly.</strong>
+                    <strong>No dramatic revelations. The writer's creative block remains. But the village offers something else—a way of inhabiting time differently. Something begins to shift, imperceptibly.</strong>
                 </p>
                 <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-fr">
-                    <strong>Pas de révélations dramatiques. Le blocage créatif de Ryō demeure. Mais le village offre autre chose—une façon d'habiter le temps différemment. Quelque chose commence à changer, imperceptiblement.</strong>
+                    <strong>Pas de révélations dramatiques. Le blocage créatif de l'écrivain demeure. Mais le village offre autre chose—une façon d'habiter le temps différemment. Quelque chose commence à changer, imperceptiblement.</strong>
                 </p>
                 <p style="font-size: 1.2rem; margin-top: 2rem;" class="lang-content lang-ja">
-                    <strong>劇的な展開はない。涼の創作のブロックは続く。しかし村は別のものを提供する——時間を異なる形で過ごす方法。何かが知らぬ間に変わり始める。</strong>
+                    <strong>劇的な展開はない。作家の創作のブロックは続く。しかし村は別のものを提供する——時間を異なる形で過ごす方法。何かが知らぬ間に変わり始める。</strong>
                 </p>
             
             <div class="cta-group" style="text-align: center;">
@@ -1716,9 +1743,9 @@
             </div>
             
             <div class="faq-item">
-                <p class="faq-question lang-content lang-en active">Does Ryō's creative block get resolved?</p>
-                <p class="faq-question lang-content lang-fr">Le blocage créatif de Ryō est-il résolu ?</p>
-                <p class="faq-question lang-content lang-ja">涼の創作のブロックは解消されますか？</p>
+                <p class="faq-question lang-content lang-en active">Does the writer's creative block get resolved?</p>
+                <p class="faq-question lang-content lang-fr">Le blocage créatif de l'écrivain est-il résolu ?</p>
+                <p class="faq-question lang-content lang-ja">作家の創作のブロックは解消されますか？</p>
                 
                 <p class="lang-content lang-en active">
                     Not in Volume 1. His search continues across volumes. This is a slow accumulation, 
@@ -1760,15 +1787,15 @@
                 <p class="faq-question lang-content lang-ja">続きの物語はありますか？</p>
                 
                 <p class="lang-content lang-en active">
-                    Yes. Ryō Tanaka appears in all volumes, traveling to different places. Each volume 
+                    Yes. The writer appears in all volumes, traveling to different places. Each volume 
                     stands alone, but his journey continues.
                 </p>
                 <p class="lang-content lang-fr">
-                    Oui. Ryō Tanaka apparaît dans tous les volumes, voyageant vers différents endroits. 
+                    Oui. L'écrivain apparaît dans tous les volumes, voyageant vers différents endroits. 
                     Chaque volume est autonome, mais son voyage continue.
                 </p>
                 <p class="lang-content lang-ja">
-                    はい。田中涼はすべての巻に登場し、異なる場所を旅します。
+                    はい。作家はすべての巻に登場し、異なる場所を旅します。
                     各巻は独立していますが、彼の旅は続きます。
                 </p>
             </div>
@@ -1805,10 +1832,10 @@
             <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;" class="lang-content lang-ja">第1巻があなたを待っています</h2>
             
             <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-en active">
-                Ryō's journey through Kyūshū begins in a pottery village in the mist.
+                The writer's journey through Kyūshū begins in a pottery village in the mist.
             </p>
             <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-fr">
-                Le voyage de Ryō à travers le Kyūshū commence dans un village de potiers dans la brume.
+                Le voyage de l'écrivain à travers Kyūshū commence dans un village de potiers dans la brume.
             </p>
             <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;" class="lang-content lang-ja">
                 田中涼の九州の旅は、霧の中の陶器の村から始まる。
@@ -1945,7 +1972,55 @@
         
         switchLanguage(currentLang);
     })();
+    
+    // Sticky nav scroll effect
+    window.addEventListener("scroll", function() {
+        var nav = document.getElementById("navbar");
+        if (nav && window.scrollY > 100) {
+            nav.classList.add("scrolled");
+        } else if (nav) {
+            nav.classList.remove("scrolled");
+        }
+    });
+    
+    // Mobile Menu Toggle
+    var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    var navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuToggle && navLinks) {
+        // Ensure menu is closed on page load
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        
+        mobileMenuToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            var isClickInsideNav = navLinks.contains(event.target);
+            var isClickOnToggle = mobileMenuToggle.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        var navLinksElements = navLinks.querySelectorAll('a');
+        navLinksElements.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+    }
     </script>
     
+    <!-- Mobile Menu & Main JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>

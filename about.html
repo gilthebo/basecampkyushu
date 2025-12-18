@@ -3,291 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Basecamp Kyūshū - Creative collective based in Itoshima, exploring Kyūshū through stories, film, and design. Produced by M Global Japan, Ltd.">
-    <meta name="keywords" content="Basecamp Kyūshū, Itoshima, creative collective, Kyūshū, M Global Japan, Japan beyond golden route">
-    <title>About - Basecamp Kyūshū</title>
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com/about.html">
-    <meta property="og:title" content="About Basecamp Kyūshū | Creative Collective in Itoshima">
-    <meta property="og:description" content="Based in Itoshima, Fukuoka. Produced by M Global Japan, Ltd. Creating stories, films, and experiences from Kyūshū.">
-    <meta property="og:image" content="https://yourdomain.com/images/og-about.jpg">
-    <meta property="og:site_name" content="Basecamp Kyūshū">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Basecamp Kyūshū">
-    <meta name="twitter:description" content="Creative collective exploring Japan beyond the golden route. Based in Itoshima, Kyūshū.">
-    <meta name="twitter:image" content="https://yourdomain.com/images/og-about.jpg">
-    
-    <link rel="canonical" content="https://yourdomain.com/about.html">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <title>About Us - Basecamp Kyūshū</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Language Toggle Buttons Container */
-
-
-        @media (max-width: 480px) {
-            .language-toggle-btn {
-                font-size: 0.65rem;
-                padding: 0.3rem 0.5rem;
-                min-width: 45px;
+        :root {
+            --primary-dark: #2C2C2C;
+            --primary-light: #F5F5F0;
+            --accent-earth: #8B7355;
+            --accent-sage: #8B9D83;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-earth);
+            background: rgba(139, 115, 85, 0.1);
+            transform: translateY(-2px);
+        }
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            border-left: 1px solid var(--text-muted);
+            padding-left: 0.8rem;
+            margin-left: 0.8rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            line-height: 1;
+            min-width: 40px;
+            text-align: center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent-earth);
+            color: var(--white);
+            border-color: var(--accent-earth);
+        }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        .hero {
+            min-height: 100vh;
+            background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/859848277.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-earth);
+            margin: 1rem 0 0;
+        }
+        
+        .story-section {
+            background: var(--primary-light);
+        }
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .story-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+        
+        .approach-section {
+            background: var(--white);
+        }
+        .approach-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .approach-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+        
+        .connection-section {
+            background: var(--primary-light);
+        }
+        .connection-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .connection-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+        
+        .projects-section {
+            background: var(--white);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .project-card {
+            background: var(--primary-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.4s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 340px;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px var(--shadow);
+            background: var(--white);
+        }
+        .project-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .project-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+        .project-card a {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: var(--accent-earth);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+        .project-card a:hover {
+            background: #6d5a44;
+            transform: translateY(-2px);
+        }
+        
+        .newsletter-section {
+            background: var(--accent-earth);
+            color: var(--white);
+            text-align: center;
+        }
+        .newsletter-section h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .newsletter-section h2::after {
+            background: var(--white);
+        }
+        .newsletter-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--primary-dark);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .newsletter-form button:hover {
+            background: var(--text-dark);
+            transform: translateY(-2px);
+        }
+        .instagram-link:hover {
+            background: #1a1a1a !important;
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        /* FOOTER STYLES - Same as Index Page */
+        .main-footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .japanese-text {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+        }
+        
+        /* MOBILE MENU STYLES */
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.75rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+                flex: 1;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
+            .language-switcher {
+                display: flex !important;
+                flex-direction: row;
+                gap: 0.3rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                position: relative;
+                z-index: 1002;
+            }
+            
+            .lang-btn {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.7rem;
+                min-width: 34px;
+                height: 28px;
+                border-radius: 4px;
+                line-height: 1;
+                font-weight: 600;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+                flex-shrink: 0;
+            }
+            
+            /* Hide desktop nav links, show in dropdown when active */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+            section { padding: 3rem 1.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="main-header">
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
+                BASECAMP KYŪSHŪ
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html" class="active">ABOUT</a></li>
-                    <li><a href="in-motion.html">IN MOTION</a></li>
-                    <li><a href="stories.html">STORIES</a></li>
-                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                    <li><a href="online-store.html">ONLINE STORE</a></li>
-                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
-                </ul>
-            </nav>
-            <!-- Language Toggle Buttons -->
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
-    </header>
-
-    <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; font-size: 0.9rem;">
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index.html" style="color: var(--text-dark); text-decoration: none;">
-                    <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1" />
-                <span style="margin-left: 0.5rem; color: var(--text-light);">›</span>
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name" style="color: var(--sunset-orange); font-weight: 500;">About</span>
-                <meta itemprop="position" content="2" />
-            </li>
-        </ol>
     </nav>
 
-    <!-- Hero Section - Keep existing banner as is -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/859848277.png'); background-size: cover; background-position: center;">
-    </section>
+    <section class="hero"></section>
 
-    <!-- Title Section Below Banner -->
-    <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
-        <div class="section-container" style="max-width: 900px;">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Our Story</h2>
-            <div class="section-divider"></div>
-        </div>
-    </section>
-
-    <!-- OUR STORY Content -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 900px;">
+    <section class="story-section">
+        <div class="story-content">
+            <h2 class="section-title lang-content lang-en active">Our Story</h2>
+            <h2 class="section-title lang-content lang-fr">Notre Histoire</h2>
+            <h2 class="section-title lang-content lang-ja">私たちの物語</h2>
             
-            <!-- English -->
-            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇬🇧</span> Basecamp Kyūshū was born from years spent exploring Japan's southern island — a place where nature, craft, and quiet daily life form a landscape that inspires us constantly. After decades in Tokyo, we moved south in search of calm and authenticity. Kyūshū became not just a home, but a creative base: a region where traditions breathe, villages evolve slowly, and every valley carries its own story.
+            <p class="lang-content lang-en active">
+                Basecamp Kyūshū was born from years spent exploring Japan southern island, a place where nature, craft, and quiet daily life form a landscape that inspires us constantly. After decades in Tokyo, we moved south in search of calm and authenticity. Kyūshū became not just a home, but a creative base: a region where traditions breathe, villages evolve slowly, and every valley carries its own story.
             </p>
-            
-            <!-- Japanese -->
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇯🇵</span> Basecamp Kyūshūは、日本の南に位置する九州を長年にわたり巡る中で生まれました。<br>
-自然、工芸、そして静かな日常が折り重なり、常に私たちに創作のインスピレーションを与えてくれる土地です。<br>
-東京で数十年を過ごしたのち、私たちは静けさと本質を求めて南へ移りました。<br>
-九州は単なる住まいではなく、創作の拠点となりました。<br>
-伝統が今も息づき、村々がゆっくりと変化し、それぞれの谷が固有の物語を宿す地域です。
+            <p class="lang-content lang-fr">
+                Basecamp Kyūshū est né d années passées à explorer l île méridionale du Japon, un lieu où la nature, l artisanat et la vie quotidienne tranquille forment un paysage qui nous inspire constamment. Après des décennies à Tokyo, nous avons déménagé vers le sud à la recherche de calme et d authenticité. Kyūshū est devenu non seulement une maison, mais une base créative: une région où les traditions respirent, où les villages évoluent lentement et où chaque vallée porte sa propre histoire.
             </p>
-            
-            <!-- French -->
-            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇫🇷</span> Basecamp Kyūshū est né d'années passées à explorer l'île méridionale du Japon — un lieu où la nature, l'artisanat et la vie quotidienne tranquille forment un paysage qui nous inspire constamment. Après des décennies à Tokyo, nous avons déménagé vers le sud à la recherche de calme et d'authenticité. Kyūshū est devenu non seulement une maison, mais une base créative : une région où les traditions respirent, où les villages évoluent lentement et où chaque vallée porte sa propre histoire.
+            <p class="lang-content lang-ja">
+                Basecamp Kyūshūは、日本の南に位置する九州を長年にわたり巡る中で生まれました。自然、工芸、そして静かな日常が折り重なり、常に私たちに創作のインスピレーションを与えてくれる土地です。東京で数十年を過ごしたのち、私たちは静けさと本質を求めて南へ移りました。九州は単なる住まいではなく、創作の拠点となりました。伝統が今も息づき、村々がゆっくりと変化し、それぞれの谷が固有の物語を宿す地域です。
             </p>
         </div>
     </section>
 
-    <!-- OUR APPROACH -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Our Approach</h2>
-                <div class="section-divider"></div>
+    <section class="approach-section">
+        <div class="approach-content">
+            <h2 class="section-title lang-content lang-en active">Our Approach</h2>
+            <h2 class="section-title lang-content lang-fr">Notre Approche</h2>
+            <h2 class="section-title lang-content lang-ja">私たちのアプローチ</h2>
+            
+            <p class="lang-content lang-en active">
+                We work through field observation: walking, listening, filming, writing. Our projects blend documentary attention with creative interpretation, always with respect for the communities that welcome us. We do not search for the hidden Japan. We reveal the quiet Japan that has always existed.
+            </p>
+            <p class="lang-content lang-fr">
+                Nous travaillons par observation de terrain: marcher, écouter, filmer, écrire. Nos projets mêlent attention documentaire et interprétation créative, toujours dans le respect des communautés qui nous accueillent. Nous ne cherchons pas le Japon caché. Nous révélons le Japon tranquille qui a toujours existé.
+            </p>
+            <p class="lang-content lang-ja">
+                私たちはフィールドワークを通して制作を行っています。歩き、耳を傾け、撮影し、書く。私たちのプロジェクトは、ドキュメンタリー的なまなざしと創造的な解釈を融合させ、常に私たちを迎え入れてくれる地域の人々への敬意を大切にしています。私たちは「隠れた日本」を探しているのではありません。昔からそこにあり続けてきた、静かな日本を描き出しています。
+            </p>
+        </div>
+    </section>
+
+    <section class="connection-section">
+        <div class="connection-content">
+            <h2 class="section-title lang-content lang-en active">Our Connection to the Island</h2>
+            <h2 class="section-title lang-content lang-fr">Notre Lien avec l Île</h2>
+            <h2 class="section-title lang-content lang-ja">島とのつながり</h2>
+            
+            <p class="lang-content lang-en active">
+                Kyūshū is our basecamp, the starting point of all our stories, images, and films. This is where we follow craft lineages, record seasons, meet artisans, and build long-term relationships through regular fieldwork and slow exploration.
+            </p>
+            <p class="lang-content lang-fr">
+                Kyūshū est notre camp de base, le point de départ de toutes nos histoires, images et films. C est ici que nous suivons les lignées artisanales, enregistrons les saisons, rencontrons les artisans et construisons des relations à long terme par un travail de terrain régulier et une exploration lente.
+            </p>
+            <p class="lang-content lang-ja">
+                九州は私たちのベースキャンプです。すべての物語、イメージ、映画の出発点。ここで私たちは工芸の系譜を追い、季節を記録し、職人に会い、定期的なフィールドワークとゆっくりとした探索を通じて長期的な関係を築きます。
+            </p>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <h2 class="section-title lang-content lang-en active" style="text-align: center;">Our Projects</h2>
+        <h2 class="section-title lang-content lang-fr" style="text-align: center;">Nos Projets</h2>
+        <h2 class="section-title lang-content lang-ja" style="text-align: center;">私たちのプロジェクト</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>
+                    <span class="lang-content lang-en active">Video Production</span>
+                    <span class="lang-content lang-fr">Production Vidéo</span>
+                    <span class="lang-content lang-ja">映像制作</span>
+                </h3>
+                
+                <p>
+                    <span class="lang-content lang-en active">Full production services across the island.</span>
+                    <span class="lang-content lang-fr">Services de production complets à travers l île.</span>
+                    <span class="lang-content lang-ja">九州全域での映像制作サービス。</span>
+                </p>
+                
+                <a href="video-production.html">
+                    <span class="lang-content lang-en active">See Services →</span>
+                    <span class="lang-content lang-fr">Voir Services →</span>
+                    <span class="lang-content lang-ja">サービス詳細 →</span>
+                </a>
             </div>
             
-            <!-- English -->
-            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇬🇧</span> We work through field observation — walking, listening, filming, writing. Our projects blend documentary attention with creative interpretation, always with respect for the communities that welcome us. We don't search for the "hidden Japan." We reveal the quiet Japan that has always existed.
-            </p>
-            
-            <!-- Japanese -->
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇯🇵</span> 私たちはフィールドワークを通して制作を行っています。<br>
-歩き、耳を傾け、撮影し、書く。<br>
-私たちのプロジェクトは、ドキュメンタリー的なまなざしと創造的な解釈を融合させ、常に私たちを迎え入れてくれる地域の人々への敬意を大切にしています。<br>
-私たちは「隠れた日本」を探しているのではありません。<br>
-昔からそこにあり続けてきた、静かな日本を描き出しています。
-            </p>
-            
-            <!-- French -->
-            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
-                <span style="font-weight: 600; color: var(--ocean-blue);">🇫🇷</span> Nous travaillons par observation de terrain — marcher, écouter, filmer, écrire. Nos projets mêlent attention documentaire et interprétation créative, toujours dans le respect des communautés qui nous accueillent. Nous ne cherchons pas le « Japon caché ». Nous révélons le Japon tranquille qui a toujours existé.
-            </p>
-        </div>
-    </section>
-
-    <!-- OUR CONNECTION TO THE ISLAND -->
-    <section style="padding: 4rem 2rem; background: var(--ocean-blue); color: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 style="color: var(--white);">Our Connection to the Island</h2>
-                <div class="section-divider"></div>
+            <div class="project-card">
+                <h3>In Motion</h3>
+                
+                <p>
+                    <span class="lang-content lang-en active">A visual space capturing the island.</span>
+                    <span class="lang-content lang-fr">Un espace visuel capturant l île.</span>
+                    <span class="lang-content lang-ja">島を捉えるビジュアルスペース。</span>
+                </p>
+                
+                <a href="in-motion.html">
+                    <span class="lang-content lang-en active">Discover Project →</span>
+                    <span class="lang-content lang-fr">Découvrir →</span>
+                    <span class="lang-content lang-ja">プロジェクト →</span>
+                </a>
             </div>
             
-            <!-- English -->
-            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.95);">
-                <span style="font-weight: 600; color: var(--white);">🇬🇧</span> Kyūshū is our basecamp — the starting point of all our stories, images, and films. This is where we follow craft lineages, record seasons, meet artisans, and build long-term relationships through regular fieldwork and slow exploration.
-            </p>
-            
-            <!-- Japanese -->
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9);">
-                <span style="font-weight: 600; color: var(--white);">🇯🇵</span> 九州は私たちのベースキャンプです―すべての物語、イメージ、映画の出発点。ここで私たちは工芸の系譜を追い、季節を記録し、職人に会い、定期的なフィールドワークとゆっくりとした探索を通じて長期的な関係を築きます。
-            </p>
-            
-            <!-- French -->
-            <p class="french-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9);">
-                <span style="font-weight: 600; color: var(--white);">🇫🇷</span> Kyūshū est notre camp de base — le point de départ de toutes nos histoires, images et films. C'est ici que nous suivons les lignées artisanales, enregistrons les saisons, rencontrons les artisans et construisons des relations à long terme par un travail de terrain régulier et une exploration lente.
-            </p>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 900px; margin: 0 auto;">
-            <div class="section-header">
-                <h2 class="section-title">Projects</h2>
-                <div class="section-divider"></div>
+            <div class="project-card">
+                <h3>
+                    <span class="lang-content lang-en active">Stories</span>
+                    <span class="lang-content lang-fr">Histoires</span>
+                    <span class="lang-content lang-ja">物語</span>
+                </h3>
+                
+                <p>
+                    <span class="lang-content lang-en active">A literary exploration through fiction and narrative fragments.</span>
+                    <span class="lang-content lang-fr">Une exploration littéraire à travers la fiction et les fragments narratifs.</span>
+                    <span class="lang-content lang-ja">フィクションと断片的な物語による文学的探究。</span>
+                </p>
+                
+                <a href="stories.html">
+                    <span class="lang-content lang-en active">Read More →</span>
+                    <span class="lang-content lang-fr">Lire Plus →</span>
+                    <span class="lang-content lang-ja">読む →</span>
+                </a>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <!-- VIDEO PRODUCTION -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="font-size: 1.8rem; color: var(--ocean-blue); margin-bottom: 1rem;">Video Production</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Full production services across the island.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        九州全域での映像制作サービス。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Services de production complets à travers l'île.
-                    </p>
-                    <a href="video-production.html" class="btn btn-primary">→ See services</a>
-                </div>
-
-                <!-- KYŪSHŪ IN MOTION -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1rem;">In Motion</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        A visual space capturing the island.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        島を捉えるビジュアルスペース。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Un espace visuel capturant l'île.
-                    </p>
-                    <a href="in-motion.html" class="btn btn-primary">→ Discover the project</a>
-                </div>
-
-                <!-- STORIES -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="font-size: 1.8rem; color: var(--sunset-orange); margin-bottom: 1rem;">Stories</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        A literary exploration through fiction and narrative fragments.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        フィクションと断片的な物語による文学的探究。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Une exploration littéraire à travers la fiction et les fragments narratifs.
-                    </p>
-                    <a href="stories.html" class="btn btn-primary">→ Read more</a>
-                </div>
-
-                <!-- EXPEDITION RESORT -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="font-size: 1.8rem; color: var(--moss-green); margin-bottom: 1rem;">Expedition Resort</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        A basecamp concept for creators, production teams, and explorers.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        クリエイターや制作チーム、探究者のためのベースキャンプ。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Un concept de camp de base pour les créateurs, les équipes de production et les explorateurs.
-                    </p>
-                    <a href="expedition-resort.html" class="btn btn-primary">→ Learn more</a>
-                </div>
-
-                <!-- DESIGN (ONLINE STORE) -->
-                <div style="background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="font-size: 1.8rem; color: var(--sunset-orange); margin-bottom: 1rem;">Online Store</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        More than a shirt. A piece of Kyūshū.
-                    </p>
-                    <p class="japanese-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        ただのシャツじゃない。九州の一部。
-                    </p>
-                    <p class="french-text" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                        Plus qu'un T-shirt. Un morceau de Kyūshū.
-                    </p>
-                    <a href="online-store.html" class="btn btn-primary">→ Shop online</a>
-                </div>
+            <div class="project-card">
+                <h3>
+                    <span class="lang-content lang-en active">Expedition Resort</span>
+                    <span class="lang-content lang-fr">Expedition Resort</span>
+                    <span class="lang-content lang-ja">エクスペディション・リゾート</span>
+                </h3>
+                
+                <p>
+                    <span class="lang-content lang-en active">A basecamp concept for creators, production teams, and explorers.</span>
+                    <span class="lang-content lang-fr">Un concept de camp de base pour les créateurs, les équipes de production et les explorateurs.</span>
+                    <span class="lang-content lang-ja">クリエイターや制作チーム、探究者のためのベースキャンプ。</span>
+                </p>
+                
+                <a href="expedition-resort.html">
+                    <span class="lang-content lang-en active">Learn More →</span>
+                    <span class="lang-content lang-fr">En Savoir Plus →</span>
+                    <span class="lang-content lang-ja">詳細 →</span>
+                </a>
+            </div>
+            
+            <div class="project-card">
+                <h3>
+                    <span class="lang-content lang-en active">Online Shop</span>
+                    <span class="lang-content lang-fr">Boutique en Ligne</span>
+                    <span class="lang-content lang-ja">SHOP</span>
+                </h3>
+                
+                <p>
+                    <span class="lang-content lang-en active">More than a shirt. A piece of Kyūshū.</span>
+                    <span class="lang-content lang-fr">Plus qu un T-shirt. Un morceau de Kyūshū.</span>
+                    <span class="lang-content lang-ja">ただのシャツじゃない。九州の一部。</span>
+                </p>
+                
+                <a href="online-store.html">
+                    <span class="lang-content lang-en active">Shop Now →</span>
+                    <span class="lang-content lang-fr">Boutique →</span>
+                    <span class="lang-content lang-ja">ショップ →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Stay in the Loop - Instagram Section -->
-    <section style="padding: 4rem 2rem; background: var(--white); display: flex; justify-content: center; align-items: center;">
-        <div style="background: var(--warm-beige); border-radius: 20px; padding: 3.5rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-            <h2 style="font-family: 'Georgia', serif; font-size: 2.5rem; color: var(--ocean-blue); margin-bottom: 1.2rem; font-weight: 400; line-height: 1.3;">
-                Stay in the Loop
-            </h2>
-            <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 2.5rem; color: var(--text-dark);">
-                Get behind-the-scenes updates.
-            </p>
-            <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" 
-               style="display: inline-flex; align-items: center; justify-content: center; background-color: var(--ocean-blue); color: var(--white); border-radius: 12px; padding: 1.2rem; width: 100%; font-size: 3rem; transition: all 0.3s ease; text-decoration: none;"
-               onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(74, 123, 167, 0.3)'" 
-               onmouseout="this.style.backgroundColor='var(--ocean-blue)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display: block;">
-                    <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
-                </svg>
-            </a>
-        </div>
+    <section class="newsletter-section">
+        <h2 class="lang-content lang-en active">Stay in the Loop</h2>
+        <h2 class="lang-content lang-fr">Restez Connecté</h2>
+        <h2 class="lang-content lang-ja">最新情報を受け取る</h2>
+        
+        <p class="lang-content lang-en active">Follow us on Instagram for behind-the-scenes updates</p>
+        <p class="lang-content lang-fr">Suivez-nous sur Instagram pour des mises à jour en coulisses</p>
+        <p class="lang-content lang-ja">Instagramで舞台裏の情報をフォロー</p>
+        
+        <a href="https://instagram.com/basecampkyushu" target="_blank" class="instagram-link" style="display: inline-block; margin-top: 1.5rem; padding: 1rem 2.5rem; background: var(--primary-dark); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <span class="lang-content lang-en active">@basecampkyushu</span>
+            <span class="lang-content lang-fr">@basecampkyushu</span>
+            <span class="lang-content lang-ja">@basecampkyushu</span>
+        </a>
     </section>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
                 <p class="japanese-text">土地 — 人 — 物語</p>
-                <p class="french-text">Terre — Gens — Histoires</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
@@ -330,96 +740,90 @@
 
     <script src="js/main.js"></script>
 
-<!-- Language Toggle Script (Japanese & French) -->
+<!-- NEW LANGUAGE SWITCHER & SCROLL EFFECT -->
 <script>
-</script>
+// Language Switcher
+var langBtns = document.querySelectorAll(".lang-btn");
+var langContents = document.querySelectorAll(".lang-content");
+var currentLang = localStorage.getItem("lang") || "en";
 
-<!-- Language Toggle Styles and Script -->
-<style>
-    /* Language Toggle System */
-    body .japanese-text,
-    body .content-text[style*="font-style: italic"] {
-        display: none !important;
-    }
-    
-    /* When Japanese is active */
-    body[data-lang="ja"] .japanese-text {
-        display: block !important;
-    }
-    
-    body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) {
-        display: none !important;
-    }
-    
-    body[data-lang="ja"] .content-text[style*="font-style: italic"] {
-        display: none !important;
-    }
-    
-    /* When French is active */
-    body[data-lang="fr"] .content-text[style*="font-style: italic"] {
-        display: block !important;
-    }
-    
-    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) {
-        display: none !important;
-    }
-    
-    body[data-lang="fr"] .japanese-text {
-        display: none !important;
-    }
-    
-    /* ALWAYS VISIBLE */
-    body .main-nav,
-    body .main-nav ul,
-    body .main-nav li,
-    body .main-nav a,
-    body h1, 
-    body h2, 
-    body .section-title, 
-    body .btn,
-    body .logo,
-    body nav,
-    body header,
-    body footer,
-    body img,
-    body .language-toggle-buttons {
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    body .main-nav ul {
-        display: flex !important;
-    }
-</style>
+setLanguage(currentLang);
 
-<script>
-    // Language Toggle Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const langButtons = document.querySelectorAll('.lang-btn');
-        const body = document.body;
-        
-        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-        setLanguage(savedLang);
-        
-        langButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-                localStorage.setItem('preferredLanguage', lang);
-            });
-        });
-        
-        function setLanguage(lang) {
-            body.setAttribute('data-lang', lang);
-            
-            langButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                }
-            });
+langBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+        var lang = btn.dataset.lang;
+        setLanguage(lang);
+        localStorage.setItem("lang", lang);
+    });
+});
+
+function setLanguage(lang) {
+    langBtns.forEach(function(btn) {
+        if (btn.dataset.lang === lang) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
         }
     });
+    
+    langContents.forEach(function(content) {
+        var contentLang = "lang-" + lang;
+        if (content.classList.contains(contentLang)) {
+            content.classList.add("active");
+        } else {
+            content.classList.remove("active");
+        }
+    });
+}
+
+// Sticky nav scroll effect
+window.addEventListener("scroll", function() {
+    var nav = document.getElementById("navbar");
+    if (nav && window.scrollY > 100) {
+        nav.classList.add("scrolled");
+    } else if (nav) {
+        nav.classList.remove("scrolled");
+    }
+});
+
+// Mobile Menu Toggle
+var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+var navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuToggle && navLinks) {
+    // Ensure menu is closed on page load
+    navLinks.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+    
+    mobileMenuToggle.addEventListener('click', function(event) {
+        event.stopPropagation();
+        navLinks.classList.toggle('active');
+        this.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        var isClickInsideNav = navLinks.contains(event.target);
+        var isClickOnToggle = mobileMenuToggle.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking on a link
+    var navLinksElements = navLinks.querySelectorAll('a');
+    navLinksElements.forEach(function(link) {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        });
+    });
+}
 </script>
+
+<!-- Mobile Menu & Main JavaScript -->
+<script src="js/main.js"></script>
 </body>
 </html>

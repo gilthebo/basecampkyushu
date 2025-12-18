@@ -25,6 +25,17 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        :root {
+            --primary-dark: #2C2C2C;
+            --accent-copper: #B87333;
+            --accent-earth: #8B7355;
+            --bg-cream: #F5F5F0;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
         .japanese-toggle-container{position:sticky;top:80px;z-index:998;background:rgba(255,255,255,0.98);border-bottom:1px solid #e2e8f0;padding:0.5rem 2rem;backdrop-filter:blur(10px);display:flex;justify-content:flex-start;align-items:center}
         .japanese-toggle-container::before{content:'';width:calc((100% - var(--max-width)) / 2 + var(--spacing-md))}
         .japanese-toggle-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#4a7ba7 0%,#5a7a65 100%);color:white;border:2px solid rgba(255,255,255,0.2);border-radius:0;padding:0.5rem 1rem;cursor:pointer;font-size:0.85rem;font-weight:400;letter-spacing:0.05em;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.3s ease}
@@ -36,6 +47,68 @@
             .hero {
                 background-position: 50% center !important;
             }
+        }
+        
+        /* FOOTER STYLES - Same as Stories Page */
+        .main-footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .japanese-text {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
         }
     </style>
 </head>
@@ -340,10 +413,11 @@
                 <h4>EXPLORE</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-    
+                    <li><a href="in-motion.html">In Motion</a></li>
                     <li><a href="stories.html">Stories Project</a></li>
                     <li><a href="video-production.html">Video Production</a></li>
                     <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
                 </ul>
             </div>
 
@@ -360,7 +434,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 

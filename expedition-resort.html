@@ -25,6 +25,17 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        :root {
+            --primary-dark: #2C2C2C;
+            --accent-copper: #B87333;
+            --accent-earth: #8B7355;
+            --bg-cream: #F5F5F0;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
         /* Japanese Toggle Button */
 
 
@@ -104,6 +115,68 @@
             .audience-section {
                 padding: 2rem;
             }
+        }
+        
+        /* FOOTER STYLES - Same as Stories Page */
+        .main-footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-earth);
+        }
+        
+        .japanese-text {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
         }
     </style>
 </head>
@@ -588,7 +661,7 @@
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
                 <p class="japanese-text">土地 — 人 — 物語</p>
-                <p>Where mountains meet the sea and stories take form.</p>
+                <p>Where mountains meet the sea<br>and stories take form.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
                 <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
@@ -603,15 +676,17 @@
                 <h4>EXPLORE</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
-                    <li><a href="stories.html">Stories</a></li>
+                    <li><a href="in-motion.html">In Motion</a></li>
+                    <li><a href="stories.html">Stories Project</a></li>
                     <li><a href="video-production.html">Video Production</a></li>
                     <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>CONNECT</h4>
+                <h4>CONNECT WITH US</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
@@ -622,7 +697,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 

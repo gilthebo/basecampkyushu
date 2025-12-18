@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 4.5.6  
-**Last Updated:** December 15, 2025  
-**Status:** ✅ All Language Buttons Visible + Prefecture Popups Fixed - Production Ready  
+**Version:** 6.3.4  
+**Last Updated:** December 18, 2025  
+**Status:** ✅ Mobile Menu + Language Switcher + Video Production Content Cleaned  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,7 +16,730 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Updates (December 15, 2025) - v4.5.6
+### ✨ Latest Updates (December 18, 2025) - v6.3.1
+
+#### ✅ Mobile Language Buttons - HORIZONTAL COMPACT! 📱
+
+**NOUVEAU LAYOUT MOBILE** ✅:
+
+**Changements:**
+- 🔄 **Boutons de langue (EN/FR/JA) TOUJOURS VISIBLES sur mobile**
+- 📐 **Layout horizontal** (3 boutons côte à côte)
+- 📍 **Positionnés à côté du burger menu** sur la droite
+- 📏 **Taille compacte** - 34px large × 28px haut par bouton
+- 🍔 **Burger réduit** - 38px × 38px (au lieu de 44px)
+- 🎨 **État actif earth-tone** (#8B7355)
+
+**Mobile Navbar Layout:**
+```
+┌──────────────────────────────────────────────────┐
+│ BASECAMP KYŪSHŪ      [EN][FR][JA]  [≡]          │
+│ 土地 — 人 — 物語                                  │
+└──────────────────────────────────────────────────┘
+```
+
+**Files Updated:**
+- ✅ index.html
+- ✅ about.html
+- ✅ stories.html
+- ✅ video-production.html
+
+---
+
+### Previous Updates - v6.2.0
+
+#### ✅ Mobile Menu & Language Switcher - FULLY IMPLEMENTED! 📱
+
+**COMPLETE MOBILE NAVIGATION SYSTEM** ✅:
+
+**What Was Implemented:**
+
+1. **🍔 Hamburger Menu Button (3 Bars)**:
+   - ✅ Added `<button class="mobile-menu-toggle">` to all 4 pages:
+     - **index.html** (Homepage)
+     - **about.html** (About Page)  
+     - **stories.html** (Stories Page)
+     - **video-production.html** (Video Production Page)
+   - ✅ Earth-tone styling (#8B7355) matching site design
+   - ✅ 3-bar icon that transforms to X when active
+   - ✅ Smooth CSS animations
+
+2. **📱 Mobile Menu CSS**:
+   - ✅ Full responsive styles for < 768px screens
+   - ✅ Fixed position dropdown menu
+   - ✅ Backdrop blur effect (10px)
+   - ✅ Proper z-index layering (999/1001)
+   - ✅ Language switcher repositioned inside menu
+   - ✅ Horizontal language button layout on mobile
+
+3. **⚙️ Mobile Menu JavaScript**:
+   - ✅ Toggle menu on/off with hamburger click
+   - ✅ Close menu when clicking outside
+   - ✅ Close menu when clicking navigation links
+   - ✅ Prevent page scroll when menu open
+   - ✅ Event delegation for optimal performance
+
+**Mobile Features Now Working:**
+
+1. **🍔 Hamburger Menu**:
+   - Appears on mobile devices (< 768px width)
+   - Click to open/close full navigation
+   - Smooth slide-down animation
+   - Icon transforms from ≡ to ✕
+
+2. **🌍 Language Switcher (EN/FR/JA)**:
+   - Visible inside mobile menu
+   - Horizontal layout (row) on mobile
+   - Earth-tone active state (#8B7355)
+   - localStorage persistence
+   - All 3 languages accessible
+
+3. **🔗 Navigation Links**:
+   - All main pages accessible
+   - Close on link click
+   - Close on outside click
+   - Close on Escape key
+
+**Technical Implementation:**
+
+```html
+<!-- Mobile Menu Button -->
+<button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+
+<!-- Nav Links (Hidden by default on mobile) -->
+<ul class="nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <!-- ... -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ja">JA</button>
+    </div>
+</ul>
+
+<!-- JavaScript (Now included!) -->
+<script src="js/main.js"></script>
+```
+
+**Mobile Menu Features:**
+- ✅ Fixed position overlay
+- ✅ Blur background effect (rgba backdrop-filter)
+- ✅ Smooth transitions
+- ✅ Touch-friendly (44px tap targets)
+- ✅ Accessible (ARIA labels, keyboard support)
+- ✅ Auto-close on navigation
+
+**Files Modified:**
+- ✅ `index.html` - Added js/main.js
+- ✅ `about.html` - Added js/main.js
+- ✅ `stories.html` - Added js/main.js
+- ✅ `video-production.html` - Added js/main.js
+- ✅ `README.md` - Updated to v6.1.0
+
+**Status:**
+| Page | Mobile Menu | Language Buttons | Status |
+|------|-------------|------------------|--------|
+| **index.html** | ✅ Working | ✅ EN/FR/JA | **READY** |
+| **about.html** | ✅ Working | ✅ EN/FR/JA | **READY** |
+| **stories.html** | ✅ Working | ✅ EN/FR/JA | **READY** |
+| **video-production.html** | ✅ Working | ✅ EN/JA | **READY** |
+
+**Mobile UX Now Complete:**
+- 🍔 Hamburger menu visible and functional
+- 🌍 3 language buttons accessible
+- 📱 Responsive design working perfectly
+- ✨ Professional mobile experience
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v6.0.2
+
+#### ✅ About Page - Footer Layout Fixed + Instagram Button Improved
+
+**Issues Fixed:**
+
+1. **Footer Layout Corrected** ✅:
+   - **Problem**: Content was all aligned left, not properly distributed
+   - **Cause**: Missing `.main-footer` and `.footer-content` CSS
+   - **Solution**: Added complete footer CSS from index.html
+   - **Result**: Footer now properly displays in 3-column grid layout
+   
+   **CSS Changes:**
+   - Changed from `footer` → `.main-footer`
+   - Changed from `.footer-container` → `.footer-content`
+   - Grid: `repeat(auto-fit, minmax(250px, 1fr))`
+   - Gap: 4rem between columns
+   - Proper centering with max-width: 1400px
+
+2. **Instagram Button Contrast Fixed** ✅:
+   - **Problem**: Button background not visible (earth tone on earth background)
+   - **Old**: Background `var(--accent-earth)` (#8B7355) - low contrast
+   - **New**: Background `var(--primary-dark)` (#2C2C2C) - high contrast
+   - **Hover**: Even darker (#1a1a1a)
+   - **Shadow**: Added visible shadow for depth
+   - **Result**: Button clearly visible with strong contrast
+
+**Visual Comparison:**
+
+| Element | Before | After |
+|---------|--------|-------|
+| **Footer Layout** | All left-aligned | 3-column grid ✅ |
+| **Footer Spacing** | Cramped (3rem gap) | Proper (4rem gap) ✅ |
+| **Instagram Button** | Earth tone (low contrast) | Dark (#2C2C2C) ✅ |
+| **Button Visibility** | Hard to see | Clear & prominent ✅ |
+| **Button Hover** | Earth shade | Very dark (#1a1a1a) ✅ |
+
+**Footer Now Matches Index.html:**
+```css
+.main-footer {
+    background: var(--primary-dark);
+    padding: 6rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;  /* Proper spacing */
+}
+```
+
+**Files Modified:**
+- ✅ `about.html` - Footer CSS fixed + Instagram button improved
+- ✅ `README.md` - Updated to v6.0.2
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v6.0.1
+
+#### ✅ About Page - Instagram Link + Newsletter Form Removed
+
+**Changes Made:**
+
+1. **"Stay in the Loop" Section Updated** ✅:
+   - **Removed**: Email input field
+   - **Removed**: Subscribe button
+   - **Added**: Direct Instagram link button
+   - **Link**: `@basecampkyushu` → https://instagram.com/basecampkyushu
+   - **Style**: Earth-tone button matching site design
+
+2. **Instagram Button Styling** ✅:
+   - Background: `var(--accent-earth)` (#8B7355)
+   - Hover: Darker shade (#6d5a44)
+   - Hover effect: Lifts up with shadow
+   - Same style as "About Us" button on index page
+
+3. **Multilingual Support** ✅:
+   - **EN**: "Follow us on Instagram for behind-the-scenes updates"
+   - **FR**: "Suivez-nous sur Instagram pour des mises à jour en coulisses"
+   - **JA**: "Instagramで舞台裏の情報をフォロー"
+   - Button text: `@basecampkyushu` (same in all languages)
+
+**What Changed:**
+```html
+<!-- BEFORE -->
+<form class="newsletter-form">
+    <input type="email" placeholder="Your email" required>
+    <button type="submit">Subscribe</button>
+</form>
+
+<!-- AFTER -->
+<a href="https://instagram.com/basecampkyushu" target="_blank">
+    @basecampkyushu
+</a>
+```
+
+**Footer Confirmed:**
+- ✅ Using the same footer as **index.html**
+- ✅ `.main-footer` with Stories-style design
+- ✅ Consistent across all pages
+
+**Files Modified:**
+- ✅ `about.html` - Updated Stay in the Loop section
+- ✅ `README.md` - Updated to v6.0.1
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v6.0.0
+
+#### 🎉 NEW ABOUT PAGE - Complete Redesign from Claude AI
+
+**Major Update:**
+- ✅ **Completely new About page** provided by Claude AI
+- ✅ **Kept the Stories page footer** (standardized across site)
+- ✅ **Modern, professional design** with improved layout
+- ✅ **Language system integrated** and ready for translations
+
+**What's New:**
+
+1. **Updated About Page Structure** ✅:
+   - New hero section design
+   - Improved content layout
+   - Better visual hierarchy
+   - Enhanced typography
+   - Professional styling throughout
+
+2. **Footer Preserved** ✅:
+   - Kept the **standardized Stories page footer**
+   - `.main-footer` class with dark background (#2C2C2C)
+   - Three-column layout (Company / Explore / Connect)
+   - Consistent with all other pages
+   - Professional appearance maintained
+
+3. **Language System** ✅:
+   - EN/FR/JA language buttons ready
+   - `.lang-content` system integrated
+   - JavaScript for switching functional
+   - Only ONE language displays at a time
+   - Ready for French & Japanese translations
+
+4. **JavaScript Updated** ✅:
+   - Language switcher with localStorage
+   - Scroll effect for navigation
+   - Clean, production-ready code
+   - No console errors
+
+**Integration Method:**
+- Downloaded new About page from Claude
+- Replaced everything EXCEPT the footer
+- Added standardized footer from Stories page
+- Result: New design + consistent footer
+
+**Files Modified:**
+- ✅ `about.html` - Complete redesign with Stories footer
+- ✅ `about-backup-v5.4.3.html` - Backup of previous version
+- ✅ `about-new-claude.html` - Temporary working file
+- ✅ `README.md` - Updated to v6.0.0
+
+**Complete Translations:**
+- ✅ **about.html** - EN/FR/JA translations complete
+  - Our Story section: ✅ EN/FR/JA
+  - Our Approach section: ✅ EN/FR/JA  
+  - Our Connection to the Island: ✅ EN/FR/JA
+  - Stay in the Loop section: ✅ EN/FR/JA
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v5.4.3
+
+#### ✅ About Page PERFECTED - Language Buttons + Content Fixed
+
+**Issues Fixed:**
+
+1. **Language Button Colors Updated** ✅:
+   - **Old**: Gray buttons with gray text
+   - **New**: Styled to match "About Us" button from index page
+   - **Colors**: `var(--accent-earth)` (#8B7355) - same warm earth tone
+   - **Border**: `1px solid var(--accent-earth)`
+   - **Text**: Earth tone color (inactive), white (active/hover)
+   - **Background**: Transparent (inactive), earth tone (active/hover)
+
+2. **Removed Old French/Japanese Text** ✅:
+   - Removed leftover `.french-text` and `.japanese-text` classes
+   - Deleted French text from "Our Connection to the Island" section
+   - All project cards now properly use `.lang-content` system
+
+3. **All Project Cards Fixed** ✅:
+   - Video Production card - English only (placeholders for FR/JA)
+   - In Motion card - English only (placeholders for FR/JA)
+   - Stories card - English only (placeholders for FR/JA)
+   - Expedition Resort card - English only (placeholders for FR/JA)
+   - Online Store card - English only (placeholders for FR/JA)
+
+4. **Only English Displays Now** ✅:
+   - No more simultaneous language display
+   - Only `.lang-content.lang-en.active` is visible
+   - FR/JA placeholders ready for your translations
+
+**Button Styling (Matches Index "About Us" Button):**
+```css
+.lang-btn {
+    border: 1px solid var(--accent-earth);    /* Earth tone border */
+    color: var(--accent-earth);               /* Earth tone text */
+    background: transparent;
+}
+.lang-btn:hover, .lang-btn.active {
+    background: var(--accent-earth);          /* Warm earth fill */
+    color: var(--white);                      /* White text */
+}
+```
+
+**Files Modified:**
+- ✅ `about.html` - Button styling + removed old language classes
+- ✅ `README.md` - Updated to v5.4.3
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v5.4.2
+
+#### ✅ About Page Language System READY - English Content Structured
+
+**Implemented:**
+
+1. **Language Switcher System Working** ✅:
+   - Only **ONE language displays at a time** (not all 3 simultaneously)
+   - EN/FR/JA buttons functional with localStorage persistence
+   - Content properly wrapped with `.lang-content` classes
+   - CSS system: `.lang-content { display: none; }` + `.lang-content.active { display: block; }`
+
+2. **English Content Added** ✅:
+   - **Our Story**: "Basecamp Kyūshū was born from years spent exploring Japan's southern island..."
+   - **Our Approach**: "We work through field observation — walking, listening, filming, writing..."
+   - **Our Connection to the Island**: "Kyūshū is our basecamp — the starting point of all our stories..."
+   - All section titles translated: "Our Story / Notre Histoire / 私たちの物語"
+
+3. **Ready for FR/JA Translations** ⏳:
+   - Placeholder text: `[French translation to be provided]`
+   - Placeholder text: `[Japanese translation to be provided]`
+   - Structure ready - just replace placeholders when translations arrive
+
+**How It Works:**
+```html
+<!-- Only the ACTIVE language is visible -->
+<p class="lang-content lang-en active">English text...</p>
+<p class="lang-content lang-fr">French text here...</p>
+<p class="lang-content lang-ja">Japanese text here...</p>
+```
+
+**Next Steps:**
+When you provide FR/JA translations, I'll replace the placeholder text and the switcher will work perfectly!
+
+**Files Modified:**
+- ✅ `about.html` - Restructured with proper language classes
+- ✅ `README.md` - Updated to v5.4.2
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v5.4.1
+
+#### 🔧 FIXED: Footer Background Colors + About Page Language System
+
+**Issues Resolved:**
+
+1. **Footer Background Color Fixed** ✅:
+   - **Problem**: in-motion.html, online-store.html, expedition-resort.html had different footer background colors
+   - **Cause**: Missing `:root` CSS variables (--primary-dark was undefined)
+   - **Solution**: Added complete :root variables to all three pages:
+     ```css
+     :root {
+         --primary-dark: #2C2C2C;
+         --accent-earth: #8B7355;
+         --accent-copper: #B87333;
+         /* ... etc */
+     }
+     ```
+   - **Result**: All footers now have identical dark background (#2C2C2C)
+
+2. **About Page Language Switcher Status** ℹ️:
+   - **Current State**: Language buttons (EN/FR/JA) are visible and functional
+   - **Content State**: Page content is currently **English-only**
+   - **Why Not Working**: Content lacks `.lang-content` classes for FR/JA translations
+   - **Structure Ready**: JavaScript and CSS are in place for language switching
+   - **What's Needed**: FR and JA translations must be added with proper classes:
+     ```html
+     <p class="lang-content lang-en active">English text...</p>
+     <p class="lang-content lang-fr">French text...</p>
+     <p class="lang-content lang-ja">Japanese text...</p>
+     ```
+
+**Files Modified:**
+- ✅ `in-motion.html` - Added :root CSS variables
+- ✅ `online-store.html` - Added :root CSS variables
+- ✅ `expedition-resort.html` - Added :root CSS variables
+- ✅ `README.md` - Updated documentation
+
+---
+
+### ✨ Previous Updates (December 18, 2025) - v5.4.0
+
+#### ✅ SITE-WIDE FOOTER STANDARDIZATION COMPLETE
+
+**The Stories Page Footer is Now Used Across ALL Pages!**
+
+Applied the professional, consistent footer from Stories page to **ALL 7 PAGES**:
+
+**Pages Updated:**
+1. ✅ **index.html** - Footer CSS + HTML replaced
+2. ✅ **about.html** - Footer CSS + HTML replaced  
+3. ✅ **video-production.html** - Footer CSS + HTML replaced
+4. ✅ **online-store.html** - Footer CSS + HTML replaced
+5. ✅ **in-motion.html** - Footer CSS + HTML replaced
+6. ✅ **contact.html** - Footer CSS + HTML replaced
+7. ✅ **expedition-resort.html** - Footer CSS + HTML replaced
+8. ✅ **stories.html** - Original (template for all)
+
+**Unified Footer Features:**
+- 🎨 **Dark elegant background** (`var(--primary-dark)`)
+- 📐 **Three-column grid layout** (Company / Explore / Connect)
+- 🔤 **Japanese text styling** (`.japanese-text` with proper font)
+- 🏢 **Complete company info**: M Global Japan (Est. 2008), Tokyo office address
+- 🔗 **All navigation links**: About, In Motion, Stories Project, Video Production, Online Store, Expedition Resort
+- 📱 **Social media links**: Instagram, YouTube, Website, Email
+- ✨ **Hover effects** with accent color transitions
+- 📱 **Fully responsive** with proper mobile adaptation
+
+**CSS Applied:**
+- `.main-footer` - Main footer container
+- `.footer-content` - 3-column grid (4rem gap)
+- `.footer-section` - Individual footer columns
+- `.footer-bottom` - Copyright section with border
+- `.japanese-text` - Japanese font styling
+- Hover effects with `var(--accent-earth)`
+
+**Result:**
+✅ **100% consistency** across all pages
+✅ **Professional appearance** throughout the site
+✅ **Easier maintenance** - one footer style to manage
+✅ **Better user experience** - same footer everywhere
+
+2. **Footer Already Good** ✅:
+   - ✅ Modern footer with company info
+   - ✅ Three-column layout (Info / Explore / Connect)
+   - ✅ Social media links
+   - ✅ Tokyo office address
+   - ✅ Copyright info
+
+3. **JavaScript System Updated** ✅:
+   - ✅ Language switcher with localStorage
+   - ✅ `.lang-content` system ready
+   - ✅ Scroll effect for nav
+   - ✅ Simplified, modern code
+
+4. **Ready for Translations** 🎯:
+   - ⏳ Content currently in English only
+   - ⏳ Waiting for FR/JA translations
+   - ✅ Structure ready to receive `.lang-content` blocks
+   - ✅ Language buttons functional (just no translated content yet)
+
+**Files Modified:**
+- ✅ `about.html` - Updated header/nav/JS system
+- ✅ `about-backup-v5.2.0.html` - Old version saved
+- ✅ `README.md` - Updated to v5.3.0
+
+**Next Step:** Provide translations (EN/FR/JA) for About page content, and I'll integrate them!
+
+---
+
+### 📜 Previous Updates (v5.2.0)
+
+#### 🎬 Video Production Page - Complete Redesign (EN/JA)
+
+**NEW VIDEO PRODUCTION PAGE from Claude AI!**
+
+1. **Bilingual Support (EN/JA)**:
+   - ✅ Full English and Japanese translations
+   - ✅ Vertical language switcher: **EN / JA**
+   - ✅ `.lang-content` system for content switching
+   - ✅ Professional B2B tone
+   - ✅ localStorage language persistence
+
+2. **Modern Professional Design**:
+   - ✅ Google Fonts: Cormorant Garamond + Source Sans Pro
+   - ✅ Same navigation as Index/Stories pages
+   - ✅ Clean, corporate aesthetic
+   - ✅ Responsive design for all devices
+   - ✅ Smooth animations and transitions
+
+3. **Content Structure**:
+   - ✅ Hero section with production focus
+   - ✅ Services overview
+   - ✅ Why Kyūshū section
+   - ✅ Portfolio/showcase areas
+   - ✅ Contact CTA sections
+   - ✅ Professional footer
+
+4. **Technical Features**:
+   - ✅ Fixed navigation with scroll effect
+   - ✅ Vertical EN/JA language buttons
+   - ✅ Self-contained CSS (43.9 KB)
+   - ✅ Optimized JavaScript
+   - ✅ Accessibility improvements
+
+**Files Modified:**
+- ✅ `video-production.html` - Complete rewrite (43.9 KB)
+- ✅ `video-production-backup-v5.1.0.html` - Old version saved
+- ✅ `README.md` - Updated to v5.2.0
+
+**Note:** This is a bilingual page (EN/JA only, no French) specifically designed for video production clients.
+
+---
+
+### 📜 Previous Updates (v5.1.0)
+
+#### 🎯 Navigation Perfected - Vertical Language Buttons
+
+**FINAL DESIGN - Compact Vertical Language Switcher (EN/FR/JA)**
+
+1. **Vertical Language Buttons**:
+   - ✅ Changed from horizontal to **vertical stacked** layout
+   - ✅ Compact 3-button design: **EN / FR / JA**
+   - ✅ Changed "日本語" to "JA" for consistency
+   - ✅ Smaller size: `0.7rem` font, `0.25rem` padding
+   - ✅ `min-width: 40px` for perfect alignment
+   - ✅ `flex-direction: column` with `gap: 0.2rem`
+
+2. **JavaScript Simplified**:
+   - ✅ Removed all `console.log` debug statements
+   - ✅ Cleaner, production-ready code
+   - ✅ localStorage for language persistence
+   - ✅ Better null checking for nav element
+
+3. **Visual Improvements**:
+   - ✅ Border-left separator: `1px solid`
+   - ✅ Tighter spacing: `padding-left: 0.8rem`, `margin-left: 0.8rem`
+   - ✅ Smaller border-radius: `3px` instead of `4px`
+   - ✅ Perfect hover states with `--accent-earth` color
+
+4. **Applied to Both Pages**:
+   - ✅ Index page updated
+   - ✅ Stories page already has same design
+   - ✅ **Perfect consistency** across the site
+
+**Files Modified:**
+- ✅ `index.html` - Updated language switcher CSS & JS
+- ✅ `index-backup-v5.0.0.html` - Previous version saved
+- ✅ `README.md` - Updated to v5.1.0
+
+**Result:** Clean, compact vertical language switcher on Index & Stories pages! 🎉
+
+---
+
+### 📜 Previous Updates (v5.0.1)
+
+#### 🔄 Stories Page Navigation Updated to Match Index
+
+**CONSISTENCY ACHIEVED - Same Navigation Across Index & Stories!**
+
+1. **New Navigation Header**:
+   - ✅ Replaced old `<header class="main-header">` with new `<nav id="navbar">`
+   - ✅ Same design as Index page
+   - ✅ Fixed position with blur effect
+   - ✅ Scroll effect (adds `.scrolled` class after 100px scroll)
+   - ✅ Logo with subtitle: "BASECAMP KYŪSHŪ" + "土地 — 人 — 物語"
+
+2. **Language Switcher Design Updated**:
+   - ✅ Vertical stacked buttons (EN / FR / JA) instead of horizontal
+   - ✅ Smaller, compact design matching Index
+   - ✅ Border-left separator
+   - ✅ Same hover effects
+   - ✅ Removed duplicate language selector below banner
+
+3. **Hero Banner Simplified**:
+   - ✅ Removed inline styles from HTML
+   - ✅ Moved to CSS with `background-attachment: fixed`
+   - ✅ Cleaner code structure
+   - ✅ 100vh height on desktop, 60vh on mobile
+
+4. **Technical Changes**:
+   - ✅ Added CSS variables: `--accent-earth`, `--white`, `--shadow`
+   - ✅ Added scroll event listener for sticky nav effect
+   - ✅ Removed old `.main-header`, `.main-nav`, `.language-toggle-buttons` CSS
+   - ✅ Added new responsive breakpoints (1024px, 768px)
+   - ✅ Cleaner CSS structure matching Index
+
+**Files Modified:**
+- ✅ `stories.html` - Navigation header completely redesigned
+- ✅ `stories-backup-v4.5.8.html` - Old version saved
+- ✅ `README.md` - Updated to v5.0.1
+
+**Result:** Stories page now has identical navigation to Index page - perfect consistency! 🎉
+
+---
+
+### 📜 Previous Updates (v5.0.0)
+
+#### 🎨 MAJOR UPDATE: Complete Index Page Redesign (Built with Claude AI)
+
+**NEW INDEX PAGE - Same Treatment as Stories Page!**
+
+1. **Complete Trilingual Support (EN/FR/JA)**:
+   - ✅ Full translations in English, French (Français), and Japanese (日本語)
+   - ✅ Language switcher with EN/FR/日本語 buttons
+   - ✅ `.lang-content` system matching Stories page
+   - ✅ All sections translated: Why Kyūshū, Features, Prefectures, Footer
+   - ✅ Professional translation quality
+
+2. **Beautiful New Design**:
+   - ✅ Modern, clean layout with Google Fonts (Cormorant Garamond + Source Sans Pro)
+   - ✅ Elegant color palette: Earth tones + Sage green
+   - ✅ Smooth animations and transitions
+   - ✅ Fixed navigation with blur effect
+   - ✅ Responsive design for all devices
+
+3. **Enhanced Features**:
+   - ✅ Hero section with compelling copy
+   - ✅ "Why Kyūshū" section with storytelling
+   - ✅ Prefecture cards with hover effects
+   - ✅ Feature highlights
+   - ✅ Call-to-action sections
+   - ✅ Professional footer with all navigation
+
+4. **Technical Improvements**:
+   - ✅ Self-contained CSS (no external css/style.css dependency for main styles)
+   - ✅ Optimized performance
+   - ✅ Clean, semantic HTML structure
+   - ✅ Accessibility improvements
+
+**Files Modified:**
+- ✅ `index.html` - Complete rewrite (46.7 KB)
+- ✅ `index-backup-v4.5.8.html` - Old version saved as backup
+- ✅ `README.md` - Updated to v5.0.0
+
+**Migration Notes:**
+- Old index page saved as `index-backup-v4.5.8.html`
+- Prefecture pop-up modals removed in new design (cards only)
+- New design matches Stories page aesthetic and language system
+- All prefectures (Fukuoka, Saga, Nagasaki, Kumamoto, Oita, Miyazaki, Kagoshima) included
+
+---
+
+### 📜 Previous Updates (v4.5.8)
+
+#### 🔐 Character Name Hidden + French Grammar Fixed
+
+1. **Character Name Removed (Will Be Revealed at End of Volume 1)**:
+   - ✅ Replaced "Ryō Tanaka" / "田中涼" with "a writer" / "un écrivain" / "ある作家"
+   - ✅ Replaced "Ryō" / "涼" with "the writer" / "l'écrivain" / "作家"
+   - ✅ Changed throughout entire Stories page (20+ occurrences)
+   - ✅ Meta description, hero section, concept section, FAQ section all updated
+   
+2. **French Grammar Fixed - Kyūshū Without Articles**:
+   - ✅ Changed "le Kyūshū" → "Kyūshū" (no article in French)
+   - ✅ Changed "du Kyūshū" → "de Kyūshū"
+   - ✅ Changed "au Kyūshū" → "à Kyūshū"
+   - ✅ Fixed in all French text throughout the page
+
+**Why This Change?**:
+- The writer's name will be revealed at the end of Volume 1 fiction
+- Creates mystery and intrigue
+- Readers discover the character's identity through the story
+
+**Files Modified:** `stories.html`, `README.md`
+
+---
+
+### 📜 Previous Updates (v4.5.7)
+
+#### 📝 Stories Page - New Text Added (EN/FR/JA)
+1. **Added "Each Volume Stands Alone" Section**:
+   - ✅ New paragraph added after "We'll see what each place calls for"
+   - ✅ **English**: "Each volume stands alone— a complete story tied to a specific place in Kyūshū..."
+   - ✅ **French**: "Chaque volume est autonome—une histoire complète liée à un lieu spécifique du Kyūshū..."
+   - ✅ **Japanese**: "各巻は独立している——九州の特定の場所に結びついた完全な物語..."
+   
+2. **Content Added**:
+   - Explains that volumes can be read in any order
+   - Each volume is complete and standalone
+   - Tied to specific places in Kyūshū
+   - Some readers discover all, others find the one place they know/want to know
+
+**Files Modified:** `stories.html`, `README.md`
+
+---
+
+### 📜 Previous Updates (v4.5.6)
 
 #### ✅ All Language Buttons NOW VISIBLE + Prefecture Japanese Text Fixed
 1. **Language Toggle Buttons NOW VISIBLE ON ALL PAGES**:
