@@ -325,6 +325,12 @@
             margin-bottom: 0.5rem;
         }
         
+        .footer-section p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        
         .footer-section a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -484,6 +490,15 @@
                 padding: 1rem;
                 width: 100%;
             }
+            
+            /* Fix hero/banner on mobile */
+            .hero {
+                min-height: 60vh;
+                background-attachment: scroll !important;
+                background-position: center center;
+                background-size: cover;
+            }
+            
             section { padding: 3rem 1.5rem; }
             .projects-grid { grid-template-columns: 1fr; }
             .newsletter-form {

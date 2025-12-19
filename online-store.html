@@ -3,53 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Basecamp Kyūshū Online Store - Signature brand apparel. Support and recognize Basecamp Kyūshū through quality t-shirts. Made locally in Kyūshū.">
-    <meta name="keywords" content="Basecamp Kyūshū, Kyūshū apparel, Japanese t-shirts, brand merchandise, Made in Kyūshū, limited edition, heavyweight cotton t-shirt">
     <title>Online Store - Basecamp Kyūshū</title>
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com/online-store.html">
-    <meta property="og:title" content="Basecamp Kyūshū Online Store | Brand Identity Apparel">
-    <meta property="og:description" content="Premium heavyweight t-shirts made in Kyūshū. Brand identity apparel to support and recognize Basecamp Kyūshū. Pre-order March 2026.">
-    <meta property="og:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg">
-    <meta property="og:site_name" content="Basecamp Kyūshū">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Basecamp Kyūshū Store">
-    <meta name="twitter:description" content="Made in Kyūshū. Limited production. Premium t-shirts coming March 2026.">
-    <meta name="twitter:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg">
-    
-    <link rel="canonical" content="https://yourdomain.com/online-store.html">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Signature T-Shirts made in Kyūshū. Premium heavyweight cotton, locally produced. Support creative storytelling.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #2C2C2C;
-            --accent-copper: #B87333;
+            --primary-light: #F5F5F0;
             --accent-earth: #8B7355;
-            --bg-cream: #F5F5F0;
+            --accent-copper: #B87333;
             --text-dark: #333333;
             --text-muted: #666666;
             --white: #FFFFFF;
             --shadow: rgba(0, 0, 0, 0.1);
         }
         
-        .japanese-toggle-container{position:sticky;top:80px;z-index:998;background:rgba(255,255,255,0.98);border-bottom:1px solid #e2e8f0;padding:0.5rem 2rem;backdrop-filter:blur(10px);display:flex;justify-content:flex-start;align-items:center}
-        .japanese-toggle-container::before{content:'';width:calc((100% - var(--max-width)) / 2 + var(--spacing-md))}
-        .japanese-toggle-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#4a7ba7 0%,#5a7a65 100%);color:white;border:2px solid rgba(255,255,255,0.2);border-radius:0;padding:0.5rem 1rem;cursor:pointer;font-size:0.85rem;font-weight:400;letter-spacing:0.05em;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.3s ease}
-        .japanese-toggle-btn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(74,123,167,0.3)}
-        @media (max-width:768px){.japanese-toggle-container{padding:0.4rem 1rem}.japanese-toggle-container::before{width:0}.japanese-toggle-btn{font-size:0.75rem;padding:0.4rem 0.8rem}}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         
-        /* Center shopping bag on mobile */
-        @media (max-width: 480px) {
-            .hero {
-                background-position: 50% center !important;
-            }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--white);
         }
         
-        /* FOOTER STYLES - Same as Stories Page */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-earth);
+            background: rgba(139, 115, 85, 0.1);
+            transform: translateY(-2px);
+        }
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            border-left: 1px solid var(--text-muted);
+            padding-left: 0.8rem;
+            margin-left: 0.8rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            line-height: 1;
+            min-width: 40px;
+            text-align: center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent-earth);
+            color: var(--white);
+            border-color: var(--accent-earth);
+        }
+        
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* MOBILE NAVIGATION */
+        .mobile-nav {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-switcher-mobile {
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
+        }
+        
+        .language-switcher-mobile .lang-btn {
+            padding: 0.35rem 0.5rem;
+            font-size: 0.7rem;
+            min-width: 34px;
+            height: 28px;
+            border-radius: 4px;
+            line-height: 1;
+            font-weight: 600;
+        }
+        
+        /* MOBILE MENU TOGGLE BUTTON */
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        /* Create 3-bar hamburger icon */
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        /* Transform to X when active */
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        /* SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-alt {
+            background: var(--primary-light);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent-copper);
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* PRODUCT IMAGE */
+        .product-image {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+            margin: 3rem auto;
+            display: block;
+        }
+        
+        /* SPECS GRID */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .spec-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .spec-card h4 {
+            color: var(--accent-copper);
+            margin-top: 0;
+        }
+        
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border: 2px solid var(--accent-earth);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .feature-item h4 {
+            color: var(--accent-copper);
+        }
+        
+        /* PRICING */
+        .pricing-box {
+            text-align: center;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-copper);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 1rem 0;
+        }
+        
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #8B7355;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 1rem 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            background: #2C2C2C;
+        }
+        
+        /* SHIPPING INFO */
+        .shipping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .shipping-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
+            text-align: center;
+        }
+        
+        .shipping-card h4 {
+            color: var(--accent-copper);
+            margin-top: 0;
+        }
+        
+        /* NEWSLETTER */
+        .newsletter-section {
+            background: var(--accent-earth);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .newsletter-section h2 {
+            color: var(--white);
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--accent-earth);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        /* FOOTER */
         .main-footer {
             background: var(--primary-dark);
             color: rgba(255, 255, 255, 0.8);
@@ -68,7 +438,7 @@
         .footer-section h4 {
             color: white;
             margin-bottom: 1rem;
-            font-family: 'Georgia', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
         }
         
@@ -79,6 +449,12 @@
         
         .footer-section li {
             margin-bottom: 0.5rem;
+        }
+        
+        .footer-section p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
         }
         
         .footer-section a {
@@ -107,292 +483,505 @@
             color: var(--accent-earth);
         }
         
-        .japanese-text {
-            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+        @media (max-width: 1024px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+            .logo {
+                font-size: 1.1rem;
+                flex: 1;
+            }
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+                z-index: 998;
+                flex-direction: column;
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex !important;
+            }
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+            .nav-links a:hover {
+                background: rgba(139, 115, 85, 0.05);
+                transform: none;
+            }
+            .nav-links .language-switcher {
+                display: none;
+            }
+            .mobile-nav { 
+                display: flex !important;
+            }
+            .mobile-menu-toggle {
+                display: block !important;
+            }
+            .hero {
+                min-height: 60vh;
+            }
+            section { padding: 3rem 1.5rem; }
+            section h2 {
+                font-size: 1.8rem;
+                white-space: nowrap;
+            }
+            .specs-grid, .features-grid, .shipping-grid {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="main-header">
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
+                BASECAMP KYŪSHŪ
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="in-motion.html">IN MOTION</a></li>
-                    <li><a href="stories.html">STORIES</a></li>
-                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                    <li><a href="online-store.html" class="active">ONLINE STORE</a></li>
-                    <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
-                </ul>
-            </nav>
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ja">JA</button>
+                </div>
+            </ul>
+            
+            <!-- Mobile: Language Switcher + Burger -->
+            <div class="mobile-nav">
+                <div class="language-switcher-mobile">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ja">JA</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
-    </header>
-
-    
-
-    <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; font-size: 0.9rem;">
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index.html" style="color: var(--text-dark); text-decoration: none;">
-                    <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1" />
-                <span style="margin-left: 0.5rem; color: var(--text-light);">›</span>
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name" style="color: var(--sunset-orange); font-weight: 500;">Online Store</span>
-                <meta itemprop="position" content="2" />
-            </li>
-        </ol>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1581222526.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; min-height: 400px;">
+    <div class="hero"></div>
+
+    <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">SIGNATURE T-SHIRT</h2>
+            <h2 class="lang-content lang-fr">T-SHIRT SIGNATURE</h2>
+            <h2 class="lang-content lang-ja">シグネチャーTシャツ</h2>
+            
+            <h3 class="lang-content lang-en active" style="text-align: center;">Available Colors</h3>
+            <h3 class="lang-content lang-fr" style="text-align: center;">Couleurs Disponibles</h3>
+            <h3 class="lang-content lang-ja" style="text-align: center;">カラー展開</h3>
+            
+            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" 
+                 alt="Basecamp Kyūshū T-Shirts" 
+                 class="product-image">
+            
+            <p class="intro-text lang-content lang-en active">
+                Black | Natural Beige | Sage Green | Ocean Blue
+            </p>
+            <p class="intro-text lang-content lang-en active">
+                Front & Back Views
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Noir | Beige Naturel | Vert Sauge | Bleu Océan
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Vues Avant & Arrière
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                ブラック | ナチュラルベージュ | セージグリーン | オーシャンブルー
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                表と裏
+            </p>
+            
+            <p class="intro-text lang-content lang-en active" style="font-size: 1rem; color: var(--text-muted);">
+                📸 Design Details Coming Soon<br>
+                Final design specifications and product photography will be shared by end of January 2026.
+            </p>
+            <p class="intro-text lang-content lang-fr" style="font-size: 1rem; color: var(--text-muted);">
+                📸 Détails du Design Bientôt Disponibles<br>
+                Les spécifications finales du design et la photographie du produit seront partagées d'ici fin janvier 2026.
+            </p>
+            <p class="intro-text lang-content lang-ja" style="font-size: 1rem; color: var(--text-muted);">
+                📸 デザインの詳細は近日公開<br>
+                最終的なデザイン仕様と製品写真は2026年1月末までに公開されます。
+            </p>
+        </div>
     </section>
 
-    <!-- T-Shirt Collection -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-header" style="text-align: center;">
-                <h2 class="section-title">Signature T-Shirt</h2>
-                <p class="section-subtitle japanese-text">シグネチャーTシャツ</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div style="max-width: 1200px; margin: 0 auto;">
-                
-                <!-- Available Colors - Overview -->
-                <div style="margin-bottom: 4rem;">
-                    <h3 style="text-align: center; margin-bottom: 1.5rem;">Available Colors</h3>
-                    <p class="japanese-text" style="text-align: center; margin-bottom: 2rem;">カラー展開</p>
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="lang-content lang-en active">PRODUCT SPECIFICATIONS</h2>
+            <h2 class="lang-content lang-fr">SPÉCIFICATIONS DU PRODUIT</h2>
+            <h2 class="lang-content lang-ja">製品仕様</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h4 class="lang-content lang-en active">Fit & Cut</h4>
+                    <h4 class="lang-content lang-fr">Coupe & Ajustement</h4>
+                    <h4 class="lang-content lang-ja">フィットとカット</h4>
                     
-                    <div style="max-width: 1000px; margin: 0 auto 3rem; text-align: center;">
-                        <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" alt="Basecamp Kyūshū T-Shirts - All 4 Colors Front & Back" style="width: 100%; max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); display: block; margin: 0 auto;">
-                        <p style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
-                            Black | Natural Beige | Sage Green | Ocean Blue — Front & Back Views
-                        </p>
-                        <p class="japanese-text" style="text-align: center; margin-top: 0.3rem; color: var(--text-light); font-size: 0.85rem;">
-                            ブラック | ナチュラルベージュ | セージグリーン | オーシャンブルー — 表と裏
-                        </p>
-                    </div>
-
-                    <div style="background: var(--warm-beige); padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
-                        <p style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
-                            <strong>📸 Design Details Coming Soon</strong><br>
-                            Final design specifications and product photography will be shared by end of January 2026.
-                        </p>
-                        <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
-                            デザインの詳細は2026年1月上旬までに公開されます。
-                        </p>
-                    </div>
+                    <p class="lang-content lang-en active">
+                        <strong>Free Size (One Size)</strong><br>
+                        Slightly oversized fit<br>
+                        Extended sleeves for modern look
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Taille Unique</strong><br>
+                        Coupe légèrement oversize<br>
+                        Manches allongées pour un look moderne
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>フリーサイズ（ワンサイズ）</strong><br>
+                        軽めのオーバーサイズ<br>
+                        袖丈長めのモダンなルック
+                    </p>
                 </div>
-
-                <!-- Product Details -->
-                <div style="background: var(--white); padding: 3rem 2rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
-                    <h3 style="text-align: center; margin-bottom: 2rem;">Product Specifications</h3>
-                    <p class="japanese-text" style="text-align: center; margin-bottom: 2rem;">製品仕様</p>
+                
+                <div class="spec-card">
+                    <h4 class="lang-content lang-en active">Material & Quality</h4>
+                    <h4 class="lang-content lang-fr">Matériau & Qualité</h4>
+                    <h4 class="lang-content lang-ja">素材と品質</h4>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
-                        <div>
-                            <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">Fit & Cut</h4>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light);">フィットとカット</p>
-                            <p><strong>Free Size (One Size)</strong></p>
-                            <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem;">Slightly oversized fit</p>
-                            <p style="font-size: 0.95rem; color: var(--text-light);">Extended sleeves for modern look</p>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">軽めのオーバーサイズ・裖丈長め</p>
-                        </div>
-
-                        <div>
-                            <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">Material & Quality</h4>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light);">素材と品質</p>
-                            <p><strong>100% Premium Heavyweight Cotton</strong></p>
-                            <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem;">6.5 oz / 220 gsm fabric weight</p>
-                            <p style="font-size: 0.95rem; color: var(--text-light);">Thick, substantial feel — built to last</p>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">厚手生地で耐久性のある上質な素材</p>
-                        </div>
-
-                        <div>
-                            <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">Production</h4>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light);">製造</p>
-                            <p><strong>Made in Kyūshū</strong></p>
-                            <p style="font-size: 0.95rem; color: var(--text-light);">Locally produced in limited batches</p>
-                        </div>
-
-                        <div>
-                            <h4 style="color: var(--sunset-orange); margin-bottom: 0.5rem;">Printing</h4>
-                            <p class="japanese-text" style="font-size: 0.9rem; color: var(--text-light);">プリント</p>
-                            <p>Screen Printed Logos</p>
-                            <p style="font-size: 0.95rem; color: var(--text-light);">High-quality, long-lasting prints</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gray); border-radius: 8px;">
-                        <h4 style="color: var(--primary-dark); text-align: center; margin-bottom: 1rem;">Inside Neck Label</h4>
-                        <p style="text-align: center; font-size: 1.1rem; color: var(--text-dark);">
-                            <strong>"MADE IN KYŪSHŪ / BASECAMP"</strong>
-                        </p>
-                        <p class="japanese-text" style="text-align: center; margin-top: 0.5rem; color: var(--text-light);">
-                            九州製 / ベースキャンプ
-                        </p>
-                    </div>
-
-                    <div style="margin-top: 3rem; padding: 2rem; background: var(--warm-beige); border-radius: 8px; text-align: center;">
-                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Pricing</h3>
-                        <p style="font-size: 1.8rem; font-weight: 600; color: var(--sunset-orange); margin: 1rem 0;">
-                            ¥5,000
-                        </p>
-                        
-                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(0,0,0,0.1);">
-                            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1rem;">
-                                We're finalizing production with our partners in Kyūshū.<br>
-                                Pre-order now and receive your Basecamp Kyūshū signature t-shirt.
-                            </p>
-                            <p class="japanese-text" style="font-size: 1rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1.5rem;">
-                                九州のパートナーと製造を最終調整中です。<br>
-                                今すぐ予約して、<strong>2026年3月</strong>にBasecamp KyūshūシグネチャーTシャツをお受け取りください。
-                            </p>
-                        </div>
-                        
-                        
-                        <!-- Pre-Order CTA -->
-                        <a href="contact.html" style="display: inline-flex; align-items: center; gap: 10px; background: var(--sunset-orange); color: var(--white); padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3); transition: transform 0.3s ease; margin-top: 1.5rem;">
-                            PRE-ORDER NOW
-                        </a>
-                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 1rem;">
-                            Made in Kyūshū | Free Size
-                        </p>
-                    </div>
+                    <p class="lang-content lang-en active">
+                        <strong>100% Premium Heavyweight Cotton</strong><br>
+                        6.5 oz / 220 gsm fabric weight<br>
+                        Thick, substantial feel — built to last
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>100% Coton Épais Premium</strong><br>
+                        Poids du tissu 6.5 oz / 220 gsm<br>
+                        Sensation épaisse et substantielle — conçu pour durer
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>100%プレミアム厚手コットン</strong><br>
+                        生地重量 6.5 oz / 220 gsm<br>
+                        厚手で耐久性のある上質な素材
+                    </p>
+                </div>
+                
+                <div class="spec-card">
+                    <h4 class="lang-content lang-en active">Production</h4>
+                    <h4 class="lang-content lang-fr">Production</h4>
+                    <h4 class="lang-content lang-ja">製造</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>Made in Kyūshū</strong><br>
+                        Locally produced in limited batches
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Fabriqué à Kyūshū</strong><br>
+                        Produit localement en lots limités
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>九州製</strong><br>
+                        地元で限定生産
+                    </p>
+                </div>
+                
+                <div class="spec-card">
+                    <h4 class="lang-content lang-en active">Printing</h4>
+                    <h4 class="lang-content lang-fr">Impression</h4>
+                    <h4 class="lang-content lang-ja">プリント</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>Screen Printed Logos</strong><br>
+                        High-quality, long-lasting prints
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Logos Sérigraphiés</strong><br>
+                        Impressions de haute qualité et durables
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>スクリーンプリントロゴ</strong><br>
+                        高品質で長持ちするプリント
+                    </p>
+                </div>
+                
+                <div class="spec-card">
+                    <h4 class="lang-content lang-en active">Inside Neck Label</h4>
+                    <h4 class="lang-content lang-fr">Étiquette Intérieure</h4>
+                    <h4 class="lang-content lang-ja">内側ネックラベル</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>"MADE IN KYŪSHŪ / BASECAMP"</strong>
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>"MADE IN KYŪSHŪ / BASECAMP"</strong>
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>「九州製 / ベースキャンプ」</strong>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand Philosophy -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 style="color: var(--white);">More Than Merchandise</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">A Tool for Support & Recognition</p>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.85);">支援と認識のためのツール</p>
-                <div class="section-divider"></div>
+    <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">PRICING</h2>
+            <h2 class="lang-content lang-fr">TARIFICATION</h2>
+            <h2 class="lang-content lang-ja">価格</h2>
+            
+            <div class="pricing-box">
+                <p class="price">¥5,000</p>
+                
+                <p class="lang-content lang-en active">
+                    We're finalizing production with our partners in Kyūshū.<br>
+                    Message us on Instagram to express your interest or ask questions.
+                </p>
+                <p class="lang-content lang-fr">
+                    Nous finalisons la production avec nos partenaires à Kyūshū.<br>
+                    Contactez-nous sur Instagram pour exprimer votre intérêt ou poser des questions.
+                </p>
+                <p class="lang-content lang-ja">
+                    九州のパートナーと製造を最終調整中です。<br>
+                    ご興味やご質問はInstagramでメッセージください。
+                </p>
+                
+                <a href="https://ig.me/m/basecampkyushu" target="_blank" class="btn">
+                    <span class="lang-content lang-en active">Message Us</span>
+                    <span class="lang-content lang-fr">Nous Contacter</span>
+                    <span class="lang-content lang-ja">メッセージ</span>
+                </a>
+                
+                <p class="lang-content lang-en active" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                    Made in Kyūshū | Free Size
+                </p>
+                <p class="lang-content lang-fr" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                    Fabriqué à Kyūshū | Taille Unique
+                </p>
+                <p class="lang-content lang-ja" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                    九州製 | フリーサイズ
+                </p>
             </div>
+        </div>
+    </section>
 
-            <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="lang-content lang-en active">MORE THAN MERCHANDISE</h2>
+            <h2 class="lang-content lang-fr">PLUS QU'UN PRODUIT</h2>
+            <h2 class="lang-content lang-ja">商品以上のもの</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                A Tool for Support & Recognition
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Un Outil de Soutien et de Reconnaissance
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                支援と認識のためのツール
+            </p>
+            
+            <p class="intro-text lang-content lang-en active">
                 These t-shirts carry the Basecamp Kyūshū identity. They are not about illustrations or designs—
-                they are about <strong>wearing your support</strong> for a creative collective that tells stories, 
+                they are about wearing your support for a creative collective that tells stories,
                 creates films, and celebrates the spirit of Kyūshū.
             </p>
-
-            <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
-                これらのT-シャツはBasecamp Kyūshūのアイデンティティを持っています。イラストやデザインではなく、
-                物語を語り、映画を作り、九州の精神を祝う<strong>クリエイティブコレクティブへの支援を着る</strong>ことです。
+            <p class="intro-text lang-content lang-fr">
+                Ces t-shirts portent l'identité Basecamp Kyūshū. Il ne s'agit pas d'illustrations ou de designs—
+                il s'agit de porter votre soutien à un collectif créatif qui raconte des histoires,
+                crée des films et célèbre l'esprit de Kyūshū.
             </p>
-
-            <div style="display: grid; gap: 1.5rem; margin: 2rem 0;">
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">Visual Recognition</h4>
-                    <p style="color: rgba(255,255,255,0.9);">The circular and square logos are instantly recognizable. Wear them to show your love for Kyūshū.</p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
-                        円形と四角形のロゴは一目で認識できます。九州への愛を示すために着用してください。
+            <p class="intro-text lang-content lang-ja">
+                これらのT-シャツはBasecamp Kyūshūのアイデンティティを持っています。イラストやデザインではなく、
+                物語を語り、映画を作り、九州の精神を祝うクリエイティブコレクティブへの支援を着ることです。
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4 class="lang-content lang-en active">Visual Recognition</h4>
+                    <h4 class="lang-content lang-fr">Reconnaissance Visuelle</h4>
+                    <h4 class="lang-content lang-ja">視覚的認識</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        The circular and square logos are instantly recognizable.
+                    </p>
+                    <p class="lang-content lang-en active">
+                        Wear them to show your love for Kyūshū.
+                    </p>
+                    <p class="lang-content lang-fr">
+                        Les logos circulaires et carrés sont instantanément reconnaissables.
+                    </p>
+                    <p class="lang-content lang-fr">
+                        Portez-les pour montrer votre amour pour Kyūshū.
+                    </p>
+                    <p class="lang-content lang-ja">
+                        円形と四角形のロゴは一目で認識できます。
+                    </p>
+                    <p class="lang-content lang-ja">
+                        九州への愛を示すために着用してください。
                     </p>
                 </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">Support Local Production</h4>
-                    <p style="color: rgba(255,255,255,0.9);">Made in Kyūshū. Every purchase supports local production.</p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
+                
+                <div class="feature-item">
+                    <h4 class="lang-content lang-en active">Support Local Production</h4>
+                    <h4 class="lang-content lang-fr">Soutenir la Production Locale</h4>
+                    <h4 class="lang-content lang-ja">地元生産を支援</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        Made in Kyūshū. Every purchase supports local production.
+                    </p>
+                    <p class="lang-content lang-fr">
+                        Fabriqué à Kyūshū. Chaque achat soutient la production locale.
+                    </p>
+                    <p class="lang-content lang-ja">
                         九州製。各購入は地元生産を支援します。
                     </p>
                 </div>
-
-                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">Carry the Philosophy</h4>
-                    <p style="color: rgba(255,255,255,0.9);">The back tagline reminds you and others: "The Land — The People — The Stories." Three pillars of Basecamp Kyūshū's mission.</p>
-                    <p class="japanese-text" style="color: rgba(255,255,255,0.85); margin-top: 0.5rem;">
-                        背面のタグラインが思い出させます：「土地 — 人 — 物語」。Basecamp Kyūshūの使命の三つの柱。
+                
+                <div class="feature-item">
+                    <h4 class="lang-content lang-en active">Carry the Philosophy</h4>
+                    <h4 class="lang-content lang-fr">Porter la Philosophie</h4>
+                    <h4 class="lang-content lang-ja">哲学を運ぶ</h4>
+                    
+                    <p class="lang-content lang-en active">
+                        The back tagline reminds you and others:
+                    </p>
+                    <p class="lang-content lang-en active">
+                        "The Land — The People — The Stories."
+                    </p>
+                    <p class="lang-content lang-en active">
+                        Three pillars of Basecamp Kyūshū's mission.
+                    </p>
+                    <p class="lang-content lang-fr">
+                        Le slogan au dos vous rappelle ainsi qu'aux autres :
+                    </p>
+                    <p class="lang-content lang-fr">
+                        "La Terre — Les Gens — Les Histoires."
+                    </p>
+                    <p class="lang-content lang-fr">
+                        Trois piliers de la mission de Basecamp Kyūshū.
+                    </p>
+                    <p class="lang-content lang-ja">
+                        背面のタグラインが思い出させます：
+                    </p>
+                    <p class="lang-content lang-ja">
+                        「土地 — 人 — 物語」。
+                    </p>
+                    <p class="lang-content lang-ja">
+                        Basecamp Kyūshūの使命の三つの柱。
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Shipping Info -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 900px;">
-            <div class="section-header">
-                <h2 class="section-title">Shipping Information</h2>
-                <p class="section-subtitle japanese-text">配送について</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="shipping-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
-                    <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">🇯🇵 Japan Domestic</h4>
-                    <p><strong>Free Shipping</strong> on all orders</p>
-                    <p class="japanese-text" style="margin-top: 0.5rem;">全注文送料無料</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">
+    <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">SHIPPING INFORMATION</h2>
+            <h2 class="lang-content lang-fr">INFORMATIONS D'EXPÉDITION</h2>
+            <h2 class="lang-content lang-ja">配送について</h2>
+            
+            <div class="shipping-grid">
+                <div class="shipping-card">
+                    <h4>🇯🇵 <span class="lang-content lang-en active">Japan</span><span class="lang-content lang-fr">Japon</span><span class="lang-content lang-ja">日本</span></h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>Free Shipping</strong><br><br>
                         Ships from Itoshima, Fukuoka<br>
                         Delivery: 3-5 business days
                     </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Livraison Gratuite</strong><br><br>
+                        Expédié depuis Itoshima, Fukuoka<br>
+                        Livraison: 3-5 jours ouvrables
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>全注文送料無料</strong><br><br>
+                        糸島、福岡から発送<br>
+                        配送: 3-5営業日
+                    </p>
                 </div>
-
-                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
-                    <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">🌏 International</h4>
-                    <p><strong>Available</strong> to select countries</p>
-                    <p class="japanese-text" style="margin-top: 0.5rem;">一部の国へ発送可能</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">
+                
+                <div class="shipping-card">
+                    <h4>🌏 <span class="lang-content lang-en active">International</span><span class="lang-content lang-fr">International</span><span class="lang-content lang-ja">海外</span></h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>Available</strong> to select countries<br><br>
                         Shipping calculated at checkout<br>
                         Delivery: 7-14 business days
                     </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Disponible</strong> dans certains pays<br><br>
+                        Frais calculés à la caisse<br>
+                        Livraison: 7-14 jours ouvrables
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>一部の国へ発送可能</strong><br><br>
+                        配送料はチェックアウト時に計算<br>
+                        配送: 7-14営業日
+                    </p>
                 </div>
-
-                <div class="shipping-card" style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
-                    <h4 style="color: var(--sunset-orange); margin-bottom: 1rem;">📦 Packaging</h4>
-                    <p><strong>Eco-friendly</strong> materials</p>
-                    <p class="japanese-text" style="margin-top: 0.5rem;">環境に優しい包装</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-light);">
-                        Minimal, recyclable packaging<br>
-                        Gift wrapping available on request
+                
+                <div class="shipping-card">
+                    <h4>📦 <span class="lang-content lang-en active">Packaging</span><span class="lang-content lang-fr">Emballage</span><span class="lang-content lang-ja">梱包</span></h4>
+                    
+                    <p class="lang-content lang-en active">
+                        <strong>Eco-friendly</strong> materials<br><br>
+                        Minimal, recyclable packaging
+                    </p>
+                    <p class="lang-content lang-fr">
+                        <strong>Matériaux écologiques</strong><br><br>
+                        Emballage minimal et recyclable
+                    </p>
+                    <p class="lang-content lang-ja">
+                        <strong>環境に優しい素材</strong><br><br>
+                        最小限のリサイクル可能な梱包
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stay in the Loop - Instagram Section -->
-    <section style="padding: 4rem 2rem; background: var(--white); display: flex; justify-content: center; align-items: center;">
-        <div style="background: var(--warm-beige); border-radius: 20px; padding: 3.5rem 2.5rem; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-            <h2 style="font-family: 'Georgia', serif; font-size: 2.5rem; color: var(--ocean-blue); margin-bottom: 1.2rem; font-weight: 400; line-height: 1.3;">
-                Stay in the Loop
-            </h2>
-            <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 2.5rem; color: var(--text-dark);">
-                Get behind-the-scenes updates.
-            </p>
-            <a href="https://instagram.com/basecampkyushu" target="_blank" rel="noopener noreferrer" 
-               style="display: inline-flex; align-items: center; justify-content: center; background-color: var(--ocean-blue); color: var(--white); border-radius: 12px; padding: 1.2rem; width: 100%; font-size: 3rem; transition: all 0.3s ease; text-decoration: none;"
-               onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(74, 123, 167, 0.3)'" 
-               onmouseout="this.style.backgroundColor='var(--ocean-blue)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display: block;">
-                    <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/>
-                </svg>
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="lang-content lang-en active">STAY IN THE LOOP</h2>
+            <h2 class="lang-content lang-fr">RESTEZ INFORMÉ</h2>
+            <h2 class="lang-content lang-ja">最新情報を入手</h2>
+            
+            <p class="lang-content lang-en active" style="margin-bottom: 2rem;">Follow us on Instagram for behind-the-scenes updates.</p>
+            <p class="lang-content lang-fr" style="margin-bottom: 2rem;">Suivez-nous sur Instagram pour des mises à jour exclusives.</p>
+            <p class="lang-content lang-ja" style="margin-bottom: 2rem;">舞台裏の最新情報はInstagramで。</p>
+            
+            <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn" style="background: var(--white); color: var(--accent-earth);">
+                <span class="lang-content lang-en active">Follow @basecampkyushu</span>
+                <span class="lang-content lang-fr">Suivre @basecampkyushu</span>
+                <span class="lang-content lang-ja">@basecampkyushuをフォロー</span>
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -438,37 +1027,77 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <style>
-        body .japanese-text, body .content-text[style*="font-style: italic"] { display: none !important; }
-        body[data-lang="ja"] .japanese-text { display: block !important; }
-        body[data-lang="ja"] .content-text:not(.japanese-text) { display: none !important; }
-        body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
-        body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
-        body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
-        body .main-nav ul { display: flex !important; }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.lang-btn');
-            const body = document.body;
-            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-            setLanguage(savedLang);
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    setLanguage(lang);
-                    localStorage.setItem('preferredLanguage', lang);
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        console.log("Online Store page loading...");
+        
+        // Language switcher
+        var langBtns = document.querySelectorAll(".lang-btn");
+        var langContents = document.querySelectorAll(".lang-content");
+        var currentLang = localStorage.getItem("lang") || "en";
+        
+        setLanguage(currentLang);
+        
+        langBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var lang = btn.dataset.lang;
+                setLanguage(lang);
+                localStorage.setItem("lang", lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            console.log("Setting language to:", lang);
+            langBtns.forEach(function(btn) {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            
+            langContents.forEach(function(content) {
+                var contentLang = "lang-" + lang;
+                if (content.classList.contains(contentLang)) {
+                    content.classList.add("active");
+                } else {
+                    content.classList.remove("active");
+                }
+            });
+        }
+        
+        // Mobile Menu Toggle
+        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when a link is clicked
+            var menuLinks = navLinks.querySelectorAll('a');
+            menuLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
                 });
             });
-            function setLanguage(lang) {
-                body.setAttribute('data-lang', lang);
-                langButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
-                });
+        }
+        
+        // Sticky nav
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else if (nav) {
+                nav.classList.remove("scrolled");
             }
         });
+        
+        // Newsletter form
+        
+        console.log("Online Store page loaded!");
     </script>
 </body>
 </html>
