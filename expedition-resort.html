@@ -27,9 +27,11 @@
     <style>
         :root {
             --primary-dark: #2C2C2C;
+            --primary-light: #F5F5F0;
             --accent-copper: #B87333;
             --accent-earth: #8B7355;
             --bg-cream: #F5F5F0;
+            --light-gray: #F9F9F9;
             --text-dark: #333333;
             --text-muted: #666666;
             --white: #FFFFFF;
@@ -44,7 +46,7 @@
             background: var(--light-gray);
             padding: 2.5rem 2rem;
             border-radius: 8px;
-            border-left: 4px solid var(--sunset-orange);
+            border-left: 4px solid var(--accent-earth);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -54,7 +56,7 @@
         }
 
         .feature-card h3 {
-            color: var(--sunset-orange);
+            color: var(--accent-earth);
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
@@ -96,24 +98,261 @@
             background: rgba(255,255,255,0.1);
             padding: 2rem;
             border-radius: 8px;
-            border-left: 4px solid var(--sunset-orange);
+            border-left: 4px solid var(--accent-earth);
             margin-bottom: 1.5rem;
         }
 
         .timeline-item h4 {
-            color: var(--sunset-orange);
+            color: var(--accent-earth);
             font-weight: 700;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
+        /* MOBILE MENU TOGGLE BUTTON */
+        .mobile-nav {
+            display: none;
+        }
+        
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        /* Create 3-bar hamburger icon */
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        /* Transform to X when active */
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            position: relative;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-earth);
+            background: rgba(139, 115, 85, 0.1);
+            transform: translateY(-2px);
+        }
+        /* VERTICAL LANGUAGE SWITCHER */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            border-left: 1px solid var(--text-muted);
+            padding-left: 0.8rem;
+            margin-left: 0.8rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            line-height: 1;
+            min-width: 40px;
+            text-align: center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent-earth);
+            color: var(--white);
+            border-color: var(--accent-earth);
+        }
+        
         @media (max-width: 768px) {
-            .feature-card {
-                padding: 1.5rem;
+            .nav-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.75rem 1rem;
             }
             
-            .audience-section {
-                padding: 2rem;
+            .logo {
+                font-size: 1.1rem;
+                flex: 1;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
+            .language-switcher {
+                display: flex !important;
+                flex-direction: row;
+                gap: 0.3rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                position: relative;
+                z-index: 1002;
+            }
+            
+            .lang-btn {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.7rem;
+                min-width: 34px;
+                height: 28px;
+                border-radius: 4px;
+                line-height: 1;
+                font-weight: 600;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+                flex-shrink: 0;
+            }
+            
+            /* Hide desktop nav links, show in dropdown when active */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+            
+            /* Hide language switcher inside dropdown menu on mobile */
+            .nav-links .language-switcher {
+                display: none !important;
+            }
+            
+            /* Fix hero/banner on mobile */
+            .hero {
+                min-height: 60vh !important;
+                background-attachment: scroll !important;
+                background-position: center center !important;
+                background-size: cover !important;
+                margin-top: 0 !important;
+            }
+            
+            section { padding: 3rem 1.5rem; }
+            
+            .vision-text {
+                font-size: 1.3rem !important;
             }
         }
         
@@ -149,6 +388,12 @@
             margin-bottom: 0.5rem;
         }
         
+        .footer-section p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        
         .footer-section a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -175,69 +420,89 @@
             color: var(--accent-earth);
         }
         
+        /* Language content management */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* Japanese text - hidden by default, shown when Japanese selected */
         .japanese-text {
             font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+            display: none !important;
+        }
+        
+        body[data-lang="ja"] .japanese-text {
+            display: block !important;
+        }
+        
+        body[data-lang="en"] .japanese-text {
+            display: none !important;
+        }
+        
+        body[data-lang="fr"] .japanese-text {
+            display: none !important;
+        }
+        
+        /* Show only active language content for lang-content system */
+        body[data-lang="en"] .lang-en { display: block !important; }
+        body[data-lang="en"] .lang-fr,
+        body[data-lang="en"] .lang-ja { display: none !important; }
+        
+        body[data-lang="fr"] .lang-fr { display: block !important; }
+        body[data-lang="fr"] .lang-en,
+        body[data-lang="fr"] .lang-ja { display: none !important; }
+        
+        body[data-lang="ja"] .lang-ja { display: block !important; }
+        body[data-lang="ja"] .lang-en,
+        body[data-lang="ja"] .lang-fr { display: none !important; }
+        
+        /* Hero section */
+        .hero {
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
         }
     </style>
 </head>
-<body>
+<body data-lang="en">
     <!-- Header / Navigation -->
-    <header class="main-header">
+    <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                BASECAMP KYUSHU
-                <span class="japanese-text">土地 — 人 — 物語</span>
+                BASECAMP KYŪSHŪ
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="in-motion.html">IN MOTION</a></li>
-                    <li><a href="stories.html">READ STORIES</a></li>
-                    <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                    <li><a href="online-store.html">ONLINE STORE</a></li>
-                    <li><a href="expedition-resort.html" class="active">EXPEDITION RESORT</a></li>
-                </ul>
-            </nav>
-            <div class="language-toggle-buttons">
-                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
-                <button class="lang-btn" data-lang="ja" aria-label="Japanese">JPN</button>
-                <button class="lang-btn" data-lang="fr" aria-label="French">FR</button>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
-    </header>
-
-    <!-- Japanese Language Toggle Button -->
-
-
-    <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" style="padding: 1rem 2rem; background: var(--light-gray);">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; font-size: 0.9rem;">
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index.html" style="color: var(--text-dark); text-decoration: none;">
-                    <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1" />
-                <span style="margin-left: 0.5rem; color: var(--text-light);">›</span>
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name" style="color: var(--sunset-orange); font-weight: 500;">Expedition Resort</span>
-                <meta itemprop="position" content="2" />
-            </li>
-        </ol>
     </nav>
 
+
+
     <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png'); background-size: cover; background-position: center; min-height: 400px;">
+    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png');">
     </section>
 
     <!-- Title Section -->
     <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
         <h1 style="font-size: 3rem; color: var(--primary-dark); margin-bottom: 1rem; font-weight: 700;">EXPEDITION RESORT</h1>
-        <p style="font-size: 1.5rem; color: var(--ocean-blue); margin-bottom: 0.5rem; font-weight: 500;">A Creative Basecamp in Itoshima, Kyūshū</p>
+        <p style="font-size: 1.5rem; color: var(--accent-earth); margin-bottom: 0.5rem; font-weight: 500;">A Creative Basecamp in Itoshima, Kyūshū</p>
         <p class="japanese-text" style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 2rem;">探検リゾート — 糸島の創作拠点</p>
-        <p style="font-size: 1.5rem; color: var(--sunset-orange); font-weight: 700; margin-bottom: 1rem;">Coming 2026-2027</p>
+        <p style="font-size: 1.5rem; color: var(--accent-earth); font-weight: 700; margin-bottom: 1rem;">Coming 2026-2027</p>
     </section>
 
     <!-- THE VISION -->
@@ -249,12 +514,12 @@
                 <div class="section-divider"></div>
             </div>
             
-            <p style="font-size: 1.8rem; font-weight: 700; text-align: center; color: var(--primary-dark); margin: 2rem auto; max-width: 900px; line-height: 1.6;">
-                Not a hotel. Not a co-working space.<br><span style="color: var(--sunset-orange);">A true basecamp.</span>
+            <p class="vision-text" style="font-size: 1.8rem; font-weight: 700; text-align: center; color: var(--primary-dark); margin: 2rem auto; max-width: 900px; line-height: 1.6;">
+                Not a hotel.<br>Not a co-working space.<br><span style="color: var(--accent-earth);">A true basecamp.</span>
             </p>
 
             <p class="japanese-text" style="font-size: 1.15rem; text-align: center; margin: 2rem auto; color: var(--text-light); max-width: 900px; line-height: 1.8;">
-                ホテルではなく、コワーキングスペースでもなく。<br><strong style="color: var(--sunset-orange);">真のベースキャンプ。</strong>
+                ホテルではなく、<br>コワーキングスペースでもなく。<br><strong style="color: var(--accent-earth);">真のベースキャンプ。</strong>
             </p>
         </div>
     </section>
@@ -284,7 +549,7 @@
                     <li>✓ Basecamp Kyūshūコミュニティが集まる</li>
                 </ul>
 
-                <p style="font-size: 1.8rem; font-weight: 600; margin-top: 3rem; color: var(--sunset-orange); font-style: italic; text-align: center;">
+                <p style="font-size: 1.8rem; font-weight: 600; margin-top: 3rem; color: var(--accent-earth); font-style: italic; text-align: center;">
                     Between mountains and sea.<br>
                     Between projects and adventures.
                 </p>
@@ -401,8 +666,8 @@
 
             <!-- LOCATION -->
             <div style="background: var(--light-gray); padding: 3rem; border-radius: 12px; margin: 3rem 0;">
-                <h3 style="color: var(--sunset-orange); font-size: 2rem; margin-bottom: 1rem;">📍 LOCATION</h3>
-                <p class="japanese-text" style="color: var(--ocean-blue); font-size: 1.2rem; font-weight: 600; margin-bottom: 2rem;">場所</p>
+                <h3 style="color: var(--accent-earth); font-size: 2rem; margin-bottom: 1rem;">📍 LOCATION</h3>
+                <p class="japanese-text" style="color: var(--accent-earth); font-size: 1.2rem; font-weight: 600; margin-bottom: 2rem;">場所</p>
                 
                 <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark);">
                     Somewhere in Itoshima, between mountains and coast. Accessible yet removed. Close enough to Fukuoka airport (45min), far enough from urban noise.
@@ -417,22 +682,22 @@
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
                     <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">🌲 Large Land</h5>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 0.95rem;">大規模用地</p>
+                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🌲 Large Land</h5>
+                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">大規模用地</p>
                     </div>
                     <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">🏘️ Existing Structure(s)</h5>
-                        <p style="font-size: 0.9rem; color: var(--text-dark);">for renovation</p>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 0.95rem;">改装可能な既存建物</p>
+                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🏘️ Existing Structure(s)</h5>
+                        <p style="font-size: 1rem; color: var(--text-dark);">for renovation</p>
+                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">改装可能な既存建物</p>
                     </div>
                     <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">🌊 Natural Surroundings</h5>
-                        <p style="font-size: 0.9rem; color: var(--text-dark);">with sea or mountain view (if possible both)</p>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 0.95rem;">自然環境（海または山の景色、できれば両方）</p>
+                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🌊 Natural Surroundings</h5>
+                        <p style="font-size: 1rem; color: var(--text-dark);">with sea or mountain view (if possible both)</p>
+                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">自然環境（海または山の景色、できれば両方）</p>
                     </div>
                     <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--ocean-blue); margin-bottom: 0.5rem;">📈 Expansion Potential</h5>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 0.95rem;">将来の拡張可能性</p>
+                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">📈 Expansion Potential</h5>
+                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">将来の拡張可能性</p>
                     </div>
                 </div>
             </div>
@@ -440,14 +705,14 @@
             <!-- FACILITIES -->
             <div style="margin: 4rem 0;">
                 <h3 style="color: var(--primary-dark); font-size: 2rem; margin-bottom: 1rem; text-align: center;">FACILITIES (Planned)</h3>
-                <p class="japanese-text" style="color: var(--ocean-blue); font-size: 1.2rem; text-align: center; margin-bottom: 3rem;">施設（計画中）</p>
+                <p class="japanese-text" style="color: var(--accent-earth); font-size: 1.2rem; text-align: center; margin-bottom: 3rem;">施設（計画中）</p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <!-- Accommodation -->
                     <div class="feature-card">
                         <span class="emoji">🛏️</span>
                         <h3>Accommodation</h3>
-                        <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">宿泊</p>
+                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">宿泊</p>
                         <ul style="line-height: 2; color: var(--text-dark);">
                             <li>3-6 private rooms</li>
                             <li>2 crew suites (4-6 people each)</li>
@@ -466,7 +731,7 @@
                     <div class="feature-card">
                         <span class="emoji">💼</span>
                         <h3>Work Spaces</h3>
-                        <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">作業スペース</p>
+                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">作業スペース</p>
                         <ul style="line-height: 2; color: var(--text-dark);">
                             <li>Production office (10+ desks)</li>
                             <li>3 private studios for focused work</li>
@@ -485,7 +750,7 @@
                     <div class="feature-card">
                         <span class="emoji">🎬</span>
                         <h3>Creative Amenities</h3>
-                        <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">クリエイティブ設備</p>
+                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">クリエイティブ設備</p>
                         <ul style="line-height: 2; color: var(--text-dark);">
                             <li>Screening room for dailies/presentations</li>
                             <li>Outdoor fire pit for evening gatherings</li>
@@ -511,9 +776,9 @@
 
             <div style="max-width: 800px; margin: 0 auto;">
                 <!-- PHASE 1 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">PHASE 1: Location Acquisition (2026)</h4>
-                    <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">第1段階：用地取得（2026年）</p>
+                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
+                    <h4 style="color: var(--accent-earth);">PHASE 1: Location Acquisition (2026)</h4>
+                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第1段階：用地取得（2026年）</p>
                     <ul style="line-height: 2; color: var(--text-dark);">
                         <li>Finalize property in Itoshima area</li>
                         <li>Secure permits & development approvals</li>
@@ -526,9 +791,9 @@
                 </div>
 
                 <!-- PHASE 2 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">PHASE 2: Renovation (2026)</h4>
-                    <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">第2段階：改装（2026年）</p>
+                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
+                    <h4 style="color: var(--accent-earth);">PHASE 2: Renovation (2026)</h4>
+                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第2段階：改装（2026年）</p>
                     <ul style="line-height: 2; color: var(--text-dark);">
                         <li>Structural renovation & interior build-out</li>
                         <li>Studio & workspace construction</li>
@@ -544,9 +809,9 @@
                 </div>
 
                 <!-- PHASE 3 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--sunset-orange);">
-                    <h4 style="color: var(--sunset-orange);">PHASE 3: Full Launch (Late 2026 / Early 2027)</h4>
-                    <p class="japanese-text" style="color: var(--ocean-blue); font-weight: 600; margin-bottom: 1rem;">第3段階：本格稼働（2026年末/2027年初）</p>
+                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
+                    <h4 style="color: var(--accent-earth);">PHASE 3: Full Launch (Late 2026 / Early 2027)</h4>
+                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第3段階：本格稼働（2026年末/2027年初）</p>
                     <ul style="line-height: 2; color: var(--text-dark);">
                         <li>Public opening</li>
                         <li>Integration with M Global Japan booking system</li>
@@ -570,7 +835,7 @@
     </section>
 
     <!-- MEANWHILE: PRODUCTION SERVICES AVAILABLE NOW -->
-    <section style="padding: 4rem 2rem; background: var(--sunset-orange); color: var(--white);">
+    <section style="padding: 4rem 2rem; background: var(--accent-earth); color: var(--white);">
         <div class="section-container" style="max-width: 900px; text-align: center;">
             <h2 style="font-size: 2.5rem; color: var(--white); margin-bottom: 1rem;">MEANWHILE: PRODUCTION SERVICES AVAILABLE NOW</h2>
             <p class="japanese-text" style="font-size: 1.3rem; margin-bottom: 3rem; color: rgba(255,255,255,0.95);">現在：制作サービスは既に稼働中</p>
@@ -610,7 +875,7 @@
                 </div>
 
                 <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="video-production.html" class="btn" style="background: var(--white); color: var(--sunset-orange); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; display: inline-block;">
+                    <a href="video-production.html" class="btn" style="background: var(--white); color: var(--accent-earth); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; display: inline-block;">
                         VIEW PRODUCTION SERVICES →
                     </a>
                 </div>
@@ -622,7 +887,7 @@
     <section style="padding: 4rem 2rem; background: var(--light-gray);">
         <div class="section-container" style="max-width: 900px; text-align: center;">
             <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">STAY INFORMED</h2>
-            <p class="japanese-text" style="font-size: 1.3rem; color: var(--ocean-blue); margin-bottom: 3rem;">最新情報を受け取る</p>
+            <p class="japanese-text" style="font-size: 1.3rem; color: var(--accent-earth); margin-bottom: 3rem;">最新情報を受け取る</p>
 
             <div style="background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
                 <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark);">
@@ -637,18 +902,12 @@
                     実現してほしい機能についてアイデアがありますか？
                 </p>
 
-                <div style="margin: 3rem 0;">
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-dark);">Connect with us:</p>
-                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                        <a href="https://instagram.com/basecampkyushu" target="_blank" style="font-size: 1.1rem; color: var(--ocean-blue); text-decoration: none; font-weight: 600;">
-                            📷 Instagram: @basecampkyushu
-                        </a>
-                    </div>
-                </div>
-
-                <div style="margin-top: 3rem;">
-                    <a href="contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                        GET IN TOUCH
+                <div style="margin: 2.5rem 0;">
+                    <a href="https://instagram.com/basecampkyushu" target="_blank" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Follow @basecampkyushu</span>
                     </a>
                 </div>
             </div>
@@ -704,56 +963,9 @@
     <script src="js/main.js"></script>
     
     <!-- Japanese Toggle Script -->
-    <script>
-        let japaneseVisible = false;
-
-        function toggleJapanese() {
-            const japaneseElements = document.querySelectorAll('.japanese-text');
-            const toggleBtn = document.getElementById('japaneseToggle');
-            const textEn = toggleBtn.querySelector('.toggle-text');
-            
-            japaneseVisible = !japaneseVisible;
-            
-            japaneseElements.forEach(element => {
-                if (japaneseVisible) {
-                    element.style.display = '';
-                    textEn.textContent = 'Hide';
-                    toggleBtn.classList.remove('hidden-state');
-                } else {
-                    element.style.display = 'none';
-                    textEn.textContent = 'Show';
-                    toggleBtn.classList.add('hidden-state');
-                }
-            });
-            
-            localStorage.setItem('japaneseVisible', japaneseVisible);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedPreference = localStorage.getItem('japaneseVisible');
-            const japaneseElements = document.querySelectorAll('.japanese-text');
-            
-            if (savedPreference === 'true') {
-                japaneseVisible = false;
-                toggleJapanese();
-            } else {
-                japaneseElements.forEach(element => {
-                    element.style.display = 'none';
-                });
-            }
-        });
-    </script>
-<style>
-    body .japanese-text, body .content-text[style*="font-style: italic"] { display: none !important; }
-    body[data-lang="ja"] .japanese-text { display: block !important; }
-    body[data-lang="ja"] .content-text:not(.japanese-text):not([style*="font-style: italic"]) { display: none !important; }
-    body[data-lang="fr"] .content-text[style*="font-style: italic"] { display: block !important; }
-    body[data-lang="fr"] .content-text:not([style*="font-style: italic"]):not(.japanese-text) { display: none !important; }
-    body .main-nav, body .main-nav ul, body .main-nav li, body .main-nav a, body h1, body h2, body .btn, body .logo, body nav, body header, body footer, body img, body .language-toggle-buttons { display: block !important; visibility: visible !important; }
-    body .main-nav ul { display: flex !important; }
-</style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Language switcher
         const langButtons = document.querySelectorAll('.lang-btn');
         const body = document.body;
         const savedLang = localStorage.getItem('preferredLanguage') || 'en';
@@ -770,6 +982,38 @@
             langButtons.forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+            });
+        }
+        
+        // Mobile menu toggle
+        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            var navLinksItems = navLinks.querySelectorAll('a');
+            navLinksItems.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+        
+        // Sticky navigation
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
         }
     });
