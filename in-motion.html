@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyūshū in Motion - Basecamp Kyūshū</title>
+    <meta name="description" content="Visual archive of Kyūshū. Photos, 360° VR tours, and immersive experiences across seven prefectures.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2C2C2C;
+            --primary-light: #F5F5F0;
+            --accent-earth: #8B7355;
+            --accent-copper: #B87333;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 400;
+            display: block;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-earth);
+            background: rgba(139, 115, 85, 0.1);
+            transform: translateY(-2px);
+        }
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            border-left: 1px solid var(--text-muted);
+            padding-left: 0.8rem;
+            margin-left: 0.8rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            line-height: 1;
+            min-width: 40px;
+            text-align: center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent-earth);
+            color: var(--white);
+            border-color: var(--accent-earth);
+        }
+        
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
+        /* MOBILE NAVIGATION */
+        .mobile-nav {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-switcher-mobile {
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
+        }
+        
+        .language-switcher-mobile .lang-btn {
+            padding: 0.35rem 0.5rem;
+            font-size: 0.7rem;
+            min-width: 34px;
+            height: 28px;
+            border-radius: 4px;
+            line-height: 1;
+            font-weight: 600;
+        }
+        
+        /* MOBILE MENU TOGGLE BUTTON */
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        /* Create 3-bar hamburger icon */
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        /* Transform to X when active */
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+
+        
+        /* HERO BANNER */
+        .hero {
+            min-height: 100vh;
+            background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1191687334.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 2rem 2rem;
+        }
+        
+        .section-alt {
+            background: var(--primary-light);
+        }
+        
+        .section-special {
+            background: linear-gradient(135deg, #E8DDD0 0%, #D4C5B3 100%);
+            border-top: 3px solid var(--accent-earth);
+            border-bottom: 3px solid var(--accent-earth);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent-copper);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* PHOTO GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 1600px) {
+            .gallery-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 10000;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: var(--white);
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .lightbox-prev { left: 2rem; }
+        .lightbox-next { right: 2rem; }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        /* VR TOUR CARDS */
+        .vr-tours {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .vr-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .vr-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vr-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .vr-card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+        
+        .vr-card-content .btn {
+            margin-top: auto;
+            align-self: center;
+        }
+        
+        .vr-card-content h3 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+        
+        .vr-card-content h4 {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .vr-card-content p {
+            text-align: center;
+        }
+        
+        /* VIDEO SECTION */
+        .video-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+        
+        .video-container[style*="max-width: 100%"] {
+            max-width: 100%;
+            border-radius: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #8B7355;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 1rem 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            background: #2C2C2C;
+            color: var(--white);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8B7355;
+            color: #8B7355;
+        }
+        
+        .btn-outline:hover {
+            background: #2C2C2C;
+            color: var(--white);
+            border-color: #2C2C2C;
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--primary-light);
+            color: var(--text-dark);
+        }
+        
+        .cta-section h2 {
+            color: var(--text-dark);
+        }
+        
+        .cta-section .btn {
+            background: #8B7355;
+            color: var(--white);
+        }
+        
+        .cta-section .btn:hover {
+            background: #2C2C2C;
+            color: var(--white);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: var(--primary-light);
+            padding: 4rem 2rem 2rem;
+        }
+        .main-footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        .footer-section:nth-child(1) h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+        }
+        .footer-section:nth-child(2) h4 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .footer-section:nth-child(3) h4 {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 1.4rem;
+        }
+        .footer-section p, .footer-section a {
+            color: var(--primary-light);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-section a:hover { color: var(--accent-earth); }
+        .footer-section a:visited { color: rgba(255, 255, 255, 0.8); }
+        .footer-bottom a { color: rgba(255, 255, 255, 0.8); text-decoration: none; }
+        .footer-bottom a:hover { color: var(--accent-earth); }
+        .footer-bottom a:visited { color: rgba(255, 255, 255, 0.8); }
+        .footer-links { list-style: none; margin: 0; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-address {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 245, 240, 0.2);
+            font-size: 0.9rem;
+            color: var(--primary-light);
+        }
+        
+        @media (max-width: 1024px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .vr-tours { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+                flex: 1;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+                z-index: 998;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+            
+            /* Hide language switcher inside dropdown menu on mobile */
+            .nav-links .language-switcher {
+                display: none !important;
+            }
+            
+            .mobile-nav { display: flex; }
+            .mobile-menu-toggle { display: block !important; }
+            
+            section { padding: 3rem 1.5rem; }
+            .gallery-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 0.5rem; 
+            }
+            .vr-tours { grid-template-columns: 1fr; }
+            .vr-card img { height: 200px; }
+            .lightbox-nav { 
+                font-size: 2rem; 
+                padding: 0.5rem 1rem; 
+            }
+            .lightbox-prev { left: 1rem; }
+            .lightbox-next { right: 1rem; }
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+                font-size: 2.5rem;
+            }
+            .btn {
+                display: block;
+                width: 90%;
+                margin: 1rem auto;
+                text-align: center;
+            }
+            .intro-text {
+                font-size: 1.1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem; 
+            }
+            .hero {
+                min-height: 60vh;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                BASECAMP KYŪSHŪ
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ja">JA</button>
+                </div>
+            </ul>
+            
+            <!-- Mobile: Language Switcher + Burger -->
+            <div class="mobile-nav">
+                <div class="language-switcher-mobile">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ja">JA</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero"></div>
+
+    <section>
+        <div class="container">
+            <p class="intro-text lang-content lang-en active">
+                Every time we move through Kyūshū, something catches the light.<br>
+                A sunrise over the bay. Mist settling in the valley.<br>
+                The way tea fields roll into the distance.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Chaque fois que nous traversons Kyūshū, quelque chose capte la lumière.<br>
+                Un lever de soleil sur la baie. La brume se posant dans la vallée.<br>
+                La façon dont les champs de thé s'étendent au loin.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                九州を移動するたびに、何かが光を捉えます。<br>
+                湾の上の日の出。谷に立ち込める霧。<br>
+                茶畑が遠くへ続く様子。
+            </p>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="lang-content lang-en active">FROM OUR TRAVELS</h2>
+            <h2 class="lang-content lang-fr">DE NOS VOYAGES</h2>
+            <h2 class="lang-content lang-ja">私たちの旅から</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                A journey across the island — from volcanic peaks to coastal villages,<br>
+                castle towns to mountain workshops.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Un voyage à travers l'île — des sommets volcaniques aux villages côtiers,<br>
+                des villes fortifiées aux ateliers de montagne.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                島を横断する旅 — 火山の頂上から海岸の村、<br>
+                城下町から山の工房まで。
+            </p>
+            
+            <div class="video-container" style="width: 100%; max-width: 100%; margin: 2rem 0;">
+                <iframe src="https://www.youtube.com/embed/joU20sPEFKs?rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">FANTASTIC LOCATIONS</h2>
+            <h2 class="lang-content lang-fr">LIEUX FANTASTIQUES</h2>
+            <h2 class="lang-content lang-ja">素晴らしいロケ地</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                A growing collection of moments captured across Kyūshū's seven prefectures.
+            </p>
+            <p class="intro-text lang-content lang-en active">
+                From coastal sunrises to mountain villages, these images showcase the diverse landscapes and hidden corners we've discovered along the way.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Une collection croissante de moments capturés à travers les sept préfectures de Kyūshū.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Des levers de soleil côtiers aux villages de montagne, ces images présentent les paysages diversifiés et les coins cachés que nous avons découverts en chemin.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                九州の7つの県で捉えた瞬間の成長するコレクション。
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                海岸の日の出から山間の村まで、これらの画像は私たちが道中で発見した多様な風景と隠れた場所を紹介しています。
+            </p>
+            
+            <h2 class="lang-content lang-en active" style="text-align: center; margin-top: 3rem;">PANORAMAS - FROM ABOVE</h2>
+            <h2 class="lang-content lang-fr" style="text-align: center; margin-top: 3rem;">PANORAMAS - VU D'EN HAUT</h2>
+            <h2 class="lang-content lang-ja" style="text-align: center; margin-top: 3rem;">パノラマ - 上空から</h2>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/htmlimage-91012627-dfb6-89e1-41da-e76cb94b2dde_orig.png" 
+                     alt="Kyūshū Locations Map" 
+                     style="max-width: 100%; border-radius: 15px; box-shadow: 0 8px 30px var(--shadow);">
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://basecampimari.com/kyushuinmotions/" class="btn" target="_blank">
+                    <span class="lang-content lang-en active">Open The Tour</span>
+                    <span class="lang-content lang-fr">Ouvrir le Tour</span>
+                    <span class="lang-content lang-ja">ツアーを開く</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="lang-content lang-en active">IMMERSIVE EXPERIENCES</h2>
+            <h2 class="lang-content lang-fr">EXPÉRIENCES IMMERSIVES</h2>
+            <h2 class="lang-content lang-ja">没入型体験</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                Best viewed on desktop
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Meilleure visualisation sur ordinateur
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                デスクトップでの閲覧を推奨
+            </p>
+            
+            <div class="vr-tours">
+                <div class="vr-card">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kashima-vr_orig.png" alt="Kashima Sake Breweries">
+                    <div class="vr-card-content">
+                        <h3 class="lang-content lang-en active">Explore Kashima (Saga)</h3>
+                        <h3 class="lang-content lang-fr">Explorer Kashima (Saga)</h3>
+                        <h3 class="lang-content lang-ja">鹿島を探索（佐賀）</h3>
+                        
+                        <h4 class="lang-content lang-en active">Sakagura Breweries</h4>
+                        <h4 class="lang-content lang-fr">Brasseries Sakagura</h4>
+                        <h4 class="lang-content lang-ja">鹿島の酒蔵通り</h4>
+                        
+                        <p class="lang-content lang-en active">
+                            Immerse yourself in the historic sake brewing district of Kashima.
+                        </p>
+                        <p class="lang-content lang-fr">
+                            Immergez-vous dans le quartier historique de brassage de saké de Kashima.
+                        </p>
+                        <p class="lang-content lang-ja">
+                            鹿島の歴史的な酒蔵地区に没入。
+                        </p>
+                        
+                        <div style="text-align: center;">
+                            <a href="https://www.kashima-vr.com/" class="btn" target="_blank">
+                                <span class="lang-content lang-en active">Start The Tour</span>
+                                <span class="lang-content lang-fr">Commencer le Tour</span>
+                                <span class="lang-content lang-ja">ツアーを開始</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vr-card">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/okawachiyama-vr_orig.png" alt="Okawachiyama Village">
+                    <div class="vr-card-content">
+                        <h3 class="lang-content lang-en active">Okawachiyama</h3>
+                        <h3 class="lang-content lang-fr">Okawachiyama</h3>
+                        <h3 class="lang-content lang-ja">大川内山</h3>
+                        
+                        <h4 class="lang-content lang-en active">Village of the Secret Kilns</h4>
+                        <h4 class="lang-content lang-fr">Village des Fours Secrets</h4>
+                        <h4 class="lang-content lang-ja">秘窯の里</h4>
+                        
+                        <p class="lang-content lang-en active">
+                            Discover the hidden ceramic village where porcelain masters practice their craft.
+                        </p>
+                        <p class="lang-content lang-fr">
+                            Découvrez le village de céramique caché où les maîtres de la porcelaine pratiquent leur art.
+                        </p>
+                        <p class="lang-content lang-ja">
+                            陶磁器の巨匠が技を磨く隠れた陶器の村を発見。
+                        </p>
+                        
+                        <div style="text-align: center;">
+                            <a href="https://www.basecampimari.com/okawachiyama" class="btn" target="_blank">
+                                <span class="lang-content lang-en active">Start The Tour</span>
+                                <span class="lang-content lang-fr">Commencer le Tour</span>
+                                <span class="lang-content lang-ja">ツアーを開始</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vr-card">
+                    <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/yutoku-vr_orig.png" alt="Yutoku Inari Shrine">
+                    <div class="vr-card-content">
+                        <h3 class="lang-content lang-en active">Yutoku Inari Shrine</h3>
+                        <h3 class="lang-content lang-fr">Sanctuaire Yutoku Inari</h3>
+                        <h3 class="lang-content lang-ja">祐徳稲荷神社</h3>
+                        
+                        <h4 class="lang-content lang-en active">360° From Above & Indoors</h4>
+                        <h4 class="lang-content lang-fr">360° D'en Haut et Intérieur</h4>
+                        <h4 class="lang-content lang-ja">上空と室内からの360°</h4>
+                        
+                        <p class="lang-content lang-en active">
+                            Experience one of Japan's three great Inari shrines from unique perspectives.
+                        </p>
+                        <p class="lang-content lang-fr">
+                            Découvrez l'un des trois grands sanctuaires Inari du Japon sous des perspectives uniques.
+                        </p>
+                        <p class="lang-content lang-ja">
+                            日本三大稲荷の一つをユニークな視点から体験。
+                        </p>
+                        
+                        <div style="text-align: center;">
+                            <a href="https://kashima-vr.com/index.htm?skip-loading#media=139" class="btn" target="_blank">
+                                <span class="lang-content lang-en active">Start The Tour</span>
+                                <span class="lang-content lang-fr">Commencer le Tour</span>
+                                <span class="lang-content lang-ja">ツアーを開始</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="lang-content lang-en active">NEED A CUSTOM ONLINE TOUR?</h2>
+            <h2 class="lang-content lang-fr">BESOIN D'UN TOUR EN LIGNE PERSONNALISÉ?</h2>
+            <h2 class="lang-content lang-ja">カスタムオンラインツアーが必要ですか？</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                We can create bespoke 360° online tours tailored to your specific location.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Nous pouvons créer des tours en ligne 360° sur mesure adaptés à votre emplacement spécifique.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                お客様の特定の場所に合わせたオーダーメイドの360°オンラインツアーを作成できます。
+            </p>
+            
+            <a href="/cdn-cgi/l/email-protection#ff96919990bf929893909d9e93959e8f9e91d19c9092" class="btn">
+                <span class="lang-content lang-en active">Get in Touch</span>
+                <span class="lang-content lang-fr">Nous Contacter</span>
+                <span class="lang-content lang-ja">お問い合わせ</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="lang-content lang-en active" style="text-align: center;">DISCOVER SAGA PREFECTURE</h2>
+            <h2 class="lang-content lang-fr" style="text-align: center;">DÉCOUVRIR LA PRÉFECTURE DE SAGA</h2>
+            <h2 class="lang-content lang-ja" style="text-align: center;">佐賀県を発見</h2>
+            
+            <p class="intro-text lang-content lang-en active" style="text-align: center;">
+                Ceramic villages, hot springs & hidden beauty
+            </p>
+            <p class="intro-text lang-content lang-fr" style="text-align: center;">
+                Villages de céramique, sources chaudes et beautés cachées
+            </p>
+            <p class="intro-text lang-content lang-ja" style="text-align: center;">
+                陶磁器の村、温泉、隠れた美しさ
+            </p>
+            
+            <h3 class="lang-content lang-en active" style="text-align: center; color: var(--accent-copper); margin-top: 2rem;">WHY SAGA?</h3>
+            <h3 class="lang-content lang-fr" style="text-align: center; color: var(--accent-copper); margin-top: 2rem;">POURQUOI SAGA?</h3>
+            <h3 class="lang-content lang-ja" style="text-align: center; color: var(--accent-copper); margin-top: 2rem;">なぜ佐賀？</h3>
+            
+            <p class="intro-text lang-content lang-en active" style="text-align: center;">
+                Where our own Kyūshū story began.
+            </p>
+            <p class="intro-text lang-content lang-fr" style="text-align: center;">
+                Là où notre propre histoire de Kyūshū a commencé.
+            </p>
+            <p class="intro-text lang-content lang-ja" style="text-align: center;">
+                私たちの九州の物語が始まった場所。
+            </p>
+            
+            <p class="intro-text lang-content lang-en active" style="text-align: center;">
+                A visual journey through Saga's rich cultural heritage and natural landscapes
+            </p>
+            <p class="intro-text lang-content lang-fr" style="text-align: center;">
+                Un voyage visuel à travers le riche patrimoine culturel et les paysages naturels de Saga
+            </p>
+            <p class="intro-text lang-content lang-ja" style="text-align: center;">
+                佐賀の豊かな文化遺産と自然景観を巡る映像の旅
+            </p>
+            
+            <div class="video-container" style="width: 95%; max-width: 95%; margin: 2rem auto;">
+                <iframe src="https://www.youtube.com/embed/-SuBnl0EbUU?rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-special">
+        <div class="container">
+            <h2 class="lang-content lang-en active">THIS IS NOT A PRODUCTION TOOL</h2>
+            <h2 class="lang-content lang-fr">CE N'EST PAS UN OUTIL DE PRODUCTION</h2>
+            <h2 class="lang-content lang-ja">これは制作ツールではありません</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                In Motion is a visual space — not a commercial resource.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                In Motion est un espace visuel — pas une ressource commerciale.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                In Motionは視覚的な空間であり、商業リソースではありません。
+            </p>
+            
+            <p class="intro-text lang-content lang-en active">
+                If you're interested in our video production services, that's a different conversation.
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Si vous êtes intéressé par nos services de production vidéo, c'est une conversation différente.
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                映像制作サービスにご興味がある場合は、別の話になります。
+            </p>
+            
+            <div style="text-align: center;">
+                <a href="video-production.html" class="btn btn-outline">
+                    <span class="lang-content lang-en active">Explore Production Services</span>
+                    <span class="lang-content lang-fr">Explorer les Services de Production</span>
+                    <span class="lang-content lang-ja">制作サービスを探索</span>
+                </a>
+            </div>
+            
+            <p class="intro-text lang-content lang-en active" style="margin-top: 3rem;">
+                But here? This is simply how we see the island.
+            </p>
+            <p class="intro-text lang-content lang-fr" style="margin-top: 3rem;">
+                Mais ici? C'est simplement notre façon de voir l'île.
+            </p>
+            <p class="intro-text lang-content lang-ja" style="margin-top: 3rem;">
+                しかしここでは？これは私たちが島を見る方法です。
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">PHOTOS GALLERY</h2>
+            <h2 class="lang-content lang-fr">GALERIE PHOTOS</h2>
+            <h2 class="lang-content lang-ja">フォトギャラリー</h2>
+            
+            <p class="intro-text lang-content lang-en active">
+                Click any image to view full size
+            </p>
+            <p class="intro-text lang-content lang-fr">
+                Cliquez sur une image pour l'agrandir
+            </p>
+            <p class="intro-text lang-content lang-ja">
+                画像をクリックして拡大表示
+            </p>
+            
+            <div class="gallery-grid" id="gallery">
+                <!-- Gallery images will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BASECAMP KYUSHU</h4>
+                <p class="japanese-text">土地 — 人 — 物語</p>
+                <p>Where mountains meet the sea<br>and stories take form.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
+                    <strong>Basecamp Studios Higashi Matsubara</strong><br>
+                    Matsubara 5-47-12, Setagaya-ku<br>
+                    Tokyo 156-0043
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="in-motion.html">In Motion</a></li>
+                    <li><a href="stories.html">Stories Project</a></li>
+                    <li><a href="video-production.html">Video Production</a></li>
+                    <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="expedition-resort.html">Expedition Resort</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>CONNECT WITH US</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
+                <ul>
+                    <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
+                    <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
+                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        console.log("In Motion page loading...");
+        
+        // Language switcher
+        var langBtns = document.querySelectorAll(".lang-btn");
+        var langContents = document.querySelectorAll(".lang-content");
+        var currentLang = localStorage.getItem("lang") || "en";
+        
+        setLanguage(currentLang);
+        
+        langBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var lang = btn.dataset.lang;
+                setLanguage(lang);
+                localStorage.setItem("lang", lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            console.log("Setting language to:", lang);
+            langBtns.forEach(function(btn) {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            
+            langContents.forEach(function(content) {
+                var contentLang = "lang-" + lang;
+                if (content.classList.contains(contentLang)) {
+                    content.classList.add("active");
+                } else {
+                    content.classList.remove("active");
+                }
+            });
+        }
+        
+        // Mobile menu toggle
+        var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        var navLinks = document.querySelector(".nav-links");
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener("click", function() {
+                mobileMenuToggle.classList.toggle("active");
+                navLinks.classList.toggle("active");
+            });
+            
+            // Close menu when clicking on a link
+            var menuLinks = navLinks.querySelectorAll("a");
+            menuLinks.forEach(function(link) {
+                link.addEventListener("click", function() {
+                    mobileMenuToggle.classList.remove("active");
+                    navLinks.classList.remove("active");
+                });
+            });
+        }
+        
+        // Sticky nav
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else if (nav) {
+                nav.classList.remove("scrolled");
+            }
+        });
+        
+        // PHOTO GALLERY
+        // Add your image URLs here from Genspark
+        var galleryImages = [
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-49-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-14-57_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-13-44_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-40_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-52-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-53-35_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-08-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-49-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-08_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-54-05_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-51-30_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-56-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-09-21_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-12-49_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-30-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-58-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-00-45_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-121703_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-01-10_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-122035_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-54-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-59-55_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-50-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-08_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-35_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-02-00_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-58-02_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-15_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-03-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-21_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-04-20_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-06-43_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-31_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-57_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-00_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-56_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-01_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-25-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-19-16_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-25_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-20-55_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-13-24_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-14-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-16-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-17-47_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-22-27_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-01_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-24-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-39_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-43_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-29-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-39_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-33-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-47_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-12_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-29_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-40-28_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-43-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-44-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-46-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-47-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-48-02_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-33_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-24_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-04_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-38_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-52_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0400_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0402_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/fb-img-1577112882145_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190105-140138_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190821-121825_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190918-121147_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img20191120115333_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-25-05_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-28-24_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-38-49_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-45-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-46-08_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-23-03-31_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/ariake-seaweed-pier_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/boat-ariake_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-0269_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-20220424-184321-710_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0444_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc04024_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07339_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07344_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07392_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07583_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07746_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07808_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/higashi-sonogi_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kim-gallery_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loading-pic_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/nodo-no-kamisama_orig.jpeg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pic-for-kim-gallery_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/received-1712253785627569_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-03-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-04-25_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-05-28_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-13_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-36_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-11_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-44_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-10-10_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-12-34_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-14-26_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-19-21_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-24-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-26-08.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-28-54_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-30-11_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-34-37_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-38-21_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-03_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-59_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-16_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-33_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-46-18_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-55_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-48-25_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-08_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-54_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-50-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-09_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-31_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-18_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-44_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-53-22_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-58-53_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-59-43_orig.png"
+        ];
+        
+        var currentImageIndex = 0;
+        
+        // Load gallery
+        var galleryContainer = document.getElementById("gallery");
+        galleryImages.forEach(function(img, index) {
+            var div = document.createElement("div");
+            div.className = "gallery-item";
+            div.onclick = function() { openLightbox(index); };
+            
+            var imgEl = document.createElement("img");
+            imgEl.src = img;
+            imgEl.alt = "Kyūshū Photography " + (index + 1);
+            imgEl.loading = "lazy";
+            
+            div.appendChild(imgEl);
+            galleryContainer.appendChild(div);
+        });
+        
+        // Lightbox functions
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById("lightbox").classList.add("active");
+            showImage();
+        }
+        
+        function closeLightbox() {
+            document.getElementById("lightbox").classList.remove("active");
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            showImage();
+        }
+        
+        function showImage() {
+            document.getElementById("lightbox-img").src = galleryImages[currentImageIndex];
+            document.getElementById("lightbox-counter").textContent = 
+                (currentImageIndex + 1) + " / " + galleryImages.length;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener("keydown", function(e) {
+            var lightbox = document.getElementById("lightbox");
+            if (lightbox.classList.contains("active")) {
+                if (e.key === "ArrowLeft") changeImage(-1);
+                if (e.key === "ArrowRight") changeImage(1);
+                if (e.key === "Escape") closeLightbox();
+            }
+        });
+        
+        console.log("In Motion page loaded!");
+    </script>
+</body>
+</html>
