@@ -1,6 +1,6 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 8.5.5 - CONTACT Added to Desktop Navigation (All Pages) ✅  
+**Version:** 8.5.7 - Expedition Resort Header Height Reduced to Match Other Pages ✅  
 **Last Updated:** December 20, 2025  
 **Status:** ✅ All Pages WORKING | Consistent Navigation | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
