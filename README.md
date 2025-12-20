@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 7.5.2 - Mobile Hero Banner CSS Fixed Across All Pages 🏔️  
-**Last Updated:** December 19, 2025  
-**Status:** ✅ All Pages Updated | Consistent Design | Mobile Responsive  
+**Version:** 8.5.1 - Contact Page COMPLETELY FIXED - Clean Hero Section ✅  
+**Last Updated:** December 20, 2025  
+**Status:** ✅ All Pages WORKING | Consistent Navigation | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,7 +16,662 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Updates (December 19, 2025) - v7.5.2
+### ✨ Latest Updates (December 20, 2025) - v8.5.0
+
+#### ✅ CONTACT PAGE COMPLETELY FIXED! MOBILE MENU WORKING!
+
+**THE PROBLEM**: 
+1. Your `contact-FINAL.html` had the **OLD mobile menu system** (burger-menu + dark overlay rgba(0,0,0,0.95))
+2. It used `.mobile-nav`, `.burger-menu`, `.mobile-menu-overlay` (OLD system)
+3. File was also **truncated** (missing closing tags)
+
+**THE FIX**: 
+1. ✅ **Replaced ENTIRE mobile navigation system** with working `.mobile-menu-toggle` from index.html
+2. ✅ **Removed old burger-menu** HTML structure completely
+3. ✅ **Updated CSS** - Clean white dropdown (rgba(255,255,255,0.98)) instead of dark overlay
+4. ✅ **Replaced JavaScript** - Mobile menu toggle instead of burger menu
+5. ✅ **Fixed file structure** - Added missing closing tags `</script></body></html>`
+6. ✅ **Removed Cloudflare script** that was causing errors
+
+```javascript
+/* BEFORE ❌ - Code ran too early */
+window.addEventListener('DOMContentLoaded', function() {
+    switchLanguage(saved);
+});
+// Mobile menu code HERE (runs immediately - elements don't exist yet!)
+
+/* AFTER ✅ - Code runs when DOM is ready */
+window.addEventListener('DOMContentLoaded', function() {
+    switchLanguage(saved);
+    
+    // Mobile menu code HERE (runs when elements exist!)
+    var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    // ... rest of code
+});
+```
+
+**Result**:
+- ✅ Burger menu NOW WORKS on mobile!
+- ✅ Click hamburger → menu opens
+- ✅ Hamburger transforms to X
+- ✅ Click outside → menu closes
+- ✅ Click link → menu closes
+
+**Translations**: All English, French, and Japanese translations are already in place for:
+- Hero titles (GET IN TOUCH / CONTACTEZ-NOUS / お問い合わせ)
+- Form labels (Name / Nom / お名前)
+- Form fields (Email, Subject, Message)
+- Submit button (SEND MESSAGE / ENVOYER LE MESSAGE / 送信)
+- Subject dropdown options (all translated!)
+
+**Files Modified**: `contact.html`, `README.md`
+
+---
+
+**Previous Updates (v8.3.0)**:
+
+#### ✅ CONTACT PAGE - COMPLETE OVERHAUL! TEXT REMOVED + MOBILE MENU FIXED!
+
+**WHAT YOU WANTED**:
+1. REMOVE the text "Send us a message and we'll respond as soon as possible"
+2. Fix the burger icon that wasn't working on mobile
+3. Match the header with all other pages
+
+**WHAT WAS DONE**:
+
+**1. Hero Text REMOVED** ✅
+```html
+<!-- BEFORE ❌ -->
+<div class="hero">
+    <h1>GET IN TOUCH</h1>
+    <p>We'd love to hear from you. Send us a message...</p>
+</div>
+
+<!-- AFTER ✅ -->
+<div class="hero">
+    <h1>GET IN TOUCH</h1>
+    <!-- Text removed! -->
+</div>
+```
+
+**2. Mobile Header COMPLETELY REBUILT** ✅
+- **REMOVED**: Old burger-menu system with 3 spans
+- **REMOVED**: mobile-menu-overlay dark overlay
+- **REMOVED**: mobile-nav wrapper
+- **ADDED**: Modern mobile-menu-toggle (same as index.html)
+- **ADDED**: Clean white dropdown menu
+- **ADDED**: Proper language switcher on mobile
+
+**New Mobile Header Structure**:
+```html
+<ul class="nav-links">
+    <!-- All navigation links -->
+</ul>
+<div class="language-switcher">
+    <button class="lang-btn">EN</button>
+    <button class="lang-btn">FR</button>
+    <button class="lang-btn">JA</button>
+</div>
+<button class="mobile-menu-toggle"></button>
+```
+
+**3. Mobile CSS Updated** ✅
+- Copied mobile styles from index.html
+- 3-bar hamburger (☰) transforms to X (✕)
+- Language buttons visible next to hamburger
+- Clean white dropdown (no dark overlay)
+- Proper z-index management
+
+**4. JavaScript Fixed** ✅
+```javascript
+// OLD ❌
+var burgerMenu = document.getElementById("burger-menu");
+var mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+// NEW ✅
+var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+var navLinks = document.querySelector('.nav-links');
+```
+
+**Result**:
+- ✅ Hero text "Send us a message..." REMOVED
+- ✅ Mobile hamburger menu WORKS perfectly
+- ✅ Header matches all other pages (index, expedition, stories, etc.)
+- ✅ Logo left, language + hamburger right
+- ✅ Clean white dropdown on mobile
+- ✅ Added CONTACT link to navigation
+
+**Files Modified**: `contact.html`, `README.md`
+
+---
+
+**Previous Updates (v8.2.4)**:
+
+#### ✅ CONTACT PAGE - DESKTOP TEXT BREAK + MOBILE MENU BACKGROUND FIXED!
+
+**TWO PROBLEMS**:
+1. Desktop: Text "Send us a message and we'll respond as soon as possible" should break to 2 lines
+2. Mobile: Transparent dark background was blocking the view when menu opened
+
+**THE SOLUTIONS**:
+
+**1. Desktop Text Break** ✅
+```css
+.hero p {
+    font-size: 1.2rem;
+    max-width: 500px;  /* Reduced from 600px */
+    margin: 0 auto;
+    opacity: 0.95;
+}
+```
+- Reduced `max-width` from 600px to 500px
+- Text now naturally breaks to 2 lines on desktop
+- Better visual hierarchy
+
+**2. Mobile Menu Background** ✅
+```css
+/* BEFORE ❌ */
+.mobile-menu-overlay {
+    background: rgba(0, 0, 0, 0.95);  /* Dark semi-transparent */
+}
+.mobile-menu-content a {
+    color: var(--white);  /* White text */
+}
+
+/* AFTER ✅ */
+.mobile-menu-overlay {
+    background: var(--white);  /* Solid white */
+}
+.mobile-menu-content a {
+    color: var(--primary-dark);  /* Dark text */
+}
+```
+
+**Result**:
+- ✅ Desktop: Hero text breaks nicely to 2 lines
+- ✅ Mobile: Menu has solid white background (no transparency)
+- ✅ Mobile: Menu links are dark colored for readability
+- ✅ Mobile: No more blocking dark overlay
+
+**Files Modified**: `contact.html`, `README.md`
+
+---
+
+**Previous Updates (v8.2.3)**:
+
+#### ✅ CONTACT HERO TEXT - MOBILE WRAPPING FIXED!
+
+**THE PROBLEM**: Text "Send us a message and we'll respond as soon as possible" was still wrapping to next line on mobile.
+
+**THE SOLUTION**: Reduced hero paragraph font size even more on mobile
+
+**Mobile Hero Text Update**:
+```css
+@media (max-width: 768px) {
+    .hero p {
+        font-size: 0.9rem;      /* Reduced from 1rem */
+        line-height: 1.5;        /* Tighter spacing */
+        max-width: 90%;          /* Constrain width */
+    }
+}
+```
+
+**Result**: 
+- ✅ Hero text "Send us a message and we'll respond as soon as possible" now fits on one line on mobile
+- ✅ Smaller, more compact font size (0.9rem)
+- ✅ Better mobile readability
+
+**Files Modified**: `contact.html`, `README.md`
+
+---
+
+**Previous Updates (v8.2.2)**:
+
+#### ✅ CONTACT FORM - TRANSPARENT BACKGROUND REMOVED!
+
+**THE PROBLEM**: Contact form container had no explicit background, possibly showing through on some devices/browsers.
+
+**THE SOLUTION**: Added solid white background to `.contact-container`
+
+**What Was Fixed**:
+```css
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: var(--white);  /* ✅ ADDED - Solid white background */
+}
+```
+
+**Now All Backgrounds Are Solid**:
+- ✅ `body` - Solid white
+- ✅ `.contact-container` - Solid white
+- ✅ `.contact-form` - Solid white
+- ✅ `nav` - Solid white (already fixed in v8.2.0)
+
+**Files Modified**: `contact.html`, `README.md`
+
+**Result**: Contact form now has 100% solid white background with no transparency anywhere! 🎨
+
+---
+
+**Previous Updates (v8.2.1)**:
+
+#### ✅ CONTACT PAGE - MOBILE TEXT WRAPPING FIXED!
+
+**THE PROBLEM**: 
+1. Text "Send us a message and we'll respond as soon as possible" was wrapping to next line on mobile
+2. Mobile text was too large and breaking layout
+3. User requested Japanese translation (already present in file)
+
+**THE SOLUTION**: Added comprehensive mobile CSS for better text display
+
+**Mobile Text Improvements**:
+```css
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;  /* Reduced from default */
+    }
+    
+    .hero p {
+        font-size: 1rem;        /* Reduced for mobile */
+        line-height: 1.6;       /* Better readability */
+    }
+    
+    .contact-intro h2 {
+        font-size: 1.5rem;  /* Reduced from 2rem */
+    }
+    
+    .contact-intro p {
+        font-size: 1rem;        /* Reduced from 1.1rem */
+        line-height: 1.6;       /* Better spacing */
+    }
+}
+```
+
+**Japanese Translation**: ✅ Already included!
+- **English**: "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+- **Japanese**: "お気軽にお問い合わせください。できるだけ早くご返信いたします。"
+- **French**: "Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous vous répondrons dès que possible."
+
+**What Was Fixed**:
+1. ✅ Reduced hero heading size on mobile (2rem)
+2. ✅ Reduced hero paragraph size on mobile (1rem)
+3. ✅ Reduced contact intro heading size (1.5rem)
+4. ✅ Reduced contact intro paragraph size (1rem)
+5. ✅ Improved line-height for better readability (1.6)
+6. ✅ Text no longer wraps awkwardly on mobile
+
+**Files Modified**: `contact.html`, `README.md`
+
+**Result**: Contact page text now displays perfectly on mobile devices with proper sizing and no awkward wrapping! 📱✨
+
+---
+
+**Previous Updates (v8.2.0)**:
+
+#### ✅ CONTACT PAGE ADDED WITH STANDARD FOOTER!
+
+**WHAT YOU PROVIDED**: New contact form HTML file (contact-FINAL.html, 34KB)
+
+**WHAT WE DID**:
+1. ✅ **Downloaded** the new contact page
+2. ✅ **Replaced** the footer with our standard M Global Japan footer
+3. ✅ **Updated** footer CSS to match site-wide styling (`.main-footer`, `.footer-content`)
+4. ✅ **Removed** transparent nav background (solid white now)
+5. ✅ **Removed** Cloudflare email decode script (was causing errors)
+
+**Contact Page Features**:
+- **Modern Contact Form**: With name, email, subject, message fields
+- **Language Switcher**: EN / FR / JA support
+- **Form Validation**: Client-side validation included
+- **Responsive Design**: Mobile-friendly layout
+- **Standard Footer**: Consistent with all other pages
+- **Solid White Nav**: No transparency or blur effects
+
+**Footer Replaced**:
+- **OLD Footer**: Had multilingual content with `data-lang` attributes
+- **NEW Footer**: Standard M Global Japan footer with:
+  - BASECAMP KYUSHU branding
+  - "Where mountains meet the sea and stories take form"
+  - Tokyo Office address (Basecamp Studios Higashi Matsubara)
+  - Company info (株式会社 M Global Japan, Est. 2008)
+  - Social links (Instagram, YouTube)
+  - Email: info@mglobaljapan.com
+
+**CSS Updates**:
+- Changed from `.footer-container` to `.footer-content`
+- Updated from `footer` to `.main-footer` selector
+- Removed transparent nav: `background: rgba(255, 255, 255, 0.85)` → `background: var(--white)`
+- Removed `backdrop-filter: blur(10px)`
+
+**Files Modified**:
+- `contact.html` - New page with standard footer and solid nav
+- `README.md` - Updated to v8.2.0
+
+**Result**: Contact page is now live with consistent branding, standard footer, and solid white navigation! 📧✨
+
+---
+
+**Previous Updates (v8.1.1)**:
+
+#### ✅ JAPANESE INSTAGRAM TEXT SHORTENED!
+
+**THE PROBLEM**: The Japanese Instagram button text was too long: `@basecampkyushuをフォロー` (23 characters including username)
+
+**THE SOLUTION**: Shortened to just `フォローする` (5 characters - "Follow")
+
+**Changes**:
+- **BEFORE**: `@basecampkyushuをフォロー` ❌ (Too long, wraps on mobile)
+- **AFTER**: `フォローする` ✅ (Short, clean, fits perfectly)
+
+**Button Text by Language**:
+- **English**: "Follow @basecampkyushu"
+- **French**: "Suivre @basecampkyushu"
+- **Japanese**: "フォローする" (Follow)
+
+**Why This Works**:
+- The button already links to Instagram, so the username is implied
+- Japanese users understand "フォローする" means "Follow" on social media
+- Keeps button compact and mobile-friendly
+- Consistent with modern Japanese UI conventions
+
+**Files Modified**: `expedition-resort.html`, `README.md`
+
+---
+
+**Previous Updates (v8.1.0)**:
+
+#### ✅ EXPEDITION RESORT - MOBILE HEADER UPDATED + TRANSPARENT BACKGROUND REMOVED!
+
+**WHAT YOU ASKED FOR**: Update the mobile header to match other pages and remove the transparent part.
+
+**WHAT WE CHANGED**:
+
+**1. Mobile Navigation System** 🔄
+   - **REMOVED**: Old burger menu (`.burger-menu`, `.mobile-menu-overlay`)
+   - **ADDED**: Modern mobile menu toggle (`.mobile-menu-toggle`) - same as index.html
+   - **New Design**: Clean 3-bar hamburger (☰) that transforms to X when clicked
+   - **Behavior**: Dropdown menu appears below navbar (not overlay)
+
+**2. HTML Structure** 📝
+   - **REMOVED**: Separate `.mobile-nav` wrapper and `.language-switcher-mobile`
+   - **ADDED**: Single `.mobile-menu-toggle` button after `.language-switcher`
+   - **Simplified**: Language switcher (EN FR JA) now works on both desktop and mobile
+   - **Clean**: No more duplicate mobile-menu-overlay div
+
+**3. Navigation Background** 🎨
+   - **BEFORE**: `background: rgba(255, 255, 255, 0.85)` with `backdrop-filter: blur(10px)` ❌
+   - **AFTER**: `background: var(--white)` (solid white, no transparency) ✅
+   - **Mobile Dropdown BEFORE**: `background: rgba(255, 255, 255, 0.98)` with blur ❌
+   - **Mobile Dropdown AFTER**: `background: var(--white)` (solid white) ✅
+   - **Result**: Clean, non-transparent header on ALL devices
+
+**4. CSS Updates** 💅
+   - **Mobile Toggle Styling**: 38×38px button with earth-tone background
+   - **Hamburger Icon**: CSS-only 3-bar design using `::before` pseudo-element
+   - **Active State**: Transforms to X using rotation and transforms
+   - **Mobile Language Buttons**: Horizontal layout, 34px width, 28px height
+   - **Dropdown Menu**: Clean white background, proper spacing, smooth transitions
+
+**5. JavaScript Updates** 🔧
+   - **REMOVED**: Old `burger-menu` and `mobile-menu-overlay` event listeners
+   - **ADDED**: New `mobile-menu-toggle` event handlers
+   - **Features**:
+     - Toggle menu on click
+     - Close when clicking outside
+     - Close when clicking on a link
+     - Prevent body scroll conflicts
+
+**Mobile Header Layout** (< 768px):
+```
+┌─────────────────────────────────────────┐
+│ BASECAMP KYŪSHŪ      EN FR JA  ☰       │
+│ 土地 — 人 — 物語                         │
+└─────────────────────────────────────────┘
+  ↑ Logo (LEFT)      ↑ Lang + Burger (RIGHT)
+```
+
+**When Menu Opens**:
+```
+┌─────────────────────────────────────────┐
+│ BASECAMP KYŪSHŪ      EN FR JA  ✕       │
+│ 土地 — 人 — 物語                         │
+├─────────────────────────────────────────┤
+│ HOME                                    │
+│ ABOUT                                   │
+│ IN MOTION                               │
+│ STORIES                                 │
+│ VIDEO PRODUCTION                        │
+│ ONLINE SHOP                             │
+│ EXPEDITION RESORT                       │
+└─────────────────────────────────────────┘
+```
+
+**Files Modified**:
+- `expedition-resort.html` - Complete mobile header overhaul
+- `README.md` - Updated to v8.1.0
+
+**Result**: Expedition Resort mobile header now matches index.html perfectly with solid white background (no transparency or blur effects)! 🎉
+
+---
+
+**Previous Updates (v8.0.0)**:
+
+#### 🎉 EXPEDITION RESORT - MAJOR UPDATE WITH CLAUDE CONTENT!
+
+**WHAT HAPPENED**: User uploaded a new Claude-generated HTML file for Expedition Resort with enhanced content and styling.
+
+**WHAT WE DID**:
+1. ✅ **Downloaded** the new Claude HTML file (48KB)
+2. ✅ **Preserved** the existing footer (M Global Japan branding, contact info, links)
+3. ✅ **Replaced** Claude's footer with our established footer design
+4. ✅ **Updated** footer CSS to match site-wide styling
+5. ✅ **Integrated** the new content seamlessly
+
+**Key Changes**:
+- **New Content**: Updated Expedition Resort content from Claude (better structure, enhanced copy)
+- **Footer Preserved**: Kept the existing footer with:
+  - BASECAMP KYUSHU branding
+  - Tokyo Office address (Basecamp Studios Higashi Matsubara)
+  - M Global Japan company info (Est. 2008)
+  - Social media links (Instagram, YouTube)
+  - Email: info@mglobaljapan.com
+- **Footer CSS**: Updated from `.footer-container` to `.main-footer` and `.footer-content`
+- **Consistent Styling**: Footer now matches the rest of the site
+
+**Files Modified**:
+- `expedition-resort.html` - Replaced with Claude version + our footer
+- `expedition-resort-backup.html` - Old version saved as backup
+- `README.md` - Updated to v8.0.0
+
+**Result**: Expedition Resort page now has improved content while maintaining consistent branding and footer design across the entire site! 🎉
+
+---
+
+**Previous Updates (v7.8.1)**:
+
+#### ✅ IN MOTION PAGE - MOBILE BANNER DISPLAY FIXED!
+
+**THE PROBLEM**: The banner/hero image on the "In Motion" page was not displaying correctly on mobile devices after uploading to GitHub - it was incorrectly sized or not showing at all.
+
+**THE ROOT CAUSE**: 
+- Mobile hero CSS was ONLY in the `@media (max-width: 480px)` block
+- Tablets and larger phones (480px - 768px width) were NOT getting the mobile hero fix
+- Missing the critical mobile CSS in the 768px breakpoint
+
+**THE SOLUTION**: Added the mobile hero CSS to BOTH media query blocks (768px AND 480px).
+
+**CSS Applied**:
+```css
+/* Added to BOTH @media (max-width: 768px) AND @media (max-width: 480px) */
+.hero {
+    min-height: 60vh !important;
+    background-attachment: scroll !important;  /* Fix iOS parallax issue */
+    background-position: center center !important;  /* Keep image centered */
+    background-size: cover !important;  /* Fill container */
+    margin-top: 0 !important;  /* Remove unwanted spacing */
+}
+```
+
+**Why This Fixes It**:
+1. `min-height: 60vh` → Proper mobile height (not too tall/short)
+2. `background-attachment: scroll` → Fixes iOS Safari parallax rendering issues
+3. `background-position: center center` → Keeps image centered on all devices
+4. `background-size: cover` → Image fills container without distortion
+5. `margin-top: 0` → Removes unwanted top spacing
+
+**Result**:
+- ✅ Banner displays correctly on ALL mobile devices (320px - 768px)
+- ✅ No more sizing/rendering issues on GitHub Pages
+- ✅ Consistent with other pages (expedition-resort, index, etc.)
+
+**Files Modified**: `in-motion.html`
+
+---
+
+#### ✅ EXPEDITION RESORT - LANGUAGE SWITCHER EXCLUSIVE DISPLAY FINALLY FIXED!
+
+**THE PROBLEM**: When clicking "JA" (Japanese), BOTH English and Japanese text appeared simultaneously on screen!
+
+**THE ROOT CAUSE**: 
+- English content had NO language class (just plain HTML)
+- `.japanese-text` class was correctly hidden/shown
+- But English text was always visible regardless of `body[data-lang]`
+
+**THE SOLUTION**: Added comprehensive CSS rules to hide ALL non-Japanese content when Japanese is selected.
+
+**CSS Applied**:
+```css
+/* When Japanese is active, hide ALL non-Japanese content in main sections */
+body[data-lang="ja"] section h1:not(.japanese-text),
+body[data-lang="ja"] section h2:not(.japanese-text),
+body[data-lang="ja"] section h3:not(.japanese-text),
+body[data-lang="ja"] section h4:not(.japanese-text),
+body[data-lang="ja"] section h5:not(.japanese-text),
+body[data-lang="ja"] section p:not(.japanese-text),
+body[data-lang="ja"] section ul:not(.japanese-text),
+body[data-lang="ja"] section .audience-title:not(.japanese-text),
+body[data-lang="ja"] section .audience-subtitle:not(.japanese-text),
+body[data-lang="ja"] section .vision-text:not(.japanese-text) {
+    display: none !important;
+}
+
+/* Ensure Japanese text is always visible when JA is active */
+body[data-lang="ja"] .japanese-text {
+    display: block !important;
+}
+
+/* Hide individual list items inside non-Japanese lists */
+body[data-lang="ja"] section ul:not(.japanese-text) li {
+    display: none !important;
+}
+```
+
+**How It Works**:
+1. Default: `body data-lang="en"` → English visible, Japanese hidden
+2. Click "JA" button → JavaScript sets `body data-lang="ja"`
+3. CSS triggers → ALL English content hidden, ONLY `.japanese-text` visible
+4. localStorage saves preference → Persists across page reloads
+
+**Result**:
+- ✅ Click "EN" → See ONLY English
+- ✅ Click "JA" → See ONLY Japanese (日本語のみ)
+- ✅ Click "FR" → See ONLY French (would need French content added)
+
+**FINALLY WORKS! NO MORE MIXED LANGUAGE DISPLAY!** 🎉
+
+---
+
+**Previous Updates (v7.7.0)**:
+
+#### ✅ EXPEDITION RESORT - MOBILE HEADER FINALLY FIXED WITH CSS ORDER!
+
+**THE PROBLEM**: Logo kept appearing on the RIGHT, language/burger on LEFT - completely reversed!
+
+**THE SOLUTION**: Used CSS `order` property to explicitly force element positions.
+
+**CSS Applied (Mobile)**:
+```css
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: row !important;
+    }
+    
+    .logo {
+        order: 1 !important;           /* FIRST = LEFT */
+        margin-right: auto !important;  /* Push others right */
+    }
+    
+    .language-switcher {
+        order: 2 !important;           /* SECOND = RIGHT */
+    }
+    
+    .mobile-menu-toggle {
+        order: 3 !important;           /* THIRD = RIGHT */
+    }
+    
+    .nav-links {
+        order: 99 !important;          /* HIDDEN, but at end */
+    }
+}
+```
+
+**Result**:
+```
+┌────────────────────────────────────┐
+│ BASECAMP KYŪSHŪ      EN FR JA  ☰  │
+│ 土地 — 人 — 物語                    │
+└────────────────────────────────────┘
+  ↑ LEFT             ↑ RIGHT
+```
+
+**FINALLY WORKS!** 🎉
+
+---
+
+**Previous Updates (v7.5.3)**:
+
+#### ✅ IN MOTION PAGE - PHOTO GALLERY MOBILE LAYOUT
+
+**USER REQUEST**: Make photo gallery show 2 photos per row on mobile instead of just 1.
+
+**CHANGES (v7.5.3)**:
+
+**Responsive Gallery Grid**:
+- **Desktop (>1600px)**: 8 columns
+- **Large Desktop (1200-1600px)**: 6 columns
+- **Desktop (768-1200px)**: 4 columns
+- **Tablet (480-768px)**: 3 columns ✨ NEW
+- **Mobile (<480px)**: 2 columns ✨ UPDATED (was 1)
+
+**CSS Applied**:
+```css
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
+```
+
+**Benefits**:
+- ✅ Better use of mobile screen space
+- ✅ Easier browsing on small screens
+- ✅ Reduced gap (0.5rem) for tighter layout
+- ✅ Smooth responsive progression across all devices
+
+---
+
+**Previous Updates (v7.5.2)**:
 
 #### ✅ MOBILE HERO BANNER FIX - ALL PAGES
 
@@ -49,12 +704,12 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 
 **Pages Updated**:
 - ✅ expedition-resort.html
+- ✅ in-motion.html (banner not displaying properly on mobile)
 
-**Pages That Need This Fix** (if not already applied):
-- index.html
+**Pages That May Need This Fix** (if banner issues appear):
+- index.html (already has similar CSS)
 - about.html  
 - stories.html
-- in-motion.html
 - video-production.html
 - online-store.html
 

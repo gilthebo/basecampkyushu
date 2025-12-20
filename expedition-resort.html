@@ -3,184 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Expedition Resort - A Creative Basecamp in Itoshima, Kyūshū. Coming 2026-2027. Not a hotel. Not a co-working space. A true basecamp for production teams, writers, and creators.">
-    <meta name="keywords" content="Expedition Resort, Kyūshū accommodation, creative space, Basecamp Kyūshū, artist residency, Itoshima, film production basecamp, video production accommodation">
     <title>Expedition Resort - Basecamp Kyūshū</title>
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com/expedition-resort.html">
-    <meta property="og:title" content="Expedition Resort | Creative Basecamp in Itoshima, Kyūshū">
-    <meta property="og:description" content="Coming 2026-2027. A true basecamp for production teams, writers, and creators in Kyūshū.">
-    <meta property="og:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png">
-    <meta property="og:site_name" content="Basecamp Kyūshū">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Expedition Resort - Coming 2026-2027">
-    <meta name="twitter:description" content="A creative basecamp in Itoshima where production teams, writers, and creators can live, work, and explore.">
-    <meta name="twitter:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png">
-    
-    <link rel="canonical" content="https://yourdomain.com/expedition-resort.html">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace, and cultural exploration base. Opening 2026-2027.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #2C2C2C;
             --primary-light: #F5F5F0;
-            --accent-copper: #B87333;
             --accent-earth: #8B7355;
-            --bg-cream: #F5F5F0;
-            --light-gray: #F9F9F9;
+            --accent-copper: #B87333;
             --text-dark: #333333;
             --text-muted: #666666;
             --white: #FFFFFF;
             --shadow: rgba(0, 0, 0, 0.1);
         }
         
-        /* Japanese Toggle Button */
-
-
-        /* Card Styles */
-        .feature-card {
-            background: var(--light-gray);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-earth);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--white);
         }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .feature-card h3 {
-            color: var(--accent-earth);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card .emoji {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* Audience Section */
-        .audience-section {
-            background: rgba(255,255,255,0.95);
-            padding: 3rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .audience-title {
-            color: var(--primary-dark);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .audience-subtitle {
-            color: var(--primary-dark);
-            font-size: 1.2rem;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Timeline */
-        .timeline-item {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-earth);
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-item h4 {
-            color: var(--accent-earth);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* MOBILE MENU TOGGLE BUTTON */
-        .mobile-nav {
-            display: none;
+            line-height: 1.3;
         }
         
-        .mobile-menu-toggle {
-            display: none !important;
-            background: rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(139, 115, 85, 0.2);
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 0.4rem;
-            width: 38px;
-            height: 38px;
-            position: relative;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-        .mobile-menu-toggle:hover {
-            background: rgba(139, 115, 85, 0.15);
-            border-color: rgba(139, 115, 85, 0.3);
-        }
-        /* Create 3-bar hamburger icon */
-        .mobile-menu-toggle::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 2.5px;
-            background: var(--accent-earth);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 
-                0 -7px 0 0 var(--accent-earth),
-                0 7px 0 0 var(--accent-earth);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-        /* Transform to X when active */
-        .mobile-menu-toggle.active {
-            background: rgba(139, 115, 85, 0.2);
-            border-color: rgba(139, 115, 85, 0.4);
-        }
-        .mobile-menu-toggle.active::before {
-            transform: translate(-50%, -50%) rotate(45deg);
-            box-shadow: 0 0 0 0 transparent;
-        }
-        .mobile-menu-toggle.active::after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 2.5px;
-            background: var(--accent-earth);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            border-radius: 2px;
-        }
-        
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: var(--white);
             transition: all 0.4s;
             padding: 1.5rem 0;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
         nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--white);
             box-shadow: 0 2px 20px var(--shadow);
             padding: 1rem 0;
         }
@@ -211,25 +76,22 @@
             gap: 1.5rem;
             list-style: none;
             align-items: center;
-            flex-wrap: nowrap;
-            white-space: nowrap;
         }
         .nav-links a {
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 400;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 6px;
-            position: relative;
+            white-space: nowrap;
         }
         .nav-links a:hover { 
             color: var(--accent-earth);
             background: rgba(139, 115, 85, 0.1);
             transform: translateY(-2px);
         }
-        /* VERTICAL LANGUAGE SWITCHER */
         .language-switcher {
             display: flex;
             flex-direction: column;
@@ -258,102 +120,236 @@
             border-color: var(--accent-earth);
         }
         
-        @media (max-width: 768px) {
-            .nav-container {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0.75rem 1rem;
-            }
-            
-            .logo {
-                font-size: 1.1rem;
-                flex: 1;
-            }
-            
-            .logo-subtitle {
-                font-size: 0.6rem;
-            }
-            
-            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
-            .language-switcher {
-                display: flex !important;
-                flex-direction: row;
-                gap: 0.3rem;
-                border-left: none;
-                padding: 0;
-                margin: 0;
-                margin-right: 0.5rem;
-                position: relative;
-                z-index: 1002;
-            }
-            
-            .lang-btn {
-                padding: 0.35rem 0.5rem;
-                font-size: 0.7rem;
-                min-width: 34px;
-                height: 28px;
-                border-radius: 4px;
-                line-height: 1;
-                font-weight: 600;
-            }
-            
-            .mobile-menu-toggle {
-                display: block !important;
-                flex-shrink: 0;
-            }
-            
-            /* Hide desktop nav links, show in dropdown when active */
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                padding: 1.5rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                z-index: 999;
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .nav-links.active {
-                display: flex !important;
-            }
-            
-            .nav-links li {
-                width: 100%;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 1rem;
-                width: 100%;
-            }
-            
-            /* Hide language switcher inside dropdown menu on mobile */
-            .nav-links .language-switcher {
-                display: none !important;
-            }
-            
-            /* Fix hero/banner on mobile */
-            .hero {
-                min-height: 60vh !important;
-                background-attachment: scroll !important;
-                background-position: center center !important;
-                background-size: cover !important;
-                margin-top: 0 !important;
-            }
-            
-            section { padding: 3rem 1.5rem; }
-            
-            .vision-text {
-                font-size: 1.3rem !important;
-            }
+        
+        /* LANGUAGE SWITCHER CSS */
+        [data-lang]:not(.active-lang):not(.lang-btn) { display: none !important; }
+        [data-lang].active-lang { display: block !important; }
+        span[data-lang].active-lang { display: inline !important; }
+        .lang-btn { display: block !important; }
+        
+        /* MOBILE MENU TOGGLE - 3-bar hamburger that transforms to X */
+        .mobile-menu-toggle {
+            display: none !important;
+            background: rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0.4rem;
+            width: 38px;
+            height: 38px;
+            position: relative;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(139, 115, 85, 0.15);
+            border-color: rgba(139, 115, 85, 0.3);
+        }
+        
+        /* Create 3-bar hamburger icon */
+        .mobile-menu-toggle::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 -7px 0 0 var(--accent-earth),
+                0 7px 0 0 var(--accent-earth);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        /* Transform to X when active */
+        .mobile-menu-toggle.active {
+            background: rgba(139, 115, 85, 0.2);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+        
+        .mobile-menu-toggle.active::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        
+        .mobile-menu-toggle.active::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-earth);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+        /* HERO */
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #E8DDD0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 2rem 5rem;
+        }
+        
+        /* SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .section-alt {
+            background: var(--primary-light);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent-copper);
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        h5 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--accent-earth);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+        
+        .vision-image {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px var(--shadow);
+            margin: 3rem auto;
+            display: block;
+        }
+        
+        /* LISTS */
+        ul {
+            list-style-position: outside;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px var(--shadow);
+            text-align: center;
+        }
+        
+        .card ul {
+            list-style-position: inside;
+            text-align: center;
+            padding-left: 0;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* TIMELINE */
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        
+        .timeline-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-earth);
+        }
+        
+        .timeline-item h4 {
+            color: var(--accent-copper);
+            margin-top: 0;
+        }
+        
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #8B7355;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 1rem 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            background: #2C2C2C;
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            background: var(--accent-earth);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
         }
         
         /* FOOTER STYLES - Same as Stories Page */
@@ -420,53 +416,150 @@
             color: var(--accent-earth);
         }
         
-        /* Language content management */
-        .lang-content { display: none; }
-        .lang-content.active { display: block; }
-        
-        /* Japanese text - hidden by default, shown when Japanese selected */
-        .japanese-text {
-            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
-            display: none !important;
+        @media (max-width: 1024px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
         }
         
-        body[data-lang="ja"] .japanese-text {
-            display: block !important;
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.75rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+                flex: 1;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
+            .language-switcher {
+                display: flex !important;
+                flex-direction: row;
+                gap: 0.3rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                position: relative;
+                z-index: 1002;
+            }
+            
+            .lang-btn {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.7rem;
+                min-width: 34px;
+                height: 28px;
+                border-radius: 4px;
+                line-height: 1;
+                font-weight: 600;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+                flex-shrink: 0;
+            }
+            
+            /* Hide desktop nav links, show in dropdown when active */
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex !important;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+            
+            /* Hide language switcher inside dropdown menu on mobile */
+            .nav-links .language-switcher {
+                display: none !important;
+            }
+            
+            section { padding: 3rem 1.5rem; }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-text {
+                font-size: 1.1rem;
+            }
+            
+            .intro-text strong {
+                font-size: 1.3em !important;
+                display: block;
+                margin-top: 0.5rem;
+            }
+            
+            .hero {
+                min-height: 50vh;
+                padding: 8rem 1.5rem 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .timeline-item {
+                padding: 1.5rem;
+            }
         }
         
-        body[data-lang="en"] .japanese-text {
-            display: none !important;
-        }
-        
-        body[data-lang="fr"] .japanese-text {
-            display: none !important;
-        }
-        
-        /* Show only active language content for lang-content system */
-        body[data-lang="en"] .lang-en { display: block !important; }
-        body[data-lang="en"] .lang-fr,
-        body[data-lang="en"] .lang-ja { display: none !important; }
-        
-        body[data-lang="fr"] .lang-fr { display: block !important; }
-        body[data-lang="fr"] .lang-en,
-        body[data-lang="fr"] .lang-ja { display: none !important; }
-        
-        body[data-lang="ja"] .lang-ja { display: block !important; }
-        body[data-lang="ja"] .lang-en,
-        body[data-lang="ja"] .lang-fr { display: none !important; }
-        
-        /* Hero section */
-        .hero {
-            min-height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .intro-text strong {
+                font-size: 1.2em !important;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-<body data-lang="en">
-    <!-- Header / Navigation -->
+<body>
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -483,434 +576,473 @@
                 <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
             </ul>
             <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="fr">FR</button>
-                <button class="lang-btn" data-lang="ja">JA</button>
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+                <button class="lang-btn" data-lang="ja" onclick="switchLanguage('ja')">JA</button>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </nav>
 
+    <div class="hero"></div>
 
-
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png');">
-    </section>
-
-    <!-- Title Section -->
-    <section style="padding: 4rem 2rem; background: var(--white); text-align: center;">
-        <h1 style="font-size: 3rem; color: var(--primary-dark); margin-bottom: 1rem; font-weight: 700;">EXPEDITION RESORT</h1>
-        <p style="font-size: 1.5rem; color: var(--accent-earth); margin-bottom: 0.5rem; font-weight: 500;">A Creative Basecamp in Itoshima, Kyūshū</p>
-        <p class="japanese-text" style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 2rem;">探検リゾート — 糸島の創作拠点</p>
-        <p style="font-size: 1.5rem; color: var(--accent-earth); font-weight: 700; margin-bottom: 1rem;">Coming 2026-2027</p>
-    </section>
-
-    <!-- THE VISION -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 1000px;">
-            <div class="section-header">
-                <h2 class="section-title">THE VISION</h2>
-                <p class="section-subtitle japanese-text">ビジョン</p>
-                <div class="section-divider"></div>
-            </div>
+    <section>
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">THE VISION</h2>
+            <h2 data-lang="fr">LA VISION</h2>
+            <h2 data-lang="ja">ビジョン</h2>
             
-            <p class="vision-text" style="font-size: 1.8rem; font-weight: 700; text-align: center; color: var(--primary-dark); margin: 2rem auto; max-width: 900px; line-height: 1.6;">
-                Not a hotel.<br>Not a co-working space.<br><span style="color: var(--accent-earth);">A true basecamp.</span>
+            <p class="intro-text active-lang" data-lang="en">
+                Not a hotel.<br>
+                Not a co-working space.<br>
+                <strong style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.5em; color: #B87333;">A true basecamp.</strong>
             </p>
-
-            <p class="japanese-text" style="font-size: 1.15rem; text-align: center; margin: 2rem auto; color: var(--text-light); max-width: 900px; line-height: 1.8;">
-                ホテルではなく、<br>コワーキングスペースでもなく。<br><strong style="color: var(--accent-earth);">真のベースキャンプ。</strong>
+            <p class="intro-text" data-lang="fr">
+                Pas un hôtel.<br>
+                Pas un espace de coworking.<br>
+                <strong style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.5em; color: #B87333;">Un véritable camp de base.</strong>
+            </p>
+            <p class="intro-text" data-lang="ja">
+                ホテルではなく、<br>
+                コワーキングスペースでもなく。<br>
+                <strong style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.5em; color: #B87333;">真のベースキャンプ。</strong>
+            </p>
+            
+            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-01-at-22-31-35_orig.png" 
+                 alt="Expedition Resort Vision" 
+                 class="vision-image">
+            
+            <h3 class="active-lang" data-lang="en" style="text-align: center;">A place where:</h3>
+            <h3 data-lang="fr" style="text-align: center;">Un endroit où :</h3>
+            <h3 data-lang="ja" style="text-align: center;">それは場所です：</h3>
+            
+            <ul class="active-lang" data-lang="en" style="list-style-position: inside; text-align: center; padding-left: 0;">
+                <li>Film crews base their Kyūshū shoots</li>
+                <li>Writers find quiet to create</li>
+                <li>Explorers discover the island beyond guidebooks</li>
+                <li>The Basecamp Kyūshū community gathers</li>
+            </ul>
+            <ul data-lang="fr" style="list-style-position: inside; text-align: center; padding-left: 0;">
+                <li>Les équipes de tournage basent leurs productions Kyūshū</li>
+                <li>Les écrivains trouvent le calme pour créer</li>
+                <li>Les explorateurs découvrent l'île au-delà des guides</li>
+                <li>La communauté Basecamp Kyūshū se rassemble</li>
+            </ul>
+            <ul data-lang="ja" style="list-style-position: inside; text-align: center; padding-left: 0;">
+                <li>映像クルーが九州撮影の拠点にする</li>
+                <li>作家が創作のための静けさを見つける</li>
+                <li>探検者がガイドブックを超えた島を発見する</li>
+                <li>Basecamp Kyūshūコミュニティが集まる</li>
+            </ul>
+            
+            <p class="intro-text active-lang" data-lang="en">
+                Between mountains and sea.<br>
+                Between projects and adventures.
+            </p>
+            <p class="intro-text" data-lang="fr">
+                Entre montagnes et mer.<br>
+                Entre projets et aventures.
+            </p>
+            <p class="intro-text" data-lang="ja">
+                山と海の間。<br>
+                プロジェクトと冒険の間。
             </p>
         </div>
     </section>
 
-    <!-- Vision Image -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-01-at-22-31-35_orig.png" alt="Expedition Resort Vision" style="width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-
-            <!-- A Place Where Section -->
-            <div style="background: var(--light-gray); padding: 3rem; border-radius: 12px; margin-top: 3rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 2rem; color: var(--primary-dark); text-align: center;">
-                    A place where:
-                </p>
-
-                <ul style="list-style: none; padding: 0; font-size: 1.15rem; line-height: 2.5; color: var(--text-dark); text-align: left; max-width: 600px; margin: 0 auto;">
-                    <li>✓ Film crews base their Kyūshū shoots</li>
-                    <li>✓ Writers find quiet to create</li>
-                    <li>✓ Explorers discover the island beyond guidebooks</li>
-                    <li>✓ The Basecamp Kyūshū community gathers</li>
-                </ul>
-
-                <ul class="japanese-text" style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2.5; color: var(--text-light); margin-top: 2rem; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <li>✓ 映像クルーが九州撮影の拠点にする</li>
-                    <li>✓ 作家が創作のための静けさを見つける</li>
-                    <li>✓ 探検者がガイドブックを超えた島を発見する</li>
-                    <li>✓ Basecamp Kyūshūコミュニティが集まる</li>
-                </ul>
-
-                <p style="font-size: 1.8rem; font-weight: 600; margin-top: 3rem; color: var(--accent-earth); font-style: italic; text-align: center;">
-                    Between mountains and sea.<br>
-                    Between projects and adventures.
-                </p>
-
-                <p class="japanese-text" style="font-size: 1.5rem; margin-top: 1.5rem; color: var(--text-light); font-style: italic; text-align: center;">
-                    山と海の間。<br>
-                    プロジェクトと冒険の間。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO IT'S FOR -->
-    <section style="padding: 4rem 2rem; background: var(--primary-dark); color: var(--white);">
-        <div class="section-container" style="max-width: 1100px;">
-            <div class="section-header">
-                <h2 style="color: var(--white); font-size: 2.5rem;">WHO IT'S FOR</h2>
-                <p class="section-subtitle japanese-text" style="color: rgba(255,255,255,0.9);">誰のための場所か</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <!-- PRIMARY -->
-            <div class="audience-section">
-                <div class="audience-title">
-                    <span>🎬</span>
-                    <span>PRIMARY: Film & Video Production Crews</span>
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">WHO IT'S FOR</h2>
+            <h2 data-lang="fr">POUR QUI</h2>
+            <h2 data-lang="ja">誰のための場所か</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎬</div>
+                    <h3 class="active-lang" data-lang="en">Film & Video Production Crews</h3>
+                    <h3 data-lang="fr">Équipes de Production Vidéo</h3>
+                    <h3 data-lang="ja">映像制作クルー</h3>
+                    
+                    <p class="active-lang" data-lang="en">Stay on-site during multi-day shoots across Kyūshū.</p>
+                    <p data-lang="fr">Séjour sur place pendant les tournages de plusieurs jours à Kyūshū.</p>
+                    <p data-lang="ja">九州での複数日撮影中の滞在拠点</p>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>Accommodation for crews (4-12 people)</li>
+                        <li>Equipment storage & prep areas</li>
+                        <li>Dailies review spaces</li>
+                        <li>Coordination with M Global Japan</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>Hébergement pour équipes (4-12 personnes)</li>
+                        <li>Stockage et préparation d'équipement</li>
+                        <li>Espaces de révision quotidienne</li>
+                        <li>Coordination avec M Global Japan</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>クルー用宿泊（4-12名）</li>
+                        <li>機材保管・準備エリア</li>
+                        <li>デイリー確認スペース</li>
+                        <li>M Global Japanとの連携</li>
+                    </ul>
                 </div>
-                <div class="audience-subtitle japanese-text">映像制作クルーのための拠点</div>
                 
-                <p style="margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-dark);">
-                    Stay on-site during multi-day shoots across Kyūshū.
-                </p>
-                
-                <ul style="list-style: none; padding: 0; color: var(--text-dark); line-height: 2;">
-                    <li>✓ Accommodation for crews (4-12 people)</li>
-                    <li>✓ Equipment storage & prep areas</li>
-                    <li>✓ Dailies review spaces</li>
-                    <li>✓ Coordination with M Global Japan production team</li>
-                </ul>
-
-                <ul class="japanese-text" style="list-style: none; padding: 0; color: var(--text-light); line-height: 2; margin-top: 1rem;">
-                    <li>✓ 九州での複数日撮影中の滞在拠点</li>
-                    <li>✓ クルー用宿泊（4-12名）</li>
-                    <li>✓ 機材保管・準備エリア</li>
-                    <li>✓ デイリー確認スペース</li>
-                    <li>✓ M Global Japan制作チームとの連携</li>
-                </ul>
-            </div>
-
-            <!-- SECONDARY -->
-            <div class="audience-section">
-                <div class="audience-title">
-                    <span>✍️</span>
-                    <span>SECONDARY: Independent Creators</span>
+                <div class="card">
+                    <div class="card-icon">✍️</div>
+                    <h3 class="active-lang" data-lang="en">Independent Creators</h3>
+                    <h3 data-lang="fr">Créateurs Indépendants</h3>
+                    <h3 data-lang="ja">独立クリエイター</h3>
+                    
+                    <p class="active-lang" data-lang="en">Writers, photographers, designers seeking focused time.</p>
+                    <p data-lang="fr">Écrivains, photographes, designers cherchant du temps concentré.</p>
+                    <p data-lang="ja">集中して作業したい作家、写真家、デザイナー</p>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>Private work studios</li>
+                        <li>Quiet writing corners</li>
+                        <li>Inspiration from local landscape</li>
+                        <li>Community when desired, solitude when needed</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>Studios de travail privés</li>
+                        <li>Coins d'écriture calmes</li>
+                        <li>Inspiration du paysage local</li>
+                        <li>Communauté si désiré, solitude si nécessaire</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>プライベート作業スタジオ</li>
+                        <li>静かな執筆コーナー</li>
+                        <li>地域の風景からのインスピレーション</li>
+                        <li>交流したい時はコミュニティ、必要な時は孤独</li>
+                    </ul>
                 </div>
-                <div class="audience-subtitle japanese-text">独立クリエイターのための作業空間</div>
                 
-                <p style="margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-dark);">
-                    Writers, photographers, designers seeking focused time in Kyūshū.
-                </p>
-                
-                <ul style="list-style: none; padding: 0; color: var(--text-dark); line-height: 2;">
-                    <li>✓ Private work studios</li>
-                    <li>✓ Quiet writing corners</li>
-                    <li>✓ Inspiration from local landscape</li>
-                    <li>✓ Community when desired, solitude when needed</li>
-                </ul>
-
-                <ul class="japanese-text" style="list-style: none; padding: 0; color: var(--text-light); line-height: 2; margin-top: 1rem;">
-                    <li>✓ 九州で集中して作業したい作家、写真家、デザイナー</li>
-                    <li>✓ プライベート作業スタジオ</li>
-                    <li>✓ 静かな執筆コーナー</li>
-                    <li>✓ 地域の風景からのインスピレーション</li>
-                    <li>✓ 交流したい時はコミュニティ、必要な時は孤独</li>
-                </ul>
-            </div>
-
-            <!-- TERTIARY -->
-            <div class="audience-section">
-                <div class="audience-title">
-                    <span>🗺️</span>
-                    <span>TERTIARY: Cultural Explorers</span>
-                </div>
-                <div class="audience-subtitle japanese-text">文化探求者のための拠点</div>
-                
-                <p style="margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-dark);">
-                    Travelers seeking authentic Kyūshū beyond tourist routes.
-                </p>
-                
-                <ul style="list-style: none; padding: 0; color: var(--text-dark); line-height: 2;">
-                    <li>✓ Guided access to locations from our Stories</li>
-                    <li>✓ Connections with local artisans</li>
-                    <li>✓ Off-grid exploration support</li>
-                </ul>
-
-                <ul class="japanese-text" style="list-style: none; padding: 0; color: var(--text-light); line-height: 2; margin-top: 1rem;">
-                    <li>✓ 観光ルートを超えた本物の九州を求める旅行者</li>
-                    <li>✓ Storiesに登場する場所への案内</li>
-                    <li>✓ 地元職人とのつながり</li>
-                    <li>✓ オフグリッド探索サポート</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT WE'RE BUILDING -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 1100px;">
-            <div class="section-header">
-                <h2 class="section-title">WHAT WE'RE BUILDING</h2>
-                <p class="section-subtitle japanese-text">何を建設しているのか</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <!-- LOCATION -->
-            <div style="background: var(--light-gray); padding: 3rem; border-radius: 12px; margin: 3rem 0;">
-                <h3 style="color: var(--accent-earth); font-size: 2rem; margin-bottom: 1rem;">📍 LOCATION</h3>
-                <p class="japanese-text" style="color: var(--accent-earth); font-size: 1.2rem; font-weight: 600; margin-bottom: 2rem;">場所</p>
-                
-                <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark);">
-                    Somewhere in Itoshima, between mountains and coast. Accessible yet removed. Close enough to Fukuoka airport (45min), far enough from urban noise.
-                </p>
-
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; color: var(--text-light);">
-                    糸島の、山と海の間。アクセス可能でありながら隔絶。福岡空港から45分、都市の騒音からは十分に離れた場所。
-                </p>
-
-                <h4 style="color: var(--primary-dark); margin: 2rem 0 1rem 0;">We're currently evaluating properties that offer:</h4>
-                <p class="japanese-text" style="color: var(--text-light); margin-bottom: 1.5rem;">現在評価中の条件：</p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                    <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🌲 Large Land</h5>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">大規模用地</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🏘️ Existing Structure(s)</h5>
-                        <p style="font-size: 1rem; color: var(--text-dark);">for renovation</p>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">改装可能な既存建物</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">🌊 Natural Surroundings</h5>
-                        <p style="font-size: 1rem; color: var(--text-dark);">with sea or mountain view (if possible both)</p>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">自然環境（海または山の景色、できれば両方）</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                        <h5 style="color: var(--accent-earth); margin-bottom: 0.5rem; font-size: 1.1rem;">📈 Expansion Potential</h5>
-                        <p class="japanese-text" style="color: var(--text-light); font-size: 1rem;">将来の拡張可能性</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FACILITIES -->
-            <div style="margin: 4rem 0;">
-                <h3 style="color: var(--primary-dark); font-size: 2rem; margin-bottom: 1rem; text-align: center;">FACILITIES (Planned)</h3>
-                <p class="japanese-text" style="color: var(--accent-earth); font-size: 1.2rem; text-align: center; margin-bottom: 3rem;">施設（計画中）</p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <!-- Accommodation -->
-                    <div class="feature-card">
-                        <span class="emoji">🛏️</span>
-                        <h3>Accommodation</h3>
-                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">宿泊</p>
-                        <ul style="line-height: 2; color: var(--text-dark);">
-                            <li>3-6 private rooms</li>
-                            <li>2 crew suites (4-6 people each)</li>
-                            <li>Shared kitchen & dining</li>
-                            <li>Communal lounge with fireplace</li>
-                        </ul>
-                        <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
-                            <li>プライベートルーム 3-6室</li>
-                            <li>クルー用スイート 2室（各4-6名）</li>
-                            <li>共有キッチン・ダイニング</li>
-                            <li>暖炉のある共有ラウンジ</li>
-                        </ul>
-                    </div>
-
-                    <!-- Work Spaces -->
-                    <div class="feature-card">
-                        <span class="emoji">💼</span>
-                        <h3>Work Spaces</h3>
-                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">作業スペース</p>
-                        <ul style="line-height: 2; color: var(--text-dark);">
-                            <li>Production office (10+ desks)</li>
-                            <li>3 private studios for focused work</li>
-                            <li>Equipment prep/storage room</li>
-                            <li>Outdoor workspace with mountain/sea views</li>
-                        </ul>
-                        <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
-                            <li>プロダクションオフィス（10席以上）</li>
-                            <li>集中作業用プライベートスタジオ　3室</li>
-                            <li>機材準備・保管室</li>
-                            <li>山・海を望む屋外作業スペース</li>
-                        </ul>
-                    </div>
-
-                    <!-- Creative Amenities -->
-                    <div class="feature-card">
-                        <span class="emoji">🎬</span>
-                        <h3>Creative Amenities</h3>
-                        <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">クリエイティブ設備</p>
-                        <ul style="line-height: 2; color: var(--text-dark);">
-                            <li>Screening room for dailies/presentations</li>
-                            <li>Outdoor fire pit for evening gatherings</li>
-                        </ul>
-                        <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
-                            <li>デイリー・プレゼン用上映室</li>
-                            <li>夕方の集いのための屋外焚き火台</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <div class="card-icon">🗺️</div>
+                    <h3 class="active-lang" data-lang="en">Cultural Explorers</h3>
+                    <h3 data-lang="fr">Explorateurs Culturels</h3>
+                    <h3 data-lang="ja">文化探求者</h3>
+                    
+                    <p class="active-lang" data-lang="en">Travelers seeking authentic Kyūshū beyond tourist routes.</p>
+                    <p data-lang="fr">Voyageurs cherchant l'authentique Kyūshū au-delà des routes touristiques.</p>
+                    <p data-lang="ja">観光ルートを超えた本物の九州を求める旅行者</p>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>Guided access to locations from our Stories</li>
+                        <li>Connections with local artisans</li>
+                        <li>Off-grid exploration support</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>Accès guidé aux lieux de nos Stories</li>
+                        <li>Connexions avec artisans locaux</li>
+                        <li>Support d'exploration hors réseau</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>Storiesに登場する場所への案内</li>
+                        <li>地元職人とのつながり</li>
+                        <li>オフグリッド探索サポート</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- OUR JOURNEY TO OPENING -->
-    <section style="padding: 4rem 2rem; background: var(--white);">
-        <div class="section-container" style="max-width: 1000px;">
-            <div class="section-header">
-                <h2 class="section-title">OUR JOURNEY TO OPENING</h2>
-                <p class="section-subtitle japanese-text">開業までの道のり</p>
-                <div class="section-divider"></div>
+    <section>
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">WHAT WE'RE BUILDING</h2>
+            <h2 data-lang="fr">CE QUE NOUS CONSTRUISONS</h2>
+            <h2 data-lang="ja">何を建設しているのか</h2>
+            
+            <h3 class="active-lang" data-lang="en">📍 Location</h3>
+            <h3 data-lang="fr">📍 Emplacement</h3>
+            <h3 data-lang="ja">📍 場所</h3>
+            
+            <p class="active-lang" data-lang="en">
+                Somewhere in Itoshima, between mountains and coast. Accessible yet removed. 
+                Close enough to Fukuoka airport (45min), far enough from urban noise.
+            </p>
+            <p data-lang="fr">
+                Quelque part à Itoshima, entre montagnes et côte. Accessible mais isolé. 
+                Assez proche de l'aéroport de Fukuoka (45min), assez loin du bruit urbain.
+            </p>
+            <p data-lang="ja">
+                糸島の、山と海の間。アクセス可能でありながら隔絶。
+                福岡空港から45分、都市の騒音からは十分に離れた場所。
+            </p>
+            
+            <h4 class="active-lang" data-lang="en">We're currently evaluating properties that offer:</h4>
+            <h4 data-lang="fr">Nous évaluons actuellement des propriétés qui offrent :</h4>
+            <h4 data-lang="ja">現在評価中の条件：</h4>
+            
+            <ul class="active-lang" data-lang="en">
+                <li><strong>Large Land</strong></li>
+                <li><strong>Existing Structure(s)</strong> for renovation</li>
+                <li><strong>Natural Surroundings</strong> with sea or mountain view (ideally both)</li>
+                <li><strong>Expansion Potential</strong></li>
+            </ul>
+            <ul data-lang="fr">
+                <li><strong>Terrain Spacieux</strong></li>
+                <li><strong>Structure(s) Existante(s)</strong> à rénover</li>
+                <li><strong>Environnement Naturel</strong> avec vue mer ou montagne (idéalement les deux)</li>
+                <li><strong>Potentiel d'Expansion</strong></li>
+            </ul>
+            <ul data-lang="ja">
+                <li><strong>大規模用地</strong></li>
+                <li><strong>改装可能な既存建物</strong></li>
+                <li><strong>自然環境</strong>（海または山の景色、できれば両方）</li>
+                <li><strong>将来の拡張可能性</strong></li>
+            </ul>
+            
+            <h3 class="active-lang" data-lang="en" style="margin-top: 3rem;">Facilities (Planned)</h3>
+            <h3 data-lang="fr" style="margin-top: 3rem;">Installations (Prévues)</h3>
+            <h3 data-lang="ja" style="margin-top: 3rem;">施設（計画中）</h3>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🛏️</div>
+                    <h4 class="active-lang" data-lang="en">Accommodation</h4>
+                    <h4 data-lang="fr">Hébergement</h4>
+                    <h4 data-lang="ja">宿泊</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>3-6 private rooms</li>
+                        <li>2 crew suites<br>(4-6 people each)</li>
+                        <li>Shared kitchen & dining</li>
+                        <li>Communal lounge with fireplace</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>3-6 chambres privées</li>
+                        <li>2 suites d'équipe<br>(4-6 personnes chacune)</li>
+                        <li>Cuisine et salle à manger partagées</li>
+                        <li>Salon commun avec cheminée</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>プライベートルーム 3-6室</li>
+                        <li>クルー用スイート 2室<br>（各4-6名）</li>
+                        <li>共有キッチン・ダイニング</li>
+                        <li>暖炉のある共有ラウンジ</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h4 class="active-lang" data-lang="en">Work Spaces</h4>
+                    <h4 data-lang="fr">Espaces de Travail</h4>
+                    <h4 data-lang="ja">作業スペース</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>Production office (10+ desks)</li>
+                        <li>3 private studios for focused work</li>
+                        <li>Equipment prep/storage room</li>
+                        <li>Outdoor workspace with views</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>Bureau de production (10+ postes)</li>
+                        <li>3 studios privés pour travail concentré</li>
+                        <li>Salle de préparation/stockage d'équipement</li>
+                        <li>Espace de travail extérieur avec vue</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>プロダクションオフィス（10席以上）</li>
+                        <li>集中作業用プライベートスタジオ 3室</li>
+                        <li>機材準備・保管室</li>
+                        <li>山・海を望む屋外作業スペース</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🎬</div>
+                    <h4 class="active-lang" data-lang="en">Creative Amenities</h4>
+                    <h4 data-lang="fr">Équipements Créatifs</h4>
+                    <h4 data-lang="ja">クリエイティブ設備</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
+                        <li>Screening room for dailies/presentations</li>
+                        <li>Outdoor fire pit for evening gatherings</li>
+                    </ul>
+                    <ul data-lang="fr">
+                        <li>Salle de projection pour dailies/présentations</li>
+                        <li>Foyer extérieur pour rassemblements du soir</li>
+                    </ul>
+                    <ul data-lang="ja">
+                        <li>デイリー・プレゼン用上映室</li>
+                        <li>夕方の集いのための屋外焚き火台</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div style="max-width: 800px; margin: 0 auto;">
-                <!-- PHASE 1 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
-                    <h4 style="color: var(--accent-earth);">PHASE 1: Location Acquisition (2026)</h4>
-                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第1段階：用地取得（2026年）</p>
-                    <ul style="line-height: 2; color: var(--text-dark);">
+    <section class="section-alt">
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">OUR JOURNEY TO OPENING</h2>
+            <h2 data-lang="fr">NOTRE CHEMIN VERS L'OUVERTURE</h2>
+            <h2 data-lang="ja">開業までの道のり</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4 class="active-lang" data-lang="en">PHASE 1: Location Acquisition (2026)</h4>
+                    <h4 data-lang="fr">PHASE 1 : Acquisition du Site (2026)</h4>
+                    <h4 data-lang="ja">第1段階：用地取得（2026年）</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
                         <li>Finalize property in Itoshima area</li>
                         <li>Secure permits & development approvals</li>
                     </ul>
-                    <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
+                    <ul data-lang="fr">
+                        <li>Finaliser la propriété dans la région d'Itoshima</li>
+                        <li>Obtenir permis et approbations de développement</li>
+                    </ul>
+                    <ul data-lang="ja">
                         <li>糸島エリアの物件確定</li>
                         <li>許可・開発承認の取得</li>
-                        <li>地元建設業者との建築計画</li>
                     </ul>
                 </div>
-
-                <!-- PHASE 2 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
-                    <h4 style="color: var(--accent-earth);">PHASE 2: Renovation (2026)</h4>
-                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第2段階：改装（2026年）</p>
-                    <ul style="line-height: 2; color: var(--text-dark);">
+                
+                <div class="timeline-item">
+                    <h4 class="active-lang" data-lang="en">PHASE 2: Renovation (2026)</h4>
+                    <h4 data-lang="fr">PHASE 2 : Rénovation (2026)</h4>
+                    <h4 data-lang="ja">第2段階：改装（2026年）</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
                         <li>Structural renovation & interior build-out</li>
                         <li>Studio & workspace construction</li>
                         <li>Furnishing & equipment installation</li>
                         <li>Soft opening with select creators (beta testing)</li>
                     </ul>
-                    <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
+                    <ul data-lang="fr">
+                        <li>Rénovation structurelle et aménagement intérieur</li>
+                        <li>Construction studio et espace de travail</li>
+                        <li>Installation mobilier et équipement</li>
+                        <li>Ouverture douce avec créateurs sélectionnés (test bêta)</li>
+                    </ul>
+                    <ul data-lang="ja">
                         <li>構造改装・内装工事</li>
                         <li>スタジオ・作業スペース建設</li>
                         <li>家具・設備設置</li>
                         <li>選抜クリエイターによるソフトオープン（ベータテスト）</li>
                     </ul>
                 </div>
-
-                <!-- PHASE 3 -->
-                <div class="timeline-item" style="background: var(--light-gray); color: var(--text-dark); border-left-color: var(--accent-earth);">
-                    <h4 style="color: var(--accent-earth);">PHASE 3: Full Launch (Late 2026 / Early 2027)</h4>
-                    <p class="japanese-text" style="color: var(--accent-earth); font-weight: 600; margin-bottom: 1rem;">第3段階：本格稼働（2026年末/2027年初）</p>
-                    <ul style="line-height: 2; color: var(--text-dark);">
+                
+                <div class="timeline-item">
+                    <h4 class="active-lang" data-lang="en">PHASE 3: Full Launch (Late 2026 / Early 2027)</h4>
+                    <h4 data-lang="fr">PHASE 3 : Lancement Complet (Fin 2026 / Début 2027)</h4>
+                    <h4 data-lang="ja">第3段階：本格稼働（2026年末/2027年初）</h4>
+                    
+                    <ul class="active-lang" data-lang="en">
                         <li>Public opening</li>
-                        <li>Integration with M Global Japan booking system</li>
-                        <li>Community events & creator residencies</li>
                     </ul>
-                    <ul class="japanese-text" style="line-height: 2; color: var(--text-light); margin-top: 1rem;">
+                    <ul data-lang="fr">
+                        <li>Ouverture publique</li>
+                    </ul>
+                    <ul data-lang="ja">
                         <li>一般公開</li>
-                        <li>M Global Japan予約システムとの統合</li>
-                        <li>コミュニティイベント・クリエイター・レジデンシー</li>
                     </ul>
                 </div>
+            </div>
+            
+            <p class="intro-text active-lang" data-lang="en" style="font-size: 1rem; color: var(--text-muted);">
+                <strong>Note:</strong> Timeline subject to property acquisition and development requirements.
+            </p>
+            <p class="intro-text" data-lang="fr" style="font-size: 1rem; color: var(--text-muted);">
+                <strong>Note :</strong> Le calendrier est soumis à l'acquisition de propriété et aux exigences de développement.
+            </p>
+            <p class="intro-text" data-lang="ja" style="font-size: 1rem; color: var(--text-muted);">
+                <strong>注：</strong> スケジュールは物件取得と開発要件により変動する可能性があります。
+            </p>
+        </div>
+    </section>
 
-                <p style="text-align: center; margin-top: 3rem; font-style: italic; color: var(--text-light); padding: 2rem; background: var(--light-gray); border-radius: 8px;">
-                    <strong>Note:</strong> Timeline subject to property acquisition and development requirements.
-                </p>
-                <p class="japanese-text" style="text-align: center; margin-top: 1rem; color: var(--text-light);">
-                    <strong>注：</strong> スケジュールは物件取得と開発要件により変動する可能性があります。
-                </p>
+    <section>
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">MEANWHILE: PRODUCTION SERVICES AVAILABLE NOW</h2>
+            <h2 data-lang="fr">EN ATTENDANT : SERVICES DE PRODUCTION DISPONIBLES</h2>
+            <h2 data-lang="ja">現在：制作サービスは既に稼働中</h2>
+            
+            <p class="intro-text active-lang" data-lang="en">
+                Don't want to wait until 2027?
+            </p>
+            <p class="intro-text" data-lang="fr">
+                Vous ne voulez pas attendre jusqu'en 2027 ?
+            </p>
+            <p class="intro-text" data-lang="ja">
+                待てませんか？
+            </p>
+            
+            <p class="intro-text active-lang" data-lang="en">
+                M Global Japan's Basecamp Kyūshū unit is <strong>already operational</strong><br>
+                for video production across the island.
+            </p>
+            <p class="intro-text" data-lang="fr">
+                L'unité Basecamp Kyūshū de M Global Japan est <strong>déjà opérationnelle</strong><br>
+                pour la production vidéo à travers l'île.
+            </p>
+            <p class="intro-text" data-lang="ja">
+                M Global JapanのBasecamp Kyūshū部門は<strong>既に稼働中</strong>で、<br>
+                島全体での映像制作に対応しています。
+            </p>
+            
+            <h3 class="active-lang" data-lang="en" style="text-align: center;">We can handle your project today:</h3>
+            <h3 data-lang="fr" style="text-align: center;">Nous pouvons gérer votre projet aujourd'hui :</h3>
+            <h3 data-lang="ja" style="text-align: center;">今日からプロジェクトに対応可能：</h3>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h4 class="active-lang" data-lang="en">Location Scouting</h4>
+                    <h4 data-lang="fr">Repérage de Lieux</h4>
+                    <h4 data-lang="ja">ロケーションスカウト</h4>
+                </div>
+                
+                <div class="card">
+                    <h4 class="active-lang" data-lang="en">Full Production Crews & Shoot</h4>
+                    <h4 data-lang="fr">Équipes de Production Complètes</h4>
+                    <h4 data-lang="ja" style="white-space: nowrap;">フルプロダクションクルー・撮影</h4>
+                </div>
+                
+                <div class="card">
+                    <h4 class="active-lang" data-lang="en">Post-Production</h4>
+                    <h4 data-lang="fr">Post-Production</h4>
+                    <h4 data-lang="ja">ポストプロダクション</h4>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="video-production.html" class="btn">
+                    <span class="active-lang" data-lang="en">View Production Services →</span>
+                    <span data-lang="fr">Voir les Services de Production →</span>
+                    <span data-lang="ja">制作サービスを見る →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- MEANWHILE: PRODUCTION SERVICES AVAILABLE NOW -->
-    <section style="padding: 4rem 2rem; background: var(--accent-earth); color: var(--white);">
-        <div class="section-container" style="max-width: 900px; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--white); margin-bottom: 1rem;">MEANWHILE: PRODUCTION SERVICES AVAILABLE NOW</h2>
-            <p class="japanese-text" style="font-size: 1.3rem; margin-bottom: 3rem; color: rgba(255,255,255,0.95);">現在：制作サービスは既に稼働中</p>
-
-            <div style="background: rgba(255,255,255,0.15); padding: 3rem; border-radius: 12px; margin: 2rem 0;">
-                <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem; color: var(--white);">
-                    Don't want to wait until 2027?
-                </p>
-                <p class="japanese-text" style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">
-                    待てませんか？
-                </p>
-
-                <p style="font-size: 1.2rem; line-height: 1.9; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">
-                    M Global Japan's Basecamp Kyūshū unit is <strong>already operational</strong><br>for video production across the island.
-                </p>
-
-                <p class="japanese-text" style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">
-                    M Global JapanのBasecamp Kyūshū部門は既に稼働中で、<br>島全体での映像制作に対応しています。
-                </p>
-
-                <h3 style="color: var(--white); margin: 2rem 0 1.5rem 0; font-size: 1.5rem;">We can handle your project today:</h3>
-                <p class="japanese-text" style="color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">今日からプロジェクトに対応可能：</p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
-                        <p style="font-size: 1.1rem; font-weight: 600;">Location Scouting</p>
-                        <p class="japanese-text" style="margin-top: 0.5rem;">ロケーションスカウト</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
-                        <p style="font-size: 1.1rem; font-weight: 600;">Full Production Crews & Shoot</p>
-                        <p class="japanese-text" style="margin-top: 0.5rem;">フルプロダクションクルー・撮影</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
-                        <p style="font-size: 1.1rem; font-weight: 600;">Post-Production</p>
-                        <p class="japanese-text" style="margin-top: 0.5rem;">ポストプロダクション</p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="video-production.html" class="btn" style="background: var(--white); color: var(--accent-earth); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; display: inline-block;">
-                        VIEW PRODUCTION SERVICES →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STAY INFORMED -->
-    <section style="padding: 4rem 2rem; background: var(--light-gray);">
-        <div class="section-container" style="max-width: 900px; text-align: center;">
-            <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem;">STAY INFORMED</h2>
-            <p class="japanese-text" style="font-size: 1.3rem; color: var(--accent-earth); margin-bottom: 3rem;">最新情報を受け取る</p>
-
-            <div style="background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem; color: var(--text-dark);">
-                    Interested in Expedition Resort's development?<br>
-                    Want to be among the first guests when we open?<br>
-                    Have ideas for features you'd love to see?
-                </p>
-
-                <p class="japanese-text" style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 2rem; color: var(--text-light);">
-                    Expedition Resortの開発に興味がありますか？<br>
-                    オープン時の最初のゲストになりたいですか？<br>
-                    実現してほしい機能についてアイデアがありますか？
-                </p>
-
-                <div style="margin: 2.5rem 0;">
-                    <a href="https://instagram.com/basecampkyushu" target="_blank" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        <span>Follow @basecampkyushu</span>
-                    </a>
-                </div>
-            </div>
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="active-lang" data-lang="en">STAY INFORMED</h2>
+            <h2 data-lang="fr">RESTEZ INFORMÉ</h2>
+            <h2 data-lang="ja">最新情報を受け取る</h2>
+            
+            <p class="active-lang" data-lang="en" style="color: white; font-size: 1.2rem; margin: 2rem auto; max-width: 700px;">
+                Interested in Expedition Resort's development?<br>
+                Want to be among the first guests when we open?<br>
+                Have ideas for features you'd love to see?
+            </p>
+            <p data-lang="fr" style="color: white; font-size: 1.2rem; margin: 2rem auto; max-width: 700px;">
+                Intéressé par le développement d'Expedition Resort ?<br>
+                Vous voulez être parmi les premiers invités à l'ouverture ?<br>
+                Vous avez des idées de fonctionnalités que vous aimeriez voir ?
+            </p>
+            <p data-lang="ja" style="color: white; font-size: 1.2rem; margin: 2rem auto; max-width: 700px;">
+                Expedition Resortの開発に興味がありますか？<br>
+                オープン時の最初のゲストになりたいですか？<br>
+                実現してほしい機能についてアイデアがありますか？
+            </p>
+            
+            <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn" style="background: white; color: var(--accent-earth);">
+                <span class="active-lang" data-lang="en">Follow @basecampkyushu</span>
+                <span data-lang="fr">Suivre @basecampkyushu</span>
+                <span data-lang="ja">フォローする</span>
+            </a>
         </div>
     </section>
 
@@ -930,7 +1062,6 @@
                     Tokyo 156-0043
                 </p>
             </div>
-
             <div class="footer-section">
                 <h4>EXPLORE</h4>
                 <ul>
@@ -942,7 +1073,6 @@
                     <li><a href="expedition-resort.html">Expedition Resort</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>CONNECT WITH US</h4>
                 <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
@@ -954,69 +1084,89 @@
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    
-    <!-- Japanese Toggle Script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Language switcher
-        const langButtons = document.querySelectorAll('.lang-btn');
-        const body = document.body;
-        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-        setLanguage(savedLang);
-        langButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-                localStorage.setItem('preferredLanguage', lang);
+    <script>
+        // SIMPLE LANGUAGE SWITCHER
+        function switchLanguage(lang) {
+            console.log('Switching to:', lang);
+            
+            // Remove active-lang from all content
+            document.querySelectorAll('[data-lang]').forEach(function(el) {
+                el.classList.remove('active-lang');
             });
-        });
-        function setLanguage(lang) {
-            body.setAttribute('data-lang', lang);
-            langButtons.forEach(btn => {
+            
+            // Add active-lang to selected language
+            document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) {
+                el.classList.add('active-lang');
+            });
+            
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
                 btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) { btn.classList.add('active'); }
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
             });
+            
+            // Save
+            localStorage.setItem('selectedLanguage', lang);
         }
+        
+        // Load saved language
+        window.addEventListener('DOMContentLoaded', function() {
+            var saved = localStorage.getItem('selectedLanguage') || 'en';
+            switchLanguage(saved);
+        });
         
         // Mobile menu toggle
         var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
         
         if (mobileMenuToggle && navLinks) {
-            mobileMenuToggle.addEventListener('click', function() {
-                mobileMenuToggle.classList.toggle('active');
+            // Ensure menu is closed on page load
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            mobileMenuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
                 navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                var isClickInsideNav = navLinks.contains(event.target);
+                var isClickOnToggle = mobileMenuToggle.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
             });
             
             // Close menu when clicking on a link
-            var navLinksItems = navLinks.querySelectorAll('a');
-            navLinksItems.forEach(function(link) {
+            var navLinksElements = navLinks.querySelectorAll('a');
+            navLinksElements.forEach(function(link) {
                 link.addEventListener('click', function() {
-                    mobileMenuToggle.classList.remove('active');
                     navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
                 });
             });
         }
         
-        // Sticky navigation
-        var navbar = document.getElementById('navbar');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 100) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-        }
-    });
-</script>
+        // Sticky nav
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else if (nav) {
+                nav.classList.remove("scrolled");
+            }
+        });
+    </script>
 </body>
 </html>
