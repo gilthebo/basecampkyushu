@@ -189,8 +189,12 @@
         
         /* HERO */
         .hero {
-            min-height: 70vh;
-            background: linear-gradient(135deg, var(--primary-light) 0%, #E8DDD0 100%);
+            min-height: 100vh;
+            background: linear-gradient(rgba(44, 44, 44, 0.3), rgba(44, 44, 44, 0.3)), 
+                        url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/1074832482.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -518,7 +522,10 @@
             }
             
             .hero {
-                min-height: 50vh;
+                min-height: 60vh;
+                background-attachment: scroll !important;
+                background-position: center center;
+                background-size: cover;
                 padding: 8rem 1.5rem 3rem;
             }
             
@@ -574,6 +581,7 @@
                 <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
                 <li><a href="online-store.html">ONLINE SHOP</a></li>
                 <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>

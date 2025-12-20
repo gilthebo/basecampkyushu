@@ -1,6 +1,6 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 8.5.1 - Contact Page COMPLETELY FIXED - Clean Hero Section ✅  
+**Version:** 8.5.5 - CONTACT Added to Desktop Navigation (All Pages) ✅  
 **Last Updated:** December 20, 2025  
 **Status:** ✅ All Pages WORKING | Consistent Navigation | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
