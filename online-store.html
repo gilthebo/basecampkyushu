@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Online Store - Basecamp Kyūshū</title>
     <meta name="description" content="Signature T-Shirts made in Kyūshū. Premium heavyweight cotton, locally produced. Support creative storytelling.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
@@ -126,28 +129,6 @@
         .lang-content.active { display: block; }
         
         /* MOBILE NAVIGATION */
-        .mobile-nav {
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .language-switcher-mobile {
-            display: flex;
-            flex-direction: row;
-            gap: 0.3rem;
-        }
-        
-        .language-switcher-mobile .lang-btn {
-            padding: 0.35rem 0.5rem;
-            font-size: 0.7rem;
-            min-width: 34px;
-            height: 28px;
-            border-radius: 4px;
-            line-height: 1;
-            font-weight: 600;
-        }
-        
         /* MOBILE MENU TOGGLE BUTTON */
         .mobile-menu-toggle {
             display: none !important;
@@ -528,14 +509,37 @@
                 background: rgba(139, 115, 85, 0.05);
                 transform: none;
             }
-            .nav-links .language-switcher {
-                display: none;
-            }
-            .mobile-nav { 
+            /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
+            .language-switcher {
                 display: flex !important;
+                flex-direction: row;
+                gap: 0.3rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                position: relative;
+                z-index: 1002;
             }
+            
+            .lang-btn {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.7rem;
+                min-width: 34px;
+                height: 28px;
+                border-radius: 4px;
+                line-height: 1;
+                font-weight: 600;
+            }
+            
             .mobile-menu-toggle {
                 display: block !important;
+                flex-shrink: 0;
+            }
+            
+            /* Hide the language switcher in mobile dropdown */
+            .nav-links .language-switcher {
+                display: none !important;
             }
             .hero {
                 min-height: 60vh;
@@ -578,16 +582,12 @@
                     <button class="lang-btn" data-lang="ja">JA</button>
                 </div>
             </ul>
-            
-            <!-- Mobile: Language Switcher + Burger -->
-            <div class="mobile-nav">
-                <div class="language-switcher-mobile">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="fr">FR</button>
-                    <button class="lang-btn" data-lang="ja">JA</button>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
         </div>
     </nav>
 
@@ -1017,6 +1017,7 @@
                 <h4>CONNECT WITH US</h4>
                 <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
