@@ -189,6 +189,10 @@
             color: var(--accent-earth);
         }
         
+        /* LANGUAGE CONTENT */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+        
         /* HERO */
         .hero {
             padding: 10rem 2rem 6rem;
@@ -379,54 +383,58 @@
         /* FOOTER */
         footer {
             background: var(--primary-dark);
-            color: var(--primary-light);
-            padding: 4rem 2rem 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6rem 2rem 2rem;
         }
-        .footer-container {
+        .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 4rem;
+            margin-bottom: 4rem;
         }
         .footer-section h4 {
-            font-size: 1.3rem;
+            color: white;
             margin-bottom: 1rem;
-            color: var(--white);
-        }
-        .footer-section:nth-child(1) h4 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
-        .footer-section:nth-child(2) h4 {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
         }
-        .footer-section:nth-child(3) h4 {
-            font-family: 'Crimson Text', Georgia, serif;
-            font-size: 1.4rem;
+        .footer-section li {
+            margin-bottom: 0.5rem;
         }
-        .footer-section p, .footer-section a {
-            color: var(--primary-light);
+        .footer-section p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            line-height: 1.8;
+            transition: color 0.3s;
         }
-        .footer-section a:hover { color: var(--accent-earth); }
-        .footer-links { list-style: none; margin: 0; padding: 0; }
-        .footer-links li { margin-bottom: 0.5rem; }
-        .footer-address {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            line-height: 1.8;
+        .footer-section a:hover {
+            color: var(--accent-earth);
         }
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(245, 245, 240, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: var(--primary-light);
+        }
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: var(--accent-earth);
+        }
+        .japanese-text {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
         }
         
         @media (max-width: 1024px) {
@@ -670,70 +678,49 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-container">
+    <footer class="main-footer">
+        <div class="footer-content">
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
-                <p style="margin-bottom: 0.5rem;">土地 — 人 — 物語</p>
-                
-                <p data-lang="en" class="active-lang">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p data-lang="fr">Basé à Itoshima, Préfecture de Fukuoka, Kyūshū</p>
-                <p data-lang="ja">福岡県糸島市を拠点とする九州</p>
-                
-                <div class="footer-address">
-                    <p style="margin-top: 1.5rem;"><strong>Produced by 株式会社 M Global Japan</strong></p>
-                    <p>Est. 2008</p>
-                    
-                    <p data-lang="en" class="active-lang">Covering Japan & overseas network</p>
-                    <p data-lang="fr">Couvrant le Japon et le réseau international</p>
-                    <p data-lang="ja">日本および海外ネットワークをカバー</p>
-                    
-                    <p style="margin-top: 1rem;"><strong>Tokyo Office</strong><br>
-                    Basecamp Studios Higashi Matsubara<br>
+                <p class="japanese-text">土地 — 人 — 物語</p>
+                <p>Where mountains meet the sea<br>and stories take form.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan & overseas network</p>
+                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>Tokyo Office</strong><br>
+                    <strong>Basecamp Studios Higashi Matsubara</strong><br>
                     Matsubara 5-47-12, Setagaya-ku<br>
-                    Tokyo 156-0043</p>
-                </div>
+                    Tokyo 156-0043
+                </p>
             </div>
+
             <div class="footer-section">
-                <h4 data-lang="en" class="active-lang">Explore</h4>
-                <h4 data-lang="fr">Explorer</h4>
-                <h4 data-lang="ja">探索</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html">
-                        <span data-lang="en" class="active-lang">About Us</span>
-                        <span data-lang="fr">À Propos</span>
-                        <span data-lang="ja">私たちについて</span>
-                    </a></li>
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="in-motion.html">In Motion</a></li>
-                    <li><a href="stories.html">Stories / ストーリーズ</a></li>
-                    <li><a href="video-production.html">
-                        <span data-lang="en" class="active-lang">Video Production</span>
-                        <span data-lang="fr">Production Vidéo</span>
-                        <span data-lang="ja">ビデオ制作</span>
-                    </a></li>
-                    <li><a href="online-store.html">
-                        <span data-lang="en" class="active-lang">Online Shop</span>
-                        <span data-lang="fr">Boutique en Ligne</span>
-                        <span data-lang="ja">オンラインショップ</span>
-                    </a></li>
+                    <li><a href="stories.html">Stories Project</a></li>
+                    <li><a href="video-production.html">Video Production</a></li>
+                    <li><a href="online-store.html">Online Store</a></li>
                     <li><a href="expedition-resort.html">Expedition Resort</a></li>
                 </ul>
             </div>
+
             <div class="footer-section">
-                <h4 data-lang="en" class="active-lang">Connect</h4>
-                <h4 data-lang="fr">Se Connecter</h4>
-                <h4 data-lang="ja">つながる</h4>
-                <p><a href="https://instagram.com/basecampkyushu">Instagram</a></p>
-                <p><a href="https://www.youtube.com/@KyushuInMotion">YouTube</a></p>
-                <p><a href="/cdn-cgi/l/email-protection#7d14131b123d101a11121f1c11171c0d1c13531e1210">
-                    <span data-lang="en" class="active-lang">Email</span>
-                    <span data-lang="fr">E-mail</span>
-                    <span data-lang="ja">メール</span>
-                </a></p>
+                <h4>CONNECT WITH US</h4>
+                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
+                    <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
+                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
+                </ul>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 
