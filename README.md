@@ -1,6 +1,6 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 8.6.8 - Contact Footer Now Matches Index Exactly ✅  
+**Version:** 8.7.0 - SECURITY FIX: Kyushu Map Using Weebly URL ✅  
 **Last Updated:** December 23, 2025  
 **Status:** ✅ All Pages WORKING | Consistent Navigation | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
