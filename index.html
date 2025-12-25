@@ -192,165 +192,6 @@
             color: var(--text-muted);
             line-height: 1.7;
         }
-        .map-section {
-            background: var(--white);
-            text-align: center;
-        }
-        
-        /* PERFECT 4x4 GRID LAYOUT */
-        .prefecture-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* TABLET: 2 columns */
-        @media (max-width: 1024px) {
-            .prefecture-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* MOBILE: 1 column */
-        @media (max-width: 640px) {
-            .prefecture-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .prefecture-card {
-            background: var(--primary-light);
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.4s;
-            border: 2px solid transparent;
-            text-align: center;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .prefecture-card.map-card {
-            background: var(--white);
-            border: 2px solid var(--accent-earth);
-            cursor: default;
-        }
-        
-        .prefecture-card.map-card:hover {
-            transform: none;
-            border-color: var(--accent-earth);
-        }
-        
-        .prefecture-card.map-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-        
-        .prefecture-card:not(.map-card):hover {
-            background: var(--white);
-            border-color: var(--accent-earth);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow);
-        }
-        .prefecture-card .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .prefecture-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            white-space: nowrap;
-        }
-        .prefecture-card .japanese {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-        .prefecture-card .click-hint {
-            font-size: 0.85rem;
-            color: var(--accent-earth);
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal.show {
-            display: flex;
-        }
-        .modal-content {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            max-width: 700px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            margin: 2rem;
-        }
-        .modal-close {
-            position: absolute;
-            top: 1.5rem; right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            background: none;
-            border: none;
-            line-height: 1;
-        }
-        .modal-close:hover { color: var(--primary-dark); }
-        .modal-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .modal-header .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-        }
-        .modal-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .modal-header .japanese {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
-        .modal-body {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--text-dark);
-        }
-        .lang-section {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .lang-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .lang-label {
-            font-weight: 700;
-            color: var(--accent-earth);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
         .based-in {
             background: var(--primary-light);
             text-align: center;
@@ -729,15 +570,15 @@
                 <h3 class="lang-content lang-fr">L Artisanat comme Mode de Vie</h3>
                 <h3 class="lang-content lang-ja">暮らしとしての工芸</h3>
                 <p class="lang-content lang-en active">
-                    Arita, Imari, Karatsu: tradition practiced, not displayed. Ceramics, sake brewing, indigo textiles, 
+                    Arita, Imari, Karatsu: tradition practiced, not displayed. Ceramics, sake brewing, 
                     centuries-old skills still alive in real workshops.
                 </p>
                 <p class="lang-content lang-fr">
-                    Arita, Imari, Karatsu: tradition pratiquée, non exposée. Céramiques, brassage de saké, textiles indigo, 
+                    Arita, Imari, Karatsu: tradition pratiquée, non exposée. Céramiques, brassage de saké, 
                     des savoir-faire séculaires encore vivants dans de véritables ateliers.
                 </p>
                 <p class="lang-content lang-ja">
-                    有田、伊万里、唐津。展示されるのではなく、実践される伝統。陶磁器、酒造り、藍染、
+                    有田、伊万里、唐津。展示されるのではなく、実践される伝統。陶磁器、酒造り、
                     何世紀も続く技術が、本物の工房でまだ生きている。
                 </p>
             </div>
@@ -778,84 +619,6 @@
                     日本の古代アジアへの玄関口。長崎、福岡、熊本。何世紀にもわたる交流と
                     現代のエネルギーによって形作られた都市。
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="map-section">
-        <h2 class="section-title lang-content lang-en active">Kyūshū Prefectures</h2>
-        <h2 class="section-title lang-content lang-fr">Préfectures de Kyūshū</h2>
-        <h2 class="section-title lang-content lang-ja">九州の県</h2>
-        
-        <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem;">
-            <span class="lang-content lang-en active">Click on any prefecture to discover its unique character</span>
-            <span class="lang-content lang-fr">Cliquez sur une préfecture pour découvrir son caractère</span>
-            <span class="lang-content lang-ja">各県をクリックして、その独自の特徴を発見</span>
-        </p>
-        
-        <div class="prefecture-grid">
-            <!-- KYUSHU MAP CARD -->
-            <div class="prefecture-card map-card">
-                <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-24-at-12-10-54_orig.png" alt="Kyushu Map">
-                <h3 style="color: var(--accent-earth);">Kyūshū</h3>
-                <p class="japanese">九州</p>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">7 Prefectures</p>
-            </div>
-            
-            <!-- FUKUOKA -->
-            <div class="prefecture-card" onclick="openPref1()">
-                <div class="feature-icon">🏖️</div>
-                <h3>Fukuoka</h3>
-                <p class="japanese">福岡県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- SAGA -->
-            <div class="prefecture-card" onclick="openPref2()">
-                <div class="feature-icon">🏺</div>
-                <h3>Saga</h3>
-                <p class="japanese">佐賀県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- NAGASAKI -->
-            <div class="prefecture-card" onclick="openPref3()">
-                <div class="feature-icon">🌋</div>
-                <h3>Nagasaki</h3>
-                <p class="japanese">長崎県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- KUMAMOTO -->
-            <div class="prefecture-card" onclick="openPref4()">
-                <div class="feature-icon">🏔️</div>
-                <h3>Kumamoto</h3>
-                <p class="japanese">熊本県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- OITA -->
-            <div class="prefecture-card" onclick="openPref5()">
-                <div class="feature-icon">♨️</div>
-                <h3>Oita</h3>
-                <p class="japanese">大分県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- MIYAZAKI -->
-            <div class="prefecture-card" onclick="openPref6()">
-                <div class="feature-icon">🌊</div>
-                <h3>Miyazaki</h3>
-                <p class="japanese">宮崎県</p>
-                <p class="click-hint">Click for details →</p>
-            </div>
-            
-            <!-- KAGOSHIMA -->
-            <div class="prefecture-card" onclick="openPref7()">
-                <div class="feature-icon">🌸</div>
-                <h3>Kagoshima</h3>
-                <p class="japanese">鹿児島県</p>
-                <p class="click-hint">Click for details →</p>
             </div>
         </div>
     </section>
@@ -924,99 +687,8 @@
         </div>
     </footer>
 
-    <div id="modal" class="modal" onclick="closePref()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closePref()">×</button>
-            <div class="modal-header" id="header"></div>
-            <div class="modal-body" id="body"></div>
-        </div>
-    </div>
-
     <script>
         console.log("Script loading...");
-        
-        function openPref1() {
-            console.log("Fukuoka clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🏖️</div><h2>Fukuoka - Dynamic Crossroads</h2><p class='japanese'>福岡県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Fukuoka is where Kyushu vitality meets a deep sense of tradition. Mountains frame the city from the rear, rivers cut across broad plains, and the Genkai Sea defines its northern edge. The urban rhythm is unmistakable, seen in the buzzing Nakasu Yatai stalls, yet calm spaces like the gardens of Dazaifu offer balance. Shrines, temples, and contemporary parks sit side by side, while local dishes such as tonkotsu ramen and street-side favorites reflect both heritage and modern taste. Whether hiking Mount Aburayama, walking along the Naka River, or exploring food-filled backstreets, Fukuoka brings together energy and timeless atmosphere.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Fukuoka est le point de rencontre entre la vitalité de Kyūshū et un profond attachement à la tradition. La ville adosse aux montagnes, étend sur de vastes plaines traversées par des rivières, et ouvre au nord sur la mer de Genkai. Son rythme urbain est immédiatement perceptible, notamment dans animation des yatai de Nakasu, tout en trouvant un contrepoint apaisant dans des lieux comme les jardins de Dazaifu.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>福岡は、九州の活気と深い伝統が調和する地域です。都市の背後には山々が連なり、広い平野を川が横切り、北側には玄界灘が広がります。中洲の屋台に代表されるような賑わいがある一方、太宰府の庭園の静けさがその対照を成します。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref2() {
-            console.log("Saga clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🏺</div><h2>Saga</h2><p class='japanese'>佐賀県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Saga unfolds in gentle hills, wide plains, and rivers that flow toward the Ariake Sea. Villages set between mountains and coastline feel timeless, while rice fields, tea plantations, and traditional kilns reflect the region heritage. Hidden shrines, quiet riverbanks, and rural pathways offer moments where the pace of life naturally slows. Each season adds its own colour: spring wisteria tunnels, summer lotus ponds, and autumn golden harvest, shaping a calm and contemplative portrait of rural Kyushu.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Saga se déploie entre collines douces, vastes plaines et rivières qui écoulent vers la mer Ariake. Les villages nichés entre montagnes et littoral semblent hors du temps, tandis que les rizières, les plantations de thé et les fours traditionnels témoignent de héritage de la région.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>佐賀は、なだらかな丘陵、広がる平野、そして有明海へと注ぐ川が織りなす風景の中にあります。山や海に寄り添う集落には、どこか時を超えた静けさが漂い、田んぼや茶畑、伝統的な登り窯が地域の文化を物語ります。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref3() {
-            console.log("Nagasaki clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🌋</div><h2>Nagasaki - Gateway of History</h2><p class='japanese'>長崎県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Nagasaki is Kyushu land of contrasts and connections. Once Japan only gateway to the world, the prefecture blends striking natural landscapes with a distinctive cultural heritage. The East China Sea embraces hundreds of islands, some home to lively fishing communities, others to wild horses or the quiet presence of hidden churches. Volcanoes shape the terrain, hot springs offer calm, and many valleys hide a story: a temple, a remnant of colonial history, or a testament to resilience. From the historic streets of Dejima, where Dutch traders once exchanged knowledge and goods, to the serene shores of the Goto Islands, Nagasaki invites slow exploration.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Nagasaki est une terre de contrastes et de liens au sein de Kyūshū. Autrefois unique porte du Japon vers le monde extérieur, la préfecture mêle des paysages naturels saisissants à un héritage culturel singulier. La mer de Chine orientale enlace des centaines îles, certaines animées par des communautés de pêcheurs, autres habitées par des chevaux sauvages.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>長崎は、九州の「対比」と「繋がり」が交差する場所です。かつて日本と世界を結ぶ唯一の窓口であったこの県には、雄大な自然と独自に育まれた文化遺産が共に息づいています。東シナ海には数多くの島々が浮かび、賑やかな漁村がある島もあれば、野生の馬が歩き、静かな教会が佇む島もあります。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref4() {
-            console.log("Kumamoto clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🏔️</div><h2>Kumamoto - Wild Heart</h2><p class='japanese'>熊本県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Kumamoto is Kyushu untamed soul, where broad plains unfold beneath Mount Aso, one of the world largest active volcanoes. Rivers and lakes nourish fertile valleys, while mist-covered forests shelter secluded villages. From the grasslands of the Aso caldera to the deep forests of the Kuma region, dramatic landscapes reveal the strength and presence of nature. Traditional crafts, local festivals, and welcoming towns thrive between mountains and plains. Every journey through Kumamoto reveals another facet of Kyushu raw beauty and quiet resilience.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Kumamoto incarne âme indomptée de Kyūshū, là où de vastes plaines étendent au pied du mont Aso, un des plus grands volcans actifs du monde. Rivières et lacs irriguent des vallées fertiles, tandis que des forêts embrumées abritent des villages retirés.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>熊本は、九州の野性的な魂が宿る場所です。世界有数の活火山である阿蘇山の麓には広大な平野が広がり、川や湖は肥沃な谷を育み、霧に包まれた森は静かな集落を抱いています。阿蘇の草原から球磨の深い森まで、劇的な景観が自然の力強さを物語ります。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref5() {
-            console.log("Oita clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>♨️</div><h2>Oita - Water and Mountains</h2><p class='japanese'>大分県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Oita is a place where nature shapes daily life. Rivers carve deep valleys, mountains rise behind quiet towns, and the Bungo Channel meets the coastline. Water is everywhere, from the steaming streets of Beppu to the quiet ryokan of Yufuin, set among volcanic hills. The Kunisaki Peninsula offers rolling forests, hidden temples, and dramatic coastal cliffs. In Oita, nature and culture coexist, revealing the diverse landscapes and rhythms of life across Kyushu.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Ōita est un territoire où la nature façonne le quotidien. Les rivières creusent des vallées profondes, les montagnes se dressent derrière des villes paisibles, et le canal de Bungo borde le littoral. eau est omniprésente, des rues fumantes de Beppu aux ryokan discrets de Yufuin.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>大分は、自然が暮らしを形作る土地です。川は深い谷を刻み、静かな町の背後には山々が連なり、豊後水道が海岸線を形づくっています。別府の湯けむり立つ街並みや、火山の丘に囲まれた湯布院の静かな旅館など、水の気配は県内のあらゆる場所に見られます。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref6() {
-            console.log("Miyazaki clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🌊</div><h2>Miyazaki - Light and Legend</h2><p class='japanese'>宮崎県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Miyazaki basks in sunlight, where Pacific waves meet golden shores and forested hills cradle ancient shrines and villages. Myth and nature intertwine from Mount Takachiho sacred peaks to Nichinan sunlit beaches. Cedar forests, coastal caves, and fresh seafood by the sea reveal Kyushu natural and spiritual heritage. Miyazaki embraces life with warmth, legend, and sunlight.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Miyazaki se déploie sous une lumière généreuse, là où les vagues du Pacifique rencontrent des rivages dorés et où les collines boisées abritent sanctuaires anciens et villages discrets. Mythe et nature y entremêlent des sommets sacrés de Takachiho aux plages baignées de soleil de Nichinan.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>宮崎は、九州が太陽の光を浴びる場所です。太平洋の波が黄金の砂浜を洗い、森や丘は古代の神社や集落を抱きます。自然と神話は高千穂の聖なる峰から日南の陽だまりのビーチまで織りなされます。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function openPref7() {
-            console.log("Kagoshima clicked");
-            var h = document.getElementById("header");
-            var b = document.getElementById("body");
-            var m = document.getElementById("modal");
-            
-            h.innerHTML = "<div class='feature-icon'>🌸</div><h2>Kagoshima - Fiery Soul</h2><p class='japanese'>鹿児島県</p>";
-            b.innerHTML = "<div class='lang-section'><span class='lang-label'>🇬🇧 English</span><p>Kagoshima is where volcanoes meet the sea. Sakurajima towers over the bay, even as waves and island shores shape the prefecture coast. Volcanic soils and rivers feed fertile fields, and the land warmth gives rise to hot springs. From the busy streets of Kagoshima City to distant fishing hamlets scattered among the Satsunan Islands, life here still pulses to the rhythm of nature. Each plume of ash, each sunset over the sea, reminders of the earth power and of the quiet strength of those who call Kagoshima home.</p></div><div class='lang-section'><span class='lang-label'>🇫🇷 Français</span><p>Kagoshima est le point de rencontre entre les volcans et la mer. Le Sakurajima domine la baie, tandis que les vagues et les îles dessinent le littoral de la préfecture. Les sols volcaniques et les rivières nourrissent des terres fertiles, et la chaleur du sous-sol fait jaillir les sources thermales.</p></div><div class='lang-section'><span class='lang-label'>🇯🇵 日本語</span><p>鹿児島は、火山と海が隣り合う地域です。桜島が湾の中心にそびえ、島々と波が県の多様な海岸線を形づくっています。火山由来の土壌や川は農地を支え、大地の熱は各地の温泉につながっています。</p></div>";
-            m.classList.add("show");
-        }
-        
-        function closePref() {
-            console.log("Closing modal");
-            var m = document.getElementById("modal");
-            m.classList.remove("show");
-        }
         
         // Language switcher
 // Language Switcher
