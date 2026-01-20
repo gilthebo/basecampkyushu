@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 8.7.0 - SECURITY FIX: Kyushu Map Using Weebly URL ✅  
-**Last Updated:** December 23, 2025  
-**Status:** ✅ All Pages WORKING | Consistent Navigation | Desktop + Mobile PERFECT  
+**Version:** 8.8.4 - About Page Hero Banner Updated ✅  
+**Last Updated:** December 24, 2025  
+**Status:** ✅ All Pages WORKING | Enhanced Desktop Navigation | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,7 +16,75 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Updates (December 23, 2025) - v8.6.2
+### ✨ Latest Updates (December 24, 2025) - v8.8.4
+
+#### ✅ ABOUT PAGE HERO BANNER UPDATED!
+
+**THE REQUEST**: 
+User provided new hero banner image for the About page.
+
+**THE CHANGE**: 
+- **Old Image**: `background-images/859848277.png`
+- **New Image**: `screenshot-2026-01-20-at-13-14-21_orig.png`
+- **Full URL**: https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-01-20-at-13-14-21_orig.png
+
+**FILES MODIFIED**:
+- ✅ `about.html` - Hero background image updated
+- ✅ `README.md` - Updated to v8.8.4
+
+**RESULT**: About page now displays the new hero banner image with fresh visual design.
+
+---
+
+### ✨ Previous Updates (December 24, 2025) - v8.8.3
+
+#### ✅ CROSS-SITE NAVIGATION IMPROVEMENTS APPLIED!
+
+**THE REQUEST**: 
+User reported that navigation text was too small on desktop across all pages. Requested larger text and better spacing for improved readability.
+
+**THE FIX**: 
+Applied navigation improvements to ALL 7 main pages:
+
+**Navigation Link Improvements**:
+- Font size: 0.85rem → **1.1rem** (+29% increase)
+- Padding: 0.5rem 0.7rem → **0.5rem 0.9rem** (more spacing)
+- Gap between links: 1rem → **1.4rem** (40% more breathing room)
+
+**Language Button Improvements**:
+- Layout: Vertical (column) → **Horizontal (row)** 
+- Font size: 0.7rem → **0.9rem** (+28% increase)
+- Padding: 0.25rem 0.5rem → **0.45rem 0.8rem** (more clickable area)
+- Gap: 0.2rem → **0.5rem** (better visual separation)
+- Margin-left: 0.8rem → **1.4rem** (more separation from nav links)
+
+**PAGES UPDATED**:
+1. ✅ `index.html` - Home page navigation enhanced
+2. ✅ `stories.html` - Stories page navigation enhanced
+3. ✅ `contact.html` - Contact page navigation enhanced
+4. ✅ `about.html` - About page navigation enhanced
+5. ✅ `in-motion.html` - In Motion page navigation enhanced
+6. ✅ `video-production.html` - Video Production page navigation enhanced
+7. ✅ `online-store.html` - Online Store page navigation enhanced
+8. ✅ `expedition-resort.html` - Expedition Resort page navigation enhanced
+9. ✅ `README.md` - Updated to v8.8.3
+
+**VISUAL RESULT**:
+- Desktop navigation now displays: **BASECAMP KYŪSHŪ | HOME  ABOUT  IN MOTION  STORIES  VIDEO PRODUCTION  ONLINE SHOP  EXPEDITION RESORT  CONTACT  |  EN FR JA**
+- All text is 29% larger and more readable
+- Language buttons are horizontal and easier to click
+- Consistent experience across all pages
+
+**TESTING**:
+- ✅ Index page loads in 9.13s - No console errors
+- ✅ Stories page loads in 9.04s - No console errors
+- ✅ Contact page loads in 9.03s - No console errors
+- ✅ All navigation elements render correctly
+- ✅ Language switcher works properly
+
+---
+
+### ✨ Previous Updates (December 23, 2025) - v8.6.2
 
 #### ✅ JAPANESE TEXT UPDATED ON STORIES PAGE!
 
