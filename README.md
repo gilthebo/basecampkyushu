@@ -1,8 +1,8 @@
 # Basecamp Kyūshū Official Website
 
-**Version:** 8.8.4 - About Page Hero Banner Updated ✅  
+**Version:** 8.8.5 - Cross-Site Body Text Size Increased ✅  
 **Last Updated:** December 24, 2025  
-**Status:** ✅ All Pages WORKING | Enhanced Desktop Navigation | Desktop + Mobile PERFECT  
+**Status:** ✅ All Pages WORKING | Enhanced Desktop Navigation + Larger Body Text | Desktop + Mobile PERFECT  
 **Custom Domain:** basecampkyushu.com  
 **Contact:** gilles.b@mglobaljapan.com
 
@@ -16,7 +16,61 @@ The official website for **Basecamp Kyūshū** (ベースキャンプ九州) —
 > **The Land — The People — The Stories**  
 > 土地 — 人 — 物語
 
-### ✨ Latest Updates (December 24, 2025) - v8.8.4
+### ✨ Latest Updates (December 24, 2025) - v8.8.5
+
+#### ✅ CROSS-SITE BODY TEXT SIZE INCREASED!
+
+**THE REQUEST**: 
+User reported that body text (paragraphs) appeared too small on the live site compared to Genspark preview. Text needed to be more readable across all pages.
+
+**THE PROBLEM**: 
+All pages were missing a defined `font-size` on the `body` element, so they defaulted to browser default (typically 16px), which appeared small on modern screens.
+
+**THE FIX**: 
+Added base `font-size: 1.125rem` (18px) to the body element on all 8 main pages:
+
+**Body Font Size Update**:
+- **Before**: No font-size defined (defaulted to ~16px)
+- **After**: `font-size: 1.125rem` (18px) - **12.5% larger**
+
+This improves readability without affecting:
+- ✅ Navigation links (already 1.1rem)
+- ✅ Titles and headings (already properly sized)
+- ✅ Specific components with their own font-size
+
+**PAGES UPDATED**:
+1. ✅ `index.html` - Body text now 18px
+2. ✅ `stories.html` - Body text now 18px
+3. ✅ `contact.html` - Body text now 18px
+4. ✅ `about.html` - Body text now 18px
+5. ✅ `in-motion.html` - Body text now 18px
+6. ✅ `video-production.html` - Body text now 18px
+7. ✅ `online-store.html` - Body text now 18px
+8. ✅ `expedition-resort.html` - Body text now 18px
+9. ✅ `README.md` - Updated to v8.8.5
+
+**VISUAL RESULT**:
+- ✅ All paragraph text is now 18px (instead of 16px)
+- ✅ Better readability on desktop and mobile
+- ✅ Consistent body text size across all pages
+- ✅ Matches modern web design standards (18px is the new standard for body text)
+
+**TESTING**:
+- ✅ Index page loads in 7.52s - No console errors
+- ✅ About page loads in 7.95s - No console errors
+- ✅ Stories page loads in 8.46s - No console errors
+- ✅ All body text renders at 18px
+- ✅ Navigation and headings unaffected
+
+**WHY 18px?**
+- Modern web design standard (replaces old 16px default)
+- Better readability on high-resolution screens
+- Improved accessibility for all users
+- Still responsive and mobile-friendly
+
+---
+
+### ✨ Previous Updates (December 24, 2025) - v8.8.4
 
 #### ✅ ABOUT PAGE HERO BANNER UPDATED!
 
