@@ -4,12 +4,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (Update with your actual domain after publishing)
-Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap location
+Sitemap: https://basecampkyushu.com/sitemap.xml
 
 # Crawl-delay (optional, prevents overloading server)
 Crawl-delay: 1
-
-# Disallow crawling of any test or temp directories (if any exist)
-# Disallow: /test/
-# Disallow: /temp/

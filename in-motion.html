@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kyūshū in Motion - Basecamp Kyūshū</title>
     <meta name="description" content="Visual archive of Kyūshū. Photos, 360° VR tours, and immersive experiences across seven prefectures.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://basecampkyushu.com/in-motion.html">
+    <meta property="og:title" content="Kyūshū in Motion - Basecamp Kyūshū">
+    <meta property="og:description" content="Visual archive of Kyūshū. Photos, 360° VR tours and immersive experiences across seven prefectures.">
+    <meta property="og:image" content="https://basecampkyushu.com/images/kyushu-landscapes-collage-36.jpg">
+    <meta property="og:site_name" content="Basecamp Kyūshū">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kyūshū in Motion - Basecamp Kyūshū">
+    <meta name="twitter:description" content="Visual archive of Kyūshū. Photos, 360° VR tours and immersive experiences across seven prefectures.">
+    <meta name="twitter:image" content="https://basecampkyushu.com/images/kyushu-landscapes-collage-36.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -23,7 +33,6 @@
         
         body {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 1.125rem;
             line-height: 1.7;
             color: var(--text-dark);
             background: var(--white);
@@ -212,7 +221,7 @@
             background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/background-images/756072834.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
         }
         
         /* SECTIONS */
@@ -1130,7 +1139,7 @@
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></li>
+                    <li>Email: <a href="/cdn-cgi/l/email-protection#ec85828a83ac818b80838e8d80868d9c8d82c28f8381"><span class="__cf_email__" data-cfemail="b9d0d7dfd6f9d4ded5d6dbd8d5d3d8c9d8d797dad6d4">[email&#160;protected]</span></a></li>
                 </ul>
             </div>
         </div>
@@ -1151,7 +1160,7 @@
         <div class="lightbox-counter" id="lightbox-counter"></div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         console.log("In Motion page loading...");
         
         // Language switcher
@@ -1433,13 +1442,4 @@
         document.addEventListener("keydown", function(e) {
             var lightbox = document.getElementById("lightbox");
             if (lightbox.classList.contains("active")) {
-                if (e.key === "ArrowLeft") changeImage(-1);
-                if (e.key === "ArrowRight") changeImage(1);
-                if (e.key === "Escape") closeLightbox();
-            }
-        });
-        
-        console.log("In Motion page loaded!");
-    </script>
-</body>
-</html>
+                if (e.key === "ArrowLeft")

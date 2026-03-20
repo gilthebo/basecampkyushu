@@ -1,57 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Homepage -->
     <url>
-        <loc>https://yourdomain.com/index.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/index.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
-    <!-- About Page -->
     <url>
-        <loc>https://yourdomain.com/about.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/about.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Video Production -->
     <url>
-        <loc>https://yourdomain.com/video-production.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/video-production.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
-    <!-- In Motion -->
     <url>
-        <loc>https://yourdomain.com/in-motion.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/in-motion.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Stories Project -->
     <url>
-        <loc>https://yourdomain.com/stories.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/stories.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
-    <!-- Online Store -->
     <url>
-        <loc>https://yourdomain.com/online-store.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/online-store.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
-    
-    <!-- Expedition Resort -->
     <url>
-        <loc>https://yourdomain.com/expedition-resort.html</loc>
-        <lastmod>2025-01-23</lastmod>
+        <loc>https://basecampkyushu.com/expedition-resort.html</loc>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://basecampkyushu.com/contact.html</loc>
+        <lastmod>2025-12-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
