@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Basecamp Kyūshū</title>
     <meta name="description" content="Get in touch with Basecamp Kyūshū. Video production, Stories, Expedition Resort inquiries welcome.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/contact.html">
     <meta property="og:title" content="Contact Us - Basecamp Kyūshū">
-    <meta property="og:description" content="Get in touch with Basecamp Kyūshū. Video production, Stories, Expedition Resort inquiries welcome.">
+    <meta property="og:description" content="Get in touch with Basecamp Kyūshū.">
     <meta property="og:image" content="https://basecampkyushu.com/images/kyushu-landscapes-collage-36.jpg">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact Us - Basecamp Kyūshū">
     <meta name="twitter:description" content="Get in touch with Basecamp Kyūshū.">
     <meta name="twitter:image" content="https://basecampkyushu.com/images/kyushu-landscapes-collage-36.jpg">
-    <title>Contact Us - Basecamp Kyūshū</title>
-    <meta name="description" content="Get in touch with Basecamp Kyūshū. Video production, Stories, Expedition Resort inquiries welcome.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -448,15 +447,21 @@
             font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
         }
         
-                @media (max-width: 1024px) {
+        @media (max-width: 1024px) {
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+        }
+        
+
+        @media (max-width: 1024px) {
             .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
             .nav-links.active { display: flex !important; }
             .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
             .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
             .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
         }
-        
         @media (max-width: 768px) {
             .nav-container {
                 position: relative;
@@ -729,7 +734,7 @@
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="/cdn-cgi/l/email-protection#3d54535b527d505a51525f5c51575c4d5c53135e5250"><span class="__cf_email__" data-cfemail="f39a9d959cb39e949f9c91929f999283929ddd909c9e">[email&#160;protected]</span></a></li>
+                    <li>Email: <a href="/cdn-cgi/l/email-protection#61080f070e210c060d0e03000d0b0011000f4f020e0c"><span class="__cf_email__" data-cfemail="21484f474e614c464d4e43404d4b4051404f0f424e4c">[email&#160;protected]</span></a></li>
                 </ul>
             </div>
         </div>
@@ -910,3 +915,73 @@
         function hideError(input, errorId) {
             input.classList.remove('error');
             document.getElementById(erro
+    </script>
+
+    <!-- FIXED: Language switcher + Mobile menu — based on working stories.html pattern -->
+    <script>
+    (function() {
+        // Language Switcher
+        var supportedLangs = ['en', 'fr', 'ja'];
+        var savedLang = localStorage.getItem('preferredLanguage');
+        var browserLang = navigator.language ? navigator.language.substring(0, 2) : 'en';
+        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang :
+                          (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-' + lang).forEach(function(el) {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
+            if (activeBtn) activeBtn.classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+            currentLang = lang;
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                switchLanguage(this.dataset.lang);
+            });
+        });
+
+        switchLanguage(currentLang);
+
+        // Mobile + Tablet Menu Toggle
+        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle && navLinks) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+
+            mobileMenuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!navLinks.contains(event.target) && 
+                    !mobileMenuToggle.contains(event.target) && 
+                    navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
+
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
