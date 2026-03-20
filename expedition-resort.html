@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expedition Resort - Basecamp Kyūshū</title>
-    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace, and cultural exploration base. Opening 2026-2027.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/expedition-resort.html">
     <meta property="og:title" content="Expedition Resort - Basecamp Kyūshū">
-    <meta property="og:description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace and cultural exploration base. Opening 2026-2027.">
+    <meta property="og:description" content="A creative basecamp in Itoshima, Kyūshū. Opening 2026-2027.">
     <meta property="og:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/1074832482.png">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Expedition Resort - Basecamp Kyūshū">
-    <meta name="twitter:description" content="A creative basecamp in Itoshima, Kyūshū. Film hub, creator workspace. Opening 2026-2027.">
+    <meta name="twitter:description" content="Creative basecamp in Itoshima. Opening 2026-2027.">
     <meta name="twitter:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/1074832482.png">
+    <title>Expedition Resort - Basecamp Kyūshū</title>
+    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace, and cultural exploration base. Opening 2026-2027.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -433,8 +433,12 @@
         }
         
         @media (max-width: 1024px) {
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
+            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
         }
         
         @media (max-width: 768px) {
@@ -1101,7 +1105,7 @@
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="/cdn-cgi/l/email-protection#5a33343c351a373d3635383b36303b2a3b3474393537"><span class="__cf_email__" data-cfemail="5930373f3619343e35363b38353338293837773a3634">[email&#160;protected]</span></a></li>
+                    <li>Email: <a href="/cdn-cgi/l/email-protection#8ee7e0e8e1cee3e9e2e1ecefe2e4effeefe0a0ede1e3"><span class="__cf_email__" data-cfemail="d2bbbcb4bd92bfb5bebdb0b3beb8b3a2b3bcfcb1bdbf">[email&#160;protected]</span></a></li>
                 </ul>
             </div>
         </div>

@@ -430,6 +430,14 @@
             border-radius: 2px;
         }
         
+        @media (max-width: 1024px) {
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
+            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+        }
         @media (max-width: 768px) {
             .nav-container {
                 position: relative;
@@ -761,7 +769,7 @@
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="/cdn-cgi/l/email-protection#41282f272e012c262d2e23202d2b2031202f6f222e2c"><span class="__cf_email__" data-cfemail="fc95929a93bc919b90939e9d90969d8c9d92d29f9391">[email&#160;protected]</span></a></li>
+                    <li>Email: <a href="/cdn-cgi/l/email-protection#9cf5f2faf3dcf1fbf0f3fefdf0f6fdecfdf2b2fff3f1"><span class="__cf_email__" data-cfemail="aac3c4ccc5eac7cdc6c5c8cbc6c0cbdacbc484c9c5c7">[email&#160;protected]</span></a></li>
                 </ul>
             </div>
         </div>
