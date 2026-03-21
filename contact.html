@@ -85,7 +85,7 @@
             letter-spacing: 1px;
         }
         .logo-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 400;
             display: block;
             letter-spacing: 2px;
@@ -100,7 +100,7 @@
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 400;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             transition: all 0.3s;
             padding: 0.5rem 0.9rem;
             border-radius: 6px;
@@ -449,7 +449,7 @@
         
         @media (max-width: 1024px) {
             .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+            .nav-links a { font-size: 1.25rem; padding: 0.5rem 0.9rem; }
         }
         
         @media (max-width: 768px) {
@@ -467,7 +467,7 @@
             }
             
             .logo-subtitle {
-                font-size: 0.6rem;
+                font-size: 0.72rem;
             }
             
             /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
@@ -586,9 +586,10 @@
             width: 46px;
             object-fit: contain;
             display: block;
+            margin-bottom: 4px;
         }
         .logo-subtitle {
-            font-size: 0.58rem;
+            font-size: 0.72rem;
             font-weight: 400;
             letter-spacing: 1.5px;
             color: var(--primary-dark, #2C2C2C);
@@ -610,7 +611,7 @@
             color: var(--primary-dark, #2C2C2C);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.82rem;
+            font-size: 1.25rem;
             letter-spacing: 0.04em;
             transition: all 0.3s;
             padding: 0.4rem 0.55rem;
@@ -722,7 +723,7 @@
             }
             .nav-links.active { display: flex !important; }
             .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 0.9rem 0.5rem; width: 100%; font-size: 1rem; }
+            .nav-links a { display: block; padding: 0.9rem 0.5rem; width: 100%; font-size: 1.25rem; }
         }
     </style>
 </head>
@@ -860,7 +861,7 @@
             <h3 data-lang="fr">Ou Contactez-nous Directement</h3>
             <h3 data-lang="ja">または直接お問い合わせください</h3>
             
-            <p><strong data-lang="en" class="active-lang">Email:</strong><strong data-lang="fr">E-mail:</strong><strong data-lang="ja">メール:</strong> <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></p>
+            <p><strong data-lang="en" class="active-lang">Email:</strong><strong data-lang="fr">E-mail:</strong><strong data-lang="ja">メール:</strong> <a href="/cdn-cgi/l/email-protection#7c15121a133c111b10131e1d10161d0c1d12521f1311"><span class="__cf_email__" data-cfemail="3e575058517e535952515c5f52545f4e5f50105d5153">[email&#160;protected]</span></a></p>
             <p><strong>Instagram:</strong> <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></p>
             <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></p>
         </div>
@@ -912,7 +913,7 @@
     </footer>
 
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
         var langs = ['en', 'fr', 'ja'];
         var saved = localStorage.getItem('preferredLanguage');
@@ -979,13 +980,4 @@
         }
 
         // Sticky nav
-        var navbar = document.getElementById('navbar') || document.querySelector('nav');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                navbar.classList.toggle('scrolled', window.scrollY > 80);
-            });
-        }
-    })();
-    </script>
-</body>
-</html>
+        var navbar = document.getElementById('navbar') || docu
