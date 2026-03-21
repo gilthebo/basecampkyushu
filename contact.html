@@ -77,19 +77,29 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+                .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: 1px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .logo-img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+            display: block;
         }
         .logo-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.62rem;
             font-weight: 400;
-            display: block;
             letter-spacing: 2px;
+            color: var(--primary-dark, #2C2C2C);
+            display: block;
+            margin-top: 2px;
+            text-align: center;
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
         }
         .nav-links {
             display: flex;
@@ -467,9 +477,7 @@
                 flex: 1;
             }
             
-            .logo-subtitle {
-                font-size: 0.6rem;
-            }
+            /* logo-subtitle removed */
             
             /* Mobile language switcher - ALWAYS VISIBLE next to hamburger */
             .language-switcher {
@@ -571,21 +579,8 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            text-decoration: none;
-            letter-spacing: 1px;
-            flex-shrink: 0;
-        }
-        .logo-subtitle {
-            font-size: 0.7rem;
-            font-weight: 400;
-            display: block;
-            letter-spacing: 2px;
-        }
+        /* logo text CSS removed */
+        /* logo-subtitle removed */
         .nav-links {
             display: flex;
             gap: 1.4rem;
@@ -687,8 +682,8 @@
 <body>
     <nav id="navbar">
                 <div class="nav-container">
-            <a href="index.html" class="logo">
-                BASECAMP KYŪSHŪ
+                        <a href="index.html" class="logo">
+                <img src="favicon.png" alt="Basecamp Kyūshū" class="logo-img">
                 <span class="logo-subtitle">土地 — 人 — 物語</span>
             </a>
             <ul class="nav-links">
@@ -818,7 +813,7 @@
             <h3 data-lang="fr">Ou Contactez-nous Directement</h3>
             <h3 data-lang="ja">または直接お問い合わせください</h3>
             
-            <p><strong data-lang="en" class="active-lang">Email:</strong><strong data-lang="fr">E-mail:</strong><strong data-lang="ja">メール:</strong> <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a></p>
+            <p><strong data-lang="en" class="active-lang">Email:</strong><strong data-lang="fr">E-mail:</strong><strong data-lang="ja">メール:</strong> <a href="/cdn-cgi/l/email-protection#fd94939b92bd909a91929f9c91979c8d9c93d39e9290"><span class="__cf_email__" data-cfemail="6f060109002f020803000d0e03050e1f0e01410c0002">[email&#160;protected]</span></a></p>
             <p><strong>Instagram:</strong> <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></p>
             <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></p>
         </div>
@@ -870,7 +865,7 @@
     </footer>
 
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
         var langs = ['en', 'fr', 'ja'];
         var saved = localStorage.getItem('preferredLanguage');
@@ -940,13 +935,4 @@
         }
 
         // Sticky nav
-        var navbar = document.getElementById('navbar');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                navbar.classList.toggle('scrolled', window.scrollY > 100);
-            });
-        }
-    })();
-    </script>
-</body>
-</html>
+        var navbar = document.
