@@ -418,16 +418,6 @@
         .japanese-text {
             font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
         }
-        
-        @media (max-width: 1024px) {
-            .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
-            .nav-links.active { display: flex !important; }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
         }
         
         /* MOBILE MENU STYLES */
@@ -482,14 +472,18 @@
             transform: translate(-50%, -50%) rotate(-45deg);
             border-radius: 2px;
         }
-        
-
-        @media (max-width: 1024px) {
-            .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
             .nav-links.active { display: flex !important; }
             .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
+            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
+        }
+        @media (max-width: 1024px) {
+            .nav-links { display: none !important; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .mobile-menu-toggle { display: block !important; flex-shrink: 0; position: relative; z-index: 1001; }
             .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
             .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
         }
@@ -610,7 +604,19 @@
                 background-size: cover;
             }
         }
-    </style>
+
+        /* Force burger COMPLETELY hidden on desktop */
+        @media (min-width: 1025px) {
+            .mobile-menu-toggle {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+            }
+        }
+        </style>
 </head>
 <body>
     <nav id="navbar">
@@ -631,6 +637,7 @@
             </ul>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
                 <button class="lang-btn" data-lang="ja">JA</button>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
@@ -1019,7 +1026,7 @@
                 相談とカスタム見積もりについてお問い合わせください。
             </p>
             
-            <a href="mailto:info@mglobaljapan.com" class="btn">
+            <a href="/cdn-cgi/l/email-protection#422b2c242d022f252e2d20232e282332232c6c212d2f" class="btn">
                 <span class="lang-content lang-en active">Email Us</span>
                 <span class="lang-content lang-ja">メールする</span>
             </a>
@@ -1030,12 +1037,10 @@
             </a>
             
             <p class="lang-content lang-en active" style="margin-top: 2rem; font-size: 0.9rem;">
-                <strong>Email:</strong> <a href="mailto:taiki@mglobaljapan.com">taiki@mglobaljapan.com</a> • <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a><br>
                 <strong>Phone (Japan):</strong> (+81) 080-9557-0471 - Creative Director<br>
                 <strong>Office Hours:</strong> Mon-Fri 9:00-18:00 JST
             </p>
             <p class="lang-content lang-ja" style="margin-top: 2rem; font-size: 0.9rem;">
-                <strong>メール：</strong> <a href="mailto:taiki@mglobaljapan.com">taiki@mglobaljapan.com</a> • <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a><br>
                 <strong>電話（日本）：</strong> (+81) 080-9557-0471 - クリエイティブディレクター<br>
                 <strong>営業時間：</strong> 月-金 9:00-18:00 JST
             </p>
@@ -1148,171 +1153,15 @@
         </div>
     </footer>
 
-    <script>
-        console.log("Video Production page loading...");
-        
-        var langBtns = document.querySelectorAll(".lang-btn");
-        var langContents = document.querySelectorAll(".lang-content");
-        var currentLang = localStorage.getItem("lang") || "en";
-        
-        setLanguage(currentLang);
-        
-        langBtns.forEach(function(btn) {
-            btn.addEventListener("click", function() {
-                var lang = btn.dataset.lang;
-                setLanguage(lang);
-                localStorage.setItem("lang", lang);
-            });
-        });
-        
-        function setLanguage(lang) {
-            console.log("Setting language to:", lang);
-            langBtns.forEach(function(btn) {
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add("active");
-                } else {
-                    btn.classList.remove("active");
-                }
-            });
-            
-            langContents.forEach(function(content) {
-                var contentLang = "lang-" + lang;
-                if (content.classList.contains(contentLang)) {
-                    content.classList.add("active");
-                } else {
-                    content.classList.remove("active");
-                }
-            });
-        }
-        
-        window.addEventListener("scroll", function() {
-            var nav = document.getElementById("navbar");
-            if (nav && window.scrollY > 100) {
-                nav.classList.add("scrolled");
-            } else if (nav) {
-                nav.classList.remove("scrolled");
-            }
-        });
-        
-        // Mobile Menu Toggle
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle && navLinks) {
-            // Ensure menu is closed on page load
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            
-            mobileMenuToggle.addEventListener('click', function(event) {
-                event.stopPropagation();
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                var isClickInsideNav = navLinks.contains(event.target);
-                var isClickOnToggle = mobileMenuToggle.contains(event.target);
-                
-                if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-            
-            // Close menu when clicking on a link
-            var navLinksElements = navLinks.querySelectorAll('a');
-            navLinksElements.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-        }
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                var targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-   
-    </script>
-
-    <!-- FIXED: Language switcher + Mobile menu — based on working stories.html pattern -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
-        // Language Switcher
+        // ---- LANGUAGE SWITCHER ----
         var supportedLangs = ['en', 'fr', 'ja'];
         var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = navigator.language ? navigator.language.substring(0, 2) : 'en';
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang :
-                          (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+        var browserLang = (navigator.language || 'en').substring(0, 2);
+        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang
+                        : (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
 
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) {
-                el.classList.add('active');
-            });
-            document.querySelectorAll('.lang-btn').forEach(function(btn) {
-                btn.classList.remove('active');
-            });
-            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
-            localStorage.setItem('preferredLanguage', lang);
-            currentLang = lang;
-        }
-
-        document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                switchLanguage(this.dataset.lang);
-            });
-        });
-
-        switchLanguage(currentLang);
-
-        // Mobile + Tablet Menu Toggle
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle && navLinks) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-
-            mobileMenuToggle.addEventListener('click', function(event) {
-                event.stopPropagation();
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-
-            document.addEventListener('click', function(event) {
-                if (!navLinks.contains(event.target) && 
-                    !mobileMenuToggle.contains(event.target) && 
-                    navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-        }
-    })();
-    </script>
-
-    <script>
-    (function() {
-        var supportedLangs = ['en', 'fr', 'ja'];
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = navigator.language ? navigator.language.substring(0, 2) : 'en';
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang :
-                          (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
         function switchLanguage(lang) {
             document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
             document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
@@ -1322,22 +1171,27 @@
             localStorage.setItem('preferredLanguage', lang);
             currentLang = lang;
         }
+
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
             btn.addEventListener('click', function() { switchLanguage(this.dataset.lang); });
         });
+
         switchLanguage(currentLang);
+
+        // ---- HAMBURGER MENU ----
         var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
+
         if (mobileMenuToggle && navLinks) {
             navLinks.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.addEventListener('click', function(event) {
-                event.stopPropagation();
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
                 navLinks.classList.toggle('active');
                 this.classList.toggle('active');
             });
-            document.addEventListener('click', function(event) {
-                if (!navLinks.contains(event.target) && !mobileMenuToggle.contains(event.target) && navLinks.classList.contains('active')) {
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target) && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     mobileMenuToggle.classList.remove('active');
                 }
@@ -1349,7 +1203,7 @@
                 });
             });
         }
-    })();
-    </script>
-</body>
-</html>
+
+        // ---- STICKY NAV ----
+        window.addEventListener('scroll', function() {
+            var nav = document.getElementById(
