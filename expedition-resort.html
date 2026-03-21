@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expedition Resort - Basecamp Kyūshū</title>
-    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace, and cultural exploration base. Opening 2026-2027.">
+    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Opening 2026-2027.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/expedition-resort.html">
     <meta property="og:title" content="Expedition Resort - Basecamp Kyūshū">
@@ -13,8 +12,10 @@
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Expedition Resort - Basecamp Kyūshū">
-    <meta name="twitter:description" content="Creative basecamp in Itoshima. Opening 2026-2027.">
+    <meta name="twitter:description" content="A creative basecamp in Itoshima, Kyūshū. Opening 2026-2027.">
     <meta name="twitter:image" content="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/1074832482.png">
+    <title>Expedition Resort - Basecamp Kyūshū</title>
+    <meta name="description" content="A creative basecamp in Itoshima, Kyūshū. Film production hub, creator workspace, and cultural exploration base. Opening 2026-2027.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -431,22 +432,41 @@
         .footer-bottom a:hover {
             color: var(--accent-earth);
         }
-        }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
+        
+        /* ===== TABLET BREAKPOINT ===== */
         @media (max-width: 1024px) {
-            .nav-links { display: none !important; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .mobile-menu-toggle { display: block !important; }
+            .nav-links {
+                display: none !important;
+                position: fixed; top: 70px; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999; flex-direction: column; gap: 0;
+            }
             .nav-links.active { display: flex !important; }
             .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; position: relative; z-index: 1001; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+            .language-switcher {
+                display: flex !important; flex-direction: row;
+                gap: 0.3rem; border-left: none;
+                padding: 0; margin: 0; margin-right: 0.5rem;
+            }
             .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
         }
+        /* Force burger hidden on large screens */
+        @media (min-width: 1025px) {
+            .mobile-menu-toggle {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important; height: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+            }
+        }
+        }
+        
         @media (max-width: 768px) {
             .nav-container {
                 position: relative;
@@ -1119,89 +1139,15 @@
         </div>
     </footer>
 
-    <script>
-        // SIMPLE LANGUAGE SWITCHER
-        function switchLanguage(lang) {
-            console.log('Switching to:', lang);
-            
-            // Remove active-lang from all content
-            document.querySelectorAll('[data-lang]').forEach(function(el) {
-                el.classList.remove('active-lang');
-            });
-            
-            // Add active-lang to selected language
-            document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) {
-                el.classList.add('active-lang');
-            });
-            
-            // Update buttons
-            document.querySelectorAll('.lang-btn').forEach(function(btn) {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Save
-            localStorage.setItem('selectedLanguage', lang);
-        }
-        
-        // Load saved language
-        window.addEventListener('DOMContentLoaded', function() {
-            var saved = localStorage.getItem('selectedLanguage') || 'en';
-            switchLanguage(saved);
-        });
-        
-        // Mobile menu toggle
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-        
-        if (mobileMenuToggle && navLinks) {
-            // Ensure menu is closed on page load
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            
-            mobileMenuToggle.addEventListener('click', function(event) {
-                event.stopPropagation();
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                var isClickInsideNav = navLinks.contains(event.target);
-                var isClickOnToggle = mobileMenuToggle.contains(event.target);
-                
-                if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-            
-            // Close menu when clicking on a link
-            var navLinksElements = navLinks.querySelectorAll('a');
-            navLinksElements.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-        }
-        
-        // Sticky nav
-        window.addEventListener("scroll", function() {
-            var nav = document.getElemen
-    </script>
-
-    <!-- FIXED: Language switcher + Mobile menu — based on working stories.html pattern -->
+    
     <script>
     (function() {
-        // Language Switcher
-        var supportedLangs = ['en', 'fr', 'ja'];
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = navigator.language ? navigator.language.substring(0, 2) : 'en';
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang :
-                          (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+        // LANGUAGE SWITCHER
+        var langs = ['en', 'fr', 'ja'];
+        var saved = localStorage.getItem('preferredLanguage');
+        var browser = (navigator.language || 'en').substring(0, 2);
+        var current = (saved && langs.indexOf(saved) > -1) ? saved
+                    : (langs.indexOf(browser) > -1 ? browser : 'en');
 
         function switchLanguage(lang) {
             document.querySelectorAll('.lang-content').forEach(function(el) {
@@ -1211,112 +1157,51 @@
                 el.classList.add('active');
             });
             document.querySelectorAll('.lang-btn').forEach(function(btn) {
-                btn.classList.remove('active');
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
-            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
             localStorage.setItem('preferredLanguage', lang);
-            currentLang = lang;
+            current = lang;
         }
 
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                switchLanguage(this.dataset.lang);
+                switchLanguage(this.getAttribute('data-lang'));
             });
         });
 
-        switchLanguage(currentLang);
+        switchLanguage(current);
 
-        // Mobile + Tablet Menu Toggle
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        // BURGER MENU
+        var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
 
-        if (mobileMenuToggle && navLinks) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-
-            mobileMenuToggle.addEventListener('click', function(event) {
-                event.stopPropagation();
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-
-            document.addEventListener('click', function(event) {
-                if (!navLinks.contains(event.target) && 
-                    !mobileMenuToggle.contains(event.target) && 
-                    navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                }
-            });
-
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-        }
-    })();
-    </script>
-
-    <script>
-    (function() {
-        // ---- LANGUAGE SWITCHER ----
-        var supportedLangs = ['en', 'fr', 'ja'];
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = (navigator.language || 'en').substring(0, 2);
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang
-                        : (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
-
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
-            document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
-            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
-            localStorage.setItem('preferredLanguage', lang);
-            currentLang = lang;
-        }
-
-        document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() { switchLanguage(this.dataset.lang); });
-        });
-
-        switchLanguage(currentLang);
-
-        // ---- HAMBURGER MENU ----
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle && navLinks) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.addEventListener('click', function(e) {
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 navLinks.classList.toggle('active');
-                this.classList.toggle('active');
+                toggle.classList.toggle('active');
             });
             document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 }
             });
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
+            navLinks.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 });
             });
         }
 
-        // ---- STICKY NAV ----
-        window.addEventListener('scroll', function() {
-            var nav = document.getElementById('navbar');
-            if (nav) nav.classList[window.scrollY > 100 ? 'add' : 'remove']('scrolled');
-        });
-
+        // STICKY NAV
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 100);
+            });
+        }
     })();
     </script>
 </body>

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyūshū in Motion - Basecamp Kyūshū</title>
-    <meta name="description" content="Visual archive of Kyūshū. Photos, 360° VR tours, and immersive experiences across seven prefectures.">
+    <meta name="description" content="Visual archive of Kyūshū. Photos, 360° VR tours and immersive experiences.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/in-motion.html">
     <meta property="og:title" content="Kyūshū in Motion - Basecamp Kyūshū">
@@ -13,8 +12,10 @@
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kyūshū in Motion - Basecamp Kyūshū">
-    <meta name="twitter:description" content="Visual archive of Kyūshū.">
+    <meta name="twitter:description" content="Visual archive of Kyūshū. Photos, 360° VR tours and immersive experiences.">
     <meta name="twitter:image" content="https://basecampkyushu.com/images/kyushu-landscapes-collage-36.jpg">
+    <title>Kyūshū in Motion - Basecamp Kyūshū</title>
+    <meta name="description" content="Visual archive of Kyūshū. Photos, 360° VR tours, and immersive experiences across seven prefectures.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -291,21 +292,7 @@
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
-        @media (max-width: 1024px) {
-            .nav-links { display: none !important; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
-            .nav-links.active { display: flex !important; }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; position: relative; z-index: 1001; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
+        
         @media (max-width: 768px) {
             .gallery-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -604,6 +591,39 @@
             font-size: 0.9rem;
             color: var(--primary-light);
         }
+        
+        /* ===== TABLET BREAKPOINT ===== */
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle { display: block !important; }
+            .nav-links {
+                display: none !important;
+                position: fixed; top: 70px; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999; flex-direction: column; gap: 0;
+            }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .language-switcher {
+                display: flex !important; flex-direction: row;
+                gap: 0.3rem; border-left: none;
+                padding: 0; margin: 0; margin-right: 0.5rem;
+            }
+            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
+        }
+        /* Force burger hidden on large screens */
+        @media (min-width: 1025px) {
+            .mobile-menu-toggle {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important; height: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+            }
+        }
             .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
             .vr-tours { grid-template-columns: repeat(2, 1fr); }
         }
@@ -739,12 +759,13 @@
                 <li><a href="online-store.html">ONLINE SHOP</a></li>
                 <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-</ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="fr">FR</button>
-                <button class="lang-btn" data-lang="ja">JA</button>
-            </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ja">JA</button>
+                </div>
+            </ul>
+            
             <!-- Mobile: Language Switcher + Burger -->
             <div class="mobile-nav">
                 <div class="language-switcher-mobile">
@@ -1169,62 +1190,351 @@
     </div>
 
     <script>
+        console.log("In Motion page loading...");
+        
+        // Language switcher
+        var langBtns = document.querySelectorAll(".lang-btn");
+        var langContents = document.querySelectorAll(".lang-content");
+        var currentLang = localStorage.getItem("lang") || "en";
+        
+        setLanguage(currentLang);
+        
+        langBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var lang = btn.dataset.lang;
+                setLanguage(lang);
+                localStorage.setItem("lang", lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            console.log("Setting language to:", lang);
+            langBtns.forEach(function(btn) {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            
+            langContents.forEach(function(content) {
+                var contentLang = "lang-" + lang;
+                if (content.classList.contains(contentLang)) {
+                    content.classList.add("active");
+                } else {
+                    content.classList.remove("active");
+                }
+            });
+        }
+        
+        // Mobile menu toggle
+        var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        var navLinks = document.querySelector(".nav-links");
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener("click", function() {
+                mobileMenuToggle.classList.toggle("active");
+                navLinks.classList.toggle("active");
+            });
+            
+            // Close menu when clicking on a link
+            var menuLinks = navLinks.querySelectorAll("a");
+            menuLinks.forEach(function(link) {
+                link.addEventListener("click", function() {
+                    mobileMenuToggle.classList.remove("active");
+                    navLinks.classList.remove("active");
+                });
+            });
+        }
+        
+        // Sticky nav
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else if (nav) {
+                nav.classList.remove("scrolled");
+            }
+        });
+        
+        // PHOTO GALLERY
+        // Add your image URLs here from Genspark
+        var galleryImages = [
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-49-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-14-57_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-15-13-44_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-51-40_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-52-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-53-35_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-08-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-49-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-08_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-54-05_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-55-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-51-30_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-56-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-09-21_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-11-54-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-12-49_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-12-30-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-58-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-00-45_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-121703_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-01-10_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20181115-122035_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-47-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-54-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-13-59-55_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-50-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-08_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-41_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-45-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-35_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-02-00_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-52-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-58-02_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-15_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-03-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-59-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-00-21_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-04-20_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-05-54_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-06-43_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-31_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-07-57_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-00_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-10-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-14-53-56_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-11-01_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-25-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-19-16_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-01-25_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-20-55_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-13-24_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-14-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-16-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-17-47_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-22-27_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-01_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-23-18_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-24-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-27-39_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-14_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-28-43_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-29-37_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-30-58_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-07_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-32-39_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-33-06_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-26_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-34-47_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-12_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-29_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-35-48_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-40-28_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-43-03_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-44-46_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-46-59_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-47-11_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-48-02_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-33_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-24_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-49-04_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-51-38_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-22_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-11-11-at-15-52-52_2_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0400_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0402_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/fb-img-1577112882145_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190105-140138_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190821-121825_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img-20190918-121147_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/img20191120115333_2_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-25-05_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-28-24_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-23-at-15-38-49_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-45-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-22-46-08_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-10-22-at-23-03-31_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/ariake-seaweed-pier_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/boat-ariake_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-0269_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dji-20220424-184321-710_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc-0444_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc04024_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07339_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07344_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07392_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07583_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07746_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/dsc07808_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/higashi-sonogi_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/kim-gallery_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/loading-pic_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/nodo-no-kamisama_orig.jpeg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/pic-for-kim-gallery_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/received-1712253785627569_orig.jpg",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-03-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-04-25_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-05-28_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-13_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-07-36_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-11_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-08-44_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-10-10_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-12-34_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-14-26_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-19-21_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-24-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-26-08.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-28-54_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-30-11_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-34-37_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-38-21_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-03_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-39-59_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-16_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-40-33_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-46-18_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-47-55_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-48-25_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-08_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-49-54_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-50-35_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-09_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-31_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-51-52_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-18_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-52-44_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-53-22_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-58-53_orig.png",
+            "https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screen-shot-2022-03-05-at-14-59-43_orig.png"
+        ];
+        
+        var currentImageIndex = 0;
+        
+        // Load gallery
+        var galleryContainer = document.getElementById("gallery");
+        galleryImages.forEach(function(img, index) {
+            var div = document.createElement("div");
+            div.className = "gallery-item";
+            div.onclick = function() { openLightbox(index); };
+            
+            var imgEl = document.createElement("img");
+            imgEl.src = img;
+            imgEl.alt = "Kyūshū Photography " + (index + 1);
+            imgEl.loading = "lazy";
+            
+            div.appendChild(imgEl);
+            galleryContainer.appendChild(div);
+        });
+        
+        // Lightbox functions
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById("lightbox").classList.add("active");
+            showImage();
+        }
+        
+        function closeLightbox() {
+            document.getElementById("lightbox").classList.remove("active");
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            showImage();
+        }
+        
+        function showImage() {
+            document.getElementById("lightbox-img").src = galleryImages[currentImageIndex];
+            document.getElementById("lightbox-counter").textContent = 
+                (currentImageIndex + 1) + " / " + galleryImages.length;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener("keydown", function(e) {
+            var lightbox = document.getElementById("lightbox");
+            if (lightbox.classList.contains("active")) {
+                if (e.key === "ArrowLeft")
+    </script>
+    <script>
     (function() {
-        // ---- LANGUAGE SWITCHER ----
-        var supportedLangs = ['en', 'fr', 'ja'];
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = (navigator.language || 'en').substring(0, 2);
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang
-                        : (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+        // LANGUAGE SWITCHER
+        var langs = ['en', 'fr', 'ja'];
+        var saved = localStorage.getItem('preferredLanguage');
+        var browser = (navigator.language || 'en').substring(0, 2);
+        var current = (saved && langs.indexOf(saved) > -1) ? saved
+                    : (langs.indexOf(browser) > -1 ? browser : 'en');
 
         function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
-            document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
-            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
+            document.querySelectorAll('.lang-content').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-' + lang).forEach(function(el) {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
             localStorage.setItem('preferredLanguage', lang);
-            currentLang = lang;
+            current = lang;
         }
 
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() { switchLanguage(this.dataset.lang); });
+            btn.addEventListener('click', function() {
+                switchLanguage(this.getAttribute('data-lang'));
+            });
         });
 
-        switchLanguage(currentLang);
+        switchLanguage(current);
 
-        // ---- HAMBURGER MENU ----
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        // BURGER MENU
+        var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
 
-        if (mobileMenuToggle && navLinks) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.addEventListener('click', function(e) {
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 navLinks.classList.toggle('active');
-                this.classList.toggle('active');
+                toggle.classList.toggle('active');
             });
             document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 }
             });
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
+            navLinks.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 });
             });
         }
 
-        // ---- STICKY NAV ----
-        window.addEventListener('scroll', function() {
-            var nav = document.getElementById('navbar');
-            if (nav) nav.classList[window.scrollY > 100 ? 'add' : 'remove']('scrolled');
-        });
-
+        // STICKY NAV
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 100);
+            });
+        }
     })();
     </script>
 </body>

@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Online Store - Basecamp Kyūshū</title>
-    <meta name="description" content="Signature T-Shirts made in Kyūshū. Premium heavyweight cotton, locally produced. Support creative storytelling.">
+    <meta name="description" content="Signature T-Shirts made in Kyūshū. Locally produced.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/online-store.html">
     <meta property="og:title" content="Online Store - Basecamp Kyūshū">
@@ -16,8 +12,13 @@
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Online Store - Basecamp Kyūshū">
-    <meta name="twitter:description" content="Signature T-Shirts made in Kyūshū.">
+    <meta name="twitter:description" content="Signature T-Shirts made in Kyūshū. Locally produced.">
     <meta name="twitter:image" content="https://basecampkyushu.com/images/tshirt-model-all-colors.jpg">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Online Store - Basecamp Kyūshū</title>
+    <meta name="description" content="Signature T-Shirts made in Kyūshū. Premium heavyweight cotton, locally produced. Support creative storytelling.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -473,22 +474,41 @@
         .footer-bottom a:hover {
             color: var(--accent-earth);
         }
-        }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
+        
+        /* ===== TABLET BREAKPOINT ===== */
         @media (max-width: 1024px) {
-            .nav-links { display: none !important; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .mobile-menu-toggle { display: block !important; }
+            .nav-links {
+                display: none !important;
+                position: fixed; top: 70px; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999; flex-direction: column; gap: 0;
+            }
             .nav-links.active { display: flex !important; }
             .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .mobile-menu-toggle { display: block !important; flex-shrink: 0; position: relative; z-index: 1001; }
-            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+            .language-switcher {
+                display: flex !important; flex-direction: row;
+                gap: 0.3rem; border-left: none;
+                padding: 0; margin: 0; margin-right: 0.5rem;
+            }
             .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
         }
+        /* Force burger hidden on large screens */
+        @media (min-width: 1025px) {
+            .mobile-menu-toggle {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important; height: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+            }
+        }
+        }
+        
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0.75rem 1rem;
@@ -596,7 +616,7 @@
                 <li><a href="online-store.html">ONLINE SHOP</a></li>
                 <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-            </ul>
+</ul>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="fr">FR</button>
@@ -786,7 +806,7 @@
                     ご興味やご質問はInstagramでメッセージください。
                 </p>
                 
-                <a href="https://ig.me/m/basecampkyushu" target="_blank" class="btn">
+                <a href="contact.html"  class="btn">
                     <span class="lang-content lang-en active">Message Us</span>
                     <span class="lang-content lang-fr">Nous Contacter</span>
                     <span class="lang-content lang-ja">メッセージ</span>
@@ -1046,62 +1066,131 @@
     </footer>
 
     <script>
+        console.log("Online Store page loading...");
+        
+        // Language switcher
+        var langBtns = document.querySelectorAll(".lang-btn");
+        var langContents = document.querySelectorAll(".lang-content");
+        var currentLang = localStorage.getItem("lang") || "en";
+        
+        setLanguage(currentLang);
+        
+        langBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                var lang = btn.dataset.lang;
+                setLanguage(lang);
+                localStorage.setItem("lang", lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            console.log("Setting language to:", lang);
+            langBtns.forEach(function(btn) {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+            
+            langContents.forEach(function(content) {
+                var contentLang = "lang-" + lang;
+                if (content.classList.contains(contentLang)) {
+                    content.classList.add("active");
+                } else {
+                    content.classList.remove("active");
+                }
+            });
+        }
+        
+        // Mobile Menu Toggle
+        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when a link is clicked
+            var menuLinks = navLinks.querySelectorAll('a');
+            menuLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+        
+        // Sticky nav
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.a
+    </script>
+    <script>
     (function() {
-        // ---- LANGUAGE SWITCHER ----
-        var supportedLangs = ['en', 'fr', 'ja'];
-        var savedLang = localStorage.getItem('preferredLanguage');
-        var browserLang = (navigator.language || 'en').substring(0, 2);
-        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang
-                        : (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+        // LANGUAGE SWITCHER
+        var langs = ['en', 'fr', 'ja'];
+        var saved = localStorage.getItem('preferredLanguage');
+        var browser = (navigator.language || 'en').substring(0, 2);
+        var current = (saved && langs.indexOf(saved) > -1) ? saved
+                    : (langs.indexOf(browser) > -1 ? browser : 'en');
 
         function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
-            document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
-            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
-            if (activeBtn) activeBtn.classList.add('active');
+            document.querySelectorAll('.lang-content').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-' + lang).forEach(function(el) {
+                el.classList.add('active');
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
             localStorage.setItem('preferredLanguage', lang);
-            currentLang = lang;
+            current = lang;
         }
 
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() { switchLanguage(this.dataset.lang); });
+            btn.addEventListener('click', function() {
+                switchLanguage(this.getAttribute('data-lang'));
+            });
         });
 
-        switchLanguage(currentLang);
+        switchLanguage(current);
 
-        // ---- HAMBURGER MENU ----
-        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        // BURGER MENU
+        var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
 
-        if (mobileMenuToggle && navLinks) {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.addEventListener('click', function(e) {
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 navLinks.classList.toggle('active');
-                this.classList.toggle('active');
+                toggle.classList.toggle('active');
             });
             document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 }
             });
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
+            navLinks.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    toggle.classList.remove('active');
                 });
             });
         }
 
-        // ---- STICKY NAV ----
-        window.addEventListener('scroll', function() {
-            var nav = document.getElementById('navbar');
-            if (nav) nav.classList[window.scrollY > 100 ? 'add' : 'remove']('scrolled');
-        });
-
+        // STICKY NAV
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 100);
+            });
+        }
     })();
     </script>
 </body>
