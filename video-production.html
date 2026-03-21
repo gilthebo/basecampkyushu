@@ -420,8 +420,14 @@
         }
         
         @media (max-width: 1024px) {
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+            .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 999; flex-direction: column; gap: 0; }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .mobile-menu-toggle { display: block !important; flex-shrink: 0; }
+            .language-switcher { display: flex !important; flex-direction: row; gap: 0.3rem; border-left: none; padding: 0; margin: 0; margin-right: 0.5rem; }
+            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
+        }
         }
         
         /* MOBILE MENU STYLES */
@@ -962,7 +968,7 @@
             </div>
             
             <div style="text-align: center; margin: 0; padding: 0.5rem 0 2rem 0;">
-                <a href="https://mglobaljapan.com/works" class="btn" style="background: var(--accent-copper); color: var(--white);" target="_blank">
+                <a href="https://mglobaljapan.weebly.com/works" class="btn" style="background: var(--accent-copper); color: var(--white);" target="_blank">
                     <span class="lang-content lang-en active">View Our Portfolio</span>
                     <span class="lang-content lang-ja">ポートフォリオを見る</span>
                 </a>
@@ -1013,7 +1019,7 @@
                 相談とカスタム見積もりについてお問い合わせください。
             </p>
             
-            <a href="/cdn-cgi/l/email-protection#472e292128072a202b2825262b2d263726296924282a" class="btn">
+            <a href="mailto:info@mglobaljapan.com" class="btn">
                 <span class="lang-content lang-en active">Email Us</span>
                 <span class="lang-content lang-ja">メールする</span>
             </a>
@@ -1024,12 +1030,12 @@
             </a>
             
             <p class="lang-content lang-en active" style="margin-top: 2rem; font-size: 0.9rem;">
-                <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4733262e2c2e072a202b2825262b2d263726296924282a">[email&#160;protected]</a> • <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b72757d745b767c7774797a77717a6b7a7535787476">[email&#160;protected]</a><br>
+                <strong>Email:</strong> <a href="mailto:taiki@mglobaljapan.com">taiki@mglobaljapan.com</a> • <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a><br>
                 <strong>Phone (Japan):</strong> (+81) 080-9557-0471 - Creative Director<br>
                 <strong>Office Hours:</strong> Mon-Fri 9:00-18:00 JST
             </p>
             <p class="lang-content lang-ja" style="margin-top: 2rem; font-size: 0.9rem;">
-                <strong>メール：</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3c7d2dad8daf3ded4dfdcd1d2dfd9d2c3d2dd9dd0dcde">[email&#160;protected]</a> • <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="345d5a525b745953585b5655585e5544555a1a575b59">[email&#160;protected]</a><br>
+                <strong>メール：</strong> <a href="mailto:taiki@mglobaljapan.com">taiki@mglobaljapan.com</a> • <a href="mailto:info@mglobaljapan.com">info@mglobaljapan.com</a><br>
                 <strong>電話（日本）：</strong> (+81) 080-9557-0471 - クリエイティブディレクター<br>
                 <strong>営業時間：</strong> 月-金 9:00-18:00 JST
             </p>
@@ -1132,18 +1138,17 @@
                     <li><a href="contact.html">Contact Us</a></li>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
-                    <li>Website: <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                    <li>Email: <a href="/cdn-cgi/l/email-protection#375e595158775a505b5855565b5d564756591954585a"><span class="__cf_email__" data-cfemail="f59c9b939ab59892999a9794999f9485949bdb969a98">[email&#160;protected]</span></a></li>
+                    <li>Website: <a href="https://mglobaljapan.weebly.com/" target="_blank">M Global Japan</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="http://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.weebly.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         console.log("Video Production page loading...");
         
         var langBtns = document.querySelectorAll(".lang-btn");
@@ -1291,6 +1296,52 @@
                 }
             });
 
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            });
+        }
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var supportedLangs = ['en', 'fr', 'ja'];
+        var savedLang = localStorage.getItem('preferredLanguage');
+        var browserLang = navigator.language ? navigator.language.substring(0, 2) : 'en';
+        var currentLang = (savedLang && supportedLangs.indexOf(savedLang) > -1) ? savedLang :
+                          (supportedLangs.indexOf(browserLang) > -1 ? browserLang : 'en');
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) { btn.classList.remove('active'); });
+            var activeBtn = document.querySelector('[data-lang="' + lang + '"]');
+            if (activeBtn) activeBtn.classList.add('active');
+            localStorage.setItem('preferredLanguage', lang);
+            currentLang = lang;
+        }
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() { switchLanguage(this.dataset.lang); });
+        });
+        switchLanguage(currentLang);
+        var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (mobileMenuToggle && navLinks) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            document.addEventListener('click', function(event) {
+                if (!navLinks.contains(event.target) && !mobileMenuToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
             navLinks.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
