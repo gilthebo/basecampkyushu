@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Signature T-Shirts made in Kyūshū. Locally produced.">
+    <meta name="description" content="Signature T-Shirts made in Kyūshū.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/online-store.html">
     <meta property="og:title" content="Online Store - Basecamp Kyūshū">
-    <meta property="og:description" content="Signature T-Shirts made in Kyūshū. Locally produced.">
+    <meta property="og:description" content="Signature T-Shirts made in Kyūshū.">
     <meta property="og:image" content="https://basecampkyushu.com/images/tshirt-model-all-colors.jpg">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Online Store - Basecamp Kyūshū">
-    <meta name="twitter:description" content="Signature T-Shirts made in Kyūshū. Locally produced.">
+    <meta name="twitter:description" content="Signature T-Shirts made in Kyūshū.">
     <meta name="twitter:image" content="https://basecampkyushu.com/images/tshirt-model-all-colors.jpg">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -475,38 +475,9 @@
             color: var(--accent-earth);
         }
         
-        /* ===== TABLET BREAKPOINT ===== */
         @media (max-width: 1024px) {
-            .mobile-menu-toggle { display: block !important; }
-            .nav-links {
-                display: none !important;
-                position: fixed; top: 70px; left: 0; right: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(10px);
-                padding: 1.5rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                z-index: 999; flex-direction: column; gap: 0;
-            }
-            .nav-links.active { display: flex !important; }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
-            .language-switcher {
-                display: flex !important; flex-direction: row;
-                gap: 0.3rem; border-left: none;
-                padding: 0; margin: 0; margin-right: 0.5rem;
-            }
-            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
-        }
-        /* Force burger hidden on large screens */
-        @media (min-width: 1025px) {
-            .mobile-menu-toggle {
-                display: none !important;
-                visibility: hidden !important;
-                width: 0 !important; height: 0 !important;
-                overflow: hidden !important;
-                position: absolute !important;
-            }
-        }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
         }
         
         @media (max-width: 768px) {
@@ -598,11 +569,65 @@
                 flex-direction: column;
             }
         }
+
+        /* === DESKTOP: hide burger === */
+        @media (min-width: 1025px) {
+            .mobile-menu-toggle {
+                display: none !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+                position: absolute !important;
+                pointer-events: none !important;
+            }
+            .mobile-nav { display: none !important; }
+        }
+        /* === TABLET/MOBILE: show burger, collapse nav === */
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                order: 3;
+            }
+            .language-switcher {
+                display: flex !important;
+                flex-direction: row;
+                gap: 0.3rem;
+                border-left: none;
+                padding: 0;
+                margin: 0;
+                margin-right: 0.5rem;
+                order: 2;
+            }
+            .lang-btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; min-width: 34px; height: 28px; }
+            .nav-links {
+                display: none !important;
+                position: fixed; top: 70px; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+                flex-direction: column;
+                gap: 0;
+                order: 1;
+            }
+            .nav-links.active { display: flex !important; }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display: block; padding: 1rem; width: 100%; font-size: 1rem; }
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
     </style>
 </head>
 <body>
     <nav id="navbar">
-        <div class="nav-container">
+                <div class="nav-container">
             <a href="index.html" class="logo">
                 BASECAMP KYŪSHŪ
                 <span class="logo-subtitle">土地 — 人 — 物語</span>
@@ -616,7 +641,7 @@
                 <li><a href="online-store.html">ONLINE SHOP</a></li>
                 <li><a href="expedition-resort.html">EXPEDITION RESORT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-</ul>
+            </ul>
             <div class="language-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="fr">FR</button>
@@ -1131,7 +1156,6 @@
     </script>
     <script>
     (function() {
-        // LANGUAGE SWITCHER
         var langs = ['en', 'fr', 'ja'];
         var saved = localStorage.getItem('preferredLanguage');
         var browser = (navigator.language || 'en').substring(0, 2);
@@ -1160,10 +1184,8 @@
 
         switchLanguage(current);
 
-        // BURGER MENU
         var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
-
         if (toggle && navLinks) {
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1184,7 +1206,6 @@
             });
         }
 
-        // STICKY NAV
         var navbar = document.getElementById('navbar');
         if (navbar) {
             window.addEventListener('scroll', function() {
