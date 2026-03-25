@@ -372,11 +372,11 @@
                         var msg = document.getElementById('form-message');
                         if (r.ok) {
                             msg.className = 'form-message success show';
-                            msg.textContent = 'Message sent! We'll get back to you soon.';
+                            msg.textContent = 'Message sent! We'll get back to you soon.'>br< フォームは送信されました。24時間以内にご返信いたします。';
                             form.reset();
                         } else {
                             msg.className = 'form-message error show';
-                            msg.textContent = 'Something went wrong. Please try again.';
+                            msg.textContent = 'Something went wrong. Please try again.'>br<問題が発生しました。もう一度お試しください。;
                         }
                         btn.disabled = false;
                         btn.textContent = 'SEND MESSAGE 送信';
