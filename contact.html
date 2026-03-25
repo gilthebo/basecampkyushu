@@ -928,12 +928,10 @@
 
         switchLanguage(current);
 
-         // Mobile menu toggle
+        // Burger
         var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
         if (toggle && navLinks) {
-            navLinks.classList.remove('active');
-            toggle.classList.remove('active');
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 navLinks.classList.toggle('active');
