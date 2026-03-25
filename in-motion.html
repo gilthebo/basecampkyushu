@@ -1367,38 +1367,17 @@
             });
         }
         
-       // Burger
-        var toggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-        if (toggle && navLinks) {
-            navLinks.classList.remove('active');
-            toggle.classList.remove('active');
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                toggle.classList.toggle('active');
-            });
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    toggle.classList.remove('active');
-                }
-            });
-            navLinks.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    toggle.classList.remove('active');
-                });
-            });
-        }
-
+        // Mobile menu toggle — handled below
+        
         // Sticky nav
-        var navbar = document.getElementById('navbar');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                navbar.classList.toggle('scrolled', window.scrollY > 80);
-            });
-        }
+        window.addEventListener("scroll", function() {
+            var nav = document.getElementById("navbar");
+            if (nav && window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else if (nav) {
+                nav.classList.remove("scrolled");
+            }
+        });
         
         // PHOTO GALLERY
         // Add your image URLs here from Genspark
