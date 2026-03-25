@@ -1396,6 +1396,30 @@
                 nav.classList.remove("scrolled");
             }
         });
+        // Mobile menu toggle
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            navLinks.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
+            navLinks.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    toggle.classList.remove('active');
+                });
+            });
+        }
         
         // PHOTO GALLERY
         // Add your image URLs here from Genspark
