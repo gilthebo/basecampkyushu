@@ -760,7 +760,7 @@
             <h2 data-lang="fr">Envoyez-nous un Message</h2>
             <h2 data-lang="ja">メッセージを送る</h2>
             
-            <p data-lang="en" class="active-lang">Fill out the form below and we'll get back to you within 24-48 hours.</p>
+            <p data-lang="en" class="active-lang">Fill out the form below and we'll get back to you within 24-48 hours.<br>下記のフォームにご記入ください。24-48時間以内にご返信いたします。</p>
             <p data-lang="fr">Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24-48 heures.</p>
             
         </div>
@@ -799,33 +799,18 @@
                     </label>
                     <select id="subject" name="subject" required>
                         <option value="" data-lang="en" class="active-lang">Select a topic</option>
-                        <option value="" data-lang="fr">Sélectionnez un sujet</option>
-                        
-                        
-                        <option value="Stories Vol. 2 Pre-Interest" data-lang="en" class="active-lang"></option>
-                        <option value="Stories Vol. 2 Intérêt Préalable" data-lang="fr"></option>
-                        
-                        
+                        <option value="" data-lang="fr">Select a topic</option>
+                        <option value="Stories Vol. 2 Pre-Interest" data-lang="en" class="active-lang"></option                        
                         <option value="Video Production" data-lang="en" class="active-lang">Video Production</option>
                         <option value="Production Vidéo" data-lang="fr"></option>
-                        
-                        
                         <option value="Stories/Book Inquiry" data-lang="en" class="active-lang">Stories / Book Inquiry</option>
                         <option value="Demande de Livre" data-lang="fr"></option>
-                        
-                        
-                        <option value="Online Store" data-lang="en" class="active-lang">👕 Online Store</option>
+                        <option value="Online Store" data-lang="en" class="active-lang">Online Store</option>
                         <option value="Boutique en Ligne" data-lang="fr"></option>
-                        
-                        
                         <option value="Expedition Resort" data-lang="en" class="active-lang">Expedition Resort</option>
                         <option value="Station d'Expédition" data-lang="fr"></option>
-                        
-                        
                         <option value="General Inquiry" data-lang="en" class="active-lang">General Inquiry</option>
                         <option value="Demande Générale" data-lang="fr"></option>
-                        
-                        
                         <option value="Other" data-lang="en" class="active-lang">Other/その他</option>
                         <option value="Autre" data-lang="fr"></option>
                         
@@ -944,31 +929,26 @@
         switchLanguage(current);
 
          // Mobile menu toggle
-        var mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-        var navLinks = document.querySelector(".nav-links");
-        
-        if (mobileMenuToggle && navLinks) {
-            mobileMenuToggle.addEventListener("click", function() {
-                mobileMenuToggle.classList.toggle("active");
-                navLinks.classList.toggle("active");
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            navLinks.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                toggle.classList.toggle('active');
             });
-            
-            // Close menu when clicking on a link
-            var menuLinks = navLinks.querySelectorAll("a");
-            menuLinks.forEach(function(link) {
-                link.addEventListener("click", function() {
-                    mobileMenuToggle.classList.remove("active");
-                    navLinks.classList.remove("active");
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
+            navLinks.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    toggle.classList.remove('active');
                 });
             });
         }
-        
-        // Sticky nav
-        window.addEventListener("scroll", function() {
-            var nav = document.getElementById("navbar");
-            if (nav && window.scrollY > 100) {
-                nav.classList.add("scrolled");
-            } else if (nav) {
-                nav.classList.remove("scrolled");
-            }
-        });
