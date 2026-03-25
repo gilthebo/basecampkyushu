@@ -1367,7 +1367,7 @@
             });
         }
         
-        // Mobile menu toggle
+       // Burger
         var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
         if (toggle && navLinks) {
@@ -1389,6 +1389,14 @@
                     navLinks.classList.remove('active');
                     toggle.classList.remove('active');
                 });
+            });
+        }
+
+        // Sticky nav
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 80);
             });
         }
         
