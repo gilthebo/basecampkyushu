@@ -251,7 +251,10 @@
         .footer-bottom a:hover { color:var(--accent-earth); }
 
         @media(max-width:768px){
+            .bags-photo-grid{grid-template-columns:repeat(2,1fr) !important;}
             .two-col{columns:1 !important;}
+            #objects .photo-grid{grid-template-columns:repeat(2,1fr) !important;}
+            #objects .intro-grid{grid-template-columns:1fr !important;}
             .hero { margin-top:56px; min-height:70vh; padding:6rem 1.5rem 3rem; }
             .exp-grid { grid-template-columns:repeat(2,1fr); }
             .collage { grid-template-columns:repeat(2,1fr); }
@@ -411,6 +414,92 @@
         </div>
     </section>
 
+
+    
+    <!-- ATELIER & OBJECTS -->
+    <section id="objects" style="padding:0;">
+
+        <!-- Dark intro band -->
+        <div style="background:var(--primary-dark);padding:5rem 2rem;">
+            <div style="max-width:960px;margin:0 auto;">
+
+                <div style="display:grid;grid-template-columns:180px 1fr;gap:4rem;align-items:start;">
+
+                    <!-- Left: kanji + label -->
+                    <div style="text-align:center;padding-top:8px;">
+                        <div style="font-family:'Noto Serif JP',serif;font-size:5rem;color:rgba(184,115,51,0.5);line-height:1;margin-bottom:16px;">形</div>
+                        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);line-height:1.8;">LA COFU<br>ITOSHIMA</div>
+                    </div>
+
+                    <!-- Right: text -->
+                    <div>
+                        <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-copper);margin-bottom:18px;">
+                            <span class="active-lang" data-lang="en">— The Objects</span>
+                            <span data-lang="fr">— Les Objets</span>
+                            <span data-lang="ja">— オブジェ</span>
+                        </div>
+                        <h3 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3vw,2.4rem);color:rgba(255,255,255,0.92);line-height:1.3;margin-bottom:20px;">
+                            <span class="active-lang" data-lang="en">Each piece is made by hand in our Itoshima atelier, from vintage kimono and obi fabric. No two are identical.</span>
+                            <span data-lang="fr">Chaque pièce est fabriquée à la main dans notre atelier d'Itoshima, à partir de tissus kimono et obi anciens. Aucune n'est identique.</span>
+                            <span data-lang="ja">すべての作品は糸島のアトリエで、ヴィンテージの着物と帯生地から手作りされています。同じものは二つとありません。</span>
+                        </h3>
+                        <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:16px;">
+                            <span class="active-lang" data-lang="en">Silk, brocade, hand-dyed cotton — fabrics that once carried another life. As part of the La Cofu Atelier experience during residencies, participants choose their own fabric from the vintage collection brought from Japan and create their own piece. Finished bags are also available for purchase on-site.</span>
+                            <span data-lang="fr">Soie, brocart, coton teint à la main — des tissus qui portaient autrefois une autre vie. Dans le cadre de l'Atelier La Cofu lors des résidences, les participants choisissent leur tissu dans la collection vintage rapportée du Japon et créent leur propre pièce. Des sacs déjà réalisés sont également disponibles à la vente sur place.</span>
+                            <span data-lang="ja">絹、錦織、手染め木綿—かつて別の命を持った生地。レジデンシーでのLa Cofuアトリエ体験では、参加者が日本から持参したヴィンテージコレクションから生地を選び、自分の作品を制作します。完成したバッグも現地で購入可能です。</span>
+                        </p>
+                        <div style="font-size:0.8rem;color:rgba(255,255,255,0.25);font-style:italic;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+                            <span class="active-lang" data-lang="en">Available at residencies &nbsp;·&nbsp; On request &nbsp;·&nbsp; <a href="https://lacofu.weebly.com/contact.html" style="color:var(--accent-earth);text-decoration:none;">Contact us</a></span>
+                            <span data-lang="fr">Disponibles lors des résidences &nbsp;·&nbsp; Sur demande &nbsp;·&nbsp; <a href="https://lacofu.weebly.com/contact.html" style="color:var(--accent-earth);text-decoration:none;">Nous contacter</a></span>
+                            <span data-lang="ja">レジデンシーにて &nbsp;·&nbsp; ご要望により &nbsp;·&nbsp; <a href="https://lacofu.weebly.com/contact.html" style="color:var(--accent-earth);text-decoration:none;">お問い合わせ</a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo grid -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:#0a0a0a;" class="bags-photo-grid">
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/obi2.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/7_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/new-2.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+            <div style="overflow:hidden;aspect-ratio:1/1;">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s;" onmouseover="this.style.transform='scale(1.06)';this.style.opacity='.8'" onmouseout="this.style.transform='scale(1)';this.style.opacity='1'">
+            </div>
+        </div>
+
+    </section>
     <!-- CTA -->
     <section class="cta-section">
         <div class="container" style="text-align:center">
@@ -451,7 +540,7 @@
                 <ul>
                     <li><a href="contact.html">Contact Us</a></li>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>YouTube: <a href="https://www.youtube.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@KyushuInMotion" target="_blank">@KyushuInMotion</a></li>
                     <li><a href="https://lacofu.weebly.com" target="_blank" style="color:var(--accent-earth)">La Cofu</a></li>
                     <li><a href="https://mglobaljapan.weebly.com" target="_blank">M Global Japan</a></li>
                 </ul>
