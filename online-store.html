@@ -932,7 +932,672 @@
             </div>
         </div>
     </section>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basecamp Kyūshū – T-Shirt Pre-Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --clay:    #5C3D2E;
+    --clay-lt: #8B6347;
+    --cream:   #F5EFE4;
+    --cream-dk:#E8DDD0;
+    --gold:    #C9A84C;
+    --gold-lt: #E2C472;
+    --ink:     #1A1410;
+    --mist:    rgba(245,239,228,0.12);
+  }
+
+  body {
+    background: #1e1510;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* ── CARD ── */
+  .card {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    background: linear-gradient(160deg, #3a2418 0%, #2a1a10 60%, #1e1208 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 3.5rem 3rem 3rem;
+  }
+
+  /* sashiko dot-grid texture */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(201,168,76,0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    pointer-events: none;
+  }
+
+  /* top gold border accent */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
+  }
+
+  /* ── KAMON decoration ── */
+  .kamon {
+    text-align: center;
+    margin-bottom: 1.6rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.1s forwards;
+  }
+  .kamon svg {
+    width: 48px; height: 48px;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.2;
+    opacity: 0.75;
+  }
+
+  /* ── HEADLINE ── */
+  .headline {
+    text-align: center;
+    margin-bottom: 0.6rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+  .headline h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+  }
+  .headline h2 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.4rem 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.3s forwards;
+  }
+  .divider span { flex: 1; height: 1px; background: rgba(201,168,76,0.3); }
+  .divider i {
+    font-style: normal;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── TAGS ── */
+  .tags {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,239,228,0.6);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+  }
+  .tag.gold {
+    color: var(--gold);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  /* ── LANG TOGGLE ── */
+  .lang-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.4s forwards;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lang-btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,239,228,0.45);
+    background: transparent;
+    border: none;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-right: 1px solid rgba(201,168,76,0.2);
+  }
+  .lang-btn:last-child { border-right: none; }
+  .lang-btn.active {
+    background: rgba(201,168,76,0.18);
+    color: var(--gold-lt);
+  }
+  .lang-btn:hover:not(.active) { color: var(--cream); }
+
+  /* ── LANG CONTENT ── */
+  .t { display: none; }
+  .t.active { display: inline; }
+  .tb { display: none; }
+  .tb.active { display: block; }
+
+  /* ── CTA BUTTON ── */
+  .cta-wrap {
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 50%, var(--gold) 100%);
+    background-size: 200% 100%;
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.8rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.25);
+    text-decoration: none;
+  }
+  .cta-btn:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+  }
+  .cta-btn .icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+  }
+  .cta-btn:hover .icon { transform: rotate(8deg) scale(1.1); }
+
+  .cta-sub {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    color: rgba(245,239,228,0.35);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FORM ── */
+  .form-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
+    opacity: 0;
+  }
+  .form-wrap.open {
+    max-height: 900px;
+    opacity: 1;
+  }
+
+  .form-inner {
+    margin-top: 2.4rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 2.2rem;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.8rem;
+    text-align: center;
+  }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* floating label fields */
+  .field {
+    position: relative;
+    margin-bottom: 1.2rem;
+  }
+  .field label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,239,228,0.4);
+    pointer-events: none;
+    transition: all 0.22s ease;
+  }
+  .field.textarea label { top: 1rem; transform: none; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    background: rgba(245,239,228,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px;
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    padding: 1.4rem 1rem 0.6rem;
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field textarea { resize: none; padding-top: 1.8rem; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: rgba(201,168,76,0.6);
+    background: rgba(245,239,228,0.08);
+  }
+  .field input:focus + label,
+  .field input:not(:placeholder-shown) + label,
+  .field select:focus + label,
+  .field select.has-value + label,
+  .field textarea:focus + label,
+  .field textarea:not(:placeholder-shown) + label {
+    top: 0.45rem;
+    font-size: 0.6rem;
+    color: var(--gold);
+    transform: none;
+  }
+
+  /* custom select arrow */
+  .field.select::after {
+    content: '▾';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    pointer-events: none;
+    font-size: 0.8rem;
+  }
+  .field select option { background: #2a1a10; color: var(--cream); }
+
+  /* size pills */
+  .size-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+  }
+  .size-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,239,228,0.4);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .size-pill {
+    display: inline-block;
+    width: 42px; height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(245,239,228,0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .size-pill:hover { border-color: rgba(201,168,76,0.6); color: var(--cream); }
+  .size-pill.selected {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+    color: var(--gold-lt);
+  }
+  .size-hidden { display: none; }
+
+  /* submit */
+  .submit-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-lt);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1.1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+  .submit-btn:hover {
+    background: rgba(201,168,76,0.12);
+    box-shadow: 0 0 20px rgba(201,168,76,0.2);
+  }
+  .submit-btn:hover::before { transform: translateX(100%); }
+
+  .form-note {
+    text-align: center;
+    font-size: 0.68rem;
+    color: rgba(245,239,228,0.28);
+    letter-spacing: 0.06em;
+    margin-top: 1rem;
+  }
+
+  /* success */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    margin-top: 1.5rem;
+    background: rgba(201,168,76,0.05);
+  }
+  .success-msg .check { font-size: 2rem; margin-bottom: 0.5rem; }
+  .success-msg p {
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .success-msg small {
+    display: block;
+    margin-top: 0.4rem;
+    color: rgba(245,239,228,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+
+  <!-- Kamon / crest SVG -->
+  <div class="kamon">
+    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="30" cy="30" r="26"/>
+      <circle cx="30" cy="30" r="20"/>
+      <!-- simplified "mountain" mon -->
+      <polyline points="30,14 38,26 30,22 22,26 30,14"/>
+      <line x1="30" y1="22" x2="30" y2="36"/>
+      <line x1="20" y1="36" x2="40" y2="36"/>
+    </svg>
+  </div>
+
+  <!-- Headline -->
+  <div class="headline">
+    <h2>
+      <span class="t active" data-lang="en">Basecamp <em>Kyūshū</em></span>
+      <span class="t" data-lang="fr">Basecamp <em>Kyūshū</em></span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;font-size:0.85em;">ベースキャンプ<em>九州</em></span>
+    </h2>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider">
+    <span></span>
+    <i>
+      <span class="t active" data-lang="en">Premium T-Shirts — Limited Edition</span>
+      <span class="t" data-lang="fr">T-Shirts Premium — Édition Limitée</span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">プレミアムTシャツ — 限定版</span>
+    </i>
+    <span></span>
+  </div>
+
+  <!-- Tags -->
+  <div class="tags">
+    <span class="tag gold">
+      <span class="t active" data-lang="en">Made in Kyūshū</span>
+      <span class="t" data-lang="fr">Fabriqué à Kyūshū</span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">九州製</span>
+    </span>
+    <span class="tag">
+      <span class="t active" data-lang="en">Premium Cotton</span>
+      <span class="t" data-lang="fr">Coton Premium</span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">プレミアムコットン</span>
+    </span>
+    <span class="tag">
+      <span class="t active" data-lang="en">Kurume Craft</span>
+      <span class="t" data-lang="fr">Artisanat Kurume</span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">久留米工芸</span>
+    </span>
+  </div>
+
+  <!-- Language toggle -->
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="ja">日</button>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap" id="cta-wrap">
+    <button class="cta-btn" id="open-form-btn">
+      <span class="icon">👕</span>
+      <span>
+        <span class="t active" data-lang="en">Pre-Order &amp; Express Interest</span>
+        <span class="t" data-lang="fr">Pré-commander / Manifester mon intérêt</span>
+        <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">予約注文 / 興味を登録</span>
+      </span>
+    </button>
+    <p class="cta-sub">
+      <span class="t active" data-lang="en">Coming soon — No payment required</span>
+      <span class="t" data-lang="fr">Bientôt disponible — Aucun paiement requis</span>
+      <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">近日発売 — お支払い不要</span>
+    </p>
+  </div>
+
+  <!-- FORM (revealed on click) -->
+  <div class="form-wrap" id="form-wrap">
+    <div class="form-inner">
+
+      <p class="form-title">
+        <span class="t active" data-lang="en">Register Your Interest</span>
+        <span class="t" data-lang="fr">Enregistrez votre intérêt</span>
+        <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">ご興味をお知らせください</span>
+      </p>
+
+      <form id="preorder-form" action="https://formspree.io/f/xkoygqee" method="POST">
+        <input type="hidden" name="_subject" value="New T-Shirt Pre-Order Interest">
+
+        <div class="field-row">
+          <div class="field">
+            <input type="text" name="name" id="f-name" placeholder=" " required>
+            <label for="f-name">
+              <span class="t active" data-lang="en">Name</span>
+              <span class="t" data-lang="fr">Nom</span>
+              <span class="t" data-lang="ja">お名前</span>
+            </label>
+          </div>
+          <div class="field">
+            <input type="email" name="_replyto" id="f-email" placeholder=" " required>
+            <label for="f-email">Email</label>
+          </div>
+        </div>
+
+        <!-- Size pills -->
+        <div>
+          <span class="size-label">
+            <span class="t active" data-lang="en">Preferred Size</span>
+            <span class="t" data-lang="fr">Taille préférée</span>
+            <span class="t" data-lang="ja">希望サイズ</span>
+          </span>
+          <div class="size-row" id="size-row">
+            <div class="size-pill" data-size="XS">XS</div>
+            <div class="size-pill" data-size="S">S</div>
+            <div class="size-pill" data-size="M">M</div>
+            <div class="size-pill" data-size="L">L</div>
+            <div class="size-pill" data-size="XL">XL</div>
+            <div class="size-pill" data-size="XXL">XXL</div>
+          </div>
+          <input type="hidden" name="size" id="size-val">
+        </div>
+
+        <div class="field textarea">
+          <textarea name="design_preference" id="f-design" rows="2" placeholder=" "></textarea>
+          <label for="f-design">
+            <span class="t active" data-lang="en">Preferred Design (optional) — Mountains, Pottery, Kanji…</span>
+            <span class="t" data-lang="fr">Design préféré (optionnel) — Montagnes, Poterie, Kanji…</span>
+            <span class="t" data-lang="ja">希望デザイン（任意）</span>
+          </label>
+        </div>
+
+        <div class="field textarea">
+          <textarea name="message" id="f-msg" rows="2" placeholder=" "></textarea>
+          <label for="f-msg">
+            <span class="t active" data-lang="en">Message / Comments (optional)</span>
+            <span class="t" data-lang="fr">Message / Commentaires (optionnel)</span>
+            <span class="t" data-lang="ja">メッセージ（任意）</span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="t active" data-lang="en">✦ Submit Interest</span>
+          <span class="t" data-lang="fr">✦ Envoyer mon intérêt</span>
+          <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">✦ 送信する</span>
+        </button>
+
+        <p class="form-note">
+          <span class="t active" data-lang="en">No payment required. We'll notify you when available.</span>
+          <span class="t" data-lang="fr">Aucun paiement requis. Vous serez notifié à la disponibilité.</span>
+          <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">入荷時にお知らせします。</span>
+        </p>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        <div class="check">✦</div>
+        <p>
+          <span class="t active" data-lang="en">Thank you — we'll be in touch.</span>
+          <span class="t" data-lang="fr">Merci — nous vous contacterons.</span>
+          <span class="t" data-lang="ja" style="font-family:'Noto Sans JP',sans-serif;">ありがとうございます。</span>
+        </p>
+        <small>
+          <span class="t active" data-lang="en">Basecamp Kyūshū · Made in Kyūshū</span>
+          <span class="t" data-lang="fr">Basecamp Kyūshū · Fabriqué à Kyūshū</span>
+          <span class="t" data-lang="ja">ベースキャンプ九州 · 九州製</span>
+        </small>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /card -->
+
+<script>
+  // ── LANG SWITCH ──
+  let currentLang = 'en';
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.t').forEach(el => {
+        el.classList.toggle('active', el.dataset.lang === currentLang);
+      });
+    });
+  });
+
+  // ── OPEN FORM ──
+  document.getElementById('open-form-btn').addEventListener('click', () => {
+    const wrap = document.getElementById('form-wrap');
+    const ctaWrap = document.getElementById('cta-wrap');
+    wrap.classList.add('open');
+    ctaWrap.style.marginBottom = '0';
+    // scroll into view smoothly
+    setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  });
+
+  // ── SIZE PILLS ──
+  document.querySelectorAll('.size-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.size-pill').forEach(p => p.classList.remove('selected'));
+      pill.classList.add('selected');
+      document.getElementById('size-val').value = pill.dataset.size;
+    });
+  });
+
+  // ── FORM SUBMIT (AJAX via Formspree) ──
+  document.getElementById('preorder-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = '…';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = '✦ Try again';
+    }
+  });
+</script>
+</body>
+</html>
     <section>
         <div class="container">
             <h2 class="lang-content lang-en active">PRICING</h2>
@@ -998,8 +1663,8 @@
                 </div>
                 
                 <div class="feature-item">
-                    <h4 class="lang-content lang-en active">Carry the Philosophy</h4>
-                    <h4 class="lang-content lang-fr">Porter la Philosophie</h4>
+                    <h4 class="lang-content lang-en active">Carry the concept</h4>
+                    <h4 class="lang-content lang-fr">Porter le concept</h4>
                     <h4 class="lang-content lang-ja">哲学を運ぶ</h4>
                     
                     <p class="lang-content lang-en active">
