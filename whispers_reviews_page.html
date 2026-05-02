@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://basecampkyushu.com/reviews.html">
+    <meta property="og:title" content="Whispers of Ashes — Reader Reviews">
+    <meta property="og:description" content="What readers are saying about Whispers of Ashes, an atmospheric literary novel set in a forgotten potter's village of Kyūshū.">
+    <meta property="og:image" content="https://basecampkyushu.com/whispers-cover.jpg">
+    <title>Whispers of Ashes — Reader Reviews | Basecamp Kyūshū</title>
+    <meta name="description" content="Read authentic reviews from early readers of Whispers of Ashes. Share your experience and discover this atmospheric journey into intimate Japan.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2C2C2C;
+            --primary-light: #F5F5F0;
+            --accent-earth: #8B7355;
+            --accent-copper: #B87333;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
+            --shadow: rgba(0,0,0,0.1);
+            --gold: #d4af37;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Source Sans Pro',sans-serif; line-height:1.7; color:var(--text-dark); background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); }
+        h1,h2,h3,h4,h5,h6 { font-family:'Cormorant Garamond',serif; font-weight:600; line-height:1.3; }
+        a { text-decoration:none; color:inherit; }
+        img { display:block; max-width:100%; }
+
+        /* LANGUAGE */
+        [data-lang]:not(.active-lang):not(.lang-btn) { display:none !important; }
+        [data-lang].active-lang { display:block !important; }
+        span[data-lang].active-lang { display:inline !important; }
+        .lang-btn { display:block !important; }
+
+        /* NAV */
+        nav {
+            position:fixed; top:0; left:0; right:0; z-index:1000;
+            background:rgba(255,255,255,0.98); backdrop-filter:blur(10px);
+            padding:0.75rem 0; box-shadow:0 2px 15px rgba(0,0,0,0.08);
+            transition:all 0.4s;
+        }
+        nav.scrolled { padding:0.5rem 0; box-shadow:0 2px 20px rgba(0,0,0,0.1); }
+        .nav-container {
+            max-width:1400px; margin:0 auto; padding:0 2rem;
+            display:flex; justify-content:space-between; align-items:center; gap:1rem;
+        }
+        .logo {
+            display:flex; flex-direction:column; align-items:center;
+            text-decoration:none; flex-shrink:0; line-height:1; gap:3px;
+        }
+        .logo-img { height:46px; width:46px; object-fit:contain; display:block; margin-bottom:4px; }
+        .logo-subtitle {
+            font-size:0.72rem; font-weight:400; letter-spacing:1.5px;
+            color:var(--primary-dark); display:block; text-align:center;
+            font-family:'Noto Serif JP','Hiragino Sans',sans-serif; white-space:nowrap;
+        }
+        .nav-links {
+            display:flex; gap:0.2rem; list-style:none;
+            align-items:center; flex:1; justify-content:center;
+        }
+        .nav-links a {
+            color:var(--primary-dark); font-weight:500; font-size:1.05rem;
+            letter-spacing:0.04em; transition:all 0.3s;
+            padding:0.4rem 0.55rem; border-radius:4px; white-space:nowrap;
+        }
+        .nav-links a:hover, .nav-links a.cur { color:var(--accent-earth); background:rgba(139,115,85,0.08); }
+        .language-switcher {
+            display:flex; flex-direction:row; gap:0.3rem;
+            border-left:1px solid rgba(0,0,0,0.15); padding-left:0.8rem;
+            margin-left:0.5rem; flex-shrink:0; align-items:center;
+        }
+        .lang-btn {
+            padding:0.3rem 0.55rem; border:1px solid rgba(0,0,0,0.2);
+            background:transparent; color:var(--primary-dark); cursor:pointer;
+            font-size:0.78rem; font-weight:600; border-radius:3px;
+            transition:all 0.3s; line-height:1; height:28px; min-width:32px;
+            display:flex !important; align-items:center; justify-content:center;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background:var(--accent-earth); color:#fff; border-color:var(--accent-earth);
+        }
+        .mobile-menu-toggle {
+            background:rgba(44,74,110,0.08); border:1px solid rgba(44,74,110,0.2);
+            border-radius:4px; cursor:pointer; flex-shrink:0; position:relative;
+            z-index:1001; height:28px; width:36px; display:none;
+            align-items:center; justify-content:center;
+        }
+        .mobile-menu-toggle::before {
+            content:''; position:absolute; width:18px; height:2px;
+            background:#2c4a6e; top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            box-shadow:0 -6px 0 0 #2c4a6e, 0 6px 0 0 #2c4a6e;
+            transition:all 0.3s; border-radius:1px;
+        }
+        .mobile-menu-toggle.active::before {
+            transform:translate(-50%,-50%) rotate(45deg); box-shadow:none;
+        }
+        .mobile-menu-toggle.active::after {
+            content:''; position:absolute; width:18px; height:2px;
+            background:#2c4a6e; top:50%; left:50%;
+            transform:translate(-50%,-50%) rotate(-45deg); border-radius:1px;
+        }
+        @media(min-width:1025px){
+            .mobile-menu-toggle { display:none !important; }
+        }
+        @media(max-width:1024px){
+            .nav-container { padding:0 1rem; gap:0.5rem; }
+            .mobile-menu-toggle { display:flex !important; }
+            .language-switcher { border-left:none; padding-left:0; margin-left:0; }
+            .nav-links {
+                display:none !important; position:fixed; top:64px; left:0; right:0;
+                background:rgba(255,255,255,0.98); backdrop-filter:blur(10px);
+                padding:1rem 1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.1);
+                z-index:999; flex-direction:column; gap:0; flex:none;
+            }
+            .nav-links.active { display:flex !important; }
+            .nav-links li { width:100%; border-bottom:1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display:block; padding:0.9rem 0.5rem; width:100%; font-size:1.1rem; }
+        }
+
+        /* REVIEWS CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1em;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #fff;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .book-info {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .book-info h2 {
+            color: var(--gold);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .book-info p {
+            color: #bbb;
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .buy-btn-bw {
+            background: linear-gradient(135deg, #555, #333);
+            color: #fff;
+            border: 2px solid #999;
+        }
+
+        .buy-btn-bw:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+            border-color: var(--gold);
+        }
+
+        .buy-btn-color {
+            background: linear-gradient(135deg, var(--gold), #c99f2a);
+            color: #1a1a1a;
+            border: 2px solid var(--gold);
+        }
+
+        .buy-btn-color:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .price {
+            display: block;
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .japan-note {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .reviews-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--gold);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #ddd;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .review-author {
+            color: var(--gold);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .review-location {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .share-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .share-facebook {
+            background: #1877F2;
+            color: white;
+        }
+
+        .share-email {
+            background: #EA4335;
+            color: white;
+        }
+
+        .share-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .add-review-section {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--gold), #c99f2a);
+            color: #1a1a1a;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .note {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            color: #bbb;
+        }
+
+        /* FOOTER */
+        .main-footer { background:var(--primary-dark); color:rgba(255,255,255,0.8); padding:6rem 2rem 2rem; }
+        .footer-content {
+            max-width:1400px; margin:0 auto;
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:4rem; margin-bottom:4rem;
+        }
+        .footer-section h4 { color:#fff; margin-bottom:1rem; font-family:'Georgia',serif; font-size:1.1rem; }
+        .footer-section ul { list-style:none; padding:0; }
+        .footer-section li { margin-bottom:0.5rem; }
+        .footer-section p { margin:0; padding:0; line-height:1.8; }
+        .footer-section a { color:rgba(255,255,255,0.8); transition:color .3s; }
+        .footer-section a:hover { color:var(--accent-earth); }
+        .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.9rem; }
+        .footer-bottom a { color:rgba(255,255,255,0.8); }
+        .footer-bottom a:hover { color:var(--accent-earth); }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .buy-btn {
+                width: 100%;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="favicon.png" alt="Basecamp Kyūshū" class="logo-img">
+                <span class="logo-subtitle">土地 — 人 — 物語</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="in-motion.html">IN MOTION</a></li>
+                <li><a href="stories.html" class="cur">STORIES</a></li>
+                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+                <li><a href="lacofu.html">LA COFU</a></li>
+                <li><a href="online-store.html">ONLINE SHOP</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div style="margin-top:100px; padding:2rem 2rem 4rem;">
+        <div class="container">
+            <a href="stories.html" class="back-btn">← <span class="active-lang" data-lang="en">Back to Book Details</span><span data-lang="fr">Retour aux détails</span><span data-lang="ja">本の詳細に戻る</span></a>
+            
+            <h1><span class="active-lang" data-lang="en">WHISPERS OF ASHES</span><span data-lang="fr">LES MURMURES DES CENDRES</span><span data-lang="ja">灰のささやき</span></h1>
+            <p class="subtitle"><span class="active-lang" data-lang="en">What Readers Are Saying</span><span data-lang="fr">Ce que disent les lecteurs</span><span data-lang="ja">読者の声</span></p>
+
+            <div class="book-info">
+                <h2><span class="active-lang" data-lang="en">A forgotten potter's village in Kyūshū, where earth and fire still conceal their secrets...</span><span data-lang="fr">Un village de potiers oublié à Kyūshū, où la terre et le feu gardent encore leurs secrets...</span><span data-lang="ja">九州の忘れられた陶芸村。土と火がまだ秘密を隠している...</span></h2>
+                <p><span class="active-lang" data-lang="en">An atmospheric literary journey into intimate Japan, where silences speak louder than words. A tale of memory that refuses to stay.</span><span data-lang="fr">Un voyage littéraire atmosphérique dans le Japon intime, où les silences parlent plus fort que les mots.</span><span data-lang="ja">言葉よりも沈黙が語る、親密な日本への文学的な旅。</span></p>
+                
+                <div class="cta-container">
+                    <a href="#" id="buyBW" class="buy-btn buy-btn-bw">
+                        <span class="active-lang" data-lang="en">B&W Illustrated Edition</span>
+                        <span data-lang="fr">Édition illustrée N&B</span>
+                        <span data-lang="ja">白黒イラスト版</span>
+                        <span class="price">US $15 / €13</span>
+                    </a>
+                    <a href="#" id="buyColor" class="buy-btn buy-btn-color">
+                        <span class="active-lang" data-lang="en">Color Illustrated Edition</span>
+                        <span data-lang="fr">Édition illustrée couleur</span>
+                        <span data-lang="ja">カラーイラスト版</span>
+                        <span class="price">US $25 / €23</span>
+                    </a>
+                </div>
+                
+                <p class="japan-note">
+                    <span class="active-lang" data-lang="en">*In Japan, only the B&W paperback edition is available for printing (Amazon print cost regulations)</span>
+                    <span data-lang="fr">*Au Japon, seule l'édition papier N&B est disponible (règles de coût Amazon)</span>
+                    <span data-lang="ja">*日本国内では、白黒ペーパーバック版のみ印刷可能です（Amazon印刷コスト規定による)</span>
+                </p>
+            </div>
+
+            <div class="reviews-section">
+                <h2 class="section-title"><span class="active-lang" data-lang="en">Reader Reviews</span><span data-lang="fr">Avis des lecteurs</span><span data-lang="ja">読者レビュー</span></h2>
+
+                <!-- Amazon Reviews -->
+                <div class="review-card">
+                    <p class="review-text">"An evocative glimpse of a beautiful little pottery village in Kyushu, Japan. The narrow streets and the old men, with their gestures and turns of phrase, tell stories in their own quiet way. This novella is both fascinating and prosaic. Excellent work!"</p>
+                    <p class="review-author">— Chris Jeavons</p>
+                    <p class="review-location">Japan · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Chris Jeavons (Japan): 'Whispers of Ashes - An evocative glimpse of a beautiful pottery village. Fascinating and prosaic. Excellent work!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Book Recommendation&body=Chris Jeavons loved Whispers of Ashes: 'An evocative glimpse of a beautiful pottery village'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"I enjoyed reading Gilles book while on a beach in Kyushu. I'm also quite familiar with this area and felt nostalgic. I recommend this read to anyone interested in Japan."</p>
+                    <p class="review-author">— Darrel Rogowski</p>
+                    <p class="review-location">Japan · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Darrel (Japan): 'I felt nostalgic reading Whispers of Ashes on a beach in Kyushu. Recommended for anyone interested in Japan!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Book Recommendation&body=Darrel loved reading this while in Kyushu: 'I felt nostalgic'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Waouh, une véritable invitation au voyage au cœur de Kyūshū. L'écriture est fluide et poétique et la description si prenante que l'envolée vers cette petite île du sud du Japon est immédiate. Ce livre est un vrai petit bijou qui met à l'honneur un Japon préservé et authentique."</p>
+                    <p class="review-author">— Nat</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Nat (France): 'Une véritable invitation au voyage au cœur de Kyūshū. Un vrai petit bijou!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Nat: 'Une véritable invitation au voyage. Un vrai petit bijou!'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Un livre envoûtant, à tel point qu'on voudrait véritablement parcourir toutes les ruelles de ce village de Kyushu pendant des heures. Une véritable découverte de la tradition de la fabrication des céramiques."</p>
+                    <p class="review-author">— Yann Leroy</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Yann: 'Un livre envoûtant. On voudrait parcourir toutes les ruelles de ce village pendant des heures!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Yann: 'Un livre envoûtant. Une véritable découverte!'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Un excellent livre qui nous plonge dans un Japon mystérieux et envoûtant! Une vraie découverte, ensorcelante. Je recommande!"</p>
+                    <p class="review-author">— Yann</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Yann: 'Un Japon mystérieux et envoûtant. Une vraie découverte, ensorcelante!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Yann: 'Une vraie découverte, ensorcelante!'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Un voyage, du rêve, de l'esthétisme, le Japon, sinueux et merveilleux."</p>
+                    <p class="review-author">— Projet Z Coiffure</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text='Un voyage, du rêve, de l'esthétisme, le Japon sinueux et merveilleux' - Whispers of Ashes https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body='Un voyage, du rêve, le Japon sinueux et merveilleux'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Très touchant, on a vraiment l'impression de marcher dans ce village oublié."</p>
+                    <p class="review-author">— Pascale L.</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Pascale: 'Très touchant, on a l'impression de marcher dans ce village oublié' - Whispers of Ashes https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Pascale: 'On a l'impression de marcher dans ce village oublié'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Ce livre semble hors du temps. Cela change vraiment et nous fait voyager dans la douceur et la plénitude. Merci sincèrement."</p>
+                    <p class="review-author">— Stéphane L.</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Stéphane: 'Un livre hors du temps. Nous fait voyager dans la douceur et la plénitude' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Stéphane: 'Un livre hors du temps'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"L'aventure est au coin de la rue, loin de la frénésie de Tokyo sortez des sentiers battus et découvrez ce que le Japon ancestral peut encore révéler... Attention interdit aux instagrameurs, gardons le secret bien préservé..."</p>
+                    <p class="review-author">— Vilin</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Vilin: 'Découvrez ce que le Japon ancestral peut encore révéler. Gardons le secret bien préservé!' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Vilin: 'Sortez des sentiers battus. Le Japon ancestral révélé'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Sensations étranges à lire ces lignes à propos d'un village que je pense avoir parcouru, mais comme l'indique l'auteur cette vision lui appartient, seul des lieux où vibrent les âmes des artisans, vivant au plus près d'une nature parfois rude peuvent se prêter ainsi au jeu de l'écriture et de la poésie. Recommandé pour tous ceux qui pensent connaître le Japon et qui ne sont pourtant pas encore passé par Kyushu."</p>
+                    <p class="review-author">— Eric Bacos</p>
+                    <p class="review-location">France · ⭐⭐⭐⭐⭐ Verified Purchase</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Eric: 'Des lieux où vibrent les âmes des artisans. Recommandé pour ceux qui pensent connaître le Japon' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Recommendation&body=Eric: 'Recommandé pour ceux qui pensent connaître le Japon'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <!-- Early Reader Reviews -->
+                <h3 style="color: var(--gold); font-size: 1.3em; margin: 50px 0 20px; text-align: center; font-weight: 300;"><span class="active-lang" data-lang="en">Early Reader Reviews</span><span data-lang="fr">Premiers lecteurs</span><span data-lang="ja">初期レビュー</span></h3>
+
+                <div class="review-card">
+                    <p class="review-text">"The narrative invites us to follow a traveler crossing a mountain village... Is the tale too contemplative, lacking action? The prose is poetic, the style stripped down... A literary creation, economical and demanding."</p>
+                    <p class="review-author">— Frédéric</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Check out this atmospheric book 'Whispers of Ashes' - Frédéric's review: 'A literary creation, economical and demanding' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Book Recommendation: Whispers of Ashes&body=I thought you might enjoy this book: Whispers of Ashes by Gilles.B%0A%0AFrédéric says: 'A literary creation, economical and demanding'%0A%0ACheck it out: https://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"I loved everything about this book: the writing, the narration... the solitary and mute ballad of the author."</p>
+                    <p class="review-author">— Marie-Thé</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Beautiful review of 'Whispers of Ashes': 'I loved everything about this book - the writing, the narration, the solitary ballad...' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Book Recommendation&body=Marie-Thé loved 'Whispers of Ashes': 'I loved everything - the writing, the narration, the solitary ballad...'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"I really enjoyed it! The atmosphere in these lanes is perfectly rendered. One has the impression of walking alongside this man in this village: the mystery, the restraint... I read the French version first, and the next day the English version. I love the presentation of the phrases, these spaces that leave room for reflection."</p>
+                    <p class="review-author">— Danièle</p>
+                    <p class="review-location">Librarian</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=A librarian's review: 'Whispers of Ashes - The atmosphere is perfectly rendered. One has the impression of walking alongside this man...' https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Librarian Recommends: Whispers of Ashes&body=Danièle (librarian) says: 'The atmosphere is perfectly rendered. One has the impression of walking alongside this man in this village...'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Thank you, I was in Japan."</p>
+                    <p class="review-author">— Thérèse</p>
+                    <p class="review-location">Retired Teacher</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text='Thank you, I was in Japan' - A reader's perfect summary of Whispers of Ashes. Check it out: https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=Whispers of Ashes - A Journey to Japan&body=Thérèse says simply: 'Thank you, I was in Japan.'%0A%0ADiscover the book: https://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Impression of slow life in opposition to perpetual movement among us. To deserve to be read aloud, close to poetry. Nostalgia for a vanishing world but that we find like a privilege. Hospitality that one would like to find among us. Soothing reading."</p>
+                    <p class="review-author">— Germaine</p>
+                    <p class="review-location">Retired Teacher</p>
+                    <div class="share-buttons">
+                        <a href="https://wa.me/?text=Germaine calls Whispers of Ashes 'soothing reading' - nostalgia for a vanishing world, hospitality, slow life vs perpetual movement. https://basecampkyushu.com/reviews.html" class="share-btn share-whatsapp" target="_blank">📱 WhatsApp</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://basecampkyushu.com/reviews.html" class="share-btn share-facebook" target="_blank">📘 Facebook</a>
+                        <a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank">📷 Instagram</a>
+                        <a href="mailto:?subject=A Soothing Read&body=Germaine's review of Whispers of Ashes: 'Impression of slow life... nostalgia for a vanishing world... soothing reading'%0A%0Ahttps://basecampkyushu.com/reviews.html" class="share-btn share-email">✉️ Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-review-section">
+                <h2 class="section-title"><span class="active-lang" data-lang="en">Share Your Experience</span><span data-lang="fr">Partagez votre expérience</span><span data-lang="ja">あなたの感想を共有</span></h2>
+                <p style="text-align: center; color: #bbb; margin-bottom: 30px;"><span class="active-lang" data-lang="en">Have you read <em>Whispers of Ashes</em>? Share your thoughts with fellow readers.</span><span data-lang="fr">Avez-vous lu <em>Les Murmures des Cendres</em> ? Partagez vos impressions.</span><span data-lang="ja"><em>灰のささやき</em>を読みましたか？感想を共有してください。</span></p>
+                
+                <form id="reviewForm" action="https://formspree.io/f/xlgzdpvn" method="POST">
+                    <div class="form-group">
+                        <label for="name"><span class="active-lang" data-lang="en">Your Name (first name only)</span><span data-lang="fr">Votre prénom</span><span data-lang="ja">お名前（下の名前のみ）</span></label>
+                        <input type="text" id="name" name="name" required placeholder="e.g., Marie">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location"><span class="active-lang" data-lang="en">Location (optional)</span><span data-lang="fr">Localisation (optionnel)</span><span data-lang="ja">場所（任意）</span></label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Paris, Tokyo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review"><span class="active-lang" data-lang="en">Your Review</span><span data-lang="fr">Votre avis</span><span data-lang="ja">あなたのレビュー</span></label>
+                        <textarea id="review" name="review" required placeholder="Share what moved you, surprised you, or stayed with you after reading..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span class="active-lang" data-lang="en">Your Email (to receive updates, never published)</span><span data-lang="fr">Votre email (pour recevoir des mises à jour, jamais publié)</span><span data-lang="ja">メール（更新情報受信用、非公開）</span></label>
+                        <input type="email" id="email" name="_replyto" required placeholder="your@email.com">
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New Review - Whispers of Ashes">
+
+                    <button type="submit" class="submit-btn"><span class="active-lang" data-lang="en">Submit Review</span><span data-lang="fr">Envoyer l'avis</span><span data-lang="ja">レビューを送信</span></button>
+                </form>
+
+                <div class="note">
+                    <strong><span class="active-lang" data-lang="en">Note:</span><span data-lang="fr">Note :</span><span data-lang="ja">注意：</span></strong> <span class="active-lang" data-lang="en">Reviews are moderated and will appear on this page within 48 hours. Only your first name and location (if provided) will be shown publicly. Your email remains private.</span><span data-lang="fr">Les avis sont modérés et apparaîtront sur cette page dans les 48 heures. Seuls votre prénom et localisation seront affichés publiquement. Votre email reste privé.</span><span data-lang="ja">レビューは審査され、48時間以内に表示されます。お名前と場所のみ公開されます。メールは非公開です。</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BASECAMP KYUSHU</h4>
+                <p style="font-family:'Noto Serif JP',sans-serif;">土地 — 人 — 物語</p>
+                <p>Where mountains meet the sea<br>and stories take form.</p>
+                <p style="margin-top:0.5rem;font-size:0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+                <p style="margin-top:1.5rem;font-size:0.9rem;opacity:.85;">Produced by 株式会社 M Global Japan<br><span style="font-size:.85rem">Est. 2008</span><br>Covering Japan & overseas network</p>
+            </div>
+            <div class="footer-section">
+                <h4>EXPLORE</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="in-motion.html">In Motion</a></li>
+                    <li><a href="stories.html" style="color:var(--accent-earth)">Stories Project</a></li>
+                    <li><a href="video-production.html">Video Production</a></li>
+                    <li><a href="online-store.html">Online Store</a></li>
+                    <li><a href="lacofu.html">La Cofu</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONNECT WITH US</h4>
+                <p style="margin-bottom:1rem;font-size:.95rem;">We'd love to hear from you</p>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li>YouTube: <a href="https://www.youtube.com/@basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                    <li><a href="https://lacofu.weebly.com" target="_blank">La Cofu</a></li>
+                    <li><a href="https://mglobaljapan.weebly.com" target="_blank">M Global Japan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.weebly.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Language system
+        var langs = ['en', 'fr', 'ja'];
+        var saved = localStorage.getItem('preferredLanguage');
+        var browser = (navigator.language || 'en').substring(0, 2);
+        var current = (saved && langs.indexOf(saved) > -1) ? saved
+                    : (langs.indexOf(browser) > -1 ? browser : 'en');
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(function(el) {
+                if (!el.classList.contains('lang-btn')) {
+                    el.classList.remove('active-lang');
+                }
+            });
+            document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) {
+                if (!el.classList.contains('lang-btn')) {
+                    el.classList.add('active-lang');
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            localStorage.setItem('preferredLanguage', lang);
+            current = lang;
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                switchLanguage(this.getAttribute('data-lang'));
+            });
+        });
+
+        switchLanguage(current);
+
+        // Burger menu
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
+        }
+
+        // Sticky nav
+        var navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                navbar.classList.toggle('scrolled', window.scrollY > 80);
+            });
+        }
+
+        // Amazon links region detection
+        function setAmazonLinks() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            let region = 'us';
+            
+            if (userLang.startsWith('fr') || timezone.includes('Paris')) {
+                region = 'fr';
+            } else if (userLang.startsWith('ja') || timezone.includes('Tokyo') || timezone.includes('Asia')) {
+                region = 'jp';
+            }
+            
+            const links = {
+                bw: {
+                    us: 'https://www.amazon.com/dp/B0GHRSP7X4',
+                    fr: 'https://www.amazon.fr/dp/B0GHRSP7X4',
+                    jp: 'https://www.amazon.co.jp/dp/B0GHRSP7X4'
+                },
+                color: {
+                    us: 'https://www.amazon.com/dp/B0GXHX12KT',
+                    fr: 'https://www.amazon.fr/dp/B0GXHX12KT',
+                    jp: 'https://www.amazon.co.jp/dp/B0GHRSP7X4'
+                }
+            };
+            
+            document.getElementById('buyBW').href = links.bw[region];
+            document.getElementById('buyColor').href = links.color[region];
+            
+            if (region === 'jp') {
+                const colorBtn = document.getElementById('buyColor');
+                colorBtn.style.opacity = '0.5';
+                colorBtn.style.cursor = 'not-allowed';
+                colorBtn.onclick = function(e) {
+                    e.preventDefault();
+                    alert('カラー版は日本では販売されておりません。白黒版のみご利用いただけます。\n\nColor edition is not available in Japan. Only B&W edition is available.');
+                };
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', setAmazonLinks);
+        
+        // Review form - Formspree integration
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            // Formspree handles submission automatically
+            // Optional: show thank you message
+            setTimeout(function() {
+                alert('Thank you! Your review has been submitted and will appear on this page within 48 hours after moderation.');
+            }, 500);
+        });
+    })();
+    </script>
+</body>
+</html>
