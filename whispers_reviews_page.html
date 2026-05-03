@@ -464,8 +464,8 @@
 
         var shareWrap = document.getElementById('pageShareButtons');
         if (shareWrap) {
-            // Mobile: use native Web Share API (iOS/Android share sheet)
-            if (navigator.share) {
+            // Mobile/tablet: use native Web Share API (screen width under 1024px)
+            if (navigator.share && window.innerWidth < 1025) {
                 shareWrap.innerHTML =
                     '<button class="share-btn share-whatsapp" style="font-size:1.05em;padding:12px 28px;" onclick="navigator.share({title:\'Whispers of Ashes — Reader Reviews\',text:\'📖 ' + PAGE_MSG + '\',url:\'' + PAGE_URL + '\'}).catch(function(){})">📤 Share this page</button>' +
                     '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
