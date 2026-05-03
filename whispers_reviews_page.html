@@ -464,12 +464,21 @@
 
         var shareWrap = document.getElementById('pageShareButtons');
         if (shareWrap) {
-            shareWrap.innerHTML =
-                '<a href="https://wa.me/?text=' + waText + '" class="share-btn share-whatsapp" target="_blank" rel="noopener">📱 WhatsApp</a>' +
-                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + fbURL + '" class="share-btn share-facebook" target="_blank" rel="noopener">📘 Facebook</a>' +
-                '<a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank" rel="noopener">📷 Instagram</a>' +
-                '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
-                '<button onclick="navigator.clipboard.writeText(\'' + PAGE_URL + '\').then(function(){this.textContent=\'✅ Copied!\';var b=this;setTimeout(function(){b.textContent=\'🔗 Copy Link\'},2000)}).call(this)" class="share-btn share-copy">🔗 Copy Link</button>';
+            // Mobile: use native Web Share API (iOS/Android share sheet)
+            if (navigator.share) {
+                shareWrap.innerHTML =
+                    '<button class="share-btn share-whatsapp" style="font-size:1.05em;padding:12px 28px;" onclick="navigator.share({title:\'Whispers of Ashes — Reader Reviews\',text:\'📖 ' + PAGE_MSG + '\',url:\'' + PAGE_URL + '\'}).catch(function(){})">📤 Share this page</button>' +
+                    '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
+                    '<button onclick="navigator.clipboard.writeText(\'' + PAGE_URL + '\').then(function(){this.textContent=\'✅ Copied!\';var b=this;setTimeout(function(){b.textContent=\'🔗 Copy Link\'},2000)}).call(this)" class="share-btn share-copy">🔗 Copy Link</button>';
+            } else {
+                // Desktop: individual platform buttons
+                shareWrap.innerHTML =
+                    '<a href="https://wa.me/?text=' + waText + '" class="share-btn share-whatsapp" target="_blank" rel="noopener">📱 WhatsApp</a>' +
+                    '<a href="https://www.facebook.com/sharer/sharer.php?u=' + fbURL + '" class="share-btn share-facebook" target="_blank" rel="noopener">📘 Facebook</a>' +
+                    '<a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank" rel="noopener">📷 Instagram</a>' +
+                    '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
+                    '<button onclick="navigator.clipboard.writeText(\'' + PAGE_URL + '\').then(function(){this.textContent=\'✅ Copied!\';var b=this;setTimeout(function(){b.textContent=\'🔗 Copy Link\'},2000)}).call(this)" class="share-btn share-copy">🔗 Copy Link</button>';
+            }
         }
 
         // ── LANGUAGE ──
