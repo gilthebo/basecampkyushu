@@ -77,11 +77,64 @@
         .section-sub { text-align:center; color:var(--text-muted); font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3rem; }
         p { font-size:1.1rem; line-height:1.8; margin-bottom:1rem; }
 
-        /* BAG GALLERY */
-        .bag-gallery { columns:3 280px; gap:1rem; margin:2rem 0; }
-        .bag-gallery-item { break-inside:avoid; margin-bottom:1rem; cursor:pointer; overflow:hidden; border-radius:8px; }
-        .bag-gallery-item img { width:100%; display:block; transition:transform 0.4s ease; border-radius:8px; }
-        .bag-gallery-item:hover img { transform:scale(1.04); }
+        /* BAG GALLERY — Editorial Grid */
+        .bag-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 260px;
+            gap: 0.6rem;
+            margin: 2rem 0;
+        }
+        .bag-grid .bg-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: #f0ebe4;
+        }
+        .bag-grid .bg-item.wide { grid-column: span 2; }
+        .bag-grid .bg-item.tall { grid-row: span 2; }
+        .bag-grid .bg-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            display: block;
+        }
+        .bag-grid .bg-item:hover img { transform: scale(1.07); }
+        .bag-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(44,30,15,0.75) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.2rem;
+        }
+        .bag-grid .bg-item:hover .bag-item-overlay { opacity: 1; }
+        .bag-item-label {
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+        }
+        .bag-item-label span {
+            display: block;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 0.2rem;
+        }
+        @media (max-width: 900px) {
+            .bag-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px; }
+            .bag-grid .bg-item.wide { grid-column: span 2; }
+        }
+        @media (max-width: 600px) {
+            .bag-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+            .bag-grid .bg-item.wide { grid-column: span 1; }
+            .bag-grid .bg-item.tall { grid-row: span 1; }
+        }
 
         /* LIGHTBOX */
         .lb { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
@@ -157,16 +210,7 @@
         </div>
     </nav>
 
-    <div class="hero">
-        <div class="hero-text">
-            <h1 class="lang-content lang-en active">Made in Kyūshū</h1>
-            <h1 class="lang-content lang-fr">Fabriqué à Kyūshū</h1>
-            <h1 class="lang-content lang-ja">九州製</h1>
-            <p class="lang-content lang-en active">Handmade kimono bags · Limited edition T-shirts</p>
-            <p class="lang-content lang-fr">Sacs kimono artisanaux · T-shirts en édition limitée</p>
-            <p class="lang-content lang-ja">手作り着物バッグ · 限定Tシャツ</p>
-        </div>
-    </div>
+    <div class="hero"></div>
 
     <!-- BOOK -->
     <section class="section-alt">
