@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Signature T-Shirts.">
+    <meta name="description" content="Shop Basecamp Kyūshū — handmade kimono fabric bags by La Cofu and limited edition T-shirts made in Kyūshū. Shipped worldwide.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/online-store.html">
-    <meta property="og:title" content="Online Store - Basecamp Kyūshū">
-    <meta property="og:description" content="Signature T-Shirts.">
-    <meta property="og:image" content="https://basecampkyushu.com/images/tshirt-model-all-colors.jpg">
+    <meta property="og:title" content="Online Store — Made in Kyūshū | Basecamp Kyūshū">
+    <meta property="og:description" content="Handmade kimono bags and limited edition T-shirts made in Kyūshū. Shipped worldwide.">
+    <meta property="og:image" content="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Online Store - Basecamp Kyūshū">
-    <meta name="twitter:image" content="https://basecampkyushu.com/images/tshirt-model-all-colors.jpg">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Online Store - Basecamp Kyūshū</title>
-    <meta name="description" content="Signature T-Shirts made in Kyūshū. Premium heavyweight cotton, locally produced. Support creative storytelling.">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="Online Store — Made in Kyūshū | Basecamp Kyūshū">
+    <meta name="twitter:image" content="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png">
+    <title>Online Store — Made in Kyūshū T-Shirts & Kimono Bags | Basecamp Kyūshū</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #2C2C2C;
@@ -28,985 +24,114 @@
             --text-dark: #333333;
             --text-muted: #666666;
             --white: #FFFFFF;
-            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow: rgba(0,0,0,0.1);
         }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background: var(--white);
+        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.3; }
+
+        /* NAV */
+        nav, #navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,255,255,0.98); backdrop-filter:blur(10px); padding:0.75rem 0; box-shadow:0 2px 15px rgba(0,0,0,0.08); transition:all 0.4s; }
+        nav.scrolled { padding:0.5rem 0; }
+        .nav-container { max-width:1400px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+        .logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; flex-shrink:0; line-height:1; gap:3px; }
+        .logo-img { height:46px; width:46px; object-fit:contain; display:block; margin-bottom:2px; }
+        .logo-subtitle { font-size:0.72rem; font-weight:400; letter-spacing:1.5px; color:var(--primary-dark); display:block; font-family:'Hiragino Sans','Noto Sans JP',sans-serif; white-space:nowrap; }
+        .nav-links { display:flex; gap:0.2rem; list-style:none; align-items:center; flex:1; justify-content:center; }
+        .nav-links a { color:var(--primary-dark); text-decoration:none; font-weight:500; font-size:1.25rem; transition:all 0.3s; padding:0.4rem 0.55rem; border-radius:4px; white-space:nowrap; }
+        .nav-links a:hover { color:var(--accent-earth); background:rgba(139,115,85,0.08); }
+        .language-switcher { display:flex; flex-direction:row; gap:0.3rem; border-left:1px solid rgba(0,0,0,0.15); padding-left:0.8rem; margin-left:0.5rem; flex-shrink:0; align-items:center; }
+        .lang-btn { padding:0.3rem 0.55rem; border:1px solid rgba(0,0,0,0.2); background:transparent; color:var(--primary-dark); cursor:pointer; font-size:0.78rem; font-weight:600; border-radius:3px; transition:all 0.3s; height:28px; min-width:32px; display:flex; align-items:center; justify-content:center; }
+        .lang-btn:hover, .lang-btn.active { background:var(--accent-earth); color:#fff; border-color:var(--accent-earth); }
+        .mobile-menu-toggle { background:rgba(44,74,110,0.08); border:1px solid rgba(44,74,110,0.2); border-radius:4px; cursor:pointer; flex-shrink:0; position:relative; z-index:1001; height:28px; width:36px; display:none; align-items:center; justify-content:center; }
+        .mobile-menu-toggle::before { content:''; position:absolute; width:18px; height:2px; background:#2c4a6e; top:50%; left:50%; transform:translate(-50%,-50%); box-shadow:0 -6px 0 0 #2c4a6e,0 6px 0 0 #2c4a6e; transition:all 0.3s; border-radius:1px; }
+        .mobile-menu-toggle.active::before { transform:translate(-50%,-50%) rotate(45deg); box-shadow:none; }
+        .mobile-menu-toggle.active::after { content:''; position:absolute; width:18px; height:2px; background:#2c4a6e; top:50%; left:50%; transform:translate(-50%,-50%) rotate(-45deg); border-radius:1px; }
+        @media (min-width:1025px) { .mobile-menu-toggle { display:none !important; visibility:hidden !important; width:0 !important; height:0 !important; overflow:hidden !important; position:absolute !important; } }
+        @media (max-width:1024px) {
+            .nav-container { padding:0 1rem; gap:0.5rem; }
+            .mobile-menu-toggle { display:flex !important; }
+            .language-switcher { border-left:none; padding-left:0; margin-left:0; }
+            .nav-links { display:none !important; position:fixed; top:64px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(10px); padding:1rem 1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.1); z-index:999; flex-direction:column; gap:0; flex:none; }
+            .nav-links.active { display:flex !important; }
+            .nav-links li { width:100%; border-bottom:1px solid rgba(0,0,0,0.05); }
+            .nav-links a { display:block; padding:0.9rem 0.5rem; width:100%; font-size:1.25rem; }
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.4s;
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-        }
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px var(--shadow);
-            padding: 1rem 0;
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        .logo-subtitle {
-            font-size: 0.72rem;
-            font-weight: 400;
-            display: block;
-            letter-spacing: 2px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 1.25rem;
-            transition: all 0.3s;
-            padding: 0.5rem 0.9rem;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-        .nav-links a:hover { 
-            color: var(--accent-earth);
-            background: rgba(139, 115, 85, 0.1);
-            transform: translateY(-2px);
-        }
-        .language-switcher {
-            display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            border-left: 1px solid var(--text-muted);
-            padding-left: 1rem;
-            margin-left: 1.4rem;
-        }
-        .lang-btn {
-            padding: 0.45rem 0.8rem;
-            border: 1px solid var(--text-muted);
-            background: transparent;
-            color: var(--text-dark);
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 3px;
-            transition: all 0.3s;
-            line-height: 1;
-            min-width: 40px;
-            text-align: center;
-        }
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--accent-earth);
-            color: var(--white);
-            border-color: var(--accent-earth);
-        }
-        
-        .lang-content { display: none; }
-        .lang-content.active { display: block; }
-        
-        /* MOBILE MENU TOGGLE BUTTON */
-        .mobile-menu-toggle {
-            display: none !important;
-            background: rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(139, 115, 85, 0.2);
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 0.4rem;
-            width: 38px;
-            height: 38px;
-            position: relative;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-        .mobile-menu-toggle:hover {
-            background: rgba(139, 115, 85, 0.15);
-            border-color: rgba(139, 115, 85, 0.3);
-        }
-        .mobile-menu-toggle::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 2.5px;
-            background: var(--accent-earth);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 
-                0 -7px 0 0 var(--accent-earth),
-                0 7px 0 0 var(--accent-earth);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-        .mobile-menu-toggle.active {
-            background: rgba(139, 115, 85, 0.2);
-            border-color: rgba(139, 115, 85, 0.4);
-        }
-        .mobile-menu-toggle.active::before {
-            transform: translate(-50%, -50%) rotate(45deg);
-            box-shadow: 0 0 0 0 transparent;
-        }
-        .mobile-menu-toggle.active::after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 2.5px;
-            background: var(--accent-earth);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            border-radius: 2px;
-        }
-        
+
+        /* LANG */
+        .lang-content { display:none; }
+        .lang-content.active { display:block; }
+
         /* HERO */
-        .hero {
-            min-height: 100vh;
-            background: url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-        }
-        
+        .hero { min-height:70vh; background:url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png') center/cover; display:flex; align-items:flex-end; padding:4rem 2rem; margin-top:68px; }
+        .hero-text { max-width:600px; }
+        .hero-text h1 { font-size:clamp(2rem,5vw,3.5rem); color:#fff; text-shadow:0 2px 20px rgba(0,0,0,0.5); margin-bottom:0.5rem; }
+        .hero-text p { color:rgba(255,255,255,0.85); font-size:1.1rem; text-shadow:0 1px 8px rgba(0,0,0,0.5); }
+
         /* SECTIONS */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        section {
-            padding: 5rem 2rem;
-        }
-        
-        .section-alt {
-            background: var(--primary-light);
-        }
-        
-        h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-            color: var(--primary-dark);
-            text-align: center;
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            color: var(--accent-copper);
-        }
-        
-        h4 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--primary-dark);
-            font-weight: 700;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        
-        .intro-text {
-            font-size: 1.3rem;
-            line-height: 1.9;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-        }
-        
-        /* PRODUCT IMAGE */
-        .product-image {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px var(--shadow);
-            margin: 3rem auto;
-            display: block;
-        }
-        
-        /* SPECS GRID */
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .spec-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-        
-        .spec-card h4 {
-            color: var(--accent-copper);
-            margin-top: 0;
-        }
-        
-        /* FEATURES */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border: 2px solid var(--accent-earth);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-        
-        .feature-item h4 {
-            color: var(--accent-copper);
-        }
-        
-        /* PRICING */
-        .pricing-box {
-            text-align: center;
-            padding: 3rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 8px 30px var(--shadow);
-            max-width: 600px;
-            margin: 3rem auto;
-        }
-        
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent-copper);
-            font-family: 'Cormorant Garamond', serif;
-            margin: 1rem 0;
-        }
-        
+        .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        section { padding:5rem 2rem; }
+        .section-alt { background:var(--primary-light); }
+        h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:0.5rem; color:var(--primary-dark); text-align:center; }
+        .section-sub { text-align:center; color:var(--text-muted); font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3rem; }
+        p { font-size:1.1rem; line-height:1.8; margin-bottom:1rem; }
+
+        /* BAG GALLERY */
+        .bag-gallery { columns:3 280px; gap:1rem; margin:2rem 0; }
+        .bag-gallery-item { break-inside:avoid; margin-bottom:1rem; cursor:pointer; overflow:hidden; border-radius:8px; }
+        .bag-gallery-item img { width:100%; display:block; transition:transform 0.4s ease; border-radius:8px; }
+        .bag-gallery-item:hover img { transform:scale(1.04); }
+
+        /* LIGHTBOX */
+        .lb { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
+        .lb.active { display:flex; }
+        .lb img { max-width:90vw; max-height:88vh; object-fit:contain; border-radius:4px; }
+        .lb-close { position:absolute; top:1.5rem; right:1.5rem; color:#fff; font-size:2.5rem; cursor:pointer; background:none; border:none; line-height:1; }
+        .lb-prev, .lb-next { position:absolute; top:50%; transform:translateY(-50%); color:#fff; font-size:2.5rem; cursor:pointer; background:rgba(0,0,0,0.4); border:none; padding:0.5rem 1rem; border-radius:4px; }
+        .lb-prev { left:1rem; }
+        .lb-next { right:1rem; }
+        .lb-counter { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.7); font-size:0.9rem; }
+
+        /* ORDER BOX */
+        .order-box { background:#fff; border:1px solid rgba(139,115,85,0.2); border-radius:12px; padding:2.5rem; max-width:700px; margin:3rem auto 0; text-align:center; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+        .order-box h3 { font-size:1.8rem; color:var(--accent-copper); margin-bottom:1rem; }
+        .order-box p { color:var(--text-muted); margin-bottom:0.5rem; }
+        .price-tag { font-size:2rem; font-family:'Cormorant Garamond',serif; color:var(--primary-dark); font-weight:700; margin:1rem 0; }
+        .price-note { font-size:0.85rem; color:var(--text-muted); }
+
         /* BUTTONS */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: #8B7355;
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            margin: 1rem 0.5rem;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            background: #2C2C2C;
-        }
-        
-        /* SHIPPING INFO */
-        .shipping-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .shipping-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow);
-            text-align: center;
-        }
-        
-        .shipping-card h4 {
-            color: var(--accent-copper);
-            margin-top: 0;
-        }
-        
-        /* NEWSLETTER */
-        .newsletter-section {
-            background: var(--accent-earth);
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        .newsletter-section h2 {
-            color: var(--white);
-        }
-        
-        .newsletter-form {
-            max-width: 500px;
-            margin: 2rem auto;
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: var(--white);
-            color: var(--accent-earth);
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .newsletter-form button:hover {
-            background: var(--primary-dark);
-            color: var(--white);
-        }
-        
+        .btn { display:inline-block; padding:1rem 2.5rem; background:var(--accent-earth); color:#fff; text-decoration:none; border-radius:6px; font-weight:600; font-size:1.1rem; transition:all 0.3s; margin:0.5rem; }
+        .btn:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+        .btn-outline { background:transparent; border:2px solid var(--accent-earth); color:var(--accent-earth); }
+        .btn-outline:hover { background:var(--accent-earth); color:#fff; }
+
+        /* TSHIRT SECTION */
+        .tshirt-coming { text-align:center; padding:3rem; background:#fff; border-radius:12px; border:1px dashed rgba(139,115,85,0.3); max-width:600px; margin:2rem auto; }
+        .tshirt-coming h3 { color:var(--accent-copper); margin-bottom:1rem; }
+        .tshirt-coming .badge { display:inline-block; background:var(--primary-light); color:var(--accent-earth); font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:20px; margin-bottom:1rem; }
+
         /* FOOTER */
-        .main-footer {
-            background: var(--primary-dark);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 6rem 2rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-        
-        .footer-section h4 {
-            color: white;
-            margin-bottom: 1rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-section li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section p {
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-        }
-        
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: var(--accent-earth);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-        }
-        
-        .footer-bottom a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--accent-earth);
-        }
-        
-        @media (max-width: 1024px) {
-            .nav-links { gap: 1rem; }
-            .nav-links a { font-size: 1.25rem; padding: 0.5rem 0.9rem; }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0.75rem 1rem;
-            }
-            .logo {
-                font-size: 1.1rem;
-                flex: 1;
-            }
-            .logo-subtitle {
-                font-size: 0.72rem;
-            }
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                padding: 1rem 0;
-                z-index: 998;
-                flex-direction: column;
-                gap: 0;
-            }
-            .nav-links.active {
-                display: flex !important;
-            }
-            .nav-links li {
-                width: 100%;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
-            }
-            .nav-links a {
-                display: block;
-                padding: 1rem;
-                width: 100%;
-            }
-            .nav-links a:hover {
-                background: rgba(139, 115, 85, 0.05);
-                transform: none;
-            }
-            .language-switcher {
-                display: flex !important;
-                flex-direction: row;
-                gap: 0.3rem;
-                border-left: none;
-                padding: 0;
-                margin: 0;
-                margin-right: 0.5rem;
-                position: relative;
-                z-index: 1002;
-            }
-            .lang-btn {
-                padding: 0.35rem 0.5rem;
-                font-size: 0.7rem;
-                min-width: 34px;
-                height: 28px;
-                border-radius: 4px;
-                line-height: 1;
-                font-weight: 600;
-            }
-            .mobile-menu-toggle {
-                display: block !important;
-                flex-shrink: 0;
-            }
-            .nav-links .language-switcher {
-                display: none !important;
-            }
-            .hero {
-                min-height: 60vh;
-            }
-            section { padding: 3rem 1.5rem; }
-            section h2 {
-                font-size: 1.8rem;
-                white-space: normal;
-                word-wrap: break-word;
-                line-height: 1.3;
-            }
-            .specs-grid, .features-grid, .shipping-grid {
-                grid-template-columns: 1fr;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
+        .main-footer { background:var(--primary-dark); color:rgba(255,255,255,0.8); padding:6rem 2rem 2rem; }
+        .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:4rem; margin-bottom:4rem; }
+        .footer-section h4 { color:#fff; margin-bottom:1rem; font-family:'Cormorant Garamond',serif; font-size:1.2rem; }
+        .footer-section ul { list-style:none; padding:0; }
+        .footer-section li { margin-bottom:0.5rem; }
+        .footer-section p { margin:0; padding:0; line-height:1.8; }
+        .footer-section a { color:rgba(255,255,255,0.8); text-decoration:none; transition:color 0.3s; }
+        .footer-section a:hover { color:var(--accent-earth); }
+        .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.9rem; }
+        .footer-bottom a { color:rgba(255,255,255,0.8); text-decoration:none; }
 
-        /* ===== UNIVERSAL NAV ===== */
-        nav, #navbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 0;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            transition: all 0.4s;
-        }
-        nav.scrolled, #navbar.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-            line-height: 1;
-            gap: 3px;
-        }
-        .logo-img {
-            height: 46px;
-            width: 46px;
-            object-fit: contain;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .logo-subtitle {
-            font-size: 0.72rem;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-            color: var(--primary-dark, #2C2C2C);
-            display: block;
-            text-align: center;
-            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-            white-space: nowrap;
-        }
-        .nav-links {
-            display: flex;
-            gap: 0.2rem;
-            list-style: none;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-        .nav-links a {
-            color: var(--primary-dark, #2C2C2C);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.25rem;
-            letter-spacing: 0.04em;
-            transition: all 0.3s;
-            padding: 0.4rem 0.55rem;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-        .nav-links a:hover {
-            color: var(--accent-earth, #8B7355);
-            background: rgba(139,115,85,0.08);
-        }
-        .language-switcher {
-            display: flex;
-            flex-direction: row;
-            gap: 0.3rem;
-            border-left: 1px solid rgba(0,0,0,0.15);
-            padding-left: 0.8rem;
-            margin-left: 0.5rem;
-            flex-shrink: 0;
-            align-items: center;
-        }
-        .lang-btn {
-            padding: 0.3rem 0.55rem;
-            border: 1px solid rgba(0,0,0,0.2);
-            background: transparent;
-            color: var(--primary-dark, #2C2C2C);
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 600;
-            border-radius: 3px;
-            transition: all 0.3s;
-            line-height: 1;
-            height: 28px;
-            min-width: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--accent-earth, #8B7355);
-            color: #fff;
-            border-color: var(--accent-earth, #8B7355);
-        }
-        .mobile-menu-toggle {
-            background: rgba(44,74,110,0.08);
-            border: 1px solid rgba(44,74,110,0.2);
-            border-radius: 4px;
-            cursor: pointer;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1001;
-            height: 28px;
-            width: 36px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        .mobile-menu-toggle::before {
-            content: '';
-            position: absolute;
-            width: 18px; height: 2px;
-            background: #2c4a6e;
-            top: 50%; left: 50%;
-            transform: translate(-50%,-50%);
-            box-shadow: 0 -6px 0 0 #2c4a6e, 0 6px 0 0 #2c4a6e;
-            transition: all 0.3s;
-            border-radius: 1px;
-        }
-        .mobile-menu-toggle.active::before {
-            transform: translate(-50%,-50%) rotate(45deg);
-            box-shadow: none;
-        }
-        .mobile-menu-toggle.active::after {
-            content: '';
-            position: absolute;
-            width: 18px; height: 2px;
-            background: #2c4a6e;
-            top: 50%; left: 50%;
-            transform: translate(-50%,-50%) rotate(-45deg);
-            border-radius: 1px;
-        }
-        @media (min-width: 1025px) {
-            .mobile-menu-toggle {
-                display: none !important;
-                visibility: hidden !important;
-                width: 0 !important;
-                height: 0 !important;
-                overflow: hidden !important;
-                position: absolute !important;
-            }
-        }
-        @media (max-width: 1024px) {
-            .nav-container { padding: 0 1rem; gap: 0.5rem; }
-            .mobile-menu-toggle { display: flex !important; }
-            .language-switcher { border-left: none; padding-left: 0; margin-left: 0; }
-            .nav-links {
-                display: none !important;
-                position: fixed; top: 64px; left: 0; right: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(10px);
-                padding: 1rem 1.5rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                z-index: 999;
-                flex-direction: column;
-                gap: 0; flex: none;
-            }
-            .nav-links.active { display: flex !important; }
-            .nav-links li { width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05); }
-            .nav-links a { display: block; padding: 0.9rem 0.5rem; width: 100%; font-size: 1.25rem; }
-        }
-
-        /* ===== T-SHIRT PRE-ORDER CTA ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
-
-        .cta-card {
-            position: relative;
-            max-width: 640px;
-            margin: 4rem auto 0;
-            background: linear-gradient(160deg, #3a2418 0%, #2a1a10 60%, #1e1208 100%);
-            border: 1px solid rgba(201,168,76,0.3);
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 3rem 2.8rem 2.8rem;
-        }
-        .cta-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, rgba(201,168,76,0.1) 1px, transparent 1px);
-            background-size: 22px 22px;
-            pointer-events: none;
-        }
-        .cta-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #C9A84C, #E2C472, #C9A84C, transparent);
-        }
-        .cta-kamon {
-            text-align: center;
-            margin-bottom: 1.4rem;
-        }
-        .cta-kamon svg {
-            width: 44px; height: 44px;
-            fill: none;
-            stroke: #C9A84C;
-            stroke-width: 1.2;
-            opacity: 0.7;
-        }
-        .cta-headline {
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        .cta-headline h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            font-weight: 300;
-            color: #F5EFE4;
-            letter-spacing: 0.06em;
-            line-height: 1.2;
-            margin: 0;
-        }
-        .cta-headline h3 em {
-            font-style: italic;
-            color: #E2C472;
-        }
-        .cta-divider {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin: 1.2rem 0;
-        }
-        .cta-divider span { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
-        .cta-divider i {
-            font-style: normal;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.62rem;
-            letter-spacing: 0.22em;
-            color: #C9A84C;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-        .cta-tags {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        .cta-tag {
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.62rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(245,239,228,0.55);
-            border: 1px solid rgba(201,168,76,0.22);
-            padding: 0.28rem 0.7rem;
-            border-radius: 2px;
-        }
-        .cta-tag.gold { color: #C9A84C; border-color: rgba(201,168,76,0.5); }
-        .cta-btn-wrap { text-align: center; }
-        .cta-main-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, #C9A84C 0%, #E2C472 50%, #C9A84C 100%);
-            background-size: 200% 100%;
-            color: #1A1410;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            padding: 0.95rem 2.5rem;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 20px rgba(201,168,76,0.28);
-        }
-        .cta-main-btn:hover {
-            background-position: 100% 0;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(201,168,76,0.42);
-        }
-        .cta-sub {
-            margin-top: 0.8rem;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.68rem;
-            color: rgba(245,239,228,0.3);
-            letter-spacing: 0.08em;
-        }
-
-        /* Form reveal */
-        .cta-form-wrap {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease;
-            opacity: 0;
-        }
-        .cta-form-wrap.open { max-height: 1000px; opacity: 1; }
-        .cta-form-inner {
-            margin-top: 2rem;
-            border-top: 1px solid rgba(201,168,76,0.2);
-            padding-top: 2rem;
-        }
-        .cta-form-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: #F5EFE4;
-            letter-spacing: 0.06em;
-            margin-bottom: 1.6rem;
-            text-align: center;
-        }
-        .cta-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-        @media (max-width: 500px) { .cta-field-row { grid-template-columns: 1fr; } }
-        .cta-field { position: relative; margin-bottom: 1rem; }
-        .cta-field label {
-            position: absolute;
-            top: 50%; left: 0.9rem;
-            transform: translateY(-50%);
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.68rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(245,239,228,0.38);
-            pointer-events: none;
-            transition: all 0.22s ease;
-        }
-        .cta-field.is-textarea label { top: 0.9rem; transform: none; }
-        .cta-field input, .cta-field select, .cta-field textarea {
-            width: 100%;
-            background: rgba(245,239,228,0.05);
-            border: 1px solid rgba(201,168,76,0.2);
-            border-radius: 3px;
-            color: #F5EFE4;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 0.9rem;
-            padding: 1.3rem 0.9rem 0.5rem;
-            outline: none;
-            transition: border-color 0.25s, background 0.25s;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        .cta-field textarea { resize: none; padding-top: 1.6rem; }
-        .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus {
-            border-color: rgba(201,168,76,0.55);
-            background: rgba(245,239,228,0.08);
-        }
-        .cta-field input:focus + label,
-        .cta-field input:not(:placeholder-shown) + label,
-        .cta-field select:focus + label,
-        .cta-field textarea:focus + label,
-        .cta-field textarea:not(:placeholder-shown) + label {
-            top: 0.4rem; font-size: 0.58rem; color: #C9A84C; transform: none;
-        }
-        .cta-field.is-select::after {
-            content: '▾';
-            position: absolute; right: 0.9rem; top: 50%;
-            transform: translateY(-50%);
-            color: #C9A84C; pointer-events: none; font-size: 0.75rem;
-        }
-        .cta-field select option { background: #2a1a10; color: #F5EFE4; }
-
-        /* Size pills */
-        .cta-size-label {
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(245,239,228,0.38);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .cta-size-row { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1rem; }
-        .cta-size-pill {
-            width: 40px; height: 40px;
-            line-height: 40px; text-align: center;
-            border: 1px solid rgba(201,168,76,0.22);
-            border-radius: 2px;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.75rem;
-            color: rgba(245,239,228,0.48);
-            cursor: pointer;
-            transition: all 0.2s;
-            user-select: none;
-        }
-        .cta-size-pill:hover { border-color: rgba(201,168,76,0.55); color: #F5EFE4; }
-        .cta-size-pill.selected { background: rgba(201,168,76,0.18); border-color: #C9A84C; color: #E2C472; }
-
-        /* Submit */
-        .cta-submit {
-            width: 100%;
-            background: transparent;
-            border: 1px solid #C9A84C;
-            color: #E2C472;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            padding: 1rem;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 0.6rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-submit:hover { background: rgba(201,168,76,0.12); box-shadow: 0 0 18px rgba(201,168,76,0.2); }
-        .cta-form-note {
-            text-align: center;
-            font-family: 'Jost', 'Source Sans Pro', sans-serif;
-            font-size: 0.65rem;
-            color: rgba(245,239,228,0.25);
-            letter-spacing: 0.06em;
-            margin-top: 0.8rem;
-        }
-        .cta-success {
-            display: none;
-            text-align: center;
-            padding: 1.8rem;
-            border: 1px solid rgba(201,168,76,0.3);
-            border-radius: 3px;
-            margin-top: 1.2rem;
-            background: rgba(201,168,76,0.05);
-        }
-        .cta-success p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: #F5EFE4;
-            margin: 0;
-        }
-        .cta-success small {
-            display: block; margin-top: 0.4rem;
-            color: rgba(245,239,228,0.35);
-            font-size: 0.7rem; letter-spacing: 0.08em;
+        @media (max-width:768px) {
+            .hero { min-height:50vh; }
+            .bag-gallery { columns:2 160px; }
+            section { padding:3rem 1.5rem; }
         }
     </style>
 </head>
 <body>
+
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -1032,348 +157,130 @@
         </div>
     </nav>
 
-    <div class="hero"></div>
+    <div class="hero">
+        <div class="hero-text">
+            <h1 class="lang-content lang-en active">Made in Kyūshū</h1>
+            <h1 class="lang-content lang-fr">Fabriqué à Kyūshū</h1>
+            <h1 class="lang-content lang-ja">九州製</h1>
+            <p class="lang-content lang-en active">Handmade kimono bags · Limited edition T-shirts</p>
+            <p class="lang-content lang-fr">Sacs kimono artisanaux · T-shirts en édition limitée</p>
+            <p class="lang-content lang-ja">手作り着物バッグ · 限定Tシャツ</p>
+        </div>
+    </div>
 
+    <!-- BOOK -->
+    <section class="section-alt">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;gap:3rem;align-items:center;justify-content:center;">
+                <img src="https://basecampkyushu.com/images/whispers-of-ashes-cover.jpg" 
+                     alt="Whispers of Ashes Book" 
+                     style="width:220px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.15);">
+                <div style="max-width:500px;">
+                    <p style="font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-earth);margin-bottom:0.5rem;">Stories — Volume I</p>
+                    <h2 style="text-align:left;margin-bottom:0.5rem;">Whispers of Ashes</h2>
+                    <p style="font-style:italic;color:var(--text-muted);margin-bottom:1.5rem;">Les Murmures des Cendres · 灰のささやき</p>
+                    <p style="margin-bottom:1.5rem;">A forgotten pottery village in Kyūshū, where earth and fire still conceal their secrets. An illustrated trilingual novella — EN · FR · JA.</p>
+                    <p style="margin-bottom:0.3rem;"><strong>B&W Edition</strong> — US$15 / €13</p>
+                    <p style="margin-bottom:1.5rem;"><strong>Color Illustrated Edition</strong> — US$25 / €23</p>
+                    <a href="whispers_reviews_page.html" class="btn">Buy on Amazon →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA COFU BAGS -->
     <section>
+        <div class="container">
+            <h2 class="lang-content lang-en active">LA COFU — KIMONO BAGS</h2>
+            <h2 class="lang-content lang-fr">LA COFU — SACS KIMONO</h2>
+            <h2 class="lang-content lang-ja">ラ・コフ — 着物バッグ</h2>
+            <p class="section-sub lang-content lang-en active">Handmade in Kyūshū · Upcycled kimono fabric · One of a kind</p>
+            <p class="section-sub lang-content lang-fr">Fabriqués à la main à Kyūshū · Tissu kimono recyclé · Pièce unique</p>
+            <p class="section-sub lang-content lang-ja">九州で手作り · 着物生地をアップサイクル · 一点もの</p>
+
+            <div class="bag-gallery" id="bag-gallery">
+                <div class="bag-gallery-item" onclick="openBagLB(0)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(1)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(2)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(3)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(4)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/obi2.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(5)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(6)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(7)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(8)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(9)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/7_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(10)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag9_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(11)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(12)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/new-2.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(13)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag7_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(14)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(15)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/new-pic.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(16)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+                <div class="bag-gallery-item" onclick="openBagLB(17)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png" loading="lazy" alt="La Cofu Kimono Bag"></div>
+            </div>
+
+            <div class="order-box">
+                <h3 class="lang-content lang-en active">Each Bag Is One of a Kind</h3>
+                <h3 class="lang-content lang-fr">Chaque Sac Est Unique</h3>
+                <h3 class="lang-content lang-ja">一点もの</h3>
+                <p class="lang-content lang-en active">Handcrafted from upcycled kimono and obi fabrics in Kyūshū.<br>Each piece carries its own history and character.</p>
+                <p class="lang-content lang-fr">Fabriqués à la main à partir de tissus kimono et obi recyclés à Kyūshū.<br>Chaque pièce porte sa propre histoire et son caractère.</p>
+                <p class="lang-content lang-ja">九州で着物・帯の生地を使って手作りされた一点もの。<br>それぞれに歴史と個性があります。</p>
+                <div class="price-tag">¥24,000</div>
+                <p class="price-note lang-content lang-en active">~ €138 / US$160 · Free worldwide shipping</p>
+                <p class="price-note lang-content lang-fr">~ €138 / US$160 · Livraison mondiale gratuite</p>
+                <p class="price-note lang-content lang-ja">~ €138 / US$160 · 全世界送料無料</p>
+                <br>
+                <a href="contact.html" class="btn">Enquire / Order · Commander · ご注文</a>
+                <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted);">Online purchase coming soon · Achat en ligne bientôt · オンライン購入準備中</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- T-SHIRT -->
+    <section class="section-alt">
         <div class="container">
             <h2 class="lang-content lang-en active">SIGNATURE T-SHIRT</h2>
             <h2 class="lang-content lang-fr">T-SHIRT SIGNATURE</h2>
             <h2 class="lang-content lang-ja">シグネチャーTシャツ</h2>
-            
-            <h3 class="lang-content lang-en active" style="text-align: center;">Available Colors</h3>
-            <h3 class="lang-content lang-fr" style="text-align: center;">Couleurs Disponibles</h3>
-            <h3 class="lang-content lang-ja" style="text-align: center;">カラー展開</h3>
-            
-            <img src="https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/t-shirts-model_orig.jpeg" 
-                 alt="Basecamp Kyūshū T-Shirts" 
-                 class="product-image">
-            
-            <p class="intro-text lang-content lang-en active">Black | Natural Beige | Sage Green | Ocean Blue</p>
-            <p class="intro-text lang-content lang-en active">Front &amp; Back Views</p>
-            <p class="intro-text lang-content lang-fr">Noir | Beige Naturel | Vert Sauge | Bleu Océan</p>
-            <p class="intro-text lang-content lang-fr">Vues Avant &amp; Arrière</p>
-            <p class="intro-text lang-content lang-ja">ブラック | ナチュラルベージュ | セージグリーン | オーシャンブルー</p>
-            <p class="intro-text lang-content lang-ja">表と裏</p>
-            
-            <p class="intro-text lang-content lang-en active" style="font-size: 1rem; color: var(--text-muted);">
-                📸 Design Details Coming Soon<br>
-                Final design specifications and product photography will be shared by end of May 2026.
-            </p>
-            <p class="intro-text lang-content lang-fr" style="font-size: 1rem; color: var(--text-muted);">
-                📸 Détails du Design Bientôt Disponibles<br>
-                Les spécifications finales du design et la photographie du produit seront partagées d'ici fin mai 2026.
-            </p>
-            <p class="intro-text lang-content lang-ja" style="font-size: 1rem; color: var(--text-muted);">
-                📸 デザインの詳細は近日公開<br>
-                最終的なデザイン仕様と製品写真は2026年5月末までに公開されます。
-            </p>
-        </div>
-    </section>
+            <p class="section-sub lang-content lang-en active">Made in Kyūshū · Premium heavyweight cotton · Limited edition</p>
+            <p class="section-sub lang-content lang-fr">Fabriqué à Kyūshū · Coton épais premium · Édition limitée</p>
+            <p class="section-sub lang-content lang-ja">九州製 · プレミアム厚手コットン · 限定版</p>
 
-    <section class="section-alt">
-        <div class="container">
-            <h2 class="lang-content lang-en active">PRODUCT SPECIFICATIONS</h2>
-            <h2 class="lang-content lang-fr">SPÉCIFICATIONS DU PRODUIT</h2>
-            <h2 class="lang-content lang-ja">製品仕様</h2>
-            
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <h4 class="lang-content lang-en active">Fit &amp; Cut</h4>
-                    <h4 class="lang-content lang-fr">Coupe &amp; Ajustement</h4>
-                    <h4 class="lang-content lang-ja">フィットとカット</h4>
-                    <p class="lang-content lang-en active"><strong>Free Size (One Size)</strong><br>Slightly oversized fit<br>Extended sleeves for modern look</p>
-                    <p class="lang-content lang-fr"><strong>Taille Unique</strong><br>Coupe légèrement oversize<br>Manches allongées pour un look moderne</p>
-                    <p class="lang-content lang-ja"><strong>フリーサイズ（ワンサイズ）</strong><br>軽めのオーバーサイズ<br>袖丈長めのモダンなルック</p>
-                </div>
-                
-                <div class="spec-card">
-                    <h4 class="lang-content lang-en active">Material &amp; Quality</h4>
-                    <h4 class="lang-content lang-fr">Matériau &amp; Qualité</h4>
-                    <h4 class="lang-content lang-ja">素材と品質</h4>
-                    <p class="lang-content lang-en active"><strong>100% Premium Heavyweight Cotton</strong><br>6.5 oz / 220 gsm fabric weight<br>Thick, substantial feel — built to last</p>
-                    <p class="lang-content lang-fr"><strong>100% Coton Épais Premium</strong><br>Poids du tissu 6.5 oz / 220 gsm<br>Sensation épaisse et substantielle — conçu pour durer</p>
-                    <p class="lang-content lang-ja"><strong>100%プレミアム厚手コットン</strong><br>生地重量 6.5 oz / 220 gsm<br>厚手で耐久性のある上質な素材</p>
-                </div>
-                
-                <div class="spec-card">
-                    <h4 class="lang-content lang-en active">Production</h4>
-                    <h4 class="lang-content lang-fr">Production</h4>
-                    <h4 class="lang-content lang-ja">製造</h4>
-                    <p class="lang-content lang-en active"><strong>Made in Kyūshū</strong><br>Locally produced in limited batches</p>
-                    <p class="lang-content lang-fr"><strong>Fabriqué à Kyūshū</strong><br>Produit localement en lots limités</p>
-                    <p class="lang-content lang-ja"><strong>九州製</strong><br>地元で限定生産</p>
-                </div>
-                
-                <div class="spec-card">
-                    <h4 class="lang-content lang-en active">Printing</h4>
-                    <h4 class="lang-content lang-fr">Impression</h4>
-                    <h4 class="lang-content lang-ja">プリント</h4>
-                    <p class="lang-content lang-en active"><strong>Screen Printed Logos</strong><br>High-quality, long-lasting prints</p>
-                    <p class="lang-content lang-fr"><strong>Logos Sérigraphiés</strong><br>Impressions de haute qualité et durables</p>
-                    <p class="lang-content lang-ja"><strong>スクリーンプリントロゴ</strong><br>高品質で長持ちするプリント</p>
-                </div>
-                
-                <div class="spec-card">
-                    <h4 class="lang-content lang-en active">Inside Neck Label</h4>
-                    <h4 class="lang-content lang-fr">Étiquette Intérieure</h4>
-                    <h4 class="lang-content lang-ja">内側ネックラベル</h4>
-                    <p class="lang-content lang-en active"><strong>"MADE IN KYŪSHŪ"</strong></p>
-                    <p class="lang-content lang-fr"><strong>"MADE IN KYŪSHŪ"</strong></p>
-                    <p class="lang-content lang-ja"><strong>「九州製」</strong></p>
-                </div>
+            <div class="tshirt-coming">
+                <span class="badge lang-content lang-en active">Coming May 2026</span>
+                <span class="badge lang-content lang-fr">Mai 2026</span>
+                <span class="badge lang-content lang-ja">2026年5月</span>
+                <h3 class="lang-content lang-en active">土地 — 人 — 物語</h3>
+                <h3 class="lang-content lang-fr">土地 — 人 — 物語</h3>
+                <h3 class="lang-content lang-ja">土地 — 人 — 物語</h3>
+                <p>Black · Beige · Sage Green · Ocean Blue<br><strong>Free Size (One Size)</strong> · Screen printed · ¥5,000</p>
+                    <br>
+                    <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline">@basecampkyushu — Follow for updates</a>
+                <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline lang-content lang-fr">Suivre pour les mises à jour →</a>
+                <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline lang-content lang-ja">Instagramでフォロー →</a>
             </div>
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <h2 class="lang-content lang-en active">PRICING</h2>
-            <h2 class="lang-content lang-fr">TARIFICATION</h2>
-            <h2 class="lang-content lang-ja">価格</h2>
-            
-            <div class="pricing-box">
-                <p class="price">¥5,000</p>
-                <p class="lang-content lang-en active">We're finalizing production.</p>
-                <p class="lang-content lang-fr">Nous finalisons la production.</p>
-                <p class="lang-content lang-ja">九州のパートナーと製造を最終調整中です。</p>
-                
-                <a href="contact.html" class="btn">
-                    <span class="lang-content lang-en active">Message Us</span>
-                    <span class="lang-content lang-fr">Nous Contacter</span>
-                    <span class="lang-content lang-ja">メッセージ</span>
-                </a>
-                
-                <p class="lang-content lang-en active" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">Made in Kyūshū | Free Size</p>
-                <p class="lang-content lang-fr" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">Fabriqué à Kyūshū | Taille Unique</p>
-                <p class="lang-content lang-ja" style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">九州製 | フリーサイズ</p>
-            </div>
-
-            <!-- T-SHIRT PRE-ORDER CTA -->
-            <div class="cta-card">
-                <div class="cta-kamon">
-                    <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="26"/>
-                        <circle cx="30" cy="30" r="20"/>
-                        <polyline points="30,14 38,26 30,22 22,26 30,14"/>
-                        <line x1="30" y1="22" x2="30" y2="36"/>
-                        <line x1="20" y1="36" x2="40" y2="36"/>
-                    </svg>
-                </div>
-                <div class="cta-headline">
-                    <h3>Basecamp <em>Kyūshū</em></h3>
-                </div>
-                <div class="cta-divider">
-                    <span></span>
-                    <i>
-                        <span class="lang-content lang-en active">Premium T-Shirts — Limited Edition</span>
-                        <span class="lang-content lang-fr">T-Shirts Premium — Édition Limitée</span>
-                        <span class="lang-content lang-ja">プレミアムTシャツ — 限定版</span>
-                    </i>
-                    <span></span>
-                </div>
-                <div class="cta-tags">
-                    <span class="cta-tag gold">
-                        <span class="lang-content lang-en active">Made in Kyūshū</span>
-                        <span class="lang-content lang-fr">Fabriqué à Kyūshū</span>
-                        <span class="lang-content lang-ja">九州製</span>
-                    </span>
-                    <span class="cta-tag">
-                        <span class="lang-content lang-en active">Premium Cotton</span>
-                        <span class="lang-content lang-fr">Coton Premium</span>
-                        <span class="lang-content lang-ja">プレミアムコットン</span>
-                    </span>
-                    <span class="cta-tag">
-                        <span class="lang-content lang-en active">Kurume Craft</span>
-                        <span class="lang-content lang-fr">Artisanat Kurume</span>
-                        <span class="lang-content lang-ja">久留米工芸</span>
-                    </span>
-                </div>
-                <div class="cta-btn-wrap">
-                    <button class="cta-main-btn" id="cta-open-btn">
-                        <span>👕</span>
-                        <span class="lang-content lang-en active">Pre-Order &amp; Express Interest</span>
-                        <span class="lang-content lang-fr">Pré-commander / Manifester mon intérêt</span>
-                        <span class="lang-content lang-ja">予約注文 / 興味を登録</span>
-                    </button>
-                    <p class="cta-sub">
-                        <span class="lang-content lang-en active">Coming soon — No payment required</span>
-                        <span class="lang-content lang-fr">Bientôt disponible — Aucun paiement requis</span>
-                        <span class="lang-content lang-ja">近日発売 — お支払い不要</span>
-                    </p>
-                </div>
-                <div class="cta-form-wrap" id="cta-form-wrap">
-                    <div class="cta-form-inner">
-                        <p class="cta-form-title">
-                            <span class="lang-content lang-en active">Register Your Interest</span>
-                            <span class="lang-content lang-fr">Enregistrez votre intérêt</span>
-                            <span class="lang-content lang-ja">ご興味をお知らせください</span>
-                        </p>
-                        <form id="cta-preorder-form" action="https://formspree.io/f/xkoygqee" method="POST">
-                            <input type="hidden" name="_subject" value="New T-Shirt Pre-Order Interest">
-                            <div class="cta-field-row">
-                                <div class="cta-field">
-                                    <input type="text" name="name" id="cta-name" placeholder=" " required>
-                                    <label for="cta-name">
-                                        <span class="lang-content lang-en active">Name</span>
-                                        <span class="lang-content lang-fr">Nom</span>
-                                        <span class="lang-content lang-ja">お名前</span>
-                                    </label>
-                                </div>
-                                <div class="cta-field">
-                                    <input type="email" name="_replyto" id="cta-email" placeholder=" " required>
-                                    <label for="cta-email">Email</label>
-                                </div>
-                            </div>
-                            <span class="cta-size-label">
-                                <span class="lang-content lang-en active">Preferred Size</span>
-                                <span class="lang-content lang-fr">Taille préférée</span>
-                                <span class="lang-content lang-ja">希望サイズ</span>
-                            </span>
-                            <div class="cta-size-row">
-                                <div class="cta-size-pill" data-size="XS">XS</div>
-                                <div class="cta-size-pill" data-size="S">S</div>
-                                <div class="cta-size-pill" data-size="M">M</div>
-                                <div class="cta-size-pill" data-size="L">L</div>
-                                <div class="cta-size-pill" data-size="XL">XL</div>
-                                <div class="cta-size-pill" data-size="XXL">XXL</div>
-                            </div>
-                            <input type="hidden" name="size" id="cta-size-val">
-                            <div class="cta-field is-textarea">
-                                <textarea name="design_preference" id="cta-design" rows="2" placeholder=" "></textarea>
-                                <label for="cta-design">
-                                    <span class="lang-content lang-en active">Preferred Design (optional)</span>
-                                    <span class="lang-content lang-fr">Design préféré (optionnel)</span>
-                                    <span class="lang-content lang-ja">希望デザイン（任意）</span>
-                                </label>
-                            </div>
-                            <div class="cta-field is-textarea">
-                                <textarea name="message" id="cta-msg" rows="2" placeholder=" "></textarea>
-                                <label for="cta-msg">
-                                    <span class="lang-content lang-en active">Message / Comments (optional)</span>
-                                    <span class="lang-content lang-fr">Message / Commentaires (optionnel)</span>
-                                    <span class="lang-content lang-ja">メッセージ（任意）</span>
-                                </label>
-                            </div>
-                            <button type="submit" class="cta-submit">
-                                <span class="lang-content lang-en active">✦ Submit Interest</span>
-                                <span class="lang-content lang-fr">✦ Envoyer mon intérêt</span>
-                                <span class="lang-content lang-ja">✦ 送信する</span>
-                            </button>
-                            <p class="cta-form-note">
-                                <span class="lang-content lang-en active">No payment required. We'll notify you when available.</span>
-                                <span class="lang-content lang-fr">Aucun paiement requis. Vous serez notifié à la disponibilité.</span>
-                                <span class="lang-content lang-ja">入荷時にお知らせします。</span>
-                            </p>
-                        </form>
-                        <div class="cta-success" id="cta-success">
-                            <p>
-                                <span class="lang-content lang-en active">✦ Thank you — we'll be in touch.</span>
-                                <span class="lang-content lang-fr">✦ Merci — nous vous contacterons.</span>
-                                <span class="lang-content lang-ja">✦ ありがとうございます。</span>
-                            </p>
-                            <small>Basecamp Kyūshū · Made in Kyūshū</small>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /cta-card -->
-
-        </div>
-    </section>
-
-    <section class="section-alt">
-        <div class="container">
-            <h2 class="lang-content lang-en active">MORE THAN MERCHANDISE</h2>
-            <h2 class="lang-content lang-fr">PLUS QU'UN PRODUIT</h2>
-            <h2 class="lang-content lang-ja">商品以上のもの</h2>
-            
-            <p class="intro-text lang-content lang-en active">Rooted in Kyūshū. Designed with intention. Made to be worn.</p>
-            <p class="intro-text lang-content lang-fr">Une série de t-shirts inspirée par Kyūshū, où chaque design explore ses paysages, sa culture et son énergie dans une forme simple et durable.</p>
-            <p class="intro-text lang-content lang-ja">九州の風景や文化、エネルギーをもとにしたTシャツシリーズ。シンプルで、長く着られるデザインへと表現。</p>
-            
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h4 class="lang-content lang-en active">Carry the Philosophy</h4>
-                    <h4 class="lang-content lang-fr">Porter la Philosophie</h4>
-                    <h4 class="lang-content lang-ja">哲学を運ぶ</h4>
-                    <p class="lang-content lang-en active">The back tagline reminds you and others:</p>
-                    <p class="lang-content lang-en active">"The Land — The People — The Stories."</p>
-                    <p class="lang-content lang-en active">Three pillars of Basecamp Kyūshū's mission.</p>
-                    <p class="lang-content lang-fr">Le slogan au dos vous rappelle ainsi qu'aux autres :</p>
-                    <p class="lang-content lang-fr">"La Terre — Les Gens — Les Histoires."</p>
-                    <p class="lang-content lang-fr">Trois piliers de la mission de Basecamp Kyūshū.</p>
-                    <p class="lang-content lang-ja">背面のタグラインが思い出させます：</p>
-                    <p class="lang-content lang-ja">「土地 — 人 — 物語」。</p>
-                    <p class="lang-content lang-ja">Basecamp Kyūshūの使命の三つの柱。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h2 class="lang-content lang-en active">SHIPPING INFORMATION</h2>
-            <h2 class="lang-content lang-fr">INFORMATIONS D'EXPÉDITION</h2>
-            <h2 class="lang-content lang-ja">配送について</h2>
-            
-            <div class="shipping-grid">
-                <div class="shipping-card">
-                    <h4>🇯🇵 <span class="lang-content lang-en active">Japan</span><span class="lang-content lang-fr">Japon</span><span class="lang-content lang-ja">日本</span></h4>
-                    <p class="lang-content lang-en active"><strong>Free Shipping</strong><br><br>Ships from Itoshima, Fukuoka<br>Delivery: 3-5 business days</p>
-                    <p class="lang-content lang-fr"><strong>Livraison Gratuite</strong><br><br>Expédié depuis Itoshima, Fukuoka<br>Livraison: 3-5 jours ouvrables</p>
-                    <p class="lang-content lang-ja"><strong>全注文送料無料</strong><br><br>糸島、福岡から発送<br>配送: 3-5営業日</p>
-                </div>
-                
-                <div class="shipping-card">
-                    <h4>🌏 <span class="lang-content lang-en active">International</span><span class="lang-content lang-fr">International</span><span class="lang-content lang-ja">海外</span></h4>
-                    <p class="lang-content lang-en active"><strong>Available</strong> to select countries<br><br>Shipping calculated at checkout<br>Delivery: 7-14 business days</p>
-                    <p class="lang-content lang-fr"><strong>Disponible</strong> dans certains pays<br><br>Frais calculés à la caisse<br>Livraison: 7-14 jours ouvrables</p>
-                    <p class="lang-content lang-ja"><strong>一部の国へ発送可能</strong><br><br>配送料はチェックアウト時に計算<br>配送: 7-14営業日</p>
-                </div>
-                
-                <div class="shipping-card">
-                    <h4>📦 <span class="lang-content lang-en active">Packaging</span><span class="lang-content lang-fr">Emballage</span><span class="lang-content lang-ja">梱包</span></h4>
-                    <p class="lang-content lang-en active"><strong>Eco-friendly</strong> materials<br><br>Minimal, recyclable packaging</p>
-                    <p class="lang-content lang-fr"><strong>Matériaux écologiques</strong><br><br>Emballage minimal et recyclable</p>
-                    <p class="lang-content lang-ja"><strong>環境に優しい素材</strong><br><br>最小限のリサイクル可能な梱包</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="newsletter-section">
-        <div class="container">
-            <h2 class="lang-content lang-en active">STAY IN THE LOOP</h2>
-            <h2 class="lang-content lang-fr">RESTEZ INFORMÉ</h2>
-            <h2 class="lang-content lang-ja">最新情報を入手</h2>
-            
-            <p class="lang-content lang-en active" style="margin-bottom: 2rem;">Follow us on Instagram for behind-the-scenes updates.</p>
-            <p class="lang-content lang-fr" style="margin-bottom: 2rem;">Suivez-nous sur Instagram pour des mises à jour exclusives.</p>
-            <p class="lang-content lang-ja" style="margin-bottom: 2rem;">舞台裏の最新情報はInstagramで。</p>
-            
-            <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn" style="background: var(--white); color: var(--accent-earth);">
-                <span class="lang-content lang-en active">Follow @basecampkyushu</span>
-                <span class="lang-content lang-fr">Suivre @basecampkyushu</span>
-                <span class="lang-content lang-ja">@basecampkyushuをフォロー</span>
-            </a>
-        </div>
-    </section>
+    <!-- LIGHTBOX -->
+    <div class="lb" id="bag-lb">
+        <button class="lb-close" onclick="closeBagLB()">&times;</button>
+        <button class="lb-prev" onclick="changeBag(-1)">&#10094;</button>
+        <img id="bag-lb-img" src="" alt="La Cofu Bag">
+        <button class="lb-next" onclick="changeBag(1)">&#10095;</button>
+        <div class="lb-counter" id="bag-lb-counter"></div>
+    </div>
 
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>BASECAMP KYUSHU</h4>
-                <p class="japanese-text">土地 — 人 — 物語</p>
+                <p>土地 — 人 — 物語</p>
                 <p>Where mountains meet the sea<br>and stories take form.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size: 0.85rem;">Est. 2008</span><br>Covering Japan &amp; overseas network</p>
-                <p style="margin-top: 0.8rem; font-size: 0.9rem; line-height: 1.6;">
-                    <strong>Tokyo Office</strong><br>
-                    <strong>Basecamp Studios Higashi Matsubara</strong><br>
-                    Matsubara 5-47-12, Setagaya-ku<br>
-                    Tokyo 156-0043
-                </p>
+                <p style="margin-top:0.5rem;font-size:0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+                <p style="margin-top:1.5rem;font-size:0.9rem;opacity:0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size:0.85rem;">Est. 2008</span><br>Covering Japan &amp; overseas network</p>
             </div>
-
             <div class="footer-section">
                 <h4>EXPLORE</h4>
                 <ul>
@@ -1385,142 +292,111 @@
                     <li><a href="lacofu.html">La Cofu</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>CONNECT WITH US</h4>
-                <p style="margin-bottom: 1rem; font-size: 0.95rem;">We'd love to hear from you</p>
                 <ul>
                     <li><a href="contact.html">Contact Us</a></li>
                     <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
                     <li>YouTube: <a href="https://www.youtube.com/@basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>Website: <a href="https://mglobaljapan.weebly.com/" target="_blank">M Global Japan</a></li>
+                    <li>Website: <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.weebly.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
+            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
     (function() {
-        var langs = ['en', 'fr', 'ja'];
+        // Language
+        var langs = ['en','fr','ja'];
         var saved = localStorage.getItem('preferredLanguage');
-        var browser = (navigator.language || 'en').substring(0, 2);
-        var current = (saved && langs.indexOf(saved) > -1) ? saved
-                    : (langs.indexOf(browser) > -1 ? browser : 'en');
+        var browser = (navigator.language || 'en').substring(0,2);
+        var current = (saved && langs.indexOf(saved) > -1) ? saved : (langs.indexOf(browser) > -1 ? browser : 'en');
 
         function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) {
-                el.classList.add('active');
-            });
-            document.querySelectorAll('[data-lang]').forEach(function(el) {
-                if (!el.classList.contains('lang-btn')) {
-                    el.classList.remove('active-lang');
-                }
-            });
-            document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el) {
-                if (!el.classList.contains('lang-btn')) {
-                    el.classList.add('active-lang');
-                }
-            });
+            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
             document.querySelectorAll('.lang-btn').forEach(function(btn) {
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
             localStorage.setItem('preferredLanguage', lang);
-            current = lang;
         }
-
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                switchLanguage(this.getAttribute('data-lang'));
-            });
+            btn.addEventListener('click', function() { switchLanguage(this.getAttribute('data-lang')); });
         });
-
         switchLanguage(current);
 
         // Burger
         var toggle = document.querySelector('.mobile-menu-toggle');
         var navLinks = document.querySelector('.nav-links');
         if (toggle && navLinks) {
+            navLinks.classList.remove('active'); toggle.classList.remove('active');
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
-                navLinks.classList.toggle('active');
-                toggle.classList.toggle('active');
+                navLinks.classList.toggle('active'); toggle.classList.toggle('active');
             });
             document.addEventListener('click', function(e) {
                 if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    toggle.classList.remove('active');
+                    navLinks.classList.remove('active'); toggle.classList.remove('active');
                 }
             });
             navLinks.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    toggle.classList.remove('active');
-                });
+                a.addEventListener('click', function() { navLinks.classList.remove('active'); toggle.classList.remove('active'); });
             });
         }
 
         // Sticky nav
-        var navbar = document.getElementById('navbar') || document.querySelector('nav');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                navbar.classList.toggle('scrolled', window.scrollY > 80);
-            });
-        }
-
-        // ── CTA: open form ──
-        var ctaOpenBtn = document.getElementById('cta-open-btn');
-        var ctaFormWrap = document.getElementById('cta-form-wrap');
-        if (ctaOpenBtn && ctaFormWrap) {
-            ctaOpenBtn.addEventListener('click', function() {
-                ctaFormWrap.classList.add('open');
-                ctaOpenBtn.style.display = 'none';
-                setTimeout(function() {
-                    ctaFormWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            });
-        }
-
-        // ── CTA: size pills ──
-        document.querySelectorAll('.cta-size-pill').forEach(function(pill) {
-            pill.addEventListener('click', function() {
-                document.querySelectorAll('.cta-size-pill').forEach(function(p) { p.classList.remove('selected'); });
-                pill.classList.add('selected');
-                var sizeVal = document.getElementById('cta-size-val');
-                if (sizeVal) sizeVal.value = pill.getAttribute('data-size');
-            });
-        });
-
-        // ── CTA: AJAX submit ──
-        var ctaForm = document.getElementById('cta-preorder-form');
-        if (ctaForm) {
-            ctaForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var btn = ctaForm.querySelector('.cta-submit');
-                var originalText = btn.textContent;
-                btn.textContent = '…';
-                btn.disabled = true;
-                fetch(ctaForm.action, {
-                    method: 'POST',
-                    body: new FormData(ctaForm),
-                    headers: { 'Accept': 'application/json' }
-                }).then(function() {
-                    ctaForm.style.display = 'none';
-                    var success = document.getElementById('cta-success');
-                    if (success) success.style.display = 'block';
-                }).catch(function() {
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                });
-            });
-        }
+        var navbar = document.getElementById('navbar');
+        if (navbar) { window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 80); }); }
     })();
+
+    // Bag lightbox
+    var bagImages = [
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/obi2.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/7_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag9_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/new-2.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag7_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/new-pic.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png",
+        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png"
+    ];
+    var currentBag = 0;
+
+    function openBagLB(index) {
+        currentBag = index;
+        document.getElementById('bag-lb').classList.add('active');
+        showBag();
+    }
+    function closeBagLB() { document.getElementById('bag-lb').classList.remove('active'); }
+    function changeBag(dir) {
+        currentBag = (currentBag + dir + bagImages.length) % bagImages.length;
+        showBag();
+    }
+    function showBag() {
+        document.getElementById('bag-lb-img').src = bagImages[currentBag];
+        document.getElementById('bag-lb-counter').textContent = (currentBag+1) + ' / ' + bagImages.length;
+    }
+    document.addEventListener('keydown', function(e) {
+        var lb = document.getElementById('bag-lb');
+        if (lb.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') changeBag(-1);
+            else if (e.key === 'ArrowRight') changeBag(1);
+            else if (e.key === 'Escape') closeBagLB();
+        }
+    });
     </script>
 </body>
 </html>
