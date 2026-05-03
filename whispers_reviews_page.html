@@ -7,7 +7,7 @@
     <meta property="og:url" content="https://basecampkyushu.com/whispers_reviews_page.html">
     <meta property="og:title" content="Whispers of Ashes — Reader Reviews">
     <meta property="og:description" content="What readers are saying about Whispers of Ashes, an atmospheric literary novel set in a forgotten potter's village of Kyūshū.">
-    <meta property="og:image" content="https://basecampkyushu.com/whispers-cover.jpg">
+    <meta property="og:image" content="https://basecampkyushu.com/whispers-of-ashes-cover.jpg">
     <title>Whispers of Ashes — Reader Reviews | Basecamp Kyūshū</title>
     <meta name="description" content="Read authentic reviews from early readers of Whispers of Ashes. Share your experience and discover this atmospheric journey into intimate Japan.">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
@@ -551,11 +551,9 @@
                 document.getElementById('japanGiftNote').style.display = 'block';
 
                 var colorBtn = document.getElementById('buyColor');
-                colorBtn.style.opacity = '0.5';
-                colorBtn.style.cursor  = 'not-allowed';
-                colorBtn.onclick = function(e) {
-                    e.preventDefault();
-                    alert('カラー版は日本国内のAmazonアカウントでは購入できません。\n海外の方へのギフトとしてご利用の場合は、チェックアウト時に海外の配送先をご指定ください。\n\nThe Color Edition is not available for Japanese accounts.\nTo gift it to someone overseas, select a non-Japan delivery address at checkout.');
+                colorBtn.style.opacity = '0.75';
+                colorBtn.onclick = function() {
+                    alert('📦 日本国内のAmazonアカウントでは白黒版のみ購入可能です。\nただし、海外の方へのギフトとしてカラー版を購入する場合は、チェックアウト時に海外の配送先をご指定ください。\n\n📦 In Japan, only the B&W edition is available for your account.\nHowever, you can still gift the Color Edition to someone overseas — just select an international delivery address at checkout.');
                 };
             }
         }
