@@ -3,36 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shop Basecamp Kyūshū — handmade kimono fabric bags by La Cofu and limited edition T-shirts made in Kyūshū. Shipped worldwide.">
+    <meta name="description" content="Shop Basecamp Kyūshū — handmade kimono fabric bags by La Cofu and limited edition shirts made in Kyūshū. Shipped worldwide.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://basecampkyushu.com/online-store.html">
     <meta property="og:title" content="Online Store — Made in Kyūshū | Basecamp Kyūshū">
-    <meta property="og:description" content="Handmade kimono bags and limited edition T-shirts made in Kyūshū. Shipped worldwide.">
+    <meta property="og:description" content="Handmade kimono bags and limited edition shirts made in Kyūshū. Shipped worldwide.">
     <meta property="og:image" content="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png">
     <meta property="og:site_name" content="Basecamp Kyūshū">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Online Store — Made in Kyūshū | Basecamp Kyūshū">
     <meta name="twitter:image" content="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png">
-    <title>Online Store — Made in Kyūshū T-Shirts & Kimono Bags | Basecamp Kyūshū</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Online Store — Made in Kyūshū | Basecamp Kyūshū</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #2C2C2C;
             --primary-light: #F5F5F0;
             --accent-earth: #8B7355;
             --accent-copper: #B87333;
+            --gold: #8B6B2A;
+            --gold-lt: #b8922e;
+            --espresso: #2c1f14;
+            --linen: #e8dfd0;
+            --sand: #f0ebe1;
+            --cream: #faf7f3;
             --text-dark: #333333;
             --text-muted: #666666;
             --white: #FFFFFF;
-            --shadow: rgba(0,0,0,0.1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Source Sans Pro', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
-        h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.3; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Source Sans Pro',sans-serif; line-height:1.7; color:var(--text-dark); background:var(--white); }
+        h1,h2,h3,h4,h5,h6 { font-family:'Cormorant Garamond',serif; font-weight:600; line-height:1.3; }
 
-        /* NAV */
-        nav, #navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,255,255,0.98); backdrop-filter:blur(10px); padding:0.75rem 0; box-shadow:0 2px 15px rgba(0,0,0,0.08); transition:all 0.4s; }
+        /* ── NAV ── */
+        nav,#navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,255,255,0.98); backdrop-filter:blur(10px); padding:0.75rem 0; box-shadow:0 2px 15px rgba(0,0,0,0.08); transition:all 0.4s; }
         nav.scrolled { padding:0.5rem 0; }
         .nav-container { max-width:1400px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
         .logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; flex-shrink:0; line-height:1; gap:3px; }
@@ -43,7 +48,7 @@
         .nav-links a:hover { color:var(--accent-earth); background:rgba(139,115,85,0.08); }
         .language-switcher { display:flex; flex-direction:row; gap:0.3rem; border-left:1px solid rgba(0,0,0,0.15); padding-left:0.8rem; margin-left:0.5rem; flex-shrink:0; align-items:center; }
         .lang-btn { padding:0.3rem 0.55rem; border:1px solid rgba(0,0,0,0.2); background:transparent; color:var(--primary-dark); cursor:pointer; font-size:0.78rem; font-weight:600; border-radius:3px; transition:all 0.3s; height:28px; min-width:32px; display:flex; align-items:center; justify-content:center; }
-        .lang-btn:hover, .lang-btn.active { background:var(--accent-earth); color:#fff; border-color:var(--accent-earth); }
+        .lang-btn:hover,.lang-btn.active { background:var(--accent-earth); color:#fff; border-color:var(--accent-earth); }
         .mobile-menu-toggle { background:rgba(44,74,110,0.08); border:1px solid rgba(44,74,110,0.2); border-radius:4px; cursor:pointer; flex-shrink:0; position:relative; z-index:1001; height:28px; width:36px; display:none; align-items:center; justify-content:center; }
         .mobile-menu-toggle::before { content:''; position:absolute; width:18px; height:2px; background:#2c4a6e; top:50%; left:50%; transform:translate(-50%,-50%); box-shadow:0 -6px 0 0 #2c4a6e,0 6px 0 0 #2c4a6e; transition:all 0.3s; border-radius:1px; }
         .mobile-menu-toggle.active::before { transform:translate(-50%,-50%) rotate(45deg); box-shadow:none; }
@@ -59,413 +64,633 @@
             .nav-links a { display:block; padding:0.9rem 0.5rem; width:100%; font-size:1.25rem; }
         }
 
-        /* LANG */
-        .lang-content { display:none; }
-        .lang-content.active { display:block; }
+        /* ── HERO — image only, no text ── */
+        .hero {
+            min-height:72vh;
+            background:url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png') center/cover no-repeat;
+            margin-top:68px;
+            position:relative;
+        }
+        .hero::after {
+            content:''; position:absolute; bottom:0; left:0; right:0; height:40%;
+            background:linear-gradient(to top, rgba(28,15,6,0.45), transparent);
+        }
 
-        /* HERO */
-        .hero { min-height:70vh; background:url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png') center/cover; display:flex; align-items:flex-end; padding:4rem 2rem; margin-top:68px; }
-        .hero-text { max-width:600px; }
-        .hero-text h1 { font-size:clamp(2rem,5vw,3.5rem); color:#fff; text-shadow:0 2px 20px rgba(0,0,0,0.5); margin-bottom:0.5rem; }
-        .hero-text p { color:rgba(255,255,255,0.85); font-size:1.1rem; text-shadow:0 1px 8px rgba(0,0,0,0.5); }
+        /* ── CONTEXT STRIP ── */
+        .context-strip {
+            background:var(--espresso);
+            padding:20px 2rem;
+            text-align:center;
+        }
+        .context-strip p {
+            font-family:'Cormorant Garamond',serif;
+            font-size:15px;
+            color:rgba(250,247,243,0.6);
+            letter-spacing:0.02em;
+            max-width:860px;
+            margin:0 auto;
+            line-height:1.75;
+        }
+        .context-strip p strong { color:var(--gold-lt); font-weight:500; }
 
-        /* SECTIONS */
+        /* ── SHARED ── */
         .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
         section { padding:5rem 2rem; }
-        .section-alt { background:var(--primary-light); }
-        h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:0.5rem; color:var(--primary-dark); text-align:center; }
-        .section-sub { text-align:center; color:var(--text-muted); font-size:1rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3rem; }
-        p { font-size:1.1rem; line-height:1.8; margin-bottom:1rem; }
 
-        /* BAG GALLERY — Thumbnail Gallery */
-        .thumb-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 0.5rem;
-            margin: 2rem 0;
-        }
-        .thumb {
-            aspect-ratio: 1;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 4px;
-            background: #f0ebe4;
-            transition: opacity 0.2s;
-        }
-        .thumb:hover { opacity: 0.85; }
-        .thumb img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .thumb:hover img { transform: scale(1.05); }
+        .section-header { text-align:center; margin-bottom:3.5rem; }
+        .section-header h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:0.5rem; color:var(--primary-dark); }
+        .eyebrow { font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:12px; font-family:'Cormorant Garamond',serif; }
+        .section-sub { color:var(--text-muted); font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; margin-top:8px; display:block; }
+        .section-rule { width:44px; height:1px; background:var(--gold); margin:16px auto 0; }
 
-        /* PREVIEW OVERLAY */
-        .preview-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(20,15,10,0.88);
-            z-index: 9000;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .preview-overlay.active { display: flex; }
-        .preview-inner {
-            position: relative;
-            max-width: 520px;
-            width: 100%;
-        }
-        .preview-inner img {
-            width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            border-radius: 6px;
-            display: block;
-        }
-        .preview-close {
-            position: absolute;
-            top: -2.5rem; right: 0;
-            color: rgba(255,255,255,0.7);
-            font-size: 1.8rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1;
-        }
-        .preview-nav {
-            position: absolute;
-            top: 50%; transform: translateY(-50%);
-            color: rgba(255,255,255,0.8);
-            font-size: 1.8rem;
-            cursor: pointer;
-            background: rgba(0,0,0,0.3);
-            border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 3px;
-            transition: background 0.2s;
-        }
-        .preview-nav:hover { background: rgba(0,0,0,0.6); }
-        .preview-prev { left: -3.5rem; }
-        .preview-next { right: -3.5rem; }
-        .preview-counter {
-            text-align: center;
-            color: rgba(255,255,255,0.45);
-            font-size: 0.78rem;
-            letter-spacing: 0.1em;
-            margin-top: 0.8rem;
-        }
-        @media (max-width: 600px) {
-            .preview-prev { left: -2.2rem; }
-            .preview-next { right: -2.2rem; }
-            .preview-inner { max-width: 90vw; }
-        }
+        /* ── BAG GRID ── */
+        #bags { background:var(--white); }
 
-        /* LIGHTBOX */
-        .lb { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
+        .bag-grid {
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:10px;
+            max-width:1100px;
+            margin:0 auto;
+        }
+        .bag-item {
+            aspect-ratio:1/1;
+            overflow:hidden;
+            cursor:pointer;
+            position:relative;
+            border:1.5px solid var(--linen);
+            background:var(--sand);
+            transition:border-color 0.3s, box-shadow 0.3s;
+        }
+        .bag-item:hover { border-color:var(--gold); box-shadow:0 4px 20px rgba(139,107,42,0.18); }
+        .bag-item img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform 0.5s ease, filter 0.3s; filter:saturate(0.95); }
+        .bag-item:hover img { transform:scale(1.06); filter:saturate(1.05); }
+        .bag-item-overlay { position:absolute; inset:0; background:rgba(28,15,6,0); display:flex; align-items:center; justify-content:center; transition:background 0.3s; }
+        .bag-item:hover .bag-item-overlay { background:rgba(28,15,6,0.18); }
+        .bag-item-overlay span { color:rgba(255,255,255,0); font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; transition:color 0.3s; }
+        .bag-item:hover .bag-item-overlay span { color:rgba(255,255,255,0.9); }
+
+        /* ── ORDER BOX ── */
+        .order-box {
+            border:1px solid var(--linen);
+            border-top:3px solid var(--gold);
+            padding:3rem 2.5rem;
+            max-width:660px;
+            margin:3.5rem auto 0;
+            text-align:center;
+            box-shadow:0 6px 32px rgba(0,0,0,0.05);
+        }
+        .order-box h3 { font-size:1.9rem; color:var(--espresso); margin-bottom:0.6rem; }
+        .order-note { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:1.25rem; }
+        .price-tag { font-size:2.2rem; font-family:'Cormorant Garamond',serif; color:var(--primary-dark); font-weight:700; margin:0.75rem 0 0.2rem; }
+        .price-equiv { font-size:1rem; color:var(--text-muted); font-weight:400; }
+        .price-note { font-size:0.82rem; color:var(--text-muted); margin-top:0.2rem; margin-bottom:1.75rem; }
+        .btn { display:inline-block; padding:0.9rem 2.2rem; background:var(--accent-earth); color:#fff; text-decoration:none; border-radius:4px; font-weight:600; font-size:1.05rem; transition:all 0.3s; border:2px solid var(--accent-earth); }
+        .btn:hover { background:var(--espresso); border-color:var(--espresso); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.18); }
+        .order-soon { margin-top:1rem; font-size:0.82rem; color:var(--text-muted); font-style:italic; }
+
+        /* ── SHIRT SECTION ── */
+        #shirt { background:var(--espresso); }
+        #shirt .section-header h2 { color:var(--cream); }
+        #shirt .section-sub { color:rgba(250,247,243,0.45); }
+        #shirt .eyebrow { color:var(--gold-lt); }
+
+        .lacofu-mark { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:18px; }
+        .lacofu-mark img { width:40px; height:40px; object-fit:contain; opacity:0.9; }
+        .lacofu-mark span { font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-lt); }
+
+        .shirt-layout {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:72px;
+            max-width:1100px;
+            margin:0 auto;
+            align-items:start;
+        }
+        .shirt-img-main { width:100%; display:block; border:1px solid rgba(139,107,42,0.25); }
+        .shirt-img-thumbs { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:6px; }
+        .shirt-thumb { aspect-ratio:1/1; overflow:hidden; cursor:pointer; border:1.5px solid transparent; transition:border-color 0.25s; }
+        .shirt-thumb.active,.shirt-thumb:hover { border-color:var(--gold); }
+        .shirt-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+        .shirt-thumb:hover img { transform:scale(1.08); }
+
+        .shirt-eyebrow { font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-lt); display:block; margin-bottom:16px; }
+        .shirt-name { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,3.5vw,48px); font-weight:400; color:var(--cream); line-height:1.1; margin-bottom:8px; }
+        .shirt-kanji { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--gold); letter-spacing:0.25em; display:block; margin-bottom:28px; }
+        .shirt-divider { width:44px; height:1px; background:var(--gold); margin-bottom:28px; }
+        .shirt-desc { font-size:16px; color:rgba(250,247,243,0.72); line-height:1.85; margin-bottom:24px; }
+        .shirt-desc strong { color:var(--cream); }
+
+        .edition-tag { display:inline-flex; align-items:center; gap:10px; background:rgba(139,107,42,0.15); border:1px solid rgba(139,107,42,0.3); padding:8px 18px; margin-bottom:28px; }
+        .edition-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+        .edition-tag span { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-lt); font-family:'Cormorant Garamond',serif; }
+
+        .shirt-features { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:32px; }
+        .feat { padding:14px 16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
+        .feat-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:3px; font-family:'Cormorant Garamond',serif; }
+        .feat-val { font-size:14px; color:var(--cream); line-height:1.5; }
+
+        .shirt-price-row { display:flex; align-items:baseline; gap:14px; margin-bottom:4px; }
+        .shirt-price { font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--cream); font-weight:400; }
+        .shirt-price-note { font-size:13px; color:rgba(250,247,243,0.38); }
+        .shirt-releasing { font-size:13px; color:var(--gold-lt); font-style:italic; margin-bottom:28px; letter-spacing:0.04em; }
+
+        .shirt-cta { display:flex; flex-wrap:wrap; gap:12px; }
+        .btn-gold { display:inline-block; padding:0.9rem 2.2rem; background:var(--gold); color:var(--espresso); text-decoration:none; border-radius:4px; font-weight:700; font-size:1.05rem; transition:all 0.3s; border:2px solid var(--gold); }
+        .btn-gold:hover { background:var(--gold-lt); border-color:var(--gold-lt); transform:translateY(-2px); }
+        .btn-ghost { display:inline-block; padding:0.9rem 2.2rem; background:transparent; color:rgba(250,247,243,0.6); text-decoration:none; border-radius:4px; font-size:1rem; transition:all 0.3s; border:1px solid rgba(250,247,243,0.18); }
+        .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+        .edition-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; max-width:1100px; margin:64px auto 0; background:rgba(139,107,42,0.2); }
+        .strip-item { background:rgba(255,255,255,0.03); padding:28px 24px; text-align:center; transition:background 0.3s; }
+        .strip-item:hover { background:rgba(139,107,42,0.1); }
+        .strip-num { font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--gold); font-weight:400; margin-bottom:10px; display:block; }
+        .strip-title { font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); font-weight:500; margin-bottom:6px; }
+        .strip-desc { font-size:12px; color:rgba(250,247,243,0.4); line-height:1.7; }
+
+        /* ── LIGHTBOX ── */
+        .lb { display:none; position:fixed; inset:0; background:rgba(10,6,3,0.94); z-index:9999; align-items:center; justify-content:center; padding:2rem; }
         .lb.active { display:flex; }
-        .lb img { max-width:90vw; max-height:88vh; object-fit:contain; border-radius:4px; }
-        .lb-close { position:absolute; top:1.5rem; right:1.5rem; color:#fff; font-size:2.5rem; cursor:pointer; background:none; border:none; line-height:1; }
-        .lb-prev, .lb-next { position:absolute; top:50%; transform:translateY(-50%); color:#fff; font-size:2.5rem; cursor:pointer; background:rgba(0,0,0,0.4); border:none; padding:0.5rem 1rem; border-radius:4px; }
-        .lb-prev { left:1rem; }
-        .lb-next { right:1rem; }
-        .lb-counter { position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.7); font-size:0.9rem; }
+        .lb-inner { position:relative; max-width:680px; width:100%; }
+        .lb-inner img { width:100%; max-height:82vh; object-fit:contain; display:block; border:1px solid rgba(139,107,42,0.2); }
+        .lb-close { position:absolute; top:-2.5rem; right:0; color:rgba(255,255,255,0.55); font-size:2rem; cursor:pointer; background:none; border:none; line-height:1; transition:color 0.2s; font-family:sans-serif; }
+        .lb-close:hover { color:var(--gold-lt); }
+        .lb-prev,.lb-next { position:absolute; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.7); font-size:1.8rem; cursor:pointer; background:rgba(0,0,0,0.32); border:none; padding:0.4rem 0.9rem; transition:background 0.2s; }
+        .lb-prev:hover,.lb-next:hover { background:rgba(139,107,42,0.5); }
+        .lb-prev { left:-3.5rem; }
+        .lb-next { right:-3.5rem; }
+        .lb-counter { text-align:center; color:rgba(255,255,255,0.3); font-size:0.75rem; letter-spacing:0.15em; margin-top:0.75rem; font-family:'Cormorant Garamond',serif; }
+        @media (max-width:600px) { .lb-prev{left:-2rem;} .lb-next{right:-2rem;} }
 
-        /* ORDER BOX */
-        .order-box { background:#fff; border:1px solid rgba(139,115,85,0.2); border-radius:12px; padding:2.5rem; max-width:700px; margin:3rem auto 0; text-align:center; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-        .order-box h3 { font-size:1.8rem; color:var(--accent-copper); margin-bottom:1rem; }
-        .order-box p { color:var(--text-muted); margin-bottom:0.5rem; }
-        .price-tag { font-size:2rem; font-family:'Cormorant Garamond',serif; color:var(--primary-dark); font-weight:700; margin:1rem 0; }
-        .price-note { font-size:0.85rem; color:var(--text-muted); }
-
-        /* BUTTONS */
-        .btn { display:inline-block; padding:1rem 2.5rem; background:var(--accent-earth); color:#fff; text-decoration:none; border-radius:6px; font-weight:600; font-size:1.1rem; transition:all 0.3s; margin:0.5rem; }
-        .btn:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
-        .btn-outline { background:transparent; border:2px solid var(--accent-earth); color:var(--accent-earth); }
-        .btn-outline:hover { background:var(--accent-earth); color:#fff; }
-
-        /* TSHIRT SECTION */
-        .tshirt-coming { text-align:center; padding:3rem; background:#fff; border-radius:12px; border:1px dashed rgba(139,115,85,0.3); max-width:600px; margin:2rem auto; }
-        .tshirt-coming h3 { color:var(--accent-copper); margin-bottom:1rem; }
-        .tshirt-coming .badge { display:inline-block; background:var(--primary-light); color:var(--accent-earth); font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.8rem; border-radius:20px; margin-bottom:1rem; }
-
-        /* FOOTER */
+        /* ── FOOTER ── */
         .main-footer { background:var(--primary-dark); color:rgba(255,255,255,0.8); padding:6rem 2rem 2rem; }
         .footer-content { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:4rem; margin-bottom:4rem; }
         .footer-section h4 { color:#fff; margin-bottom:1rem; font-family:'Cormorant Garamond',serif; font-size:1.2rem; }
         .footer-section ul { list-style:none; padding:0; }
         .footer-section li { margin-bottom:0.5rem; }
-        .footer-section p { margin:0; padding:0; line-height:1.8; }
+        .footer-section p { margin:0; padding:0; line-height:1.8; font-size:1rem; }
         .footer-section a { color:rgba(255,255,255,0.8); text-decoration:none; transition:color 0.3s; }
         .footer-section a:hover { color:var(--accent-earth); }
         .footer-bottom { text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.9rem; }
         .footer-bottom a { color:rgba(255,255,255,0.8); text-decoration:none; }
 
-        @media (max-width:768px) {
-            .hero { min-height:50vh; }
-            .bag-gallery { columns:2 160px; }
-            section { padding:3rem 1.5rem; }
+        /* ── RESPONSIVE ── */
+        @media (max-width:900px) {
+            .bag-grid { grid-template-columns:repeat(3,1fr); gap:8px; }
+            .shirt-layout { grid-template-columns:1fr; gap:48px; }
+            .edition-strip { grid-template-columns:repeat(2,1fr); }
+            .shirt-features { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:580px) {
+            .bag-grid { grid-template-columns:repeat(2,1fr); gap:6px; }
+            .edition-strip { grid-template-columns:1fr 1fr; }
+            .shirt-features { grid-template-columns:1fr; }
+            section { padding:3.5rem 1.25rem; }
+            .order-box { padding:2rem 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="favicon.png" alt="Basecamp Kyūshū" class="logo-img">
-                <span class="logo-subtitle">土地 — 人 — 物語</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="in-motion.html">IN MOTION</a></li>
-                <li><a href="stories.html">STORIES</a></li>
-                <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
-                <li><a href="lacofu.html">LA COFU</a></li>
-                <li><a href="online-store.html">ONLINE SHOP</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="fr">FR</button>
-                <button class="lang-btn" data-lang="ja">JA</button>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+<!-- ── NAV ── -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="favicon.png" alt="Basecamp Kyūshū" class="logo-img">
+            <span class="logo-subtitle">土地 — 人 — 物語</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="in-motion.html">IN MOTION</a></li>
+            <li><a href="stories.html">STORIES</a></li>
+            <li><a href="video-production.html">VIDEO PRODUCTION</a></li>
+            <li><a href="lacofu.html">LA COFU</a></li>
+            <li><a href="online-store.html">ONLINE SHOP</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="ja">JA</button>
         </div>
-    </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu"></button>
+    </div>
+</nav>
 
-    <div class="hero"></div>
+<!-- ── HERO — image only, no text overlay ── -->
+<div class="hero"></div>
 
-    <!-- BOOK -->
-    <section class="section-alt">
-        <div class="container">
-            <div style="display:flex;flex-wrap:wrap;gap:3rem;align-items:center;justify-content:center;">
-                <img src="https://basecampkyushu.com/images/whispers-of-ashes-cover.jpg" 
-                     alt="Whispers of Ashes Book" 
-                     style="width:220px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.15);">
-                <div style="max-width:500px;">
-                    <p style="font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-earth);margin-bottom:0.5rem;">Stories — Volume I</p>
-                    <h2 style="text-align:left;margin-bottom:0.5rem;">Whispers of Ashes</h2>
-                    <p style="font-style:italic;color:var(--text-muted);margin-bottom:1.5rem;">Les Murmures des Cendres · 灰のささやき</p>
-                    <p style="margin-bottom:1.5rem;">A forgotten pottery village in Kyūshū, where earth and fire still conceal their secrets. An illustrated trilingual novella — EN · FR · JA.</p>
-                    <p style="margin-bottom:0.3rem;"><strong>B&W Edition</strong> — US$15 / €13</p>
-                    <p style="margin-bottom:1.5rem;"><strong>Color Illustrated Edition</strong> — US$25 / €23</p>
-                    <a href="whispers_reviews_page.html" class="btn">Buy on Amazon →</a>
+<!-- ── CONTEXT STRIP ── -->
+<div class="context-strip">
+    <p data-i18n
+       data-en="<strong>La Cofu</strong> is the handmade objects project of Basecamp Kyūshū — bags and shirts crafted from vintage Japanese fabric in Itoshima, Kyūshū, and sold here as well as at our cultural residencies across Europe."
+       data-fr="<strong>La Cofu</strong> est le projet d'objets faits main de Basecamp Kyūshū — sacs et chemises fabriqués à partir de tissus japonais vintage à Itoshima, Kyūshū, disponibles ici et lors de nos résidences culturelles en Europe."
+       data-ja="<strong>La Cofu</strong>はベースキャンプ九州のハンドメイドオブジェクトプロジェクト。糸島市でヴィンテージ和布から製作されたバッグとシャツを、当サイトとヨーロッパの文化レジデンスにて販売しています。">
+        <strong>La Cofu</strong> is the handmade objects project of Basecamp Kyūshū — bags and shirts crafted from vintage Japanese fabric in Itoshima, Kyūshū, and sold here as well as at our cultural residencies across Europe.
+    </p>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — KIMONO BAGS
+══════════════════════════════════════ -->
+<section id="bags">
+    <div class="container">
+
+        <div class="section-header">
+            <span class="eyebrow">La Cofu 古布</span>
+            <h2 data-i18n data-en="Kimono Bags" data-fr="Sacs Kimono" data-ja="着物バッグ">Kimono Bags</h2>
+            <span class="section-sub"
+                  data-i18n
+                  data-en="Handmade in Kyūshū · Upcycled kimono &amp; obi fabric"
+                  data-fr="Fabriqués à la main à Kyūshū · Tissu kimono et obi recyclé"
+                  data-ja="九州で手作り · 着物・帯生地をアップサイクル">
+                Handmade in Kyūshū · Upcycled kimono &amp; obi fabric
+            </span>
+            <div class="section-rule"></div>
+        </div>
+
+        <!-- 4×3 square grid with borders -->
+        <div class="bag-grid">
+            <div class="bag-item" onclick="openLB(0)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(1)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(2)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(3)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(4)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(5)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(6)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(7)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(8)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(9)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(10)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+            <div class="bag-item" onclick="openLB(11)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
+        </div>
+
+        <!-- Order box -->
+        <div class="order-box">
+            <h3 data-i18n
+                data-en="No Two Pieces Are the Same"
+                data-fr="Aucune Pièce Ne Se Ressemble"
+                data-ja="同じものは二つとない">
+                No Two Pieces Are the Same
+            </h3>
+            <p class="order-note"
+               data-i18n
+               data-en="The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. No reprints, no reorders."
+               data-fr="C'est le tissu qui décide l'objet. Quand une pièce part, ce tissu précis disparaît — définitivement. Sans réimpression ni réapprovisionnement."
+               data-ja="生地がオブジェクトを決めます。一度売れたら、そのテキスタイルは永遠に消えます。再版なし、再入荷なし。">
+                The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. No reprints, no reorders.
+            </p>
+            <div class="price-tag">¥24,000 <span class="price-equiv">~ €138 / US$160</span></div>
+            <p class="price-note"
+               data-i18n
+               data-en="Free worldwide shipping · Handmade in Itoshima, Kyūshū"
+               data-fr="Livraison gratuite dans le monde · Fabriqué à la main à Itoshima, Kyūshū"
+               data-ja="送料無料 · 糸島市、九州で手作り">
+                Free worldwide shipping · Handmade in Itoshima, Kyūshū
+            </p>
+            <a href="contact.html" class="btn"
+               data-i18n
+               data-en="Enquire &amp; Order →"
+               data-fr="Commander →"
+               data-ja="お問い合わせ・ご注文 →">
+                Enquire &amp; Order →
+            </a>
+            <p class="order-soon"
+               data-i18n
+               data-en="Secure online checkout coming soon"
+               data-fr="Paiement en ligne sécurisé bientôt disponible"
+               data-ja="オンライン決済準備中">
+                Secure online checkout coming soon
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — THE SHIRT
+══════════════════════════════════════ -->
+<section id="shirt">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="lacofu-mark">
+                <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-16-18-09_orig.png" alt="La Cofu logo">
+                <span>La Cofu 古布</span>
+            </div>
+            <h2 data-i18n data-en="The Shirt" data-fr="La Chemise" data-ja="着物シャツ">The Shirt</h2>
+            <span class="section-sub"
+                  data-i18n
+                  data-en="Limited editions · Vintage kimono band · Assembled in Kyūshū"
+                  data-fr="Éditions limitées · Bande kimono vintage · Assemblé à Kyūshū"
+                  data-ja="限定版 · ヴィンテージ着物帯 · 九州で組立">
+                Limited editions · Vintage kimono band · Assembled in Kyūshū
+            </span>
+            <div class="section-rule"></div>
+        </div>
+
+        <div class="shirt-layout">
+
+            <!-- Left: image panel with 2 thumbnails -->
+            <div>
+                <img id="shirt-main-img"
+                     src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png"
+                     alt="La Cofu shirt"
+                     class="shirt-img-main">
+                <div class="shirt-img-thumbs">
+                    <div class="shirt-thumb active" onclick="setShirt(this,'https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png')">
+                        <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png" alt="">
+                    </div>
+                    <div class="shirt-thumb" onclick="setShirt(this,'https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/gemini-generated-image-iduwp8iduwp8iduw_orig.png')">
+                        <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/gemini-generated-image-iduwp8iduwp8iduw_orig.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: product details -->
+            <div>
+                <span class="shirt-eyebrow"
+                      data-i18n
+                      data-en="La Cofu — Edition Series"
+                      data-fr="La Cofu — Série d'Éditions"
+                      data-ja="La Cofu — エディション・シリーズ">
+                    La Cofu — Edition Series
+                </span>
+
+                <h2 class="shirt-name"
+                    data-i18n
+                    data-en="The Shirt"
+                    data-fr="La Chemise"
+                    data-ja="着物シャツ">
+                    The Shirt
+                </h2>
+
+                <span class="shirt-kanji">着 物 帯</span>
+                <div class="shirt-divider"></div>
+
+                <p class="shirt-desc"
+                   data-i18n
+                   data-en="A contemporary kimono-collar top with a horizontal band of <strong>genuine vintage obi or kimono fabric</strong> across the chest — sourced and selected in Kyūshū. Linen or cotton base. A relaxed silhouette that reads as fashion, not costume."
+                   data-fr="Un haut contemporain à col kimono avec une bande horizontale de <strong>tissu obi ou kimono vintage authentique</strong> sur la poitrine — sourcé à Kyūshū. Base lin ou coton. Une silhouette décontractée qui se lit comme de la mode, pas un costume."
+                   data-ja="胸元にヴィンテージの<strong>着物・帯生地</strong>を横一列に配した現代的な着物衿のトップス。九州で調達・厳選。リネンまたはコットンベース。コスチュームではなく、ファッションとして着られるシルエット。">
+                    A contemporary kimono-collar top with a horizontal band of <strong>genuine vintage obi or kimono fabric</strong> across the chest — sourced and selected in Kyūshū. Linen or cotton base. A relaxed silhouette that reads as fashion, not costume.
+                </p>
+
+                <div class="edition-tag">
+                    <span class="edition-dot"></span>
+                    <span data-i18n
+                          data-en="Each edition is named for its fabric. When the fabric runs out, the edition closes permanently."
+                          data-fr="Chaque édition porte le nom de son tissu. Épuisé signifie clos — définitivement."
+                          data-ja="各エディションは生地の名を冠します。生地がなくなり次第、永久に終了。">
+                        Each edition is named for its fabric. When the fabric runs out, the edition closes permanently.
+                    </span>
+                </div>
+
+                <div class="shirt-features">
+                    <div class="feat">
+                        <span class="feat-label" data-i18n data-en="Silhouette" data-fr="Silhouette" data-ja="シルエット">Silhouette</span>
+                        <div class="feat-val" data-i18n data-en="Kimono collar · Relaxed fit" data-fr="Col kimono · Coupe décontractée" data-ja="着物衿 · リラックスフィット">Kimono collar · Relaxed fit</div>
+                    </div>
+                    <div class="feat">
+                        <span class="feat-label" data-i18n data-en="Material" data-fr="Matière" data-ja="素材">Material</span>
+                        <div class="feat-val" data-i18n data-en="Linen or cotton base" data-fr="Lin ou coton" data-ja="リネンまたはコットン">Linen or cotton base</div>
+                    </div>
+                    <div class="feat">
+                        <span class="feat-label" data-i18n data-en="Sizes" data-fr="Tailles" data-ja="サイズ">Sizes</span>
+                        <div class="feat-val" data-i18n data-en="S / M / L — Men &amp; Women" data-fr="S / M / L — Homme &amp; Femme" data-ja="S / M / L — 男女兼用">S / M / L — Men &amp; Women</div>
+                    </div>
+                    <div class="feat">
+                        <span class="feat-label" data-i18n data-en="Assembled in" data-fr="Assemblé à" data-ja="製造地">Assembled in</span>
+                        <div class="feat-val">糸島製 — Itoshima, Kyūshū</div>
+                    </div>
+                </div>
+
+                <div class="shirt-price-row">
+                    <span class="shirt-price">¥8,000</span>
+                    <span class="shirt-price-note">~ €46 / US$53</span>
+                </div>
+                <p class="shirt-releasing"
+                   data-i18n
+                   data-en="First editions releasing soon — follow @lacofu for updates"
+                   data-fr="Premières éditions bientôt disponibles — suivez @lacofu"
+                   data-ja="初回エディション近日公開予定 — @lacofuをフォロー">
+                    First editions releasing soon — follow @lacofu for updates
+                </p>
+
+                <div class="shirt-cta">
+                    <a href="contact.html" class="btn-gold"
+                       data-i18n
+                       data-en="Register Your Interest →"
+                       data-fr="Manifester votre intérêt →"
+                       data-ja="ご関心をお知らせください →">
+                        Register Your Interest →
+                    </a>
+                    <a href="lacofu.html" class="btn-ghost"
+                       data-i18n
+                       data-en="About La Cofu"
+                       data-fr="À propos de La Cofu"
+                       data-ja="La Cofuについて">
+                        About La Cofu
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- LA COFU BAGS -->
-    <section>
-        <div class="container">
-            <h2 class="lang-content lang-en active">LA COFU — KIMONO BAGS</h2>
-            <h2 class="lang-content lang-fr">LA COFU — SACS KIMONO</h2>
-            <h2 class="lang-content lang-ja">ラ・コフ — 着物バッグ</h2>
-            <p class="section-sub lang-content lang-en active">Handmade in Kyūshū · Upcycled kimono & obi fabric</p>
-            <p class="section-sub lang-content lang-fr">Fabriqués à la main à Kyūshū · Tissu kimono et obi recyclé</p>
-            <p class="section-sub lang-content lang-ja">九州で手作り · 着物生地をアップサイクル · 一点もの</p>
-
-            <div class="thumb-gallery" id="bag-gallery">
-                <div class="thumb" onclick="openPreview(0)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png" loading="lazy" alt="La Cofu Kimono Bag 1"></div>
-                <div class="thumb" onclick="openPreview(1)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png" loading="lazy" alt="La Cofu Kimono Bag 2"></div>
-                <div class="thumb" onclick="openPreview(2)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png" loading="lazy" alt="La Cofu Kimono Bag 3"></div>
-                <div class="thumb" onclick="openPreview(3)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png" loading="lazy" alt="La Cofu Kimono Bag 4"></div>
-                <div class="thumb" onclick="openPreview(4)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png" loading="lazy" alt="La Cofu Kimono Bag 5"></div>
-                <div class="thumb" onclick="openPreview(5)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png" loading="lazy" alt="La Cofu Kimono Bag 6"></div>
-                <div class="thumb" onclick="openPreview(6)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png" loading="lazy" alt="La Cofu Kimono Bag 7"></div>
-                <div class="thumb" onclick="openPreview(7)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png" loading="lazy" alt="La Cofu Kimono Bag 8"></div>
-                <div class="thumb" onclick="openPreview(8)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png" loading="lazy" alt="La Cofu Kimono Bag 9"></div>
-                <div class="thumb" onclick="openPreview(9)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png" loading="lazy" alt="La Cofu Kimono Bag 10"></div>
-                <div class="thumb" onclick="openPreview(10)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png" loading="lazy" alt="La Cofu Kimono Bag 11"></div>
-                <div class="thumb" onclick="openPreview(11)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png" loading="lazy" alt="La Cofu Kimono Bag 12"></div>
+        <!-- Edition process strip -->
+        <div class="edition-strip">
+            <div class="strip-item">
+                <span class="strip-num">01</span>
+                <div class="strip-title" data-i18n data-en="Source" data-fr="Sélection" data-ja="素材選定">Source</div>
+                <div class="strip-desc"
+                     data-i18n
+                     data-en="Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance."
+                     data-fr="Kimono ou obi vintage choisi à Kyūshū. Chaque pièce porte sa propre provenance."
+                     data-ja="九州で選定したヴィンテージ着物・帯生地。それぞれに固有の来歴があります。">
+                    Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance.
+                </div>
             </div>
-
-            <div class="order-box">
-                <h3 class="lang-content lang-en active">Each Bag Is One of a Kind</h3>
-                <h3 class="lang-content lang-fr">Chaque Sac Est Unique</h3>
-                <h3 class="lang-content lang-ja">一点もの</h3>
-                <p class="lang-content lang-en active">Each piece carries its own history and character.</p>
-                <p class="lang-content lang-fr">Chaque pièce porte sa propre histoire et son caractère.</p>
-                <p class="lang-content lang-ja">それぞれに歴史と個性があります。</p>
-                <div class="price-tag">¥24,000 <span style="font-size:1rem;font-weight:400;color:var(--text-muted);">~ €138 / US$160</span></div>
-                <p class="price-note">Free worldwide shipping · Livraison gratuite · 送料無料</p>
-                <br>
-                <a href="contact.html" class="btn">Enquire / Order · Commander · ご注文</a>
-                <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted);">Online purchase coming soon · Achat en ligne bientôt · オンライン購入準備中</p>
+            <div class="strip-item">
+                <span class="strip-num">02</span>
+                <div class="strip-title" data-i18n data-en="Name" data-fr="Baptême" data-ja="命名">Name</div>
+                <div class="strip-desc"
+                     data-i18n
+                     data-en="Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic."
+                     data-fr="Les éditions portent le nom du tissu — Grue Showa, Pivoine Indigo. Jamais générique."
+                     data-ja="エディションは生地の名を冠します。昭和の鶴、藍の牡丹。ありきたりな名前はつけません。">
+                    Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic.
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- T-SHIRT -->
-    <section class="section-alt">
-        <div class="container">
-            <h2 class="lang-content lang-en active">SIGNATURE T-SHIRT</h2>
-            <h2 class="lang-content lang-fr">T-SHIRT SIGNATURE</h2>
-            <h2 class="lang-content lang-ja">シグネチャーTシャツ</h2>
-            <p class="section-sub lang-content lang-en active">Made in Kyūshū · Premium heavyweight cotton · Limited edition</p>
-            <p class="section-sub lang-content lang-fr">Fabriqué à Kyūshū · Coton épais premium · Édition limitée</p>
-            <p class="section-sub lang-content lang-ja">九州製 · プレミアム厚手コットン · 限定版</p>
-
-            <div class="tshirt-coming">
-                <span class="badge lang-content lang-en active">Coming May 2026</span>
-                <span class="badge lang-content lang-fr">Mai 2026</span>
-                <span class="badge lang-content lang-ja">2026年5月</span>
-                <h3 class="lang-content lang-en active">土地 — 人 — 物語</h3>
-                <h3 class="lang-content lang-fr">土地 — 人 — 物語</h3>
-                <h3 class="lang-content lang-ja">土地 — 人 — 物語</h3>
-                <p>Black · Beige · Sage Green · Ocean Blue<br><strong>Free Size (One Size)</strong> · Screen printed · ¥5,000</p>
-                    <br>
-                    <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline">@basecampkyushu — Follow for updates</a>
-                <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline lang-content lang-fr">Suivre pour les mises à jour →</a>
-                <a href="https://instagram.com/basecampkyushu" target="_blank" class="btn btn-outline lang-content lang-ja">Instagramでフォロー →</a>
+            <div class="strip-item">
+                <span class="strip-num">03</span>
+                <div class="strip-title" data-i18n data-en="Make" data-fr="Fabrication" data-ja="制作">Make</div>
+                <div class="strip-desc"
+                     data-i18n
+                     data-en="Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available."
+                     data-fr="Bande découpée et cousue à la main à Itoshima. La quantité est dictée par le tissu disponible."
+                     data-ja="糸島でバンドを裁断・手縫い。製作数は手元の生地が決めます。">
+                    Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available.
+                </div>
+            </div>
+            <div class="strip-item">
+                <span class="strip-num">04</span>
+                <div class="strip-title" data-i18n data-en="Release" data-fr="Lancement" data-ja="リリース">Release</div>
+                <div class="strip-desc"
+                     data-i18n
+                     data-en="Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions."
+                     data-fr="Vendu ici et lors des résidences en Europe. Une fois épuisé, l'édition est close. Sans exception."
+                     data-ja="当サイトとヨーロッパのレジデンスにて販売。売り切れたらそのエディションは終了。例外なし。">
+                    Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions.
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- PREVIEW OVERLAY -->
-    <div class="preview-overlay" id="preview-overlay">
-        <div class="preview-inner">
-            <button class="preview-close" onclick="closePreview()">&times;</button>
-            <button class="preview-nav preview-prev" onclick="changePreview(-1)">&#8249;</button>
-            <img id="preview-img" src="" alt="La Cofu Bag">
-            <button class="preview-nav preview-next" onclick="changePreview(1)">&#8250;</button>
-            <div class="preview-counter" id="preview-counter"></div>
+    </div>
+</section>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lb" id="lb">
+    <div class="lb-inner">
+        <button class="lb-close" onclick="closeLB()">&times;</button>
+        <button class="lb-prev" onclick="moveLB(-1)">&#8249;</button>
+        <img id="lb-img" src="" alt="">
+        <button class="lb-next" onclick="moveLB(1)">&#8250;</button>
+        <div class="lb-counter" id="lb-counter"></div>
+    </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>BASECAMP KYUSHU</h4>
+            <p>土地 — 人 — 物語</p>
+            <p>Where mountains meet the sea<br>and stories take form.</p>
+            <p style="margin-top:0.5rem;font-size:0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
+            <p style="margin-top:1.5rem;font-size:0.9rem;opacity:0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size:0.85rem;">Est. 2008</span><br>Covering Japan &amp; overseas network</p>
+        </div>
+        <div class="footer-section">
+            <h4>EXPLORE</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="in-motion.html">In Motion</a></li>
+                <li><a href="stories.html">Stories Project</a></li>
+                <li><a href="video-production.html">Video Production</a></li>
+                <li><a href="online-store.html">Online Store</a></li>
+                <li><a href="lacofu.html">La Cofu</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>CONNECT WITH US</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                <li>YouTube: <a href="https://www.youtube.com/@basecampkyushu" target="_blank">@basecampkyushu</a></li>
+                <li>Website: <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
+            </ul>
         </div>
     </div>
+    <div class="footer-bottom">
+        <p>© 2026 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) — All Rights Reserved.</p>
+    </div>
+</footer>
 
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>BASECAMP KYUSHU</h4>
-                <p>土地 — 人 — 物語</p>
-                <p>Where mountains meet the sea<br>and stories take form.</p>
-                <p style="margin-top:0.5rem;font-size:0.95rem;">Based in Itoshima, Fukuoka Prefecture, Kyūshū</p>
-                <p style="margin-top:1.5rem;font-size:0.9rem;opacity:0.85;">Produced by 株式会社 M Global Japan<br><span style="font-size:0.85rem;">Est. 2008</span><br>Covering Japan &amp; overseas network</p>
-            </div>
-            <div class="footer-section">
-                <h4>EXPLORE</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="in-motion.html">In Motion</a></li>
-                    <li><a href="stories.html">Stories Project</a></li>
-                    <li><a href="video-production.html">Video Production</a></li>
-                    <li><a href="online-store.html">Online Store</a></li>
-                    <li><a href="lacofu.html">La Cofu</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>CONNECT WITH US</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li>Instagram: <a href="https://instagram.com/basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>YouTube: <a href="https://www.youtube.com/@basecampkyushu" target="_blank">@basecampkyushu</a></li>
-                    <li>Website: <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 BASECAMP KYUSHU<br>by 株式会社 <a href="https://mglobaljapan.com/" target="_blank">M Global Japan</a> (Est. 2008) - All Rights Reserved.</p>
-        </div>
-    </footer>
+<script>
+(function() {
+    /* ── i18n — single source of truth via data-attributes ── */
+    var langs = ['en','fr','ja'];
+    var saved = localStorage.getItem('preferredLanguage');
+    var browser = (navigator.language || 'en').substring(0,2);
+    var current = (saved && langs.indexOf(saved) > -1) ? saved
+                : (langs.indexOf(browser) > -1 ? browser : 'en');
 
-    <script>
-    (function() {
-        // Language
-        var langs = ['en','fr','ja'];
-        var saved = localStorage.getItem('preferredLanguage');
-        var browser = (navigator.language || 'en').substring(0,2);
-        var current = (saved && langs.indexOf(saved) > -1) ? saved : (langs.indexOf(browser) > -1 ? browser : 'en');
-
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
-            document.querySelectorAll('.lang-' + lang).forEach(function(el) { el.classList.add('active'); });
-            document.querySelectorAll('.lang-btn').forEach(function(btn) {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            localStorage.setItem('preferredLanguage', lang);
-        }
-        document.querySelectorAll('.lang-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() { switchLanguage(this.getAttribute('data-lang')); });
+    function applyLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var val = el.getAttribute('data-' + lang);
+            if (val !== null) el.innerHTML = val;
         });
-        switchLanguage(current);
-
-        // Burger
-        var toggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-        if (toggle && navLinks) {
-            navLinks.classList.remove('active'); toggle.classList.remove('active');
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active'); toggle.classList.toggle('active');
-            });
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-                    navLinks.classList.remove('active'); toggle.classList.remove('active');
-                }
-            });
-            navLinks.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', function() { navLinks.classList.remove('active'); toggle.classList.remove('active'); });
-            });
-        }
-
-        // Sticky nav
-        var navbar = document.getElementById('navbar');
-        if (navbar) { window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 80); }); }
-    })();
-
-    // Bag preview
-    var bagImages = [
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png",
-        "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png"
-    ];
-    var currentBag = 0;
-
-    function openPreview(index) {
-        currentBag = index;
-        document.getElementById('preview-overlay').classList.add('active');
-        showPreview();
-        document.body.style.overflow = 'hidden';
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('preferredLanguage', lang);
     }
-    function closePreview() {
-        document.getElementById('preview-overlay').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    function changePreview(dir) {
-        currentBag = (currentBag + dir + bagImages.length) % bagImages.length;
-        showPreview();
-    }
-    function showPreview() {
-        document.getElementById('preview-img').src = bagImages[currentBag];
-        document.getElementById('preview-counter').textContent = (currentBag+1) + ' / ' + bagImages.length;
-    }
-    document.addEventListener('keydown', function(e) {
-        var ov = document.getElementById('preview-overlay');
-        if (ov.classList.contains('active')) {
-            if (e.key === 'ArrowLeft') changePreview(-1);
-            else if (e.key === 'ArrowRight') changePreview(1);
-            else if (e.key === 'Escape') closePreview();
-        }
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { applyLang(this.getAttribute('data-lang')); });
     });
-    document.getElementById('preview-overlay').addEventListener('click', function(e) {
-        if (e.target === this) closePreview();
-    });
-    // LEGACY (keep openBagLB for any remaining onclick)
-    function openBagLB(i) { openPreview(i); }
-    
-    </script>
+
+    applyLang(current);
+
+    /* ── Burger menu ── */
+    var toggle = document.querySelector('.mobile-menu-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (toggle && navLinks) {
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
+        navLinks.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                toggle.classList.remove('active');
+            });
+        });
+    }
+
+    /* ── Sticky nav ── */
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+    }
+})();
+
+/* ── Bag lightbox ── */
+var bagImgs = [
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-14_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-13-10-49_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-8_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-11_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag15_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag-10_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-01-at-13-16-00_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag3_orig.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag6.png",
+    "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png"
+];
+var lbIdx = 0;
+function openLB(i) { lbIdx = i; showLB(); document.getElementById('lb').classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeLB() { document.getElementById('lb').classList.remove('active'); document.body.style.overflow = ''; }
+function moveLB(d) { lbIdx = (lbIdx + d + bagImgs.length) % bagImgs.length; showLB(); }
+function showLB() {
+    document.getElementById('lb-img').src = bagImgs[lbIdx];
+    document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + bagImgs.length;
+}
+document.getElementById('lb').addEventListener('click', function(e) { if (e.target === this) closeLB(); });
+document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lb').classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') moveLB(-1);
+    else if (e.key === 'ArrowRight') moveLB(1);
+    else if (e.key === 'Escape') closeLB();
+});
+
+/* ── Shirt thumbnail switcher ── */
+function setShirt(el, src) {
+    document.getElementById('shirt-main-img').src = src;
+    document.querySelectorAll('.shirt-thumb').forEach(function(t) { t.classList.remove('active'); });
+    el.classList.add('active');
+}
+</script>
 </body>
 </html>
