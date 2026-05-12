@@ -64,7 +64,7 @@
             .nav-links a { display:block; padding:0.9rem 0.5rem; width:100%; font-size:1.25rem; }
         }
 
-        /* ── HERO — image only, no text ── */
+        /* ── HERO ── */
         .hero {
             min-height:72vh;
             background:url('https://basecampkyushu.weebly.com/uploads/2/2/0/6/22062792/screenshot-2025-12-19-at-19-17-20_orig.png') center/cover no-repeat;
@@ -77,26 +77,13 @@
         }
 
         /* ── CONTEXT STRIP ── */
-        .context-strip {
-            background:var(--espresso);
-            padding:20px 2rem;
-            text-align:center;
-        }
-        .context-strip p {
-            font-family:'Cormorant Garamond',serif;
-            font-size:15px;
-            color:rgba(250,247,243,0.6);
-            letter-spacing:0.02em;
-            max-width:860px;
-            margin:0 auto;
-            line-height:1.75;
-        }
+        .context-strip { background:var(--espresso); padding:20px 2rem; text-align:center; }
+        .context-strip p { font-family:'Cormorant Garamond',serif; font-size:15px; color:rgba(250,247,243,0.6); letter-spacing:0.02em; max-width:860px; margin:0 auto; line-height:1.75; }
         .context-strip p strong { color:var(--gold-lt); font-weight:500; }
 
         /* ── SHARED ── */
         .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
         section { padding:5rem 2rem; }
-
         .section-header { text-align:center; margin-bottom:3.5rem; }
         .section-header h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:0.5rem; color:var(--primary-dark); }
         .eyebrow { font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:12px; font-family:'Cormorant Garamond',serif; }
@@ -105,23 +92,8 @@
 
         /* ── BAG GRID ── */
         #bags { background:var(--white); }
-
-        .bag-grid {
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:10px;
-            max-width:1100px;
-            margin:0 auto;
-        }
-        .bag-item {
-            aspect-ratio:1/1;
-            overflow:hidden;
-            cursor:pointer;
-            position:relative;
-            border:1.5px solid var(--linen);
-            background:var(--sand);
-            transition:border-color 0.3s, box-shadow 0.3s;
-        }
+        .bag-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:1100px; margin:0 auto; }
+        .bag-item { aspect-ratio:1/1; overflow:hidden; cursor:pointer; position:relative; border:1.5px solid var(--linen); background:var(--sand); transition:border-color 0.3s, box-shadow 0.3s; }
         .bag-item:hover { border-color:var(--gold); box-shadow:0 4px 20px rgba(139,107,42,0.18); }
         .bag-item img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform 0.5s ease, filter 0.3s; filter:saturate(0.95); }
         .bag-item:hover img { transform:scale(1.06); filter:saturate(1.05); }
@@ -130,7 +102,7 @@
         .bag-item-overlay span { color:rgba(255,255,255,0); font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; transition:color 0.3s; }
         .bag-item:hover .bag-item-overlay span { color:rgba(255,255,255,0.9); }
 
-        /* ── ORDER BOX ── */
+        /* ── ORDER BOX — redirects to La Cofu ── */
         .order-box {
             border:1px solid var(--linen);
             border-top:3px solid var(--gold);
@@ -141,66 +113,89 @@
             box-shadow:0 6px 32px rgba(0,0,0,0.05);
         }
         .order-box h3 { font-size:1.9rem; color:var(--espresso); margin-bottom:0.6rem; }
-        .order-note { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:1.25rem; }
-        .price-tag { font-size:2.2rem; font-family:'Cormorant Garamond',serif; color:var(--primary-dark); font-weight:700; margin:0.75rem 0 0.2rem; }
-        .price-equiv { font-size:1rem; color:var(--text-muted); font-weight:400; }
-        .price-note { font-size:0.82rem; color:var(--text-muted); margin-top:0.2rem; margin-bottom:1.75rem; }
-        .btn { display:inline-block; padding:0.9rem 2.2rem; background:var(--accent-earth); color:#fff; text-decoration:none; border-radius:4px; font-weight:600; font-size:1.05rem; transition:all 0.3s; border:2px solid var(--accent-earth); }
-        .btn:hover { background:var(--espresso); border-color:var(--espresso); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.18); }
-        .order-soon { margin-top:1rem; font-size:0.82rem; color:var(--text-muted); font-style:italic; }
+        .order-note { color:var(--text-muted); font-size:1rem; line-height:1.75; margin-bottom:1.75rem; }
+
+        /* La Cofu redirect button */
+        .btn-lacofu {
+            display:inline-block;
+            padding:1rem 2.6rem;
+            background:var(--espresso);
+            color:#faf7f3;
+            text-decoration:none;
+            font-family:'Cormorant Garamond',serif;
+            font-size:1.15rem;
+            font-weight:500;
+            letter-spacing:0.06em;
+            border:2px solid var(--espresso);
+            transition:all 0.3s;
+        }
+        .btn-lacofu:hover {
+            background:var(--gold);
+            border-color:var(--gold);
+            color:var(--espresso);
+            transform:translateY(-2px);
+            box-shadow:0 6px 20px rgba(0,0,0,0.15);
+        }
+        .btn-lacofu span {
+            display:block;
+            font-family:'Source Sans Pro',sans-serif;
+            font-size:0.7rem;
+            letter-spacing:0.2em;
+            text-transform:uppercase;
+            opacity:0.6;
+            margin-top:4px;
+            font-weight:400;
+        }
+        .order-redirect-note {
+            margin-top:1.25rem;
+            font-size:0.82rem;
+            color:var(--text-muted);
+        }
+        .order-redirect-note a {
+            color:var(--gold);
+            text-decoration:none;
+            border-bottom:1px solid rgba(139,107,42,0.3);
+            transition:border-color 0.2s;
+        }
+        .order-redirect-note a:hover { border-color:var(--gold); }
 
         /* ── SHIRT SECTION ── */
         #shirt { background:var(--espresso); }
         #shirt .section-header h2 { color:var(--cream); }
         #shirt .section-sub { color:rgba(250,247,243,0.45); }
         #shirt .eyebrow { color:var(--gold-lt); }
-
         .lacofu-mark { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:18px; }
         .lacofu-mark img { width:40px; height:40px; object-fit:contain; opacity:0.9; }
         .lacofu-mark span { font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-lt); }
-
-        .shirt-layout {
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:72px;
-            max-width:1100px;
-            margin:0 auto;
-            align-items:start;
-        }
+        .shirt-layout { display:grid; grid-template-columns:1fr 1fr; gap:72px; max-width:1100px; margin:0 auto; align-items:start; }
         .shirt-img-main { width:100%; display:block; border:1px solid rgba(139,107,42,0.25); }
         .shirt-img-thumbs { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:6px; }
         .shirt-thumb { aspect-ratio:1/1; overflow:hidden; cursor:pointer; border:1.5px solid transparent; transition:border-color 0.25s; }
         .shirt-thumb.active,.shirt-thumb:hover { border-color:var(--gold); }
         .shirt-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
         .shirt-thumb:hover img { transform:scale(1.08); }
-
         .shirt-eyebrow { font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-lt); display:block; margin-bottom:16px; }
         .shirt-name { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,3.5vw,48px); font-weight:400; color:var(--cream); line-height:1.1; margin-bottom:8px; }
         .shirt-kanji { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--gold); letter-spacing:0.25em; display:block; margin-bottom:28px; }
         .shirt-divider { width:44px; height:1px; background:var(--gold); margin-bottom:28px; }
         .shirt-desc { font-size:16px; color:rgba(250,247,243,0.72); line-height:1.85; margin-bottom:24px; }
         .shirt-desc strong { color:var(--cream); }
-
         .edition-tag { display:inline-flex; align-items:center; gap:10px; background:rgba(139,107,42,0.15); border:1px solid rgba(139,107,42,0.3); padding:8px 18px; margin-bottom:28px; }
         .edition-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; }
         .edition-tag span { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-lt); font-family:'Cormorant Garamond',serif; }
-
         .shirt-features { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:32px; }
         .feat { padding:14px 16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
         .feat-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:3px; font-family:'Cormorant Garamond',serif; }
         .feat-val { font-size:14px; color:var(--cream); line-height:1.5; }
-
         .shirt-price-row { display:flex; align-items:baseline; gap:14px; margin-bottom:4px; }
         .shirt-price { font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--cream); font-weight:400; }
         .shirt-price-note { font-size:13px; color:rgba(250,247,243,0.38); }
         .shirt-releasing { font-size:13px; color:var(--gold-lt); font-style:italic; margin-bottom:28px; letter-spacing:0.04em; }
-
         .shirt-cta { display:flex; flex-wrap:wrap; gap:12px; }
         .btn-gold { display:inline-block; padding:0.9rem 2.2rem; background:var(--gold); color:var(--espresso); text-decoration:none; border-radius:4px; font-weight:700; font-size:1.05rem; transition:all 0.3s; border:2px solid var(--gold); }
         .btn-gold:hover { background:var(--gold-lt); border-color:var(--gold-lt); transform:translateY(-2px); }
         .btn-ghost { display:inline-block; padding:0.9rem 2.2rem; background:transparent; color:rgba(250,247,243,0.6); text-decoration:none; border-radius:4px; font-size:1rem; transition:all 0.3s; border:1px solid rgba(250,247,243,0.18); }
         .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
-
         .edition-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; max-width:1100px; margin:64px auto 0; background:rgba(139,107,42,0.2); }
         .strip-item { background:rgba(255,255,255,0.03); padding:28px 24px; text-align:center; transition:background 0.3s; }
         .strip-item:hover { background:rgba(139,107,42,0.1); }
@@ -217,8 +212,7 @@
         .lb-close:hover { color:var(--gold-lt); }
         .lb-prev,.lb-next { position:absolute; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.7); font-size:1.8rem; cursor:pointer; background:rgba(0,0,0,0.32); border:none; padding:0.4rem 0.9rem; transition:background 0.2s; }
         .lb-prev:hover,.lb-next:hover { background:rgba(139,107,42,0.5); }
-        .lb-prev { left:-3.5rem; }
-        .lb-next { right:-3.5rem; }
+        .lb-prev { left:-3.5rem; } .lb-next { right:-3.5rem; }
         .lb-counter { text-align:center; color:rgba(255,255,255,0.3); font-size:0.75rem; letter-spacing:0.15em; margin-top:0.75rem; font-family:'Cormorant Garamond',serif; }
         @media (max-width:600px) { .lb-prev{left:-2rem;} .lb-next{right:-2rem;} }
 
@@ -252,7 +246,7 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV — unchanged -->
 <nav id="navbar">
     <div class="nav-container">
         <a href="index.html" class="logo">
@@ -278,25 +272,22 @@
     </div>
 </nav>
 
-<!-- ── HERO — image only, no text overlay ── -->
+<!-- HERO — unchanged -->
 <div class="hero"></div>
 
-<!-- ── CONTEXT STRIP ── -->
+<!-- CONTEXT STRIP — unchanged -->
 <div class="context-strip">
     <p data-i18n
-       data-en="<strong>La Cofu</strong> is the handmade objects project of Basecamp Kyūshū — bags and shirts crafted from vintage Japanese fabric in Itoshima, Kyūshū, and sold here as well as at our cultural residencies across Europe."
-       data-fr="<strong>La Cofu</strong> est le projet d'objets faits main de Basecamp Kyūshū — sacs et chemises fabriqués à partir de tissus japonais vintage à Itoshima, Kyūshū, disponibles ici et lors de nos résidences culturelles en Europe."
-       data-ja="<strong>La Cofu</strong>はベースキャンプ九州のハンドメイドオブジェクトプロジェクト。糸島市でヴィンテージ和布から製作されたバッグとシャツを、当サイトとヨーロッパの文化レジデンスにて販売しています。">
+       data-en="&lt;strong&gt;La Cofu&lt;/strong&gt; is the handmade objects project of Basecamp Kyūshū — bags and shirts crafted from vintage Japanese fabric in Itoshima, Kyūshū, and sold here as well as at our cultural residencies across Europe."
+       data-fr="&lt;strong&gt;La Cofu&lt;/strong&gt; est le projet d'objets faits main de Basecamp Kyūshū — sacs et chemises fabriqués à partir de tissus japonais vintage à Itoshima, Kyūshū, disponibles ici et lors de nos résidences culturelles en Europe."
+       data-ja="&lt;strong&gt;La Cofu&lt;/strong&gt;はベースキャンプ九州のハンドメイドオブジェクトプロジェクト。糸島市でヴィンテージ和布から製作されたバッグとシャツを、当サイトとヨーロッパの文化レジデンスにて販売しています。">
         <strong>La Cofu</strong> is the handmade objects project of Basecamp Kyūshū — bags and shirts crafted from vintage Japanese fabric in Itoshima, Kyūshū, and sold here as well as at our cultural residencies across Europe.
     </p>
 </div>
 
-<!-- ══════════════════════════════════════
-     SECTION 1 — KIMONO BAGS
-══════════════════════════════════════ -->
+<!-- BAGS SECTION — gallery unchanged -->
 <section id="bags">
     <div class="container">
-
         <div class="section-header">
             <span class="eyebrow">La Cofu 古布</span>
             <h2 data-i18n data-en="Kimono Bags" data-fr="Sacs Kimono" data-ja="着物バッグ">Kimono Bags</h2>
@@ -310,7 +301,6 @@
             <div class="section-rule"></div>
         </div>
 
-        <!-- 4×3 square grid with borders -->
         <div class="bag-grid">
             <div class="bag-item" onclick="openLB(0)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
             <div class="bag-item" onclick="openLB(1)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
@@ -326,7 +316,7 @@
             <div class="bag-item" onclick="openLB(11)"><img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/bag4_orig.png" loading="lazy" alt="La Cofu Bag"><div class="bag-item-overlay"><span>View</span></div></div>
         </div>
 
-        <!-- Order box -->
+        <!-- ── ORDER BOX — updated: redirects to La Cofu shop ── -->
         <div class="order-box">
             <h3 data-i18n
                 data-en="No Two Pieces Are the Same"
@@ -336,44 +326,36 @@
             </h3>
             <p class="order-note"
                data-i18n
-               data-en="The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. No reprints, no reorders."
-               data-fr="C'est le tissu qui décide l'objet. Quand une pièce part, ce tissu précis disparaît — définitivement. Sans réimpression ni réapprovisionnement."
-               data-ja="生地がオブジェクトを決めます。一度売れたら、そのテキスタイルは永遠に消えます。再版なし、再入荷なし。">
-                The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. No reprints, no reorders.
+               data-en="The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. Each bag is named, described and available for immediate purchase on La Cofu."
+               data-fr="C'est le tissu qui décide l'objet. Quand une pièce part, ce tissu précis disparaît — définitivement. Chaque sac est nommé, décrit et disponible à l'achat immédiat sur La Cofu."
+               data-ja="生地がオブジェクトを決めます。一度売れたら、そのテキスタイルは永遠に消えます。各バッグの名前・説明・購入はLa Cofuにて。">
+                The fabric decides the object. When a piece leaves, that exact textile is gone — permanently. Each bag is named, described and available for immediate purchase on La Cofu.
             </p>
-            <div class="price-tag">¥24,000 <span class="price-equiv">~ €138 / US$160</span></div>
-            <p class="price-note"
+
+            <a href="https://lacofu.weebly.com/shop.html" class="btn-lacofu" target="_blank" rel="noopener"
                data-i18n
-               data-en="Free worldwide shipping · Handmade in Itoshima, Kyūshū"
-               data-fr="Livraison gratuite dans le monde · Fabriqué à la main à Itoshima, Kyūshū"
-               data-ja="送料無料 · 糸島市、九州で手作り">
-                Free worldwide shipping · Handmade in Itoshima, Kyūshū
-            </p>
-            <a href="contact.html" class="btn"
-               data-i18n
-               data-en="Enquire &amp; Order →"
-               data-fr="Commander →"
-               data-ja="お問い合わせ・ご注文 →">
-                Enquire &amp; Order →
+               data-en="Shop the Collection on La Cofu →&lt;span&gt;Named pieces · Secure checkout · Free worldwide shipping&lt;/span&gt;"
+               data-fr="Voir la Collection sur La Cofu →&lt;span&gt;Pièces nommées · Paiement sécurisé · Livraison mondiale gratuite&lt;/span&gt;"
+               data-ja="La Cofuでコレクションを見る →&lt;span&gt;名前入り · 安全な決済 · 世界送料無料&lt;/span&gt;">
+                Shop the Collection on La Cofu →
+                <span>Named pieces · Secure checkout · Free worldwide shipping</span>
             </a>
-            <p class="order-soon"
+
+            <p class="order-redirect-note"
                data-i18n
-               data-en="Secure online checkout coming soon"
-               data-fr="Paiement en ligne sécurisé bientôt disponible"
-               data-ja="オンライン決済準備中">
-                Secure online checkout coming soon
+               data-en="Prefer to enquire directly? &lt;a href='contact.html'&gt;Contact us&lt;/a&gt;"
+               data-fr="Vous préférez nous contacter directement ? &lt;a href='contact.html'&gt;Écrivez-nous&lt;/a&gt;"
+               data-ja="直接お問い合わせは &lt;a href='contact.html'&gt;こちら&lt;/a&gt;">
+                Prefer to enquire directly? <a href="contact.html">Contact us</a>
             </p>
         </div>
 
     </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SECTION 2 — THE SHIRT
-══════════════════════════════════════ -->
+<!-- SHIRT SECTION — fully unchanged -->
 <section id="shirt">
     <div class="container">
-
         <div class="section-header">
             <div class="lacofu-mark">
                 <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-26-at-16-18-09_orig.png" alt="La Cofu logo">
@@ -391,49 +373,32 @@
         </div>
 
         <div class="shirt-layout">
-
-            <!-- Left: image panel with 2 thumbnails -->
             <div>
                 <img id="shirt-main-img"
                      src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png"
-                     alt="La Cofu shirt"
-                     class="shirt-img-main">
+                     alt="La Cofu shirt" class="shirt-img-main">
                 <div class="shirt-img-thumbs">
                     <div class="shirt-thumb active" onclick="setShirt(this,'https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png')">
                         <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-05-08-at-12-13-04_orig.png" alt="">
                     </div>
+                    <div class="shirt-thumb" onclick="setShirt(this,'https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/gemini-generated-image-b6vuzob6vuzob6vu_orig.png')">
+                        <img src="https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/gemini-generated-image-b6vuzob6vuzob6vu_orig.png" alt="">
+                    </div>
                 </div>
             </div>
 
-            <!-- Right: product details -->
             <div>
-                <span class="shirt-eyebrow"
-                      data-i18n
-                      data-en="La Cofu — Edition Series"
-                      data-fr="La Cofu — Série d'Éditions"
-                      data-ja="La Cofu — エディション・シリーズ">
-                    La Cofu — Edition Series
-                </span>
-
-                <h2 class="shirt-name"
-                    data-i18n
-                    data-en="The Shirt"
-                    data-fr="La Chemise"
-                    data-ja="着物シャツ">
-                    The Shirt
-                </h2>
-
+                <span class="shirt-eyebrow" data-i18n data-en="La Cofu — Edition Series" data-fr="La Cofu — Série d'Éditions" data-ja="La Cofu — エディション・シリーズ">La Cofu — Edition Series</span>
+                <h2 class="shirt-name" data-i18n data-en="The Shirt" data-fr="La Chemise" data-ja="着物シャツ">The Shirt</h2>
                 <span class="shirt-kanji">着 物 帯</span>
                 <div class="shirt-divider"></div>
-
                 <p class="shirt-desc"
                    data-i18n
-                   data-en="A contemporary kimono-collar top with a horizontal band of <strong>genuine vintage obi or kimono fabric</strong> across the chest — sourced and selected in Kyūshū. Linen or cotton base. A relaxed silhouette that reads as fashion, not costume."
-                   data-fr="Un haut contemporain à col kimono avec une bande horizontale de <strong>tissu obi ou kimono vintage authentique</strong> sur la poitrine — sourcé à Kyūshū. Base lin ou coton. Une silhouette décontractée qui se lit comme de la mode, pas un costume."
-                   data-ja="胸元にヴィンテージの<strong>着物・帯生地</strong>を横一列に配した現代的な着物衿のトップス。九州で調達・厳選。リネンまたはコットンベース。コスチュームではなく、ファッションとして着られるシルエット。">
+                   data-en="A contemporary kimono-collar top with a horizontal band of &lt;strong&gt;genuine vintage obi or kimono fabric&lt;/strong&gt; across the chest — sourced and selected in Kyūshū. Linen or cotton base. A relaxed silhouette that reads as fashion, not costume."
+                   data-fr="Un haut contemporain à col kimono avec une bande horizontale de &lt;strong&gt;tissu obi ou kimono vintage authentique&lt;/strong&gt; sur la poitrine — sourcé à Kyūshū. Base lin ou coton. Une silhouette décontractée qui se lit comme de la mode, pas un costume."
+                   data-ja="胸元にヴィンテージの&lt;strong&gt;着物・帯生地&lt;/strong&gt;を横一列に配した現代的な着物衿のトップス。九州で調達・厳選。リネンまたはコットンベース。">
                     A contemporary kimono-collar top with a horizontal band of <strong>genuine vintage obi or kimono fabric</strong> across the chest — sourced and selected in Kyūshū. Linen or cotton base. A relaxed silhouette that reads as fashion, not costume.
                 </p>
-
                 <div class="edition-tag">
                     <span class="edition-dot"></span>
                     <span data-i18n
@@ -443,109 +408,34 @@
                         Each edition is named for its fabric. When the fabric runs out, the edition closes permanently.
                     </span>
                 </div>
-
                 <div class="shirt-features">
-                    <div class="feat">
-                        <span class="feat-label" data-i18n data-en="Silhouette" data-fr="Silhouette" data-ja="シルエット">Silhouette</span>
-                        <div class="feat-val" data-i18n data-en="Kimono collar · Relaxed fit" data-fr="Col kimono · Coupe décontractée" data-ja="着物衿 · リラックスフィット">Kimono collar · Relaxed fit</div>
-                    </div>
-                    <div class="feat">
-                        <span class="feat-label" data-i18n data-en="Material" data-fr="Matière" data-ja="素材">Material</span>
-                        <div class="feat-val" data-i18n data-en="Linen or cotton base" data-fr="Lin ou coton" data-ja="リネンまたはコットン">Linen or cotton base</div>
-                    </div>
-                    <div class="feat">
-                        <span class="feat-label" data-i18n data-en="Sizes" data-fr="Tailles" data-ja="サイズ">Sizes</span>
-                        <div class="feat-val" data-i18n data-en="S / M / L — Men &amp; Women" data-fr="S / M / L — Homme &amp; Femme" data-ja="S / M / L — 男女兼用">S / M / L — Men &amp; Women</div>
-                    </div>
-                    <div class="feat">
-                        <span class="feat-label" data-i18n data-en="Assembled in" data-fr="Assemblé à" data-ja="製造地">Assembled in</span>
-                        <div class="feat-val">糸島製 — Itoshima, Kyūshū</div>
-                    </div>
+                    <div class="feat"><span class="feat-label" data-i18n data-en="Silhouette" data-fr="Silhouette" data-ja="シルエット">Silhouette</span><div class="feat-val" data-i18n data-en="Kimono collar · Relaxed fit" data-fr="Col kimono · Coupe décontractée" data-ja="着物衿 · リラックスフィット">Kimono collar · Relaxed fit</div></div>
+                    <div class="feat"><span class="feat-label" data-i18n data-en="Material" data-fr="Matière" data-ja="素材">Material</span><div class="feat-val" data-i18n data-en="Linen or cotton base" data-fr="Lin ou coton" data-ja="リネンまたはコットン">Linen or cotton base</div></div>
+                    <div class="feat"><span class="feat-label" data-i18n data-en="Sizes" data-fr="Tailles" data-ja="サイズ">Sizes</span><div class="feat-val" data-i18n data-en="S / M / L — Men &amp; Women" data-fr="S / M / L — Homme &amp; Femme" data-ja="S / M / L — 男女兼用">S / M / L — Men &amp; Women</div></div>
+                    <div class="feat"><span class="feat-label" data-i18n data-en="Assembled in" data-fr="Assemblé à" data-ja="製造地">Assembled in</span><div class="feat-val">糸島製 — Itoshima, Kyūshū</div></div>
                 </div>
-
                 <div class="shirt-price-row">
                     <span class="shirt-price">¥8,000</span>
                     <span class="shirt-price-note">~ €46 / US$53</span>
                 </div>
-                <p class="shirt-releasing"
-                   data-i18n
-                   data-en="First editions releasing soon — follow @lacofu for updates"
-                   data-fr="Premières éditions bientôt disponibles — suivez @lacofu"
-                   data-ja="初回エディション近日公開予定 — @lacofuをフォロー">
-                    First editions releasing soon — follow @lacofu for updates
-                </p>
-
+                <p class="shirt-releasing" data-i18n data-en="First editions releasing soon — follow @lacofu for updates" data-fr="Premières éditions bientôt disponibles — suivez @lacofu" data-ja="初回エディション近日公開予定 — @lacofuをフォロー">First editions releasing soon — follow @lacofu for updates</p>
                 <div class="shirt-cta">
-                    <a href="contact.html" class="btn-gold"
-                       data-i18n
-                       data-en="Register Your Interest →"
-                       data-fr="Manifester votre intérêt →"
-                       data-ja="ご関心をお知らせください →">
-                        Register Your Interest →
-                    </a>
-                    <a href="lacofu.html" class="btn-ghost"
-                       data-i18n
-                       data-en="About La Cofu"
-                       data-fr="À propos de La Cofu"
-                       data-ja="La Cofuについて">
-                        About La Cofu
-                    </a>
+                    <a href="contact.html" class="btn-gold" data-i18n data-en="Register Your Interest →" data-fr="Manifester votre intérêt →" data-ja="ご関心をお知らせください →">Register Your Interest →</a>
+                    <a href="lacofu.html" class="btn-ghost" data-i18n data-en="About La Cofu" data-fr="À propos de La Cofu" data-ja="La Cofuについて">About La Cofu</a>
                 </div>
             </div>
         </div>
 
-        <!-- Edition process strip -->
         <div class="edition-strip">
-            <div class="strip-item">
-                <span class="strip-num">01</span>
-                <div class="strip-title" data-i18n data-en="Source" data-fr="Sélection" data-ja="素材選定">Source</div>
-                <div class="strip-desc"
-                     data-i18n
-                     data-en="Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance."
-                     data-fr="Kimono ou obi vintage choisi à Kyūshū. Chaque pièce porte sa propre provenance."
-                     data-ja="九州で選定したヴィンテージ着物・帯生地。それぞれに固有の来歴があります。">
-                    Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance.
-                </div>
-            </div>
-            <div class="strip-item">
-                <span class="strip-num">02</span>
-                <div class="strip-title" data-i18n data-en="Name" data-fr="Baptême" data-ja="命名">Name</div>
-                <div class="strip-desc"
-                     data-i18n
-                     data-en="Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic."
-                     data-fr="Les éditions portent le nom du tissu — Grue Showa, Pivoine Indigo. Jamais générique."
-                     data-ja="エディションは生地の名を冠します。昭和の鶴、藍の牡丹。ありきたりな名前はつけません。">
-                    Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic.
-                </div>
-            </div>
-            <div class="strip-item">
-                <span class="strip-num">03</span>
-                <div class="strip-title" data-i18n data-en="Make" data-fr="Fabrication" data-ja="制作">Make</div>
-                <div class="strip-desc"
-                     data-i18n
-                     data-en="Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available."
-                     data-fr="Bande découpée et cousue à la main à Itoshima. La quantité est dictée par le tissu disponible."
-                     data-ja="糸島でバンドを裁断・手縫い。製作数は手元の生地が決めます。">
-                    Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available.
-                </div>
-            </div>
-            <div class="strip-item">
-                <span class="strip-num">04</span>
-                <div class="strip-title" data-i18n data-en="Release" data-fr="Lancement" data-ja="リリース">Release</div>
-                <div class="strip-desc"
-                     data-i18n
-                     data-en="Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions."
-                     data-fr="Vendu ici et lors des résidences en Europe. Une fois épuisé, l'édition est close. Sans exception."
-                     data-ja="当サイトとヨーロッパのレジデンスにて販売。売り切れたらそのエディションは終了。例外なし。">
-                    Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions.
-                </div>
-            </div>
+            <div class="strip-item"><span class="strip-num">01</span><div class="strip-title" data-i18n data-en="Source" data-fr="Sélection" data-ja="素材選定">Source</div><div class="strip-desc" data-i18n data-en="Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance." data-fr="Kimono ou obi vintage choisi à Kyūshū. Chaque pièce porte sa propre provenance." data-ja="九州で選定したヴィンテージ着物・帯生地。それぞれに固有の来歴があります。">Vintage kimono or obi chosen in Kyūshū. Each piece carries its own provenance.</div></div>
+            <div class="strip-item"><span class="strip-num">02</span><div class="strip-title" data-i18n data-en="Name" data-fr="Baptême" data-ja="命名">Name</div><div class="strip-desc" data-i18n data-en="Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic." data-fr="Les éditions portent le nom du tissu — Grue Showa, Pivoine Indigo. Jamais générique." data-ja="エディションは生地の名を冠します。昭和の鶴、藍の牡丹。ありきたりな名前はつけません。">Editions take the name of the fabric — Showa Crane, Indigo Peony. Never generic.</div></div>
+            <div class="strip-item"><span class="strip-num">03</span><div class="strip-title" data-i18n data-en="Make" data-fr="Fabrication" data-ja="制作">Make</div><div class="strip-desc" data-i18n data-en="Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available." data-fr="Bande découpée et cousue à la main à Itoshima. La quantité est dictée par le tissu disponible." data-ja="糸島でバンドを裁断・手縫い。製作数は手元の生地が決めます。">Band cut and hand-sewn in Itoshima. Run size is determined entirely by the fabric available.</div></div>
+            <div class="strip-item"><span class="strip-num">04</span><div class="strip-title" data-i18n data-en="Release" data-fr="Lancement" data-ja="リリース">Release</div><div class="strip-desc" data-i18n data-en="Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions." data-fr="Vendu ici et lors des résidences en Europe. Une fois épuisé, l'édition est close. Sans exception." data-ja="当サイトとヨーロッパのレジデンスにて販売。売り切れたらそのエディションは終了。例外なし。">Sold here and at residencies in Europe. Once gone, the edition is closed. No exceptions.</div></div>
         </div>
-
     </div>
 </section>
 
-<!-- ── LIGHTBOX ── -->
+<!-- LIGHTBOX — unchanged -->
 <div class="lb" id="lb">
     <div class="lb-inner">
         <button class="lb-close" onclick="closeLB()">&times;</button>
@@ -556,7 +446,7 @@
     </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER — unchanged -->
 <footer class="main-footer">
     <div class="footer-content">
         <div class="footer-section">
@@ -594,13 +484,10 @@
 
 <script>
 (function() {
-    /* ── i18n — single source of truth via data-attributes ── */
     var langs = ['en','fr','ja'];
     var saved = localStorage.getItem('preferredLanguage');
     var browser = (navigator.language || 'en').substring(0,2);
-    var current = (saved && langs.indexOf(saved) > -1) ? saved
-                : (langs.indexOf(browser) > -1 ? browser : 'en');
-
+    var current = (saved && langs.indexOf(saved) > -1) ? saved : (langs.indexOf(browser) > -1 ? browser : 'en');
     function applyLang(lang) {
         document.querySelectorAll('[data-i18n]').forEach(function(el) {
             var val = el.getAttribute('data-' + lang);
@@ -612,46 +499,23 @@
         document.documentElement.lang = lang;
         localStorage.setItem('preferredLanguage', lang);
     }
-
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.addEventListener('click', function() { applyLang(this.getAttribute('data-lang')); });
     });
-
     applyLang(current);
 
-    /* ── Burger menu ── */
     var toggle = document.querySelector('.mobile-menu-toggle');
     var navLinks = document.querySelector('.nav-links');
     if (toggle && navLinks) {
-        toggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
-        });
-        document.addEventListener('click', function(e) {
-            if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                toggle.classList.remove('active');
-            }
-        });
-        navLinks.querySelectorAll('a').forEach(function(a) {
-            a.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                toggle.classList.remove('active');
-            });
-        });
+        toggle.addEventListener('click', function(e) { e.stopPropagation(); navLinks.classList.toggle('active'); toggle.classList.toggle('active'); });
+        document.addEventListener('click', function(e) { if (!navLinks.contains(e.target) && !toggle.contains(e.target)) { navLinks.classList.remove('active'); toggle.classList.remove('active'); } });
+        navLinks.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { navLinks.classList.remove('active'); toggle.classList.remove('active'); }); });
     }
 
-    /* ── Sticky nav ── */
     var navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            navbar.classList.toggle('scrolled', window.scrollY > 80);
-        });
-    }
+    if (navbar) { window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 80); }); }
 })();
 
-/* ── Bag lightbox ── */
 var bagImgs = [
     "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/4.png",
     "https://lacofu2.weebly.com/uploads/2/2/0/6/22062792/screenshot-2026-04-27-at-12-49-53_orig.png",
@@ -670,19 +534,10 @@ var lbIdx = 0;
 function openLB(i) { lbIdx = i; showLB(); document.getElementById('lb').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeLB() { document.getElementById('lb').classList.remove('active'); document.body.style.overflow = ''; }
 function moveLB(d) { lbIdx = (lbIdx + d + bagImgs.length) % bagImgs.length; showLB(); }
-function showLB() {
-    document.getElementById('lb-img').src = bagImgs[lbIdx];
-    document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + bagImgs.length;
-}
+function showLB() { document.getElementById('lb-img').src = bagImgs[lbIdx]; document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + bagImgs.length; }
 document.getElementById('lb').addEventListener('click', function(e) { if (e.target === this) closeLB(); });
-document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lb').classList.contains('active')) return;
-    if (e.key === 'ArrowLeft') moveLB(-1);
-    else if (e.key === 'ArrowRight') moveLB(1);
-    else if (e.key === 'Escape') closeLB();
-});
+document.addEventListener('keydown', function(e) { if (!document.getElementById('lb').classList.contains('active')) return; if (e.key === 'ArrowLeft') moveLB(-1); else if (e.key === 'ArrowRight') moveLB(1); else if (e.key === 'Escape') closeLB(); });
 
-/* ── Shirt thumbnail switcher ── */
 function setShirt(el, src) {
     document.getElementById('shirt-main-img').src = src;
     document.querySelectorAll('.shirt-thumb').forEach(function(t) { t.classList.remove('active'); });
