@@ -233,23 +233,15 @@
 
                 <div class="cta-container">
                     <a href="#" id="buyBW" class="buy-btn buy-btn-bw">
-                        <span class="active-lang" data-lang="en">B&W Illustrated Edition</span>
-                        <span data-lang="fr">Édition illustrée N&B</span>
-                        <span data-lang="ja">白黒イラスト版</span>
-                        <span class="price">US $15 / €13</span>
-                    </a>
-                    <a href="#" id="buyColor" class="buy-btn buy-btn-color">
                         <span class="active-lang" data-lang="en">Color Illustrated Edition</span>
-                        <span data-lang="fr">Édition illustrée couleur</span>
-                        <span data-lang="ja">カラーイラスト版</span>
-                        <span class="price">US $25 / €23</span>
+                        <span data-lang="fr">Édition illustrée en couleurs</span>
+                        <span data-lang="ja">イラスト版</span>
+                        <span class="price">US $6 / €5</span>
+                  
                     </a>
                 </div>
 
-                <p class="japan-note" id="japanNote" style="display:none;">
-                    <span class="active-lang" data-lang="en">*In Japan, only the B&W paperback edition is available.</span>
-                    <span data-lang="fr">*Au Japon, seule l'édition papier N&B est disponible.</span>
-                    <span data-lang="ja">*日本国内では、白黒ペーパーバック版のみご利用いただけます。</span>
+               
                 </p>
                 <p class="japan-gift-note" id="japanGiftNote">
                     <span class="active-lang" data-lang="en">💡 Want to gift the Color Edition to someone overseas? You can still purchase it as a gift through Amazon — simply select a delivery address outside Japan at checkout.</span>
@@ -596,7 +588,6 @@
             else if (userLang.startsWith('ja') || timezone.includes('Tokyo') || timezone.includes('Asia')) region = 'jp';
 
             var links = {
-                bw:    { us:'https://www.amazon.com/dp/B0GHRSP7X4', fr:'https://www.amazon.fr/dp/B0GHRSP7X4', jp:'https://www.amazon.co.jp/dp/B0GHRSP7X4' },
                 color: { us:'https://www.amazon.com/dp/B0GXHX12KT', fr:'https://www.amazon.fr/dp/B0GXHX12KT', jp:'https://www.amazon.co.jp/dp/B0GHRSP7X4' }
             };
 
