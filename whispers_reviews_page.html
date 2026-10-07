@@ -129,13 +129,9 @@
         .book-info p { color:#bbb; font-size:1.1em; max-width:700px; margin:0 auto 20px; }
         .cta-container { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:20px 0; }
         .buy-btn { display:inline-block; padding:15px 30px; border-radius:30px; font-weight:bold; font-size:1.05em; transition:all 0.3s ease; text-align:center; min-width:200px; }
-        .buy-btn-bw { background:linear-gradient(135deg,#555,#333); color:#fff; border:2px solid #999; }
-        .buy-btn-bw:hover { transform:translateY(-2px); box-shadow:0 5px 20px rgba(255,255,255,0.2); border-color:var(--gold); }
         .buy-btn-color { background:linear-gradient(135deg,var(--gold),#c99f2a); color:#1a1a1a; border:2px solid var(--gold); }
         .buy-btn-color:hover { transform:translateY(-2px); box-shadow:0 5px 20px rgba(212,175,55,0.4); }
         .price { display:block; font-size:0.9em; margin-top:5px; opacity:0.9; }
-        .japan-note { text-align:center; color:#999; font-size:0.9em; font-style:italic; margin-top:15px; }
-        .japan-gift-note { text-align:center; color:#b8a060; font-size:0.88em; margin-top:8px; font-style:italic; background:rgba(212,175,55,0.06); border-radius:8px; padding:10px 20px; display:none; }
 
         .reviews-section { margin-bottom:50px; }
         .section-title { font-size:1.8em; color:var(--gold); margin-bottom:30px; text-align:center; font-weight:300; }
@@ -232,22 +228,13 @@
                 <p><span class="active-lang" data-lang="en">An atmospheric literary journey into intimate Japan, where silences speak louder than words.<br>A tale of memory that refuses to stay.</span><span data-lang="fr">Un voyage littéraire atmosphérique dans le Japon intime,<br>où les silences parlent plus fort que les mots.</span><span data-lang="ja">言葉よりも沈黙が語る、<br>親密な日本への文学的な旅。</span></p>
 
                 <div class="cta-container">
-                    <a href="#" id="buyBW" class="buy-btn buy-btn-bw">
-                        <span class="active-lang" data-lang="en">Color Illustrated Edition</span>
-                        <span data-lang="fr">Édition illustrée en couleurs</span>
-                        <span data-lang="ja">イラスト版</span>
+                    <a href="https://www.amazon.com/dp/B0FVK89Z21" id="buyColor" class="buy-btn buy-btn-color" target="_blank" rel="noopener">
+                        <span class="active-lang" data-lang="en">Kindle Color Edition</span>
+                        <span data-lang="fr">Édition Kindle en couleurs</span>
+                        <span data-lang="ja">Kindle カラー版</span>
                         <span class="price">US $6 / €5</span>
-                  
                     </a>
                 </div>
-
-               
-                </p>
-                <p class="japan-gift-note" id="japanGiftNote">
-                    <span class="active-lang" data-lang="en">💡 Want to gift the Color Edition to someone overseas? You can still purchase it as a gift through Amazon — simply select a delivery address outside Japan at checkout.</span>
-                    <span data-lang="fr">💡 Vous souhaitez offrir l'édition couleur à quelqu'un à l'étranger ? Vous pouvez toujours l'acheter en cadeau via Amazon — sélectionnez simplement une adresse de livraison hors du Japon lors du paiement.</span>
-                    <span data-lang="ja">💡 海外の方へカラー版を贈りたい場合は、Amazonのギフト機能をご利用ください。チェックアウト時に日本国外の配送先を選択するだけで購入可能です。</span>
-                </p>
             </div>
 
             <!-- PAGE SHARE SECTION - one for all reviews -->
@@ -322,80 +309,73 @@
 
                 <h3 style="color:var(--gold);font-size:1.3em;margin:50px 0 20px;text-align:center;font-weight:300;"><span class="active-lang" data-lang="en">Early Reader Reviews</span><span data-lang="fr">Premiers lecteurs</span><span data-lang="ja">初期レビュー</span></h3>
 
-                div class="review-card">
-                    <p class="review-text">"Avant sa mise en vente, dix exemplaires de Les Murmures des cendres ont été mis en circulation auprès de lecteurs en France.Ces lecteurs ne sont ni des proches, ni des amis de l'auteur. Ils ont découvert le livre dans le cadre d'une opération de lecture partagée, les exemplaires circulant toujours aujourd'hui de lecteur en lecteur.Les participants n'ont pas acheté le livre et n'avaient aucune obligation de rédiger un avis. Les témoignages présentés ici reflètent donc des impressions personnelles, libres et sincères. Les exemplaires en circulation correspondent à une version préliminaire contenant les photographies en noir et blanc. L'édition actuellement disponible à la vente sur Amazon bénéficie quant à elle d'illustrations en couleur."</p>
+                <div class="review-card">
+                    <p class="review-text">"Avant sa mise en vente, dix exemplaires de Les Murmures des cendres ont été mis en circulation auprès de lecteurs en France. Ces lecteurs ne sont ni des proches, ni des amis de l'auteur. Ils ont découvert le livre dans le cadre d'une opération de lecture partagée, les exemplaires circulant toujours aujourd'hui de lecteur en lecteur. Les participants n'ont pas acheté le livre et n'avaient aucune obligation de rédiger un avis. Les témoignages présentés ici reflètent donc des impressions personnelles, libres et sincères. Les exemplaires en circulation correspondent à une version préliminaire contenant les photographies en noir et blanc. L'édition actuellement disponible à la vente sur Amazon bénéficie quant à elle d'illustrations en couleur."</p>
                     <p class="review-author">— Un petit mot de l'auteur, Gilles.B</p>
                 </div>
-                
-                 <div class="review-card">
+
+                <div class="review-card">
                     <p class="review-text">"Indéniablement l'auteur a su créer une atmosphère mystérieuse et poétique tout au long du cheminement dans un village de céramique perdu aux fins fonds des montagnes de Kyushu au Japon dans une île secrète.
                     Un inconnu randonne dans un village perdu, il se laisse saisir par mille et une sensations. D'emblée, une impression étrange de temps suspendu. Le lecteur se laisse tout de suite embarquer dans ce voyage mystérieux, tant la sensibilité de l'auteur est grande, tant, tel un peintre, il sait capter à merveille les mille et un reflets du riz, de la terre, du soleil couchant, saisir avec grâce et délicatesse toutes les nuances du bronze, du pourpre, du safran, du vert, de l'or, le foisonnement des couleurs, des odeurs, des murmures.
                     Un village toujours debout, protégé. Tout y est ombre et lumière. L'invisible et l'invincible beauté d'un monde étrange retenant son souffle de vie. Quiétude et inquiétude enlacées. Des ruelles, des fours, des petits ponts de bois, des lumières changeantes, le son de petites clochettes, des vibrations, des reflets, un souffle discret, lointain, ancien, insaisissable, un secret imminent. Un village labyrinthe. Un village fantôme, immobile, traversé par quelques visiteurs, des chats. Le tintement des clochettes. Le murmure de l'eau. Un village qui se meurt. Un cimetière aux stèles recouvertes de mousse et protégées par un zelkova.
                     Un village qui semble avoir sombré peu à peu dans un abandon paisible. La beauté de cette absence, de ce silence, du souffle retenu, une attente invisible. Un village de potiers à l'arrêt, un savoir ancien peut-être perdu, une attirance hypnotique pour le mystère enfoui dans ce village.
                     Le bruit incessant de l'averse transformée en déluge, un sommeil enchanteur. Et miracle surgit l'accueil généreux d'un potier. Et le bruit du tour du potier si heureux de faire connaître un savoir-faire transmis de génération en génération.
-                    La vie dans le village continue donc et le voyage du randonneur aussi.30 mai 2026"</p>
-                    <p class="review-author">— Elisabeth G. </p>
+                    La vie dans le village continue donc et le voyage du randonneur aussi."</p>
+                    <p class="review-author">— Elisabeth G.</p>
+                    <p class="review-location">30 mai 2026</p>
                 </div>
-            
+
                 <div class="review-card">
                     <p class="review-text">"The narrative invites us to follow a traveler crossing a mountain village... Is the tale too contemplative, lacking action? The prose is poetic, the style stripped down... A literary creation, economical and demanding."</p>
                     <p class="review-author">— Frédéric</p>
                 </div>
 
                 <div class="review-card">
-                  <p class="review-text">"J'ai beaucoup aimé ! L'atmosphère dans ces ruelles est parfaitement rendue. On a l'impression de marcher à côté de cet homme dans ce village. J'ai lu la version française en premier et, le lendemain, la version anglaise. Je suis curieuse de savoir dans quelle langue l'auteur a écrit en premier, je pense que c'est le français. J'aime la présentation des phrases, ces espaces laissent la place à la réflexion."</p>
-                  <p class="review-author">— Danielle/p>
-                  <p class="review-location">Aide bibliothécaire</p>
-               </div>
-
-                <div class="review-card">
-                  <p class="review-text">"Il est très agréable de se laisser emporter dans ce monde onirique. Les tableaux-paysages sont apaisants, l'écriture poétique. Le format trilingue et les photos ajoutent à l'originalité. Merci."</p>
-                  <p class="review-author">— Monique C.</p>
-                  <p class="review-location"></p>
+                    <p class="review-text">"J'ai beaucoup aimé ! L'atmosphère dans ces ruelles est parfaitement rendue. On a l'impression de marcher à côté de cet homme dans ce village. J'ai lu la version française en premier et, le lendemain, la version anglaise. Je suis curieuse de savoir dans quelle langue l'auteur a écrit en premier, je pense que c'est le français. J'aime la présentation des phrases, ces espaces laissent la place à la réflexion."</p>
+                    <p class="review-author">— Danielle</p>
+                    <p class="review-location">Aide bibliothécaire</p>
                 </div>
 
-               <div class="review-card">
-                 <p class="review-text">"J'ai beaucoup aimé la description détaillée des lieux, bruits, couleurs, etc. Je me sentais dans ce village... Lecture agréable et apaisante. Cependant, j'ai eu, à différentes reprises, le sentiment d’être toujours au même endroit. Sans doute est-ce dû à une phrase en particulier qui revenait trop souvent à mon goût : c’est-à-dire un habitant qui, au passage du voyageur, relevait la tête, le regardait mais ne disait pas un mot. Ceci dit, il serait intéressant de découvrir la suite de ce voyage."</p>
-                 <p class="review-author">— Geneviève</p>
-                 <p class="review-location"></p>
-              </div>
+                <div class="review-card">
+                    <p class="review-text">"Il est très agréable de se laisser emporter dans ce monde onirique. Les tableaux-paysages sont apaisants, l'écriture poétique. Le format trilingue et les photos ajoutent à l'originalité. Merci."</p>
+                    <p class="review-author">— Monique C.</p>
+                </div>
 
-               <div class="review-card">
-                 <p class="review-text">"Très bien écrit, poétique, contemplatif. Sérénité, calme, nostalgie, attente, discrétion, héritage de transmission."</p>
-                 <p class="review-author">— Danièle</p>
-                 <p class="review-location"></p>
-               </div>
+                <div class="review-card">
+                    <p class="review-text">"J'ai beaucoup aimé la description détaillée des lieux, bruits, couleurs, etc. Je me sentais dans ce village... Lecture agréable et apaisante. Cependant, j'ai eu, à différentes reprises, le sentiment d’être toujours au même endroit. Sans doute est-ce dû à une phrase en particulier qui revenait trop souvent à mon goût : c’est-à-dire un habitant qui, au passage du voyageur, relevait la tête, le regardait mais ne disait pas un mot. Ceci dit, il serait intéressant de découvrir la suite de ce voyage."</p>
+                    <p class="review-author">— Geneviève</p>
+                </div>
 
-             <div class="review-card">
-               <p class="review-text">"Tout m'a plu dans ce livre : l'écriture, la narration fournie m'a incitée à faire la balade solitaire et muette de l'auteur, et ça fait du bien. On ne recherche pas le pourquoi... on vit le détail mot par mot. Merci. En plus, j'étais au Japon."</p>
-               <p class="review-author">— Marie-Thé</p>
-               <p class="review-location">Institutrice</p>
-            </div>
+                <div class="review-card">
+                    <p class="review-text">"Très bien écrit, poétique, contemplatif. Sérénité, calme, nostalgie, attente, discrétion, héritage de transmission."</p>
+                    <p class="review-author">— Danièle</p>
+                </div>
 
-             <div class="review-card">
-               <p class="review-text">"Impression de vie au ralenti, en opposition au mouvement perpétuel chez nous. Mériterait d'être lu à haute voix, proche de la poésie. Nostalgie d'un monde qui disparaît mais que l'on trouve comme privilégié. Hospitalité que l'on aimerait trouver chez nous. Lecture apaisante."</p>
-               <p class="review-author">— Germaine</p>
-               <p class="review-location">Institutrice à la retraite</p>
-            </div>
+                <div class="review-card">
+                    <p class="review-text">"Tout m'a plu dans ce livre : l'écriture, la narration fournie m'a incitée à faire la balade solitaire et muette de l'auteur, et ça fait du bien. On ne recherche pas le pourquoi... on vit le détail mot par mot. Merci. En plus, j'étais au Japon."</p>
+                    <p class="review-author">— Marie-Thé</p>
+                    <p class="review-location">Institutrice</p>
+                </div>
 
-             <div class="review-card">
-               <p class="review-text">"Je tenais à vous remercier, Gilles, pour ce bel ouvrage, Les Murmures des cendres ! J'ai marché dans ce village, j'ai parcouru les ruelles, j'ai senti l'odeur du feu, j'ai entendu les portes coulisser. J'ai vu le potier travailler la terre, j'ai ressenti l'arrivée de la pluie et, d'un seul coup, le camion rouge bien entretenu qui surprend, puis on retourne dans cette douceur particulière avec le bol juste « fait » pour le visiteur. L'accueil pour la nuit, sans questionnements intempestifs, une chaleureuse générosité. Bref, merci beaucoup pour ce partage, la découverte de ce village... à mon rythme."</p>
-               <p class="review-author">— Françoise</p>
-               <p class="review-location"></p>
-             </div>
+                <div class="review-card">
+                    <p class="review-text">"Impression de vie au ralenti, en opposition au mouvement perpétuel chez nous. Mériterait d'être lu à haute voix, proche de la poésie. Nostalgie d'un monde qui disparaît mais que l'on trouve comme privilégié. Hospitalité que l'on aimerait trouver chez nous. Lecture apaisante."</p>
+                    <p class="review-author">— Germaine</p>
+                    <p class="review-location">Institutrice à la retraite</p>
+                </div>
 
-             <div class="review-card">
-               <p class="review-text">"Merci pour ce beau voyage. J'avais l'impression d'être là-bas, me promenant dans les rues. Le village semble endormi, peu de bruit. Les villageois sont discrets mais hospitaliers."</p>
-               <p class="review-author">— Françoise F.</p>
-               <p class="review-location"></p>
-            </div>
+                <div class="review-card">
+                    <p class="review-text">"Je tenais à vous remercier, Gilles, pour ce bel ouvrage, Les Murmures des cendres ! J'ai marché dans ce village, j'ai parcouru les ruelles, j'ai senti l'odeur du feu, j'ai entendu les portes coulisser. J'ai vu le potier travailler la terre, j'ai ressenti l'arrivée de la pluie et, d'un seul coup, le camion rouge bien entretenu qui surprend, puis on retourne dans cette douceur particulière avec le bol juste « fait » pour le visiteur. L'accueil pour la nuit, sans questionnements intempestifs, une chaleureuse générosité. Bref, merci beaucoup pour ce partage, la découverte de ce village... à mon rythme."</p>
+                    <p class="review-author">— Françoise</p>
+                </div>
 
-             <div class="review-card">
-               <p class="review-text">"Le style est poétique, imagé et très sensoriel : on voit, on entend, on sent les odeurs. À partir de l’entrée dans le village, la narration devient un peu répétitive et donne l’impression de traverser plusieurs nuits successives. La pluie annoncée comme très menaçante crée une attente particulière. Je suis troublée par le statisme de l’intrigue, ce qui semble très japonais. J’ai découvert de nouveaux mots comme washi et momiji, mais aussi la désertification de certains lieux, l’abandon partiel des traditions ancestrales, ainsi que le calme, la patience et la générosité japonaise. Les photos en noir et blanc sont intéressantes et mystérieuses, particulièrement celles des poteries. Merci pour ce petit moment au cœur d’une île lointaine."</p>
-               <p class="review-author">— Reine -Marie</p>
-               <p class="review-location"></p>
-             </div>
-                
+                <div class="review-card">
+                    <p class="review-text">"Merci pour ce beau voyage. J'avais l'impression d'être là-bas, me promenant dans les rues. Le village semble endormi, peu de bruit. Les villageois sont discrets mais hospitaliers."</p>
+                    <p class="review-author">— Françoise F.</p>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Le style est poétique, imagé et très sensoriel : on voit, on entend, on sent les odeurs. À partir de l’entrée dans le village, la narration devient un peu répétitive et donne l’impression de traverser plusieurs nuits successives. La pluie annoncée comme très menaçante crée une attente particulière. Je suis troublée par le statisme de l’intrigue, ce qui semble très japonais. J’ai découvert de nouveaux mots comme washi et momiji, mais aussi la désertification de certains lieux, l’abandon partiel des traditions ancestrales, ainsi que le calme, la patience et la générosité japonaise. Les photos en noir et blanc sont intéressantes et mystérieuses, particulièrement celles des poteries. Merci pour ce petit moment au cœur d’une île lointaine."</p>
+                    <p class="review-author">— Reine-Marie</p>
                 </div>
             </div>
 
@@ -496,20 +476,42 @@
         var PAGE_URL = 'https://basecampkyushu.com/whispers_reviews_page.html';
         var PAGE_MSG = 'Whispers of Ashes — What readers are saying about this atmospheric journey into Kyūshū Japan: ';
 
+        // ── AMAZON REGION LINK (Kindle Color Edition) ──
+        try {
+            var lang = (navigator.language || 'en').toLowerCase();
+            var tz = '';
+            try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+            var region = 'us';
+            if (lang.indexOf('fr') === 0 || tz.indexOf('Paris') > -1) region = 'fr';
+            else if (lang.indexOf('ja') === 0 || tz.indexOf('Tokyo') > -1) region = 'jp';
+            var amazonLinks = {
+                us: 'https://www.amazon.com/dp/B0FVK89Z21',
+                fr: 'https://www.amazon.fr/dp/B0FVK89Z21',
+                jp: 'https://www.amazon.co.jp/dp/B0FVK89Z21'
+            };
+            var buyBtn = document.getElementById('buyColor');
+            if (buyBtn) buyBtn.href = amazonLinks[region];
+        } catch (e) {}
+
         // ── SINGLE PAGE SHARE BUTTONS ──
         var waText   = encodeURIComponent('📖 ' + PAGE_MSG + PAGE_URL);
         var fbURL    = encodeURIComponent(PAGE_URL);
         var mailSub  = encodeURIComponent('Book recommendation: Whispers of Ashes');
         var mailBody = encodeURIComponent(PAGE_MSG + '\n\n' + PAGE_URL);
 
+        var copyBtn = '<button type="button" class="share-btn share-copy" id="copyLinkBtn">🔗 Copy Link</button>';
+
         var shareWrap = document.getElementById('pageShareButtons');
         if (shareWrap) {
-            // Mobile/tablet: use native Web Share API (screen width under 1024px)
             if (navigator.share && window.innerWidth < 1025) {
+                // Mobile/tablet: native share sheet
                 shareWrap.innerHTML =
-                    '<button class="share-btn share-whatsapp" style="font-size:1.05em;padding:12px 28px;" onclick="navigator.share({title:\'Whispers of Ashes — Reader Reviews\',text:\'📖 ' + PAGE_MSG + '\',url:\'' + PAGE_URL + '\'}).catch(function(){})">📤 Share this page</button>' +
+                    '<button type="button" class="share-btn share-whatsapp" id="nativeShareBtn" style="font-size:1.05em;padding:12px 28px;">📤 Share this page</button>' +
                     '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
-                    '<button onclick="navigator.clipboard.writeText(\'' + PAGE_URL + '\').then(function(){this.textContent=\'✅ Copied!\';var b=this;setTimeout(function(){b.textContent=\'🔗 Copy Link\'},2000)}).call(this)" class="share-btn share-copy">🔗 Copy Link</button>';
+                    copyBtn;
+                document.getElementById('nativeShareBtn').addEventListener('click', function() {
+                    navigator.share({ title: 'Whispers of Ashes — Reader Reviews', text: '📖 ' + PAGE_MSG, url: PAGE_URL }).catch(function(){});
+                });
             } else {
                 // Desktop: individual platform buttons
                 shareWrap.innerHTML =
@@ -517,13 +519,28 @@
                     '<a href="https://www.facebook.com/sharer/sharer.php?u=' + fbURL + '" class="share-btn share-facebook" target="_blank" rel="noopener">📘 Facebook</a>' +
                     '<a href="https://www.instagram.com/basecampkyushu/" class="share-btn share-instagram" target="_blank" rel="noopener">📷 Instagram</a>' +
                     '<a href="mailto:?subject=' + mailSub + '&body=' + mailBody + '" class="share-btn share-email">✉️ Email</a>' +
-                    '<button onclick="navigator.clipboard.writeText(\'' + PAGE_URL + '\').then(function(){this.textContent=\'✅ Copied!\';var b=this;setTimeout(function(){b.textContent=\'🔗 Copy Link\'},2000)}).call(this)" class="share-btn share-copy">🔗 Copy Link</button>';
+                    copyBtn;
+            }
+            var cb = document.getElementById('copyLinkBtn');
+            if (cb) {
+                cb.addEventListener('click', function() {
+                    var done = function() {
+                        cb.textContent = '✅ Copied!';
+                        setTimeout(function() { cb.textContent = '🔗 Copy Link'; }, 2000);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(PAGE_URL).then(done).catch(function() { window.prompt('Copy this link:', PAGE_URL); });
+                    } else {
+                        window.prompt('Copy this link:', PAGE_URL);
+                    }
+                });
             }
         }
 
         // ── LANGUAGE ──
         var langs = ['en', 'fr', 'ja'];
-        var saved = localStorage.getItem('preferredLanguage');
+        var saved = null;
+        try { saved = localStorage.getItem('preferredLanguage'); } catch (e) {}
         var browser = (navigator.language || 'en').substring(0, 2);
         var current = (saved && langs.indexOf(saved) > -1) ? saved : (langs.indexOf(browser) > -1 ? browser : 'en');
 
@@ -537,7 +554,7 @@
             document.querySelectorAll('.lang-btn').forEach(function(btn) {
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
-            localStorage.setItem('preferredLanguage', lang);
+            try { localStorage.setItem('preferredLanguage', lang); } catch (e) {}
             current = lang;
         }
 
@@ -578,34 +595,6 @@
                 navbar.classList.toggle('scrolled', window.scrollY > 80);
             });
         }
-
-        // ── AMAZON REGION LINKS ──
-        function setAmazonLinks() {
-            var userLang = navigator.language || navigator.userLanguage || 'en';
-            var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            var region = 'us';
-            if (userLang.startsWith('fr') || timezone.includes('Paris')) region = 'fr';
-            else if (userLang.startsWith('ja') || timezone.includes('Tokyo') || timezone.includes('Asia')) region = 'jp';
-
-            var links = {
-                color: { us:'https://www.amazon.com/dp/B0FVK89Z21', fr:'https://www.amazon.fr/dp/B0FVK89Z21', jp:'https://www.amazon.co.jp/dp/B0FVK89Z21' }
-            };
-
-            document.getElementById('buyBW').href    = links.bw[region];
-            document.getElementById('buyColor').href = links.color[region];
-
-            if (region === 'jp') {
-                document.getElementById('japanNote').style.display = 'block';
-                document.getElementById('japanGiftNote').style.display = 'block';
-
-                var colorBtn = document.getElementById('buyColor');
-                colorBtn.style.opacity = '0.75';
-                colorBtn.onclick = function() {
-                    alert('📦 日本国内のAmazonアカウントでは白黒版のみ購入可能です。\nただし、海外の方へのギフトとしてカラー版を購入する場合は、チェックアウト時に海外の配送先をご指定ください。\n\n📦 In Japan, only the B&W edition is available for your account.\nHowever, you can still gift the Color Edition to someone overseas — just select an international delivery address at checkout.');
-                };
-            }
-        }
-        setAmazonLinks();
 
         // ── REVIEW FORM ──
         var reviewForm = document.getElementById('reviewForm');
